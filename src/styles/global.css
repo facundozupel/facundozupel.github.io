@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy:    #091d2b;
+  --color-navy-mid: #0d2a3d;
+  --color-cyan:    #00e5d4;
+  --color-cyan-bright: #00ffe0;
+  --color-teal:    #00b4a0;
+  --color-teal-dark: #007d6e;
+  --color-sky:     #b8e8e4;
+  --color-cream:   #f4efe6;
+  --color-cream-dark: #e8e0d2;
+
+  --font-display: "Archivo Black", sans-serif;
+  --font-body:    "DM Sans", sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #091d2b;
+  }
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 22s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Nav link hover */
+.nav-link {
+  position: relative;
+  letter-spacing: 0.08em;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-cyan);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Card hover */
+.cascade-card {
+  transition: transform 0.3s ease;
+}
+.cascade-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

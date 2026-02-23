@@ -1,0 +1,558 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Cascadas de Chile — Descubre las Caídas de Agua de Chile</title>
+  <meta name="description" content="Portal de las cascadas más impresionantes de Chile. Descubre saltos, cataratas y caídas de agua a lo largo de todo el país." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body style="background:#091d2b; font-family:'DM Sans',sans-serif;">
+
+  <!-- ═══════════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════════ -->
+  <nav id="navbar" style="
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 64px;
+    background: #091d2b;
+    transition: box-shadow 0.3s;
+  ">
+    <!-- Logo -->
+    <a href="/" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none;">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M14 2C14 2 6 10 6 17a8 8 0 0016 0C22 10 14 2 14 2Z" fill="#00e5d4"/>
+        <path d="M14 10C14 10 10 15 10 19a4 4 0 008 0C18 15 14 10 14 10Z" fill="#091d2b" opacity="0.5"/>
+      </svg>
+      <span style="font-family:'Archivo Black',sans-serif; font-size:1.1rem; color:#f4efe6; letter-spacing:0.04em;">
+        CASCADAS
+      </span>
+    </a>
+
+    <!-- Links desktop -->
+    <div style="display:flex; gap:2.5rem; align-items:center;">
+      <a class="nav-link" href="#cascadas" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Cascadas</a>
+      <a class="nav-link" href="#regiones" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Regiones</a>
+      <a class="nav-link" href="#descubrir" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Descubrir</a>
+      <a class="nav-link" href="#sobre" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Sobre</a>
+      <a href="#mapa" style="
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+        padding:0.5rem 1.2rem; border-radius:999px;
+        transition: background 0.2s;
+      ">Mapa</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════ -->
+  <section style="
+    min-height: 100vh;
+    background: #091d2b;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    align-items: center;
+    padding: 0 2.5rem;
+    padding-top: 64px;
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- Subtle noise texture overlay -->
+    <div style="
+      position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.03%22/></svg>');
+    "></div>
+
+    <!-- Left: tagline + scroll -->
+    <div style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:space-between; height:70vh; padding: 4rem 0;">
+      <div>
+        <p style="
+          color:#00e5d4; font-size:0.85rem; font-weight:500;
+          letter-spacing:0.15em; text-transform:uppercase; margin:0 0 1.5rem;
+        ">Portal de Cascadas</p>
+        <p class="reveal" style="
+          color:#f4efe6; font-size:clamp(1rem, 1.8vw, 1.35rem);
+          line-height:1.55; max-width:360px; margin:0; font-weight:300;
+        ">
+          El directorio más completo de cascadas, saltos y caídas de agua a lo largo de toda Chile.
+        </p>
+      </div>
+
+      <div>
+        <a href="#cascadas" style="
+          display:inline-flex; align-items:center; gap:0.5rem;
+          color:#f4efe6; text-decoration:none; font-size:0.78rem;
+          font-weight:500; letter-spacing:0.2em; text-transform:uppercase;
+          opacity:0.7; transition:opacity 0.2s;
+        ">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v12M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Descubrir
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: giant CASCADAS text -->
+    <div style="position:relative; z-index:1; text-align:right; line-height:0.88;">
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size: clamp(7rem, 15vw, 18rem);
+        color: #00e5d4;
+        margin: 0;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        line-height: 0.88;
+      ">
+        CAER<br/>LIBRE
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SPLIT — imagen + bloque de color
+  ═══════════════════════════════════════════════════ -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:55vh;">
+    <!-- Foto cascada -->
+    <div style="
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80');
+      background-size: cover; background-position: center;
+    "></div>
+    <!-- Bloque teal claro -->
+    <div style="
+      background:#b8e8e4;
+      display:flex; align-items:center; justify-content:center;
+      padding:3rem;
+    ">
+      <div class="reveal">
+        <p style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#091d2b; margin:0; line-height:1;
+          text-transform:uppercase;
+        ">+500<br/>cascadas<br/>catalogadas</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       MANIFIESTO — fondo crema, texto enorme centrado
+  ═══════════════════════════════════════════════════ -->
+  <section id="sobre" style="
+    background:#f4efe6;
+    padding: 8rem 2.5rem;
+    text-align:center;
+  ">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size: clamp(5rem, 13vw, 16rem);
+      color:#091d2b;
+      margin:0; line-height:0.9;
+      text-transform:uppercase;
+      letter-spacing:-0.02em;
+    ">
+      CHILE<br/>SALVAJE
+    </h2>
+    <p class="reveal" style="
+      max-width:600px; margin:4rem auto 0;
+      font-size:clamp(1rem, 1.6vw, 1.25rem);
+      color:#091d2b; line-height:1.65; font-weight:300;
+    ">
+      Desde la árida Atacama hasta los fiordos de Magallanes, Chile alberga
+      algunas de las cascadas más espectaculares del mundo. Este portal nació
+      para documentarlas, explorarlas y protegerlas.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       FEATURE — fondo sky, texto izq + imagen der
+  ═══════════════════════════════════════════════════ -->
+  <section id="descubrir" style="
+    background:#cceae6;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:600px;
+  ">
+    <!-- Texto -->
+    <div style="
+      display:flex; flex-direction:column; justify-content:center;
+      padding: 5rem 4rem;
+    ">
+      <h3 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(2rem, 4vw, 3.5rem);
+        color:#091d2b; margin:0 0 1.5rem; line-height:1.1;
+        text-transform:uppercase;
+      ">
+        Cascadas<br/>de Todos<br/>Los Tiempos
+      </h3>
+      <p class="reveal" style="
+        font-size:clamp(0.95rem, 1.4vw, 1.15rem);
+        color:#091d2b; line-height:1.65; font-weight:300;
+        max-width:380px; margin:0 0 2rem;
+      ">
+        Descubre cascadas accesibles para familias, senderos técnicos de alta
+        montaña y rincones ocultos en la Patagonia. Todos los niveles,
+        todas las regiones.
+      </p>
+      <a href="#cascadas" style="
+        display:inline-flex; align-items:center; gap:0.5rem;
+        color:#091d2b; text-decoration:none; font-size:0.85rem;
+        font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+        border-bottom:2px solid #091d2b; padding-bottom:0.25rem;
+        width:fit-content;
+      ">
+        Explorar cascadas →
+      </a>
+    </div>
+    <!-- Imagen -->
+    <div style="
+      background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=900&q=80');
+      background-size:cover; background-position:center;
+      min-height:400px;
+    "></div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       CASCADAS GRID — fondo oscuro + cards
+  ═══════════════════════════════════════════════════ -->
+  <section id="cascadas" style="
+    background:#091d2b;
+    padding: 7rem 2.5rem;
+  ">
+    <!-- Encabezado -->
+    <div style="
+      display:flex; justify-content:space-between; align-items:flex-end;
+      margin-bottom:3.5rem;
+    ">
+      <h2 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3rem, 8vw, 9rem);
+        color:#f4efe6; margin:0; line-height:0.9;
+        text-transform:uppercase;
+      ">CASCADAS<br/>DESTACADAS</h2>
+      <div style="display:flex; gap:0.75rem;">
+        <button id="prev-btn" style="
+          width:48px; height:48px; border-radius:50%;
+          border:1.5px solid rgba(244,239,230,0.35);
+          background:transparent; color:#f4efe6;
+          cursor:pointer; font-size:1rem; display:flex;
+          align-items:center; justify-content:center;
+          transition: border-color 0.2s;
+        ">←</button>
+        <button id="next-btn" style="
+          width:48px; height:48px; border-radius:50%;
+          border:1.5px solid rgba(244,239,230,0.35);
+          background:#f4efe6; color:#091d2b;
+          cursor:pointer; font-size:1rem; display:flex;
+          align-items:center; justify-content:center;
+          transition: background 0.2s;
+        ">→</button>
+      </div>
+    </div>
+
+    <!-- Grid de cards -->
+    <div id="cards-container" style="
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:1.25rem;
+    ">
+
+      <!-- Card 1 -->
+      <article class="cascade-card" style="cursor:pointer;">
+        <div style="
+          height:340px;
+          background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80');
+          background-size:cover; background-position:center;
+          border-radius:4px; margin-bottom:1.25rem;
+          position:relative; overflow:hidden;
+        ">
+          <span style="
+            position:absolute; top:1rem; left:1rem;
+            background:#00e5d4; color:#091d2b;
+            font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+          ">Araucanía</span>
+        </div>
+        <div>
+          <h3 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.6rem; color:#f4efe6; margin:0 0 0.4rem;
+            text-transform:uppercase; letter-spacing:-0.01em;
+          ">Salto del Laja</h3>
+          <p style="color:rgba(244,239,230,0.55); font-size:0.9rem; margin:0; font-weight:300;">
+            Biobío · 35 m
+          </p>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="cascade-card" style="cursor:pointer;">
+        <div style="
+          height:340px;
+          background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80');
+          background-size:cover; background-position:center;
+          border-radius:4px; margin-bottom:1.25rem;
+          position:relative; overflow:hidden;
+        ">
+          <span style="
+            position:absolute; top:1rem; left:1rem;
+            background:#b8e8e4; color:#091d2b;
+            font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+          ">Los Lagos</span>
+        </div>
+        <div>
+          <h3 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.6rem; color:#f4efe6; margin:0 0 0.4rem;
+            text-transform:uppercase; letter-spacing:-0.01em;
+          ">Cascada de los Cántaros</h3>
+          <p style="color:rgba(244,239,230,0.55); font-size:0.9rem; margin:0; font-weight:300;">
+            Llanquihue · 50 m
+          </p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="cascade-card" style="cursor:pointer;">
+        <div style="
+          height:340px;
+          background-image:url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80');
+          background-size:cover; background-position:center;
+          border-radius:4px; margin-bottom:1.25rem;
+          position:relative; overflow:hidden;
+        ">
+          <span style="
+            position:absolute; top:1rem; left:1rem;
+            background:#cceae6; color:#091d2b;
+            font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+          ">Aysén</span>
+        </div>
+        <div>
+          <h3 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.6rem; color:#f4efe6; margin:0 0 0.4rem;
+            text-transform:uppercase; letter-spacing:-0.01em;
+          ">Salto Río Ibáñez</h3>
+          <p style="color:rgba(244,239,230,0.55); font-size:0.9rem; margin:0; font-weight:300;">
+            General Carrera · 80 m
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:4rem; text-align:center;">
+      <a href="#mapa" style="
+        display:inline-flex; align-items:center; gap:0.75rem;
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+        text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+        transition: background 0.2s;
+      ">
+        Ver todas las cascadas →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       REGIONES — fondo crema + grid de regiones
+  ═══════════════════════════════════════════════════ -->
+  <section id="regiones" style="
+    background:#f4efe6;
+    padding: 7rem 2.5rem;
+  ">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;">
+      <div>
+        <h2 class="reveal" style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(3rem, 6vw, 6rem);
+          color:#091d2b; margin:0; line-height:0.92;
+          text-transform:uppercase;
+        ">
+          EXPLORA<br/>POR<br/>REGIÓN
+        </h2>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; padding-top:0.5rem;">
+        {[
+          { name: 'Atacama & Coquimbo', count: '12', color: '#00e5d4' },
+          { name: 'Araucanía', count: '48', color: '#00e5d4' },
+          { name: 'Los Lagos & Los Ríos', count: '95', color: '#00e5d4' },
+          { name: 'Aysén', count: '73', color: '#00e5d4' },
+          { name: 'Magallanes', count: '38', color: '#00e5d4' },
+        ].map((r, i) => (
+          <a href="#" style="
+            display:flex; align-items:center; justify-content:space-between;
+            padding:1.25rem 0; border-top:1px solid rgba(9,29,43,0.15);
+            text-decoration:none; color:#091d2b;
+            transition: padding-left 0.2s;
+          " onmouseenter="this.style.paddingLeft='1rem'" onmouseleave="this.style.paddingLeft='0'">
+            <span style="font-size:clamp(1rem, 1.8vw, 1.3rem); font-weight:500;">{r.name}</span>
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <span style="
+                font-family:'Archivo Black',sans-serif;
+                font-size:1.2rem; color:#00b4a0;
+              ">{r.count}</span>
+              <span style="font-size:1rem; opacity:0.4;">→</span>
+            </div>
+          </a>
+        ))}
+        <div style="height:1px; background:rgba(9,29,43,0.15);"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       TICKER — marquee + pills RRSS
+  ═══════════════════════════════════════════════════ -->
+  <div style="
+    background:#0d2a3d;
+    overflow:hidden; padding:1.1rem 0;
+    border-top:1px solid rgba(0,229,212,0.1);
+    border-bottom:1px solid rgba(0,229,212,0.1);
+  ">
+    <div class="ticker-track" aria-hidden="true">
+      {Array.from({length:6}).map(() => (
+        <div style="display:flex; align-items:center; gap:2rem; padding:0 2rem; white-space:nowrap;">
+          <span style="color:#f4efe6; font-size:1rem; font-weight:400; letter-spacing:0.08em;">
+            Descubre las cascadas de Chile
+          </span>
+          <a href="#" style="
+            display:inline-block;
+            color:#091d2b; background:#00e5d4; text-decoration:none;
+            font-size:0.75rem; font-weight:700; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+          ">Instagram</a>
+          <span style="color:rgba(244,239,230,0.3);">✦</span>
+          <a href="#" style="
+            display:inline-block;
+            color:#091d2b; background:#00e5d4; text-decoration:none;
+            font-size:0.75rem; font-weight:700; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+          ">TikTok</a>
+          <span style="color:rgba(244,239,230,0.3);">✦</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer style="
+    background:#00b4a0;
+    padding: 5rem 2.5rem 3rem;
+  ">
+    <!-- Huge text -->
+    <div style="margin-bottom:3rem; overflow:hidden;">
+      <p style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 12vw, 14rem);
+        color:#007d6e; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+        white-space:nowrap; overflow:hidden;
+      ">CASCADAS / CHILE</p>
+    </div>
+
+    <!-- Footer columns -->
+    <div style="
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:2rem; border-top:1px solid rgba(0,125,110,0.35);
+      padding-top:2.5rem;
+    ">
+      <div>
+        <p style="
+          font-size:0.72rem; font-weight:600; letter-spacing:0.15em;
+          text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;
+        ">Contacto</p>
+        <p style="color:#091d2b; font-size:0.9rem; line-height:1.7; margin:0; font-weight:300;">
+          hola@cascadasdechile.cl
+        </p>
+      </div>
+      <div>
+        <p style="
+          font-size:0.72rem; font-weight:600; letter-spacing:0.15em;
+          text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;
+        ">Regiones</p>
+        <div style="display:flex; flex-direction:column; gap:0.35rem;">
+          {['Norte', 'Centro', 'Sur', 'Patagonia'].map(r => (
+            <a href="#" style="color:#091d2b; text-decoration:none; font-size:0.9rem; font-weight:400;">{r}</a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p style="
+          font-size:0.72rem; font-weight:600; letter-spacing:0.15em;
+          text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;
+        ">Legal</p>
+        <div style="display:flex; flex-direction:column; gap:0.35rem;">
+          {['Términos', 'Privacidad'].map(l => (
+            <a href="#" style="color:#091d2b; text-decoration:none; font-size:0.9rem; font-weight:400;">{l}</a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p style="
+          font-size:0.72rem; font-weight:600; letter-spacing:0.15em;
+          text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;
+        ">Redes</p>
+        <div style="display:flex; flex-direction:column; gap:0.35rem;">
+          {['Instagram', 'TikTok', 'YouTube'].map(s => (
+            <a href="#" style="color:#091d2b; text-decoration:none; font-size:0.9rem; font-weight:400;">{s}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <p style="
+      color:#007d6e; font-size:0.78rem; margin:2rem 0 0;
+      letter-spacing:0.05em;
+    ">
+      © 2025 Cascadas de Chile. Todos los derechos reservados.
+    </p>
+  </footer>
+
+</body>
+</html>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.style.boxShadow = '0 2px 24px rgba(0,0,0,0.35)';
+    } else {
+      navbar.style.boxShadow = 'none';
+    }
+  });
+</script>
