@@ -135,10 +135,16 @@ Cada página de cascada DEBE incluir JSON-LD:
 - `FAQPage` con las preguntas relevantes
 - `BreadcrumbList`
 
-#### Paso 8: Build y verificación
+#### Paso 8: Agregar al listado de cascadas
+- **OBLIGATORIO**: Agregar la nueva cascada al array `cascadas` en `src/pages/cascadas/index.astro`
+- Incluir: `nombre`, `slug`, `region`, `altura`, `dificultad`, `img` (ruta hero), `imgAlt`
+- Si la dificultad no existe en `dificultadColor`, agregar la entrada correspondiente
+
+#### Paso 9: Build y verificación
 - Ejecutar `npm run build`
 - Verificar que la página renderiza correctamente
 - Confirmar JSON-LD en el `<head>`
+- Verificar que la cascada aparece en el listado `/cascadas`
 
 ---
 
