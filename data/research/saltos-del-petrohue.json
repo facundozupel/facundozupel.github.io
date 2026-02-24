@@ -1,0 +1,804 @@
+{
+  "cascada": {
+    "id": "saltos-del-petrohue",
+    "nombre_oficial": "Saltos del Petrohué",
+    "nombres_alternativos": [
+      "Saltos de Petrohué",
+      "Petrohué Waterfalls",
+      "Cascadas del Petrohué"
+    ],
+    "coordenadas": {
+      "latitud": -41.1730,
+      "longitud": -72.4475,
+      "precision": "media",
+      "fuente_coordenadas": "Geositios de Chile (SERNAGEOMIN) + búsqueda cruzada OpenStreetMap. Coordenadas DMS reportadas: 41°10'23\"S / 72°26'51\"O. Se recomienda verificación en terreno con GPS para precisión alta.",
+      "nota": "Las coordenadas corresponden al área principal de los saltos en el río Petrohué, a 6 km del desagüe del Lago Todos los Santos."
+    },
+    "ubicacion": {
+      "region": "Los Lagos",
+      "provincia": "Llanquihue",
+      "comuna": "Puerto Varas",
+      "altitud_msnm": 137,
+      "cuenca": "Cuenca del río Petrohué",
+      "rio_origen": "Río Petrohué",
+      "referencia_geografica": "A 6 km del desagüe del Lago Todos los Santos, dentro del Parque Nacional Vicente Pérez Rosales",
+      "ruta_acceso": "Ruta 225 (Ruta Internacional Puerto Varas–Ensenada–Petrohué), km 64 desde Puerto Varas"
+    },
+    "caracteristicas_fisicas": {
+      "altura_metros": null,
+      "nota_altura": "Los Saltos del Petrohué no son una cascada vertical única sino una serie de rápidos y caídas escalonadas sobre roca basáltica. No existe una altura vertical total estandarizada. La altitud del geositio es 137 m s.n.m. [NO VERIFICADO con medición directa de altura de caída]",
+      "numero_saltos": "múltiples (serie de rápidos y caídas encadenadas)",
+      "tipo_cascada": "Cascada escalonada tipo 'rapids' sobre lecho basáltico; combinación de plunge y horsetail en distintos puntos",
+      "caudal_promedio": "370 m³/s (promedio; aumenta significativamente en temporada de lluvias cuando el Lago Todos los Santos puede elevar su nivel hasta 2 metros)",
+      "caudal_estacional": "Máximo en otoño-invierno (junio-agosto); mínimo en verano (enero-febrero). Las cascadas son visualmente más impresionantes en primavera por deshielo.",
+      "temporada_optima": "Primavera (octubre-noviembre) para mayor caudal con clima aún manejable. Verano (diciembre-febrero) para mejor clima pero menor caudal. Otoño para colores y menos turistas.",
+      "geologia": "Coladas de lava basáltica provenientes del volcán Osorno, depositadas durante el Pleistoceno Superior (entre 90.000 y 30.000 años de antigüedad). Las lavas bloquearon el valle del río Petrohué durante la última glaciación. Posteriormente fueron esculpidas por los glaciares y las aguas del río, generando las formas actuales de canales, pozas y saltos.",
+      "color_agua": "Verde turquesa intenso, producto de la composición mineral del agua proveniente del Lago Todos los Santos"
+    },
+    "actividades": [
+      {
+        "nombre": "Senderismo / Observación de los Saltos",
+        "descripcion": "El sector cuenta con tres senderos de baja dificultad dentro del bosque siempreverde: Sendero Saltos del Petrohué (principal), Sendero Los Enamorados (hacia Laguna de los Enamorados) y Sendero Carilemu (interpretativo). Todos son aptos para todo público.",
+        "senderos": [
+          {
+            "nombre": "Sendero Saltos del Petrohué",
+            "distancia_km": 1.8,
+            "duracion_min": 30,
+            "dificultad": "Fácil / Recreativo",
+            "descripcion": "Recorrido principal por miradores sobre los saltos. 350 metros hasta el primer mirador. Incluye vista panorámica del volcán Osorno.",
+            "fuente": "CONAF / parquenacionalvicenteperezrosales.cl"
+          },
+          {
+            "nombre": "Sendero Los Enamorados",
+            "distancia_km": 0.9,
+            "duracion_min": 40,
+            "dificultad": "Fácil / Recreativo",
+            "descripcion": "Lleva a la Laguna de los Enamorados (Laguna Enamorados), pequeña laguna conectada al río Petrohué con cascada propia. Bordea parcialmente el río.",
+            "fuente": "parquenacionalvicenteperezrosales.cl"
+          },
+          {
+            "nombre": "Sendero Carilemu",
+            "distancia_km": 1.2,
+            "duracion_min": 45,
+            "dificultad": "Fácil / Interpretativo",
+            "descripcion": "Sendero de interpretación ambiental a través del bosque siempreverde con paneles informativos sobre flora y fauna.",
+            "fuente": "parquenacionalvicenteperezrosales.cl"
+          },
+          {
+            "nombre": "Sendero Cascada de los Novios",
+            "distancia_km": 0.4,
+            "duracion_min": 25,
+            "dificultad": "Fácil / Recreativo",
+            "descripcion": "Sendero corto que lleva a una pequeña cascada lateral conocida como 'Cascada de los Novios', popular para fotografía.",
+            "fuente": "sitiosnaturales.com / porquemegustaviajar.com"
+          }
+        ],
+        "dificultad_general": "Fácil",
+        "apto_para": "Familias, niños, adultos mayores, visitantes sin experiencia en trekking"
+      },
+      {
+        "nombre": "Fotografía de naturaleza",
+        "descripcion": "Destino iconico para fotografía. Los saltos turquesas con el fondo del volcán Osorno nevado son una de las imágenes más reproducidas de la Patagonia chilena. Mejor luz: mañanas (luz lateral) y días nublados (sin sombras duras).",
+        "dificultad": "Sin restricciones",
+        "recomendacion": "Visitar temprano para evitar grupos y aprovechar mejor la luz"
+      },
+      {
+        "nombre": "Rafting en el Río Petrohué",
+        "descripcion": "Descenso de 12 km por el río Petrohué con rápidos Clase III y IV. Operado por empresas certificadas desde Ensenada. Las cascadas del sector Saltos quedan aguas arriba del punto de rafting; el descenso parte desde un punto diferente río abajo.",
+        "nivel_tecnico": "Clase III-IV (intermedio a avanzado para el tramo estándar; existe tramo Clase II apto para principiantes)",
+        "duracion": "Medio día (4-5 horas incluyendo traslados)",
+        "temporada": "Agosto a junio",
+        "operadores": ["Alsur Expediciones", "Kokayak Outdoor", "Rafting Puerto Varas"]
+      },
+      {
+        "nombre": "Kayak de río / Ducky",
+        "descripcion": "Disponible con los mismos operadores de rafting. El ducky (kayak inflable en aguas bravas) es una alternativa más activa al rafting tradicional.",
+        "nivel_tecnico": "Intermedio",
+        "operadores": ["Alsur Expediciones", "Kokayak Outdoor"]
+      },
+      {
+        "nombre": "Kayak de lago (travesía Petrohué-Peulla)",
+        "descripcion": "Expedición de 3 días en kayak por el Lago Todos los Santos desde Petrohué hasta Peulla, cruzando el lago frente al volcán Osorno. Experiencia de expedición, no excursión de un día.",
+        "nivel_tecnico": "Intermedio-avanzado",
+        "duracion_dias": 3,
+        "operadores": ["Alsur Expediciones"]
+      },
+      {
+        "nombre": "Avistamiento de aves",
+        "descripcion": "El bosque siempreverde del sector alberga especies como el Martín pescador común, pato de torrente, carpintero negro y otras aves propias del bosque valdiviano.",
+        "dificultad": "Sin restricciones",
+        "equipamiento_recomendado": "Binoculares"
+      },
+      {
+        "nombre": "Pesca deportiva",
+        "descripcion": "El río Petrohué es uno de los ríos más reconocidos de Chile para pesca con mosca (fly fishing), especialmente trucha arcoíris y trucha café. La pesca dentro del parque requiere permiso especial y está regulada por SERNAPESCA.",
+        "regulacion": "Se requiere licencia de pesca de SERNAPESCA. Verificar restricciones de CONAF dentro del área del parque.",
+        "temporada": "Noviembre a abril (temporada de pesca)"
+      },
+      {
+        "nombre": "Cruce Andino (paso a Argentina)",
+        "descripcion": "Desde el puerto de Petrohué (contiguo a los saltos) parte el ferry que inicia el famoso Cruce de los Lagos / Cruce Andino hacia Bariloche, Argentina, a través del Lago Todos los Santos y Lago Nahuel Huapi. Duración total del cruce: 1-2 días.",
+        "operador": "Andina del Sud (verificar vigencia 2026)",
+        "nota_verificacion": "[VERIFICAR VIGENCIA 2026 del operador]"
+      }
+    ],
+    "aptitudes": {
+      "familias": true,
+      "ninos": true,
+      "movilidad_reducida": false,
+      "nota_movilidad": "Los senderos son de tierra compactada con superficies irregulares. Los miradores principales tienen pasarelas de madera parcialmente accesibles pero el terreno no está adaptado formalmente para sillas de ruedas. [NO VERIFICADO con inspección específica de accesibilidad]",
+      "nivel_dificultad": "fácil",
+      "nivel_detallado": "Los senderos de los Saltos son fáciles y sin pendientes pronunciadas. Las actividades de rafting son moderadas a difíciles según el tramo elegido.",
+      "apto_perros": false,
+      "nota_mascotas": "No se permite el ingreso de mascotas a los parques nacionales administrados por CONAF."
+    },
+    "natacion": {
+      "permitida": false,
+      "justificacion": "El caudal del río Petrohué en el sector de los saltos es extremadamente poderoso (promedio 370 m³/s) y la corriente y las rocas basálticas lo hacen extremadamente peligroso. El baño en los saltos no está autorizado por CONAF y es físicamente inviable en los puntos principales de caída.",
+      "fuente": "Datos de caudal SERNAGEOMIN + criterio de seguridad documentado en múltiples fuentes de visitantes"
+    },
+    "area_protegida": {
+      "es_area_protegida": true,
+      "nombre_area": "Parque Nacional Vicente Pérez Rosales",
+      "categoria_snaspe": "Parque Nacional",
+      "administrador": "CONAF (Corporación Nacional Forestal)",
+      "superficie_ha": 251000,
+      "nota_parque": "Es el parque nacional más antiguo de Chile y el segundo más antiguo de Sudamérica. Fundado el 17 de agosto de 1926 mediante decreto supremo.",
+      "horarios": {
+        "apertura": "09:00",
+        "cierre": "17:00",
+        "ultimo_ingreso": "17:00",
+        "dias": "Lunes a Domingo (todos los días del año)",
+        "nota": "Horarios verificados en 2024-2025. Confirmar variaciones en temporada alta en pasesparques.cl"
+      },
+      "tarifa_entrada": {
+        "adulto_nacional": 3700,
+        "adulto_extranjero": 7800,
+        "nino_menor_12": 0,
+        "adolescente_nacional_12_17": 3200,
+        "adolescente_extranjero_12_17": 5200,
+        "adulto_mayor_60_nacional": 0,
+        "adulto_discapacitado": 3200,
+        "moneda": "CLP",
+        "fuente": "pasesparques.cl / biobiochile.cl Feb 2025",
+        "donde_comprar": "pasesparques.cl (online, recomendado) o en la entrada del parque",
+        "nota": "Precios vigentes a 2025. Verificar actualización en pasesparques.cl antes de visitar. El parque tiene sistema de cupos con pase digital."
+      },
+      "contacto_conaf": {
+        "web": "https://www.conaf.cl/parque_nacionales/parque-nacional-vicente-perez-rosales/",
+        "pasesparques": "https://www.pasesparques.cl/es/parks/v-perez-rosales"
+      }
+    },
+    "empresas_servicios": [
+      {
+        "nombre": "Alsur Expediciones",
+        "tipo": "Operador de turismo aventura",
+        "servicios": [
+          "Rafting Río Petrohué (medio día, Clase III)",
+          "Kayak de lago Petrohué-Peulla (3 días)",
+          "Floating Río Petrohué (opción más tranquila)"
+        ],
+        "precio_referencial": "Rafting desde CLP 40.000 por persona",
+        "horarios_salida": "Salida desde Puerto Varas a las 14:15 h; desde Ensenada a las 15:00 h",
+        "url": "https://alsurexpediciones.cl",
+        "nota": "Empresa establecida con guías certificados. Incluye servicio de fotografía. [VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Kokayak Outdoor",
+        "tipo": "Operador de turismo aventura",
+        "servicios": [
+          "Rafting medio día Río Petrohué (Clase III-IV)",
+          "Kayak"
+        ],
+        "precio_referencial": "[NO VERIFICADO — consultar directamente]",
+        "horarios_salida": "Dos turnos: 08:30-13:30 y 14:30-19:30 desde Puerto Varas",
+        "temporada": "1 agosto a 1 junio",
+        "url": "https://kokayak.cl",
+        "nota": "Incluye snack y bebida tras la actividad. Mínimo de edad: 10 años. [VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Rafting Puerto Varas",
+        "tipo": "Operador de turismo aventura",
+        "servicios": ["Rafting Río Petrohué"],
+        "precio_referencial": "[NO VERIFICADO — consultar directamente]",
+        "url": "https://www.raftingpuertovaras.com",
+        "nota": "Operan desde Ensenada. [VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Nomades (Denomades)",
+        "tipo": "Agencia de tours",
+        "servicios": [
+          "Tour Volcán Osorno y Saltos del Petrohué (día completo)",
+          "Tour Rafting Río Petrohué",
+          "Cruce Andino"
+        ],
+        "precio_referencial": "Tour Osorno + Petrohué desde CLP 20.000-30.000 por persona",
+        "url": "https://www.nomades.com",
+        "nota": "Agencia intermediaria que combina Saltos con volcán Osorno. Salida desde Puerto Varas y Puerto Montt. [VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Empresa de buses Thaebus",
+        "tipo": "Transporte público",
+        "servicios": ["Bus Puerto Varas – Ensenada – Petrohué"],
+        "precio_referencial": "CLP 3.000 por trayecto aproximado",
+        "frecuencia": "Cada 20-30 minutos en temporada alta",
+        "nota": "Buses de color azul. Indicar al conductor parada en Saltos del Petrohué. [VERIFICAR VIGENCIA Y FRECUENCIA 2026]"
+      }
+    ],
+    "hospedaje_cercano": [
+      {
+        "nombre": "Petrohué Lodge",
+        "tipo": "Hotel boutique / Lodge de montaña",
+        "categoria": "4 estrellas",
+        "descripcion": "Único hotel de categoría superior dentro del Parque Nacional Vicente Pérez Rosales, a orillas del Lago Todos los Santos. 20 habitaciones con vista al lago, volcán o río, y 4 cabañas. Frente al embarcadero del Cruce Andino.",
+        "precio_desde_usd": 290,
+        "precio_desde_clp": "[NO VERIFICADO en pesos — referencia USD 290-310/noche según Kayak 2025]",
+        "temporada_operacion": "Agosto a abril (cerrado parte del invierno)",
+        "distancia_km": 0.5,
+        "url": "https://petrohue.com",
+        "nota": "Opción más cercana y de mayor categoría. Acceso desde los Saltos en 5 minutos a pie o auto. [VERIFICAR DISPONIBILIDAD Y PRECIOS 2026]"
+      },
+      {
+        "nombre": "Hotel Natura Patagonia",
+        "tipo": "Hotel 4 estrellas",
+        "descripcion": "Hotel de 45 habitaciones ubicado en Villa Peulla, al otro extremo del Lago Todos los Santos. Accesible únicamente en ferry (90 minutos desde Petrohué). Incluye desayuno buffet. Parte del circuito Cruce Andino.",
+        "precio_desde_eur": 67,
+        "distancia_km": "Aprox. 55 km en línea recta por lago (no accesible por tierra)",
+        "acceso": "Solo por ferry desde Puerto Petrohué (sale 10:00 h)",
+        "url": "https://natura-patagonia.loslagoshoteles.com",
+        "nota": "Opción para quienes hacen el Cruce Andino. [VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Cabañas y Camping Barlovento",
+        "tipo": "Cabañas y camping",
+        "descripcion": "Complejo de 5 cabañas equipadas con acceso al lago y zona WiFi. También ofrece sitios de camping. Ubicado en Ensenada en el cruce de la Ruta 225 hacia Petrohué y la ruta al volcán. Más de 20 años de operación.",
+        "precio_desde_clp": "[NO VERIFICADO — consultar directamente]",
+        "distancia_km": 16,
+        "url": "http://www.cabanasycampingbarlovento.cl",
+        "nota": "Opción económica con buena ubicación para visitar tanto los Saltos como el volcán Osorno y Las Cascadas. [VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Cabañas Ruta Petrohue",
+        "tipo": "Cabañas",
+        "descripcion": "Cabañas en La Ensenada con WiFi gratuito y estacionamiento privado.",
+        "precio_desde_clp": "[NO VERIFICADO — ver Booking.com]",
+        "distancia_km": 16,
+        "url": "https://www.booking.com/hotel/cl/ruta-petrohue-puerto-varas2.es.html",
+        "nota": "[VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Hospedaje y Cabañas Ensenada Puerto Varas",
+        "tipo": "Hospedaje / Cabañas",
+        "descripcion": "Alojamiento en Ensenada con estacionamiento privado, baño privado, TV, cocina equipada y terraza. Acceso cercano al lago y volcán.",
+        "precio_desde_clp": "[NO VERIFICADO — ver Booking.com]",
+        "distancia_km": 16,
+        "url": "https://www.booking.com/hotel/cl/hospedaje-y-cabanas-ensenada-puerto-varas.es.html",
+        "nota": "[VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Diversas cabañas en Puerto Varas (ciudad)",
+        "tipo": "Cabañas / Hoteles variados",
+        "descripcion": "Puerto Varas ofrece la mayor oferta de alojamiento de la zona: desde hostales económicos (~CLP 15.000 por persona) hasta hoteles de 4 estrellas. La ciudad está a 55 km de los Saltos (50-60 min en auto). Tiene además la mayor oferta gastronómica y de servicios.",
+        "precio_referencial_clp": "Temporada alta desde CLP 42.000/noche para cabañas; temporada baja desde CLP 38.000",
+        "distancia_km": 55,
+        "url_referencia": "https://www.puertovaras-chile.com/cabanas",
+        "nota": "Puerto Varas es la base más conveniente para explorar toda la zona, incluyendo los Saltos, el volcán Osorno y el lago Llanquihue."
+      }
+    ],
+    "camping": {
+      "dentro_parque": false,
+      "nota": "Los campings dentro del Parque Nacional Vicente Pérez Rosales permanecen cerrados desde la erupción del volcán Calbuco (2015). No hay camping habilitado oficialmente dentro del parque al momento de esta investigación (2026). [VERIFICAR ESTADO ACTUAL CON CONAF]",
+      "alternativas": "Camping privado disponible en Ensenada (Barlovento y otros) y en alrededores de Puerto Varas."
+    },
+    "como_llegar": {
+      "descripcion_general": "Los Saltos del Petrohué se ubican en la Ruta 225 (ruta internacional Puerto Varas-Argentina), km 64 aproximadamente desde Puerto Varas. La ruta está totalmente asfaltada y en buen estado. El trayecto desde Puerto Varas atraviesa Ensenada y bordea el lago Llanquihue con vistas al volcán Osorno.",
+      "desde_santiago": {
+        "distancia_km": 1040,
+        "tiempo_conduccion": "Aproximadamente 10-11 horas en auto",
+        "ruta": "Autopista Panamericana Sur (Ruta 5) hasta Puerto Montt → Puerto Varas → Ruta 225 hasta Petrohué",
+        "bus": "Terminal Sur de Santiago → Puerto Montt (varias empresas, ~13 horas de viaje nocturno). Desde Puerto Montt o Puerto Varas tomar colectivo o bus a Petrohué.",
+        "vuelo": "Santiago (SCL) → Aeropuerto El Tepual de Puerto Montt (PMC). Vuelo ~2 horas. Desde el aeropuerto: auto o transfer a los Saltos (~1 hora)."
+      },
+      "desde_puerto_varas": {
+        "distancia_km": 55,
+        "tiempo": "50-60 minutos",
+        "ruta": "Ruta 225 dirección Ensenada → Petrohué",
+        "auto": "Ruta directa por Ruta 225. Completamente asfaltada. Estacionamiento habilitado en el sector de los Saltos.",
+        "bus_colectivo": "Buses Thaebus (azules) salen desde Puerto Varas con frecuencia de 20-30 minutos en temporada alta. Pasaje aproximado CLP 3.000. Indicar al conductor que baje en 'Saltos del Petrohué'.",
+        "tour": "Múltiples agencias ofrecen tours con recogida en hotel desde Puerto Varas. Precio referencial CLP 20.000-30.000 por persona (incluye Saltos + volcán Osorno opcionalmente)."
+      },
+      "desde_puerto_montt": {
+        "distancia_km": 72,
+        "tiempo": "1 hora 10 minutos en auto",
+        "ruta": "Puerto Montt → Puerto Varas → Ruta 225 → Ensenada → Petrohué",
+        "bus": "Tomar bus Puerto Montt–Puerto Varas y desde ahí conectar a Petrohué."
+      },
+      "coordenadas_estacionamiento": {
+        "latitud": -41.1728,
+        "longitud": -72.4472,
+        "nota": "Coordenadas aproximadas del área de estacionamiento junto a la entrada del sector. [NO VERIFICADO con precisión alta]"
+      },
+      "transporte_publico": "Buses Thaebus Puerto Varas–Petrohué. Frecuencia 20-30 min en temporada alta. Pasaje ~CLP 3.000.",
+      "distancia_ciudad_principal": "55 km de Puerto Varas; 72 km de Puerto Montt; 1.040 km de Santiago"
+    },
+    "servicios_en_sitio": {
+      "estacionamiento": true,
+      "banos": true,
+      "puesto_guardaparque": true,
+      "tiendas_artesanias": true,
+      "servicio_alimentacion": "Pequeño servicio de alimentación y artesanías en el sector (quioscos / food trucks en temporada alta)",
+      "agua_potable": "[NO VERIFICADO]",
+      "cobertura_movil": "Limitada / señal débil en el sector",
+      "wifi": false
+    },
+    "flora": {
+      "descripcion": "El sector de los Saltos está inmerso en el bosque siempreverde valdiviano, uno de los ecosistemas templado-lluviosos más ricos del mundo. Dominan los árboles de gran porte como el coigüe (Nothofagus dombeyi), el ulmo (Eucryphia cordifolia), el olivillo (Aextoxicon punctatum), el arrayán (Luma apiculata) y la canela del monte (Drimys winteri). El sotobosque es denso y húmedo, tapizado de helechos, musgos y líquenes. A mayor altitud (sobre 800 m) aparece la lenga (Nothofagus pumilio). El parque protege 152 especies de plantas vasculares.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Coigüe",
+          "nombre_cientifico": "Nothofagus dombeyi",
+          "descripcion": "Árbol dominante del bosque siempreverde, de follaje perenne y gran porte"
+        },
+        {
+          "nombre_comun": "Ulmo",
+          "nombre_cientifico": "Eucryphia cordifolia",
+          "descripcion": "Árbol de gran valor melífero, produce una de las mieles más apreciadas de Chile"
+        },
+        {
+          "nombre_comun": "Olivillo",
+          "nombre_cientifico": "Aextoxicon punctatum",
+          "descripcion": "Árbol siempreverde característico del bosque valdiviano"
+        },
+        {
+          "nombre_comun": "Arrayán",
+          "nombre_cientifico": "Luma apiculata",
+          "descripcion": "De corteza naranja característica, frecuente en bordes de cursos de agua"
+        },
+        {
+          "nombre_comun": "Canela del monte / Canelo",
+          "nombre_cientifico": "Drimys winteri",
+          "descripcion": "Árbol sagrado para el pueblo mapuche (rewe ceremonial)"
+        },
+        {
+          "nombre_comun": "Lenga",
+          "nombre_cientifico": "Nothofagus pumilio",
+          "descripcion": "Domina las zonas de altura (800-1200 m s.n.m.); espectacular en otoño por sus colores rojizos"
+        },
+        {
+          "nombre_comun": "Alerce",
+          "nombre_cientifico": "Fitzroya cupressoides",
+          "descripcion": "Presente en sectores del parque; uno de los árboles más longevos del mundo. Especie protegida."
+        }
+      ]
+    },
+    "fauna": {
+      "descripcion": "La fauna del Parque Nacional Vicente Pérez Rosales es representativa del bosque templado lluvioso del sur de Chile. Destaca la presencia de mamíferos nativos como el pudú (el ciervo más pequeño del mundo), el huillín (nutria de río, en peligro de extinción), el puma, el kodkod y el monito del monte. El río Petrohué es reconocido por su alta densidad de trucha arcoíris y trucha café.",
+      "mamiferos": [
+        {
+          "nombre_comun": "Pudú",
+          "nombre_cientifico": "Pudu puda",
+          "estado_conservacion": "Vulnerable",
+          "descripcion": "El ciervo más pequeño del mundo. Se puede avistar al amanecer o atardecer en los bordes del bosque."
+        },
+        {
+          "nombre_comun": "Huillín / Nutria de río",
+          "nombre_cientifico": "Lontra provocax",
+          "estado_conservacion": "En peligro",
+          "descripcion": "Presente en el río Petrohué. Avistamiento poco frecuente."
+        },
+        {
+          "nombre_comun": "Puma",
+          "nombre_cientifico": "Puma concolor",
+          "estado_conservacion": "Vulnerable",
+          "descripcion": "Presente en el parque; raramente visto por visitantes"
+        },
+        {
+          "nombre_comun": "Kodkod / Güiña",
+          "nombre_cientifico": "Leopardus guigna",
+          "estado_conservacion": "Vulnerable",
+          "descripcion": "El felino más pequeño del continente americano, endémico de Chile y Argentina"
+        },
+        {
+          "nombre_comun": "Monito del monte",
+          "nombre_cientifico": "Dromiciops gliroides",
+          "estado_conservacion": "Casi amenazado",
+          "descripcion": "Marsupial primitivo, relicto viviente de la megafauna gondwánica"
+        },
+        {
+          "nombre_comun": "Grisón menor",
+          "nombre_cientifico": "Galictis cuja",
+          "estado_conservacion": "Preocupación menor"
+        }
+      ],
+      "aves": [
+        {
+          "nombre_comun": "Carpintero negro",
+          "nombre_cientifico": "Campephilus magellanicus",
+          "descripcion": "El pájaro carpintero más grande de Sudamérica. Inconfundible por su cresta roja."
+        },
+        {
+          "nombre_comun": "Martín pescador",
+          "nombre_cientifico": "Megaceryle torquata",
+          "descripcion": "Frecuente en los bordes del río Petrohué"
+        },
+        {
+          "nombre_comun": "Pato de torrente",
+          "nombre_cientifico": "Merganetta armata",
+          "descripcion": "Especialista en ríos rápidos y torrentosos; endémico de los Andes"
+        },
+        {
+          "nombre_comun": "Huala",
+          "nombre_cientifico": "Podiceps major",
+          "descripcion": "Presente en el Lago Todos los Santos"
+        },
+        {
+          "nombre_comun": "Cóndor andino",
+          "nombre_cientifico": "Vultur gryphus",
+          "descripcion": "Posible avistamiento en las zonas de mayor altitud del parque"
+        }
+      ],
+      "peces": [
+        {
+          "nombre_comun": "Trucha arcoíris",
+          "nombre_cientifico": "Oncorhynchus mykiss",
+          "descripcion": "Especie introducida; presente en alta densidad en el río Petrohué. Base del turismo de pesca con mosca."
+        },
+        {
+          "nombre_comun": "Trucha café / trucha marrón",
+          "nombre_cientifico": "Salmo trutta",
+          "descripcion": "Especie introducida; presente en el río Petrohué"
+        },
+        {
+          "nombre_comun": "Trucha chilena / peladilla",
+          "nombre_cientifico": "Brachygalaxias bullocki",
+          "descripcion": "Especie nativa de peces del sur de Chile"
+        }
+      ]
+    },
+    "clima": {
+      "tipo": "Templado lluvioso (Cfb en clasificación Köppen)",
+      "descripcion_general": "Clima oceánico con precipitaciones abundantes durante todo el año, concentradas en otoño e invierno. Veranos frescos y húmedos; inviernos fríos con posibilidad de nieve en cotas sobre 500 m. La lluvia es una constante con la que hay que contar en cualquier época del año.",
+      "temp_promedio_anual": 11.5,
+      "precipitacion_anual_mm": {
+        "ensenada": 2500,
+        "petrohue_zona_alta": 4000,
+        "nota": "Las precipitaciones aumentan con la altitud. En el sector del paso fronterizo puede superar 4.000 mm/año."
+      },
+      "estaciones": {
+        "verano": {
+          "meses": "Diciembre - Febrero",
+          "temp_promedio": 16,
+          "temp_max_promedio": 21,
+          "temp_min_promedio": 10,
+          "precipitacion": "Baja (probabilidad lluvia ~28% en enero)",
+          "descripcion": "Mejor clima para visitar, con mayor horas de luz. Menor caudal en los saltos. Alta afluencia turística. Recomendado llegar temprano para evitar colas."
+        },
+        "otono": {
+          "meses": "Marzo - Mayo",
+          "temp_promedio": 10,
+          "temp_max_promedio": 15,
+          "temp_min_promedio": 5,
+          "precipitacion": "Media-alta y en aumento",
+          "descripcion": "Colores otoñales espectaculares en las lengas de altura. Menor cantidad de turistas. Caudal en aumento."
+        },
+        "invierno": {
+          "meses": "Junio - Agosto",
+          "temp_promedio": 6.5,
+          "temp_max_promedio": 10,
+          "temp_min_promedio": 2,
+          "precipitacion": "Alta (probabilidad lluvia ~68% en junio)",
+          "descripcion": "Temporada más lluviosa y fría. Mayor caudal en los saltos. Acceso puede estar comprometido por precipitaciones. Visita solo para viajeros preparados."
+        },
+        "primavera": {
+          "meses": "Septiembre - Noviembre",
+          "temp_promedio": 11,
+          "temp_max_promedio": 16,
+          "temp_min_promedio": 6,
+          "precipitacion": "Media y en descenso",
+          "descripcion": "Temporada óptima recomendada: máximo caudal por deshielo, vegetación exuberante, menos turistas que en verano y clima progresivamente mejorable."
+        }
+      },
+      "temporada_recomendada": "Primavera (octubre-noviembre) para mayor caudal y menor afluencia; verano (diciembre-febrero) para mejor clima y mayor oferta de servicios.",
+      "equipamiento_lluvia": "Imprescindible en cualquier época. Llevar siempre capa impermeable (chubasquero o poncho)."
+    },
+    "historia_y_cultura": {
+      "historia_geologica": "Los Saltos del Petrohué tienen su origen en las lavas basálticas emitidas por el volcán Osorno durante el Pleistoceno Superior (entre 90.000 y 30.000 años antes del presente). Estas coladas de lava fluyeron por el valle del río Petrohué cuando el valle aún estaba ocupado por los glaciares de la última gran glaciación. Al fundirse los hielos, las aguas del lago Todos los Santos y el naciente río Petrohué comenzaron a erosionar la lava, excavando los canales y las pozas que hoy forman los saltos. El resultado es un lecho de basalto columnar horadado en formas orgánicas únicas, teñido por el agua turquesa que proviene del lago.",
+      "historia_parque": "El Parque Nacional Vicente Pérez Rosales fue creado el 17 de agosto de 1926 mediante decreto supremo, convirtiéndose en el primer parque nacional de Chile y el segundo más antiguo de Sudamérica. Fue nombrado en honor a Vicente Pérez Rosales (1807-1886), explorador, escritor y agente de colonización alemana que promovió la colonización del lago Llanquihue en el siglo XIX y describió la región en su obra 'Recuerdos del Pasado'. El decreto de creación mencionó explícitamente el fomento del turismo como objetivo central.",
+      "cultura_indigena": "El territorio del parque fue ancestralmente habitado por comunidades mapuche, específicamente los grupos Liwko y Purailla, que habitan en torno al Lago Todos los Santos. CONAF ha desarrollado trabajos con estas comunidades para identificar objetos de conservación cultural dentro del parque: cementerios indígenas, rewes (lugares ceremoniales sagrados), aleros rocosos del paso Vuriloche con pinturas rupestres, embarcaciones de alerce y casas ancestrales. El volcán Osorno ocupa un lugar central en la cosmovisión mapuche: la tradición oral indica que el poderoso pillán (espíritu ancestral) Peripillán habita y está prisionero en el interior del volcán.",
+      "cruce_andino": "El sector de Petrohué es el punto de partida chileno del histórico Cruce de los Lagos (también llamado Cruce Andino o Ruta de los Lagos), una travesía que une Puerto Varas con Bariloche (Argentina) a través de una combinación de barcos y buses que atraviesan el Lago Todos los Santos, el paso fronterizo y el Lago Nahuel Huapi. Esta ruta fue utilizada por viajeros, colonos y exploradores desde el siglo XIX y sigue siendo una de las experiencias lacustres más icónicas de Sudamérica."
+    },
+    "seguridad": [
+      "No acercarse al borde de los saltos fuera de las áreas delimitadas por miradores y barandas. El terreno basáltico es irregular y resbaladizo cuando está mojado.",
+      "No intentar bañarse ni ingresar al agua en el sector de los saltos. La corriente es extremadamente poderosa (caudal promedio 370 m³/s) y las rocas subacuáticas son peligrosas.",
+      "Mantenerse en los senderos señalizados. El bosque siempreverde es denso y es fácil desorientarse fuera de los caminos marcados.",
+      "Llevar ropa impermeable en todo momento. El clima puede cambiar rápidamente con lluvia intensa incluso en días aparentemente despejados.",
+      "Calzado antideslizante obligatorio. Las pasarelas de madera y las rocas húmedas son resbaladizas.",
+      "No alimentar a ningún animal silvestre. Está prohibido por normativa CONAF y puede generar dependencia y conflictos.",
+      "No recoger plantas, rocas ni ningún elemento natural. Es área protegida.",
+      "En caso de erupciones volcánicas (volcán Osorno, Calbuco o Puntiagudo): seguir las instrucciones de los guardaparques y el plan de evacuación CONAF. Consultar el estado volcánico en SERNAGEOMIN antes de visitar.",
+      "Comprar el pase de entrada con anticipación en pasesparques.cl para garantizar cupo, especialmente en temporada alta (diciembre-febrero).",
+      "Llevar agua potable suficiente. No hay garantía de puntos de agua en todos los senderos."
+    ],
+    "recomendaciones": [
+      "Llegar temprano (apertura del parque a las 09:00 h) para evitar la mayor afluencia de turistas que llega entre las 11:00 y las 14:00 h.",
+      "Calzado de trekking o al menos zapatillas con buen agarre. Evitar sandalias o zapatos de ciudad.",
+      "Chubasquero o poncho impermeable: imprescindible en cualquier época del año.",
+      "Ropa en capas. Las temperaturas pueden variar significativamente entre el sol y la sombra, y entre la mañana y la tarde.",
+      "Protector solar y gafas de sol: incluso en días nublados, la radiación UV es alta en esta latitud.",
+      "Cámara fotográfica con filtro polarizador para capturar el color turquesa del agua sin reflejos.",
+      "Binoculares para avistamiento de aves.",
+      "Snacks y agua (al menos 1.5 litros por persona para el día).",
+      "Bolsa de basura: regla de 'no dejar rastro'. Retirar todos los residuos.",
+      "Reservar alojamiento con anticipación en temporada alta (diciembre-febrero): la oferta en Ensenada y Petrohué es limitada.",
+      "Combinar la visita con el volcán Osorno: la excursión conjunta es la más popular de la zona y aprovecha mejor el viaje.",
+      "Para la actividad de rafting: reservar con al menos 1 día de anticipación, especialmente en temporada alta."
+    ],
+    "gastronomia": {
+      "descripcion_regional": "La gastronomía de la Región de Los Lagos combina la tradición culinaria mapuche con la herencia de los colonos alemanes que llegaron al lago Llanquihue a partir de 1850. Los productos lacustres (salmón, trucha, mariscos) conviven con preparaciones de campo como el curanto y los fiambres de tradición europea. Puerto Varas se ha consolidado como uno de los destinos gastronómicos más reconocidos del sur de Chile.",
+      "platos_tipicos": [
+        {
+          "plato": "Salmón del lago ahumado",
+          "descripcion": "Producto emblema de la zona. El salmón del Lago Llanquihue, ahumado con maderas nativas, se sirve en múltiples preparaciones: crudo, en tartar, en pasta o simplemente en tabla con pan amasado."
+        },
+        {
+          "plato": "Curanto al hoyo",
+          "descripcion": "Preparación ancestral mapuche. Se cocinan mariscos (cholgas, choros, almejas), carnes de cerdo y ave, papas, chapaleles (masa de papa) y milcao (tortilla de papa) en un hoyo cavado en la tierra, cubiertos con piedras calientes y hojas de nalca. Cocinado al vapor durante horas."
+        },
+        {
+          "plato": "Trucha a la plancha",
+          "descripcion": "La trucha arcoíris del río Petrohué es uno de los manjares locales. Se sirve entera o en filete, a la plancha o al vapor."
+        },
+        {
+          "plato": "Cazuela de vacuno o ave",
+          "descripcion": "Preparación de olla con trozos de carne, papas, zapallo, zanahoria y arroz. Plato de invierno muy popular en la zona."
+        },
+        {
+          "plato": "Küchen de berries",
+          "descripcion": "Pastel de origen alemán con masa mantecosa y frutos del bosque (murta, frutilla, frambuesa). Llegó con los colonos del siglo XIX y se convirtió en postre icónico de la zona de Lagos."
+        },
+        {
+          "plato": "Milcao y chapalele",
+          "descripcion": "Preparaciones de papa típicas del sur de Chile y Chiloé. El milcao es una tortilla de papa rallada y cocida; el chapalele es una masa de papa con harina. Acompañan el curanto y también se comen solos con chicharrón."
+        }
+      ],
+      "restaurantes_referencia": [
+        {
+          "nombre": "Restaurante Petrohué Lodge",
+          "ubicacion": "Ruta 225 km 64, Petrohué (dentro del parque)",
+          "descripcion": "Único restaurante de categoría dentro del sector. Cocina internacional con productos regionales. Abierto para almuerzos y cenas para huéspedes y visitantes externos.",
+          "nota": "[VERIFICAR HORARIO DE ATENCIÓN A NO HUÉSPEDES 2026]"
+        },
+        {
+          "nombre": "Restaurantes de Puerto Varas (ciudad)",
+          "ubicacion": "55 km de los Saltos",
+          "descripcion": "Puerto Varas concentra la mayor oferta gastronómica de la zona. Destacan Ibis Restaurant (20 años de trayectoria, especialidad frutos del mar), Aurelia Bistró Sureño (cocina sureña contemporánea) y CasaValdes (a orillas del lago Llanquihue, especialidad mariscos vivos).",
+          "nota": "Para cenas y experiencias gastronómicas de mayor nivel, Puerto Varas es la opción principal."
+        },
+        {
+          "nombre": "Puestos de comida y artesanías en los Saltos",
+          "ubicacion": "Sector de estacionamiento de los Saltos",
+          "descripcion": "En temporada alta (diciembre-marzo) funcionan puestos que venden snacks, bebidas calientes, artesanías locales y comida rápida.",
+          "nota": "[VERIFICAR DISPONIBILIDAD FUERA DE TEMPORADA ALTA]"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "pregunta": "¿Cuánto cuesta la entrada a los Saltos del Petrohué?",
+        "respuesta": "La entrada al Parque Nacional Vicente Pérez Rosales cuesta CLP 3.700 para adultos chilenos y CLP 7.800 para adultos extranjeros (precios 2025). Menores de 12 años no pagan. Las entradas se compran en pasesparques.cl (recomendado para asegurar cupo) o en la entrada del parque. [VERIFICAR PRECIOS ACTUALIZADOS 2026 EN PASESPARQUES.CL]"
+      },
+      {
+        "pregunta": "¿Cuál es el horario de los Saltos del Petrohué?",
+        "respuesta": "El parque abre de lunes a domingo de 09:00 a 17:00 horas, con último ingreso a las 17:00 h. Se recomienda llegar temprano (antes de las 10:00 h) para evitar la mayor afluencia turística del mediodía."
+      },
+      {
+        "pregunta": "¿Cómo llegar a los Saltos del Petrohué desde Puerto Varas?",
+        "respuesta": "Desde Puerto Varas hay 55 km por la Ruta 225 (50-60 minutos en auto). En bus público, los Thaebus (azules) salen desde Puerto Varas con frecuencia de 20-30 minutos en temporada alta, con pasaje de aproximadamente CLP 3.000. También se puede contratar un tour desde Puerto Varas que incluye los Saltos y el volcán Osorno."
+      },
+      {
+        "pregunta": "¿Se puede bañar en los Saltos del Petrohué?",
+        "respuesta": "No. El baño en los saltos está prohibido y es extremadamente peligroso. El río Petrohué tiene una corriente muy poderosa (promedio 370 m³/s) y las rocas basálticas subacuáticas hacen que ingresar al agua sea potencialmente mortal. Mantente en los miradores y senderos habilitados."
+      },
+      {
+        "pregunta": "¿Cuál es la mejor época para visitar los Saltos del Petrohué?",
+        "respuesta": "La primavera (octubre-noviembre) es la temporada óptima: mayor caudal por el deshielo, vegetación exuberante y menos turistas que en verano. El verano (diciembre-febrero) ofrece mejor clima con más horas de sol pero menor caudal y alta afluencia. Evita el invierno (junio-agosto) salvo que estés preparado para lluvia intensa."
+      },
+      {
+        "pregunta": "¿Cuánto tiempo hay que destinar para visitar los Saltos?",
+        "respuesta": "Con los tres senderos del sector (Saltos del Petrohué, Los Enamorados y Carilemu), se necesitan entre 2 y 3 horas para una visita completa. Si agregas el volcán Osorno, el día completo es lo ideal."
+      },
+      {
+        "pregunta": "¿Se puede hacer rafting en el río Petrohué?",
+        "respuesta": "Sí. El río Petrohué es uno de los mejores destinos de rafting de Chile con rápidos Clase III-IV. Empresas como Alsur Expediciones y Kokayak ofrecen excursiones de medio día desde Ensenada con precios desde CLP 40.000 por persona. La temporada va de agosto a junio."
+      },
+      {
+        "pregunta": "¿Hay camping cerca de los Saltos del Petrohué?",
+        "respuesta": "No hay camping habilitado dentro del Parque Nacional Vicente Pérez Rosales. La alternativa más cercana es Ensenada (16 km), donde Cabañas y Camping Barlovento y otras opciones ofrecen sitios de acampada. Puerto Varas (55 km) tiene la mayor oferta de alojamiento."
+      },
+      {
+        "pregunta": "¿Qué se puede ver además de los saltos en el sector?",
+        "respuesta": "Desde el sector de Petrohué se puede tomar el ferry que cruza el Lago Todos los Santos hacia Peulla (90 minutos), o iniciar el famoso Cruce Andino hacia Bariloche, Argentina. También se puede combinar con la subida al volcán Osorno (teleférico o senderismo) y la visita a las termas de Ensenada."
+      },
+      {
+        "pregunta": "¿Es apto para familias con niños?",
+        "respuesta": "Sí. Los senderos del sector son fáciles y cortos, aptos para niños de cualquier edad. El principal mirador está a solo 350 metros de la entrada. Se recomienda llevar calzado antideslizante para los niños y no perderlos de vista cerca de los bordes."
+      }
+    ],
+    "cascadas_cercanas": {
+      "por_cercania_geografica": [
+        {
+          "nombre": "Cascada de los Cántaros",
+          "slug": "cascada-de-los-cantaros",
+          "region": "Los Lagos",
+          "altura_metros": 50,
+          "descripcion": "Cascada dentro del Parque Nacional Vicente Pérez Rosales, sector Las Cascadas. A unos 20 km de los Saltos del Petrohué por Ruta 225.",
+          "tipo": "cercania"
+        },
+        {
+          "nombre": "Salto del Indio (Puyehue)",
+          "slug": "salto-del-indio-puyehue",
+          "region": "Los Lagos",
+          "altura_metros": 20,
+          "descripcion": "Cascada formada por el río Gol Gol en el sector Anticura del Parque Nacional Puyehue. Sendero de 950 metros, 40 minutos. A unos 80 km de los Saltos del Petrohué.",
+          "tipo": "cercania"
+        },
+        {
+          "nombre": "Salto La Princesa (Aguas Calientes)",
+          "slug": "salto-la-princesa-aguas-calientes",
+          "region": "Los Lagos",
+          "altura_metros": 25,
+          "descripcion": "Cascada en el sector de Aguas Calientes del Parque Nacional Puyehue, junto a la ruta a termas. Parte del circuito de cascadas de Anticura.",
+          "tipo": "cercania"
+        }
+      ],
+      "por_relacion_semantica": [
+        {
+          "nombre": "Salto del Laja",
+          "slug": "salto-del-laja",
+          "region": "Biobío",
+          "altura_metros": 35,
+          "descripcion": "La cascada más famosa de Chile. Como los Saltos del Petrohué, es accesible para familias, muy fotografiada, y se encuentra dentro de una zona de alta demanda turística. Head term de mayor volumen de búsqueda del sitio.",
+          "tipo": "relacionada"
+        },
+        {
+          "nombre": "Cascada de los Enamorados (Huerquehue)",
+          "slug": "cascada-de-los-enamorados-huerquehue",
+          "region": "Araucanía",
+          "altura_metros": null,
+          "descripcion": "Cascada en el Parque Nacional Huerquehue, similar en contexto de bosque templado lluvioso y sendero de baja dificultad dentro de área protegida CONAF.",
+          "tipo": "relacionada",
+          "nota": "[Verificar existencia de página en el topical map antes de enlazar]"
+        },
+        {
+          "nombre": "Saltos del Río Ibáñez",
+          "slug": "salto-rio-ibanez",
+          "region": "Aysén",
+          "altura_metros": 80,
+          "descripcion": "Cascada patagónica de gran altura, con contexto geológico volcánico similar al de los Saltos del Petrohué. Ambas comparten la formación en roca basáltica.",
+          "tipo": "relacionada"
+        }
+      ]
+    },
+    "informacion_cultural": {
+      "significado_cultural": "El río Petrohué y el Lago Todos los Santos tienen profundo significado para las comunidades mapuche Liwko y Purailla que habitan la zona. El sector es parte de un territorio ancestral con cementerios indígenas, rewes ceremoniales y pinturas rupestres documentadas por CONAF. El volcán Osorno, visible desde los saltos, alberga al espíritu Peripillán en la cosmovisión mapuche.",
+      "historia": "Los Saltos del Petrohué fueron dados a conocer al mundo exterior principalmente a través de los relatos de exploradores y colonos del siglo XIX. Vicente Pérez Rosales, explorador y promotor de la colonización alemana de la zona lacustre, describió la región en sus memorias. El parque fue creado en 1926 para preservar estas bellezas naturales y fomentar el turismo.",
+      "leyendas": [
+        "El volcán Osorno, visible desde los saltos, es considerado la morada del pillán Peripillán en la tradición mapuche. Se dice que el espíritu ancestral está prisionero en el interior del volcán y que sus erupciones son manifestaciones de su fuerza.",
+        "Las aguas del Lago Todos los Santos (Lago Esmeralda) reciben su nombre colonial por la transparencia y color esmeralda de sus aguas. La tradición local dice que el lago no tiene fondo medible."
+      ],
+      "reconocimientos": [
+        "El sitio está catalogado como Geositio Nacional por SERNAGEOMIN por su valor geológico excepcional (lavas basálticas del Pleistoceno Superior).",
+        "El Parque Nacional Vicente Pérez Rosales es el parque nacional más antiguo de Chile (1926) y el segundo más antiguo de Sudamérica."
+      ]
+    },
+    "estado_datos": {
+      "fecha_investigacion": "Febrero 2026",
+      "confiabilidad_general": "alta",
+      "nota_general": "La mayoría de los datos físicos, históricos y geológicos provienen de fuentes oficiales (SERNAGEOMIN, CONAF, Wikipedia con referencias académicas) y tienen alta confiabilidad. Los datos de precios, servicios y alojamiento tienen confiabilidad media-alta para los valores 2025 y deben verificarse para 2026. Los precios de empresas de aventura y algunas coberturas de servicios deben confirmarse directamente.",
+      "datos_no_verificados": [
+        "Altura vertical total en metros de la cascada principal (no es una caída vertical única sino una serie de rápidos; no existe medición estándar publicada)",
+        "Coordenadas GPS con precisión alta (verificadas en 2 fuentes pero con variación de segundos entre ellas)",
+        "Accesibilidad formal para personas con movilidad reducida (no hay información oficial sobre adaptaciones específicas)",
+        "Precios exactos de Kokayak y Rafting Puerto Varas para 2026",
+        "Estado actual del camping dentro del parque (cerrado desde erupción Calbuco 2015; verificar si fue rehabilitado)",
+        "Horarios y precios exactos 2026 de Thaebus (buses Puerto Varas-Petrohué)",
+        "Precios actualizados 2026 de Petrohué Lodge y Hotel Natura Patagonia",
+        "Vigencia del operador del Cruce Andino (Andina del Sud) en 2026",
+        "Disponibilidad de agua potable en los senderos del sector",
+        "Cobertura móvil específica en el sector"
+      ],
+      "fuentes_consultadas": [
+        {
+          "nombre": "SERNAGEOMIN - Geositios de Chile",
+          "url": "https://geositiosdechile.sernageomin.cl/region/los-lagos/saltos-del-petrohue/",
+          "tipo": "oficial",
+          "datos_obtenidos": "Altitud 137 m s.n.m., caudal promedio 370 m³/s, geología basáltica Pleistoceno Superior, coordenadas aproximadas"
+        },
+        {
+          "nombre": "CONAF - Parque Nacional Vicente Pérez Rosales",
+          "url": "https://www.conaf.cl/parque_nacionales/parque-nacional-vicente-perez-rosales/",
+          "tipo": "oficial",
+          "datos_obtenidos": "Información general del parque, horarios, normativa, vínculos con comunidades mapuche"
+        },
+        {
+          "nombre": "Pases Parques - Sitio oficial venta de entradas",
+          "url": "https://www.pasesparques.cl/es/parks/v-perez-rosales",
+          "tipo": "oficial",
+          "datos_obtenidos": "Sistema de reserva de entradas, horarios confirmados"
+        },
+        {
+          "nombre": "Parque Nacional Vicente Pérez Rosales (sitio no oficial pero detallado)",
+          "url": "https://parquenacionalvicenteperezrosales.cl",
+          "tipo": "secundaria_especializada",
+          "datos_obtenidos": "Senderos detallados (distancias, duraciones, dificultades), descripción de actividades"
+        },
+        {
+          "nombre": "BioBioChile - Tarifas parques nacionales 2025",
+          "url": "https://www.biobiochile.cl/noticias/servicios/toma-nota/2025/02/04/",
+          "tipo": "secundaria_periodistica",
+          "datos_obtenidos": "Precios de entrada por categoría: adulto nacional CLP 3.700, extranjero CLP 7.800"
+        },
+        {
+          "nombre": "Wikipedia - Saltos de Petrohué (ES)",
+          "url": "https://es.wikipedia.org/wiki/Saltos_de_Petrohu%C3%A9",
+          "tipo": "secundaria",
+          "datos_obtenidos": "Datos históricos, geológicos y geográficos generales"
+        },
+        {
+          "nombre": "Wikipedia - Río Petrohué",
+          "url": "https://es.wikipedia.org/wiki/R%C3%ADo_Petrohu%C3%A9",
+          "tipo": "secundaria",
+          "datos_obtenidos": "Caudal del río, cuenca hidrográfica"
+        },
+        {
+          "nombre": "AllTrails - Saltos de Petrohué",
+          "url": "https://www.alltrails.com/trail/chile/los-lagos/saltos-de-petrohue",
+          "tipo": "plataforma_senderismo",
+          "datos_obtenidos": "Distancia sendero principal (1.1 millas), elevación, duración estimada"
+        },
+        {
+          "nombre": "Alsur Expediciones",
+          "url": "https://alsurexpediciones.cl",
+          "tipo": "operador_turistico",
+          "datos_obtenidos": "Servicios de rafting, precios (CLP 40.000), horarios de salida"
+        },
+        {
+          "nombre": "Kokayak Outdoor",
+          "url": "https://kokayak.cl",
+          "tipo": "operador_turistico",
+          "datos_obtenidos": "Servicios de rafting, temporada, horarios"
+        },
+        {
+          "nombre": "Kayak.com - Petrohué Lodge",
+          "url": "https://www.kayak.com/Petrohue-Hotels-Petrohue-Lodge.191410.ksp",
+          "tipo": "plataforma_reservas",
+          "datos_obtenidos": "Precio referencial habitación desde USD 290-310/noche"
+        },
+        {
+          "nombre": "Quiero Viajar Sola",
+          "url": "https://www.quieroviajarsola.com/chile/sur/como-llegar-a-los-saltos-del-petrohue/",
+          "tipo": "blog_viajes",
+          "datos_obtenidos": "Instrucciones de llegada en bus (Thaebus, precio CLP 3.000, frecuencia 20-30 min)"
+        },
+        {
+          "nombre": "Adónde y Cuándo - Clima VPR",
+          "url": "https://www.adonde-y-cuando.es/when/america-sur/chile/parque-nacional-vicente-perez-rosales/",
+          "tipo": "secundaria_clima",
+          "datos_obtenidos": "Temperaturas promedio por mes, precipitaciones, probabilidad de lluvia por estación"
+        },
+        {
+          "nombre": "Cabañas y Camping Barlovento",
+          "url": "http://www.cabanasycampingbarlovento.cl",
+          "tipo": "alojamiento",
+          "datos_obtenidos": "Descripción del establecimiento, ubicación, servicios"
+        },
+        {
+          "nombre": "Ladera Sur - 95 años Parque VPR",
+          "url": "https://laderasur.com/fotografia/el-parque-nacional-vicente-perez-rosales-cumple-95-anos-es-el-mas-antiguo-de-chile/",
+          "tipo": "secundaria_especializada",
+          "datos_obtenidos": "Historia del parque, fecha de fundación, datos de flora y fauna"
+        }
+      ]
+    }
+  }
+}

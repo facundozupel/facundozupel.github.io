@@ -1,0 +1,638 @@
+{
+  "cascada": {
+    "id": "cascada-de-las-animas",
+    "nombre_oficial": "Cascada de las Ánimas",
+    "nombres_alternativos": [
+      "Santuario de la Naturaleza Cascada de las Ánimas",
+      "Las Ánimas Waterfall"
+    ],
+    "coordenadas": {
+      "latitud": -33.73076,
+      "longitud": -70.31521,
+      "precision": "media",
+      "fuente_coordenadas": "Mapcarta / OpenStreetMap node N4039338529 + cruce con dirección oficial Camino al Volcán 31087, San Alfonso. NOTA: Las coordenadas corresponden al área del campsite/ingreso principal. La cascada propiamente tal (caída de agua) se ubica aproximadamente 25 minutos de caminata interior desde el ingreso. Se requiere verificación en terreno con GPS para coordenadas exactas del punto de caída."
+    },
+    "ubicacion": {
+      "region": "Región Metropolitana de Santiago",
+      "provincia": "Cordillera",
+      "comuna": "San José de Maipo",
+      "localidad": "San Alfonso",
+      "direccion_oficial": "Camino al Volcán (Ruta G-25) N° 31087, San Alfonso",
+      "altitud_msnm": 1115,
+      "fuente_altitud": "Mapcarta y múltiples fuentes indican San Alfonso a 1.115-1.118 msnm",
+      "cuenca": "Cuenca del Río Maipo",
+      "rio_origen": "Estero tributario del Río Maipo que nace en la cordillera interior del Santuario"
+    },
+    "caracteristicas_fisicas": {
+      "altura_metros": 60,
+      "fuente_altura": "Múltiples fuentes consistentes: cajondelmaipochile.cl, reservasnaturales.cl, imaginasantiago.com, laderasur.com — todas coinciden en 60 metros",
+      "numero_saltos": 1,
+      "tipo_cascada": "Cascada tipo plunge / velo (caída libre sobre roca granítica andina)",
+      "geologia": "Roca granítica y metamórfica andina propia de la precordillera de Santiago. El entorno presenta formaciones típicas de la Alta Cuenca del Río Maipo.",
+      "temporada_optima": "Septiembre a Abril. Mayor caudal en primavera (septiembre-noviembre) por deshielo cordillerano. Verano (diciembre-marzo) garantiza acceso pleno y buen tiempo. En invierno (junio-agosto) puede haber acceso restringido por nevadas en altura.",
+      "caudal": "Variable estacional. Mayor caudal en primavera por deshielo. El Río Maipo en el área clasifica como Clase 4 (noviembre-febrero, deshielo) y Clase 3 el resto del año. [NO VERIFICADO caudal específico de la cascada en m³/s]",
+      "extension_santuario_hectareas": 3600,
+      "fuente_extension": "Ladera Sur, cascadadelasanimas.cl, múltiples fuentes consistentes"
+    },
+    "actividades": [
+      {
+        "nombre": "Trekking a la cascada",
+        "descripcion": "Sendero guiado de aproximadamente 20-25 minutos desde las instalaciones del resort hasta el pie de la cascada. El recorrido atraviesa bosque esclerófilo nativo, cruza un puente colgante y culmina en la base del salto de 60 metros. Dificultad fácil-moderada. Solo se accede con guía local.",
+        "dificultad": "Fácil a moderada",
+        "duracion": "1.5 a 2 horas ida y vuelta con paradas",
+        "distancia_km": "Aproximadamente 3-4 km ida y vuelta [NO VERIFICADO con precisión]",
+        "guia_obligatorio": true
+      },
+      {
+        "nombre": "Rafting en el Río Maipo",
+        "descripcion": "Cascada de las Ánimas opera la sección de rafting más larga del Río Maipo, con 34 rápidos — 8 de ellos categoría IV y IV+. La sesión ofrece 65 minutos de adrenalina continua. El río clasifica Clase 4 entre noviembre y febrero (deshielo) y Clase 3 el resto del año. Disponible para mayores de 12 años según temporada y caudal.",
+        "dificultad": "Moderada a Difícil (Clase III-IV)",
+        "edad_minima": 12,
+        "duracion": "65 minutos en el río",
+        "precio_aproximado": "[VERIFICAR VIGENCIA] Consultar en cascadadelasanimas.cl"
+      },
+      {
+        "nombre": "Canopy / Tirolesa",
+        "descripcion": "Descenso en tirolesa cruzando de una orilla a la otra del Río Maipo, sobrevolando un bosque de pinos y eucaliptos. Permite observar los picos nevados y el torrente abajo. Disponible como Full Day Canopy.",
+        "dificultad": "Baja (actividad asistida)",
+        "precio_aproximado": "[VERIFICAR VIGENCIA] Consultar en cascadadelasanimas.cl"
+      },
+      {
+        "nombre": "Cabalgata",
+        "descripcion": "Paseos a caballo por los senderos y valles del santuario. Una de las actividades más tradicionales del complejo, disponible con guía.",
+        "dificultad": "Fácil",
+        "precio_aproximado": "[VERIFICAR VIGENCIA] Consultar en cascadadelasanimas.cl"
+      },
+      {
+        "nombre": "Visita Guiada al Refugio Animal Cascada",
+        "descripcion": "Visita de 2.5 horas al Centro de Exhibición de Fauna Nativa, donde se rehabilitan pumas, zorros, cóndores, loros y otras especies nativas. Operado por la Fundación Refugio Animal Cascada (refugioanimalcascada.org). Activo desde 2003. La visita incluye una experiencia inmersiva para reflexionar sobre el impacto humano en la biodiversidad.",
+        "dificultad": "Fácil (caminata interpretativa)",
+        "duracion": "2.5 horas",
+        "contacto_adicional": "refugioanimalcascada.org",
+        "precio_aproximado": "[VERIFICAR VIGENCIA] Consultar en refugioanimalcascada.org o cascadadelasanimas.cl"
+      },
+      {
+        "nombre": "Kayak",
+        "descripcion": "Actividad de kayak disponible en el río dentro de las instalaciones.",
+        "dificultad": "Baja a moderada",
+        "precio_aproximado": "[VERIFICAR VIGENCIA]"
+      },
+      {
+        "nombre": "Yoga y terapias naturales",
+        "descripcion": "El complejo ofrece actividades de relajación, yoga y terapias de bienestar en contacto con la naturaleza.",
+        "dificultad": "Sin dificultad física"
+      },
+      {
+        "nombre": "Tour astronómico nocturno",
+        "descripcion": "Observación de estrellas aprovechando la baja contaminación lumínica del Cajón del Maipo. Disponible en determinadas temporadas.",
+        "precio_aproximado": "[VERIFICAR VIGENCIA]"
+      },
+      {
+        "nombre": "Piscina al aire libre",
+        "descripcion": "Piscina disponible para huéspedes y visitantes con entrada de día. Horario: 10:00 a 19:00 hrs.",
+        "precio_aproximado": "[VERIFICAR VIGENCIA]"
+      },
+      {
+        "nombre": "Muro de escalada",
+        "descripcion": "Muro de escalada indoor/outdoor disponible en las instalaciones del complejo.",
+        "dificultad": "Variable según nivel"
+      },
+      {
+        "nombre": "Trail Running",
+        "descripcion": "Cascada de las Ánimas organiza anualmente el evento 'Cascada Trail', una competencia de trail running en el santuario. Ediciones documentadas en 2022, 2023 y 2025.",
+        "precio_aproximado": "Evento competitivo con inscripción"
+      }
+    ],
+    "aptitudes": {
+      "familias": true,
+      "ninos": true,
+      "ninos_edad_minima_rafting": 12,
+      "movilidad_reducida": false,
+      "nota_movilidad_reducida": "El sendero a la cascada incluye terreno irregular y un puente colgante. No se encontró información sobre facilidades para PMR. [NO VERIFICADO]",
+      "nivel_dificultad_general": "Fácil a moderado",
+      "nivel_dificultad_trekking_cascada": "Fácil (20-25 minutos)",
+      "nivel_dificultad_rafting": "Moderado a Difícil (Clase III-IV)",
+      "mascotas": "[NO VERIFICADO] Consultar directamente con el complejo"
+    },
+    "area_protegida": {
+      "es_area_protegida": true,
+      "tipo": "Santuario de la Naturaleza (privado)",
+      "nombre_area": "Santuario de la Naturaleza Cascada de las Ánimas",
+      "administrador": "Familia Astorga Moreno / Sociedad de Turismo Cascada de las Ánimas Limitada",
+      "fecha_declaracion": "1995",
+      "fuente_declaracion": "Ladera Sur, Wikipedia, cascadadelasanimas.cl — consistente en múltiples fuentes",
+      "horarios": "Los accesos a las actividades requieren reserva previa. La piscina opera 10:00-19:00 hrs. Horario general de atención: consultar cascadadelasanimas.cl",
+      "tarifa_entrada": "El acceso al santuario se realiza a través de la compra de actividades o alojamiento. No existe entrada independiente a la cascada — se accede únicamente con trekking guiado. [VERIFICAR VIGENCIA precios 2026]",
+      "es_conaf": false,
+      "nota_conaf": "El Monumento Natural El Morado (CONAF) es una unidad distinta, ubicada en Baños Morales (~31 km desde San Alfonso). La Cascada de las Ánimas es un santuario privado administrado por la familia Astorga, no administrado por CONAF."
+    },
+    "empresas_servicios": [
+      {
+        "nombre": "Cascada de las Ánimas Chile Adventure Resort",
+        "tipo": "Operador principal (alojamiento, actividades, gastronomía)",
+        "servicios": ["Trekking guiado a la cascada", "Rafting", "Canopy", "Cabalgata", "Kayak", "Muro de escalada", "Tour astronómico", "Yoga", "Restaurante", "Piscina", "Camping", "Cabañas", "Habitaciones", "Domos"],
+        "web": "https://cascadadelasanimas.cl",
+        "email": "info@cascadadelasanimas.cl",
+        "telefono_1": "+56 9 4244 8065",
+        "telefono_2": "+56 9 9870 3912",
+        "telefono_oficina": "+56 2 2582 9430",
+        "telefono_cascada_lodge": "+56 2 2582 9436 / +56 9 6527 2315",
+        "fuente": "cascadadelasanimas.cl/contact-us — verificado en resultados de búsqueda 2024-2025",
+        "vigencia": "ACTIVO — Tripadvisor tiene reviews de diciembre 2025"
+      },
+      {
+        "nombre": "Fundación Refugio Animal Cascada",
+        "tipo": "Centro de rehabilitación y educación ambiental",
+        "servicios": ["Visitas guiadas al centro de fauna nativa", "Educación ambiental", "Rehabilitación de fauna"],
+        "web": "https://refugioanimalcascada.org",
+        "fuente": "refugioanimalcascada.org — verificado en búsqueda 2025",
+        "vigencia": "ACTIVO — web operativa y mencionada en fuentes 2025"
+      },
+      {
+        "nombre": "Vulcano Pro",
+        "tipo": "Operador externo de aventura",
+        "servicios": ["Canopy en Cascada de las Ánimas (ofrecido como paquete externo)"],
+        "web": "https://vulcanopro.com/marketplace/canopy-en-la-cascada-de-las-animas",
+        "vigencia": "[VERIFICAR VIGENCIA] — aparece en resultados de búsqueda pero no se confirmó actividad 2025-2026"
+      }
+    ],
+    "hospedaje_cercano": [
+      {
+        "nombre": "Cascada de las Ánimas — Cabañas",
+        "tipo": "Cabañas de montaña",
+        "descripcion": "Cabañas independientes de arquitectura rústica con madera, cocina equipada, patio y quincho exterior. Capacidad variable para familias y grupos. Sector 'Borde Río' con vistas al Maipo.",
+        "precio_desde_clp": "[VERIFICAR VIGENCIA] Booking.com indica precios desde aprox. USD 150/noche. Consultar cascadadelasanimas.cl/producto-categoria/alojamiento/cabanas/",
+        "url": "https://cascadadelasanimas.cl/producto-categoria/alojamiento/cabanas/",
+        "distancia_cascada_km": 0,
+        "nota": "Alojamiento dentro del mismo santuario"
+      },
+      {
+        "nombre": "Cascada de las Ánimas — Domos Loft",
+        "tipo": "Domos / glamping",
+        "descripcion": "Domos innovadores para 2-5 personas. Opción de glamping con diseño moderno en entorno natural.",
+        "precio_desde_clp": "[VERIFICAR VIGENCIA] Consultar cascadadelasanimas.cl",
+        "url": "https://cascadadelasanimas.cl/alojamiento/",
+        "distancia_cascada_km": 0,
+        "nota": "Alojamiento dentro del mismo santuario"
+      },
+      {
+        "nombre": "Cascada de las Ánimas — Habitaciones y Hostal",
+        "tipo": "Habitaciones de resort / hostal",
+        "descripcion": "Habitaciones individuales y compartidas dentro del complejo. Algunas suites premium incluyen tinaja privada en terraza.",
+        "precio_desde_clp": "[VERIFICAR VIGENCIA] Consultar cascadadelasanimas.cl/producto-categoria/alojamiento/habitaciones/",
+        "url": "https://cascadadelasanimas.cl/producto-categoria/alojamiento/habitaciones/",
+        "distancia_cascada_km": 0
+      },
+      {
+        "nombre": "Cascada de las Ánimas — Zona de Camping",
+        "tipo": "Camping techado premium",
+        "descripcion": "Sitios de camping techados, independientes entre sí, en bosque de árboles nativos e introducidos. Cuentan con quinchos, mesas, conexión eléctrica, agua de vertiente y baños con ducha caliente.",
+        "precio_desde_clp": "[VERIFICAR VIGENCIA] Consultar cascadadelasanimas.cl/producto-categoria/instalaciones/zona-de-camping-y-picnic/",
+        "url": "https://cascadadelasanimas.cl/producto-categoria/instalaciones/zona-de-camping-y-picnic/",
+        "distancia_cascada_km": 0
+      },
+      {
+        "nombre": "Cascada Lodge",
+        "tipo": "Hotel Boutique",
+        "descripcion": "Hotel boutique independiente del complejo Cascada de las Ánimas, ubicado en San Alfonso. TripAdvisor #2 de 11 en San Alfonso. Cuenta con restaurante, piscina exterior de temporada, jardín y WiFi gratuito. Rating TripAdvisor: 4/5.",
+        "precio_desde_clp": "Aproximadamente $138.961 CLP/noche (referencia TripAdvisor 2024)",
+        "url": "https://www.cascadalodge.cl",
+        "tripadvisor": "https://www.tripadvisor.com/Hotel_Review-g1646578-d7395419-Reviews-Cascada_Lodge",
+        "distancia_cascada_km": "Aproximadamente 1-2 km [NO VERIFICADO distancia exacta]"
+      },
+      {
+        "nombre": "Hotel Hosteria Posada",
+        "tipo": "Hostería",
+        "descripcion": "Hostería tradicional en San Alfonso.",
+        "url": "https://hotel-hosteria-posada-san-alfonso.vivehotels.com/en/",
+        "precio_desde_clp": "[VERIFICAR VIGENCIA]",
+        "distancia_cascada_km": "[NO VERIFICADO]"
+      }
+    ],
+    "como_llegar": {
+      "descripcion_general": "La Cascada de las Ánimas se ubica en San Alfonso, Cajón del Maipo, a 60 km del centro de Santiago. Se accede por la Ruta G-25 (Camino al Volcán). El ingreso oficial está en Camino al Volcán N° 31087, al costado de la misma ruta.",
+      "desde_santiago_auto": "Desde el centro de Santiago: Tomar Autopista del Sol o Av. Departamental hacia el sur hasta Puente Alto. Desde Puente Alto, seguir por Camino al Volcán (Ruta G-25) hacia el interior por aprox. 35-40 km hasta San Alfonso. El ingreso a Cascada de las Ánimas está señalizado sobre la ruta G-25. Tiempo estimado: 1h - 1h 30min dependiendo del tráfico. En fines de semana y festivos puede extenderse a 2 horas.",
+      "desde_santiago_transporte_publico": "1. Metro Línea 4 hasta estación Las Mercedes (terminal). 2. En la salida de Las Mercedes, tomar microbús MB-72B (o MB-72A / MB-72C) con destino San Alfonso o San Gabriel. El bus pasa cada 30 minutos y llega directamente frente al ingreso de Cascada de las Ánimas. Alternativamente, colectivos desde la misma estación Las Mercedes salen cada 10 minutos entre 07:00 y 20:00 hrs hacia San Alfonso.",
+      "ruta_gps": "Ruta G-25, Camino al Volcán N° 31087, San Alfonso, San José de Maipo",
+      "coordenadas_estacionamiento": {
+        "latitud": -33.73076,
+        "longitud": -70.31521,
+        "nota": "Coordenadas del ingreso principal al complejo. Estacionamiento disponible dentro del predio. [VERIFICAR capacidad]"
+      },
+      "distancia_santiago_km": 60,
+      "distancia_santiago_tiempo": "1h a 1h 30min en auto (tráfico normal)",
+      "distancia_san_jose_de_maipo_km": "Aproximadamente 20 km desde San José de Maipo",
+      "transporte_publico_disponible": true,
+      "lineas_bus": ["MB-72A", "MB-72B", "MB-72C"],
+      "punto_partida_bus": "Estación Las Mercedes, Metro Línea 4, Santiago"
+    },
+    "clima": {
+      "tipo": "Clima mediterráneo de montaña (BSk/Csa según Köppen a esta altitud)",
+      "descripcion": "El Cajón del Maipo en San Alfonso presenta un clima mediterráneo con estación seca marcada en verano y lluvias concentradas en invierno. A 1.115 msnm, las temperaturas son notablemente más frescas que en Santiago. Los veranos son cálidos y secos; los inviernos fríos con precipitaciones que pueden caer como nieve en eventos de frente polar fuerte.",
+      "temp_promedio_anual": "14°C (estimado para San José de Maipo — San Alfonso es levemente más frío por mayor altitud)",
+      "temp_verano": {
+        "maxima_promedio": "28°C (enero-febrero)",
+        "minima_promedio": "10°C",
+        "descripcion": "Días cálidos y secos. Noches frescas. Temporada alta de visitas."
+      },
+      "temp_otono": {
+        "maxima_promedio": "18°C (marzo-mayo)",
+        "minima_promedio": "6°C",
+        "descripcion": "Temperaturas agradables, inicio de lluvias en mayo. Paisaje con cambio de colores."
+      },
+      "temp_invierno": {
+        "maxima_promedio": "10°C (junio-agosto)",
+        "minima_promedio": "1°C (puede llegar a -3°C en frentes polares)",
+        "descripcion": "Fríos con potencial de nieve en el santuario. Puede haber restricciones de acceso por nevadas. Mayor caudal de la cascada por lluvias invernales y acumulación de nieve para deshielo de primavera."
+      },
+      "temp_primavera": {
+        "maxima_promedio": "20°C (septiembre-noviembre)",
+        "minima_promedio": "7°C",
+        "descripcion": "Temperaturas agradables, deshielo activo que aumenta el caudal de la cascada y del río Maipo (Clase IV en rafting). Paisaje de floración nativa."
+      },
+      "precipitaciones_anuales": "380-500 mm (concentradas en invierno). La zona alta de la cuenca puede recibir hasta 1.200-2.000 mm en equivalente nieve.",
+      "periodo_seco": "6 meses (noviembre-abril)",
+      "periodo_humedo": "3-4 meses (junio-agosto, con mayo y septiembre como transición)",
+      "fuentes": ["observatorio.ciren.cl/profile/clima/precordillera-santiago-cajon-del-maipo", "sanjosedemaipo.cl/comuna/datos-comunales/"]
+    },
+    "historia_cultura": {
+      "historia": "El predio que hoy conforma el Santuario de la Naturaleza Cascada de las Ánimas ha permanecido en manos de la familia Astorga Moreno por más de 100 años. Desde la década de 1980, la familia se convirtió en pionera del ecoturismo en Chile, buscando crear y fomentar espacios de interacción entre personas y naturaleza con valores de cuidado y respeto medioambiental. En 1995, ante la amenaza del trazado de un gasoducto a Argentina que atravesaría el predio, la familia emprendió una lucha de tres años que culminó con la declaración del área como Santuario de la Naturaleza — categoría de protección del Estado chileno para sitios de especial interés científico, ecológico, estético o cultural. La disputa se resolvió a favor de la familia Astorga, obligando a modificar el trazado original del gasoducto. Desde entonces, el santuario ha implementado un plan de reforestación con más de 30.000 árboles nativos plantados y más de 5.000 obras de conservación de suelos y agua. La Fundación Refugio Animal Cascada opera en el predio desde 2003, rehabilitando fauna nativa herida o en peligro con miras a su reintroducción al medio silvestre. Está en marcha un proyecto de reintroducción de guanacos para restablecer la cadena trófica y sostener la presencia de pumas en el santuario.",
+      "significado_cultural": "El Cajón del Maipo en su conjunto fue territorio ancestral de comunidades indígenas de la zona central. La localidad de San Alfonso y el valle del Maipo son parte del territorio histórico de los Picunche (gente del norte), un pueblo de habla mapuche que habitó la región central de Chile antes y durante la colonización española. El nombre 'Ánimas' (almas de los muertos) refleja la tradición católica popular de la cultura hispano-criolla, vinculada posiblemente a narraciones locales sobre apariciones o presencias en el lugar.",
+      "leyendas": [
+        "El nombre 'Ánimas' se asocia popularmente a leyendas locales sobre presencias espectrales en el cañón, vinculadas a la tradición de las 'ánimas del purgatorio' de la religiosidad popular chilena. Sin embargo, no se encontró documentación histórica precisa sobre el origen del nombre. [NO VERIFICADO — tradición oral]"
+      ],
+      "reconocimientos": [
+        "Santuario de la Naturaleza declarado en 1995 por el Consejo de Monumentos Nacionales (CMN) de Chile",
+        "Pionero del ecoturismo en Chile — reconocido en múltiples medios como Ladera Sur, La Tercera"
+      ],
+      "menciones_medios": [
+        "Ladera Sur — artículo de fondo sobre historia y conservación familiar",
+        "La Tercera — mención como santuario natural de la Región Metropolitana",
+        "VisitChile.com (SERNATUR) — incluido en listado oficial de atractivos"
+      ]
+    },
+    "flora": {
+      "descripcion_general": "El santuario preserva 3.600 hectáreas de vegetación de tipo esclerófilo mediterráneo y bosque ribereño andino, en una de las mayores reservas privadas de la Región Metropolitana. La vegetación es representativa de la zona de transición entre el matorral esclerófilo de la precordillera y la vegetación andina de altura.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Quillay",
+          "nombre_cientifico": "Quillaja saponaria",
+          "nota": "Especie dominante del bosque esclerófilo. La familia Astorga ha reforestado con quillayes como parte del plan de restauración."
+        },
+        {
+          "nombre_comun": "Litre",
+          "nombre_cientifico": "Lithrea caustica",
+          "nota": "Árbol endémico de Chile, frecuente en el bosque esclerófilo. Puede causar dermatitis por contacto."
+        },
+        {
+          "nombre_comun": "Olivillo",
+          "nombre_cientifico": "Aextoxicon punctatum",
+          "nota": "Especie en peligro mencionada en los planes de reforestación del santuario."
+        },
+        {
+          "nombre_comun": "Boldo",
+          "nombre_cientifico": "Peumus boldus",
+          "nota": "Árbol aromático endémico de Chile, presente en el bosque esclerófilo."
+        },
+        {
+          "nombre_comun": "Espino",
+          "nombre_cientifico": "Acacia caven",
+          "nota": "Característica del matorral precordillerano."
+        },
+        {
+          "nombre_comun": "Peumo",
+          "nombre_cientifico": "Cryptocarya alba",
+          "nota": "Frecuente en laderas con mayor humedad."
+        }
+      ],
+      "nota_conservacion": "El santuario tiene más de 30.000 árboles nativos plantados en el último tiempo, con foco en especies como quillay, olivillo y litre. Uno de los mayores esfuerzos de reforestación privada de la Región Metropolitana."
+    },
+    "fauna": {
+      "descripcion_general": "El santuario alberga fauna característica de la precordillera andina central chilena, incluyendo grandes felinos, aves rapaces y mamíferos medianos. La presencia del Refugio Animal Cascada (desde 2003) permite observar en cautiverio animales rescatados que no pueden ser liberados.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Puma",
+          "nombre_cientifico": "Puma concolor",
+          "estado_conservacion": "Vulnerable en Chile",
+          "nota": "Presente en estado silvestre en el santuario. Se realiza monitoreo activo. El proyecto de reintroducción de guanacos busca sostener la presencia del puma. También hay ejemplares en el Refugio Animal."
+        },
+        {
+          "nombre_comun": "Cóndor andino",
+          "nombre_cientifico": "Vultur gryphus",
+          "estado_conservacion": "Vulnerable",
+          "nota": "Avistable sobrevolando el cañón y las alturas del santuario. También hay ejemplares en el Refugio Animal Cascada."
+        },
+        {
+          "nombre_comun": "Gato colo-colo",
+          "nombre_cientifico": "Leopardus colocola",
+          "estado_conservacion": "Vulnerable",
+          "nota": "Felino salvaje nativo registrado en el santuario."
+        },
+        {
+          "nombre_comun": "Gato andino",
+          "nombre_cientifico": "Leopardus jacobita",
+          "estado_conservacion": "En peligro",
+          "nota": "Uno de los felinos más amenazados de Sudamérica. Registrado en el santuario."
+        },
+        {
+          "nombre_comun": "Zorro culpeo",
+          "nombre_cientifico": "Lycalopex culpaeus",
+          "nota": "Frecuente en el santuario y los cerros del Cajón del Maipo."
+        },
+        {
+          "nombre_comun": "Quique",
+          "nombre_cientifico": "Galictis cuja",
+          "nota": "Pequeño mustélido nativo registrado en el santuario."
+        },
+        {
+          "nombre_comun": "Huiña",
+          "nombre_cientifico": "Leopardus guigna",
+          "estado_conservacion": "Vulnerable",
+          "nota": "Felino endémico de Chile y Argentina de pequeño tamaño registrado en el santuario."
+        },
+        {
+          "nombre_comun": "Vizcacha",
+          "nombre_cientifico": "Lagidium viscacia",
+          "nota": "Roedor andino frecuente en roquedales. Avistable en las zonas rocosas del santuario."
+        },
+        {
+          "nombre_comun": "Loro tricahue",
+          "nombre_cientifico": "Cyanoliseus patagonus",
+          "estado_conservacion": "Vulnerable en Chile",
+          "nota": "Mencionado en fuentes sobre la fauna del Cajón del Maipo. [NO VERIFICADO presencia específica en el santuario]"
+        }
+      ],
+      "refugio_animal_cascada": {
+        "descripcion": "Centro de rehabilitación, reintroducción y exhibición de fauna nativa. Opera desde 2003. Rehabilita pumas, zorros, cóndores, loros y otras especies para su eventual liberación. Las visitas guiadas de 2.5 horas permiten conocer la historia de cada animal.",
+        "web": "https://refugioanimalcascada.org",
+        "fundacion": "Fundación Refugio Animal Cascada"
+      }
+    },
+    "seguridad_recomendaciones": {
+      "tips_seguridad": [
+        "El acceso a la cascada es EXCLUSIVAMENTE con guía local certificado del complejo. No se permite el ingreso independiente al interior del santuario para llegar a la cascada.",
+        "Respetar todos los senderos autorizados. El santuario tiene 3.600 hectáreas y salirse de los senderos marcados puede ser peligroso.",
+        "El rafting en el Río Maipo es Clase IV en temporada de deshielo (noviembre-febrero). Respetar las indicaciones de los guías de rafting. Edad mínima 12 años.",
+        "En invierno (junio-agosto) puede haber restricciones de acceso al santuario por nevadas en altura. Consultar previamente antes de visitar.",
+        "El puente colgante en el sendero a la cascada puede ser resbaladizo si está húmedo. Usar calzado adecuado.",
+        "Llevar linterna o luz frontal si se planea visita al atardecer o tour nocturno — la iluminación exterior es mínima.",
+        "No acercarse al borde de la cascada. La roca puede estar mojada y ser muy resbaladiza.",
+        "Llevar abrigo extra incluso en verano — la temperatura baja considerablemente en el cañón y al atardecer.",
+        "En caso de emergencia, el hospital más cercano es el Hospital de San José de Maipo (20 km aprox.).",
+        "Llegar 15 minutos antes de la hora de la actividad reservada."
+      ],
+      "recomendaciones_que_llevar": [
+        "Calzado de trekking con suela antideslizante (terreno irregular y húmedo)",
+        "Ropa en capas — el cañón puede estar varios grados más frío que Santiago",
+        "Protector solar (la altitud de 1.100 msnm aumenta la exposición UV)",
+        "Agua — llevar al menos 1 litro por persona para el trekking",
+        "Snack o picnic (hay zona de picnic en el complejo)",
+        "Cámara fotográfica o teléfono con memoria libre",
+        "Repelente de insectos en temporada de verano",
+        "Ropa impermeable o rompeviento para el rafting y para cambios climáticos repentinos",
+        "Traje de baño si se planea usar la piscina",
+        "Reservar actividades con anticipación — especialmente en temporada alta (enero-febrero) y fines de semana"
+      ]
+    },
+    "gastronomia": {
+      "descripcion_regional": "El Cajón del Maipo tiene una tradición gastronómica arraigada en la cocina chilena de campo, con fuerte presencia de carnes a la leña, guisos y platos de temporada. El área de San Alfonso y San José de Maipo concentra varias opciones entre picadas familiares y restaurantes con propuesta más elaborada.",
+      "restaurantes_destacados": [
+        {
+          "nombre": "Restaurante de Cascada de las Ánimas",
+          "tipo": "Restaurante de resort / cocina chilena e internacional",
+          "descripcion": "Restaurante propio del complejo, disponible para huéspedes y visitantes con full day. Ofrece desayuno, almuerzo y cena. Reviews de TripAdvisor destacan la comida abundante, sabrosa y bien atendida.",
+          "ubicacion": "Dentro del complejo Cascada de las Ánimas",
+          "reservas": "Incluido en paquetes full day, disponible para huéspedes",
+          "vigencia": "ACTIVO — confirmado por reviews diciembre 2025"
+        },
+        {
+          "nombre": "La Taberna",
+          "tipo": "Restaurante bar temático medieval",
+          "descripcion": "Bar y restaurante temático medieval en San Alfonso. Especialidades: pernil picante, costillar ahumado, mechada chilena. También ofrece pastel de choclo, caldillo de congrio y cazuela. Atmósfera de madera y piedra.",
+          "ubicacion": "San Alfonso, sobre la Ruta G-25",
+          "web": "https://www.latabernarestaurant.cl/",
+          "vigencia": "[VERIFICAR VIGENCIA] — web encontrada en búsqueda 2024"
+        },
+        {
+          "nombre": "La Posada El Canelo",
+          "tipo": "Restaurante familiar / cocina chilena",
+          "descripcion": "Restaurante familiar con más de 50 años de historia en el Cajón del Maipo. Especialidad en comida casera típica chilena.",
+          "ubicacion": "Cajón del Maipo (ubicación exacta no verificada)",
+          "vigencia": "[VERIFICAR VIGENCIA]"
+        },
+        {
+          "nombre": "Patio la Dominga",
+          "tipo": "Pizzería napolitana",
+          "descripcion": "Reconocido por sus pizzas al estilo napolitano en el Cajón del Maipo.",
+          "ubicacion": "Cajón del Maipo [ubicación exacta NO VERIFICADA]",
+          "vigencia": "[VERIFICAR VIGENCIA]"
+        }
+      ],
+      "platos_tipicos_regionales": [
+        {
+          "plato": "Cazuela de vacuno",
+          "descripcion": "Guiso tradicional chileno con carne de vacuno, papas, choclo, zapallo y arroz. Plato de contundencia ideal para el clima fresco del cajón."
+        },
+        {
+          "plato": "Costillar a la leña",
+          "descripcion": "Costillar de cerdo o vacuno asado lentamente a la leña. Especialidad de varios restoranes del Cajón del Maipo."
+        },
+        {
+          "plato": "Empanadas de horno",
+          "descripcion": "Empanadas de pino (carne picada, cebolla, aceituna, huevo) horneadas. Presentes en todas las picadas del área."
+        },
+        {
+          "plato": "Pastel de choclo",
+          "descripcion": "Preparación típica chilena con choclo molido, carne, pollo, aceitunas y huevo. Disponible en temporada de verano."
+        },
+        {
+          "plato": "Trucha del río",
+          "descripcion": "Trucha arcoíris proveniente de los ríos andinos, preparada al horno o a la plancha. Frecuente en los restoranes del Cajón del Maipo."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "pregunta": "¿Cómo se llega a la Cascada de las Ánimas desde Santiago?",
+        "respuesta": "Desde Santiago en auto: tomar rumbo a Puente Alto y continuar por Camino al Volcán (Ruta G-25) por aproximadamente 35-40 km hasta San Alfonso. El complejo está señalizado sobre la ruta (Camino al Volcán N° 31087). Tiempo: 1h a 1h 30min. En transporte público: Metro Línea 4 hasta Las Mercedes, luego microbús MB-72B hacia San Alfonso (sale cada 30 minutos) o colectivo desde la misma estación."
+      },
+      {
+        "pregunta": "¿Puedo llegar a la cascada de forma independiente o debo contratar guía?",
+        "respuesta": "El acceso al interior del santuario para llegar a la cascada es exclusivamente con guía local certificado del complejo. No se permite el ingreso independiente. Esto permite preservar el entorno natural y garantizar la seguridad de los visitantes."
+      },
+      {
+        "pregunta": "¿Cuánto cuesta la entrada a la Cascada de las Ánimas?",
+        "respuesta": "No existe una entrada general independiente. El acceso a la cascada se realiza contratando el trekking guiado u otros paquetes del complejo. Para precios actualizados, consultar cascadadelasanimas.cl o llamar al +56 9 4244 8065."
+      },
+      {
+        "pregunta": "¿En qué época del año conviene visitar?",
+        "respuesta": "La mejor época es de septiembre a abril. En primavera (sept-nov) el caudal es mayor por el deshielo. El verano (dic-mar) garantiza buen tiempo y acceso pleno a todas las actividades. En invierno puede haber restricciones por nevadas. Los fines de semana de temporada alta (enero-febrero) son los más concurridos — conviene ir entre semana o reservar con anticipación."
+      },
+      {
+        "pregunta": "¿Se puede hacer rafting y quiénes pueden participar?",
+        "respuesta": "Sí. Cascada de las Ánimas opera la sección más larga de rafting del Río Maipo, con 34 rápidos (8 de ellos Clase IV). La edad mínima es 12 años. El río es Clase IV en temporada de deshielo (noviembre-febrero) y Clase III el resto del año. Se requiere reserva previa."
+      },
+      {
+        "pregunta": "¿El lugar es apto para familias con niños pequeños?",
+        "respuesta": "Sí, el complejo es muy familiar. Los niños pueden disfrutar del trekking a la cascada, la piscina, el refugio animal y las cabalgatas. El rafting tiene edad mínima de 12 años. El complejo cuenta con restaurante, zonas de picnic y camping, lo que lo hace ideal para familias."
+      },
+      {
+        "pregunta": "¿Qué es el Refugio Animal Cascada?",
+        "respuesta": "Es un centro de rehabilitación y exhibición de fauna nativa ubicado dentro del santuario, operado por la Fundación Refugio Animal Cascada desde 2003. Alberga pumas, cóndores, zorros y otras especies nativas rescatadas. Las visitas guiadas duran 2.5 horas. Más información en refugioanimalcascada.org."
+      },
+      {
+        "pregunta": "¿Cuánto mide la cascada?",
+        "respuesta": "La cascada tiene 60 metros de altura, con una caída de agua transparente sobre roca andina. Se llega tras un trekking de aproximadamente 20-25 minutos desde el complejo, cruzando bosque nativo y un puente colgante."
+      },
+      {
+        "pregunta": "¿Hay camping dentro del santuario?",
+        "respuesta": "Sí. El complejo cuenta con zona de camping techada, con sitios independientes entre sí en un bosque nativo. Incluye quinchos, mesas, conexión eléctrica, agua de vertiente y baños con ducha caliente. Se reserva en cascadadelasanimas.cl."
+      },
+      {
+        "pregunta": "¿Es el santuario parte de un parque nacional o está administrado por CONAF?",
+        "respuesta": "No. Es un Santuario de la Naturaleza privado, declarado en 1995 y administrado por la familia Astorga Moreno. El Monumento Natural El Morado (administrado por CONAF) es un área distinta, ubicada en Baños Morales, a aproximadamente 31 km de San Alfonso."
+      }
+    ],
+    "cascadas_cercanas": {
+      "por_cercania_geografica": [
+        {
+          "nombre": "Cascada el Yeso",
+          "slug": "cascada-el-yeso",
+          "region": "Región Metropolitana",
+          "descripcion": "Cascada ubicada antes del Embalse el Yeso, en el Cajón del Maipo interior. Forma parte del Parque Salto el Yeso.",
+          "distancia_aprox_km": "Aproximadamente 30-35 km desde Cascada de las Ánimas por Ruta G-25",
+          "tipo": "cercania"
+        },
+        {
+          "nombre": "Salto Velo de la Novia (Cajón del Maipo)",
+          "slug": "velo-de-la-novia-cajon-del-maipo",
+          "region": "Región Metropolitana",
+          "descripcion": "Espectacular cascada a más de 1.500 msnm en el Cajón del Maipo interior, con telón de fondo nevado.",
+          "tipo": "cercania"
+        },
+        {
+          "nombre": "Cascada Fuente Mágica (Cascada Doble)",
+          "slug": "cascada-fuente-magica",
+          "region": "Región Metropolitana",
+          "descripcion": "Dos cascadas que caen a una poza, accesibles tras más de 1 hora de trekking. Conocida también como 'Cascada Doble' en el Cajón del Maipo.",
+          "tipo": "cercania"
+        }
+      ],
+      "por_relacion_semantica": [
+        {
+          "nombre": "Salto del Laja",
+          "slug": "salto-del-laja",
+          "region": "Biobío",
+          "altura_metros": 35,
+          "descripcion": "La cascada más icónica de Chile, sobre meseta basáltica volcánica. Comparte con Cascada de las Ánimas la categoría de 'cascada imperdible' y acceso relativamente sencillo.",
+          "tipo": "relacionada"
+        },
+        {
+          "nombre": "Saltos del Petrohué",
+          "slug": "saltos-del-petrohue",
+          "region": "Los Lagos",
+          "descripcion": "Cascadas de aguas turquesas en Canal Petrohué dentro del Parque Nacional Vicente Pérez Rosales. Comparte el concepto de santuario natural protegido con ecoturismo.",
+          "tipo": "relacionada"
+        },
+        {
+          "nombre": "Cascada de los Siete Tazones",
+          "slug": "cascada-siete-tazones",
+          "region": "Maule",
+          "descripcion": "Sistema de cascadas en una serie de pozas naturales, muy popular para trekking y baño. Comparte el perfil de cascada de acceso por trekking en entorno natural protegido.",
+          "tipo": "relacionada"
+        }
+      ]
+    },
+    "estado_datos": {
+      "fecha_investigacion": "2026-02-24",
+      "confiabilidad_general": "alta",
+      "nota_general": "Los datos fueron triangulados entre el sitio oficial del complejo (cascadadelasanimas.cl), Wikipedia, Ladera Sur, Tripadvisor (con reviews hasta diciembre 2025), Mapcarta/OpenStreetMap, SERNATUR (VisitChile), y múltiples portales turísticos. La información de precios es la menos confiable por su naturaleza cambiante — siempre verificar directamente con el complejo antes de visitar.",
+      "datos_no_verificados": [
+        "Coordenadas exactas del punto de caída de la cascada (solo se tienen coordenadas del ingreso/campsite)",
+        "Caudal específico de la cascada en m³/s",
+        "Distancia exacta del sendero interno hasta la cascada en kilómetros",
+        "Precios actualizados a 2026 de todas las actividades y alojamiento",
+        "Vigencia de La Taberna, Patio la Dominga y Posada El Canelo como establecimientos activos",
+        "Accesibilidad para personas con movilidad reducida",
+        "Política sobre mascotas",
+        "Capacidad exacta del estacionamiento",
+        "Distancia exacta entre Cascada Lodge y el complejo Cascada de las Ánimas",
+        "Significado histórico preciso del nombre 'Ánimas'"
+      ],
+      "fuentes_consultadas": [
+        {
+          "nombre": "cascadadelasanimas.cl (sitio oficial)",
+          "tipo": "Fuente primaria — operador del complejo",
+          "confiabilidad": "Alta",
+          "url": "https://cascadadelasanimas.cl"
+        },
+        {
+          "nombre": "Wikipedia — Santuario de la naturaleza Cascada de las Ánimas",
+          "tipo": "Fuente secundaria enciclopédica",
+          "confiabilidad": "Alta (consistente con otras fuentes)",
+          "url": "https://es.wikipedia.org/wiki/Santuario_de_la_naturaleza_Cascada_de_las_%C3%81nimas"
+        },
+        {
+          "nombre": "Ladera Sur — artículo sobre Santuario",
+          "tipo": "Medio especializado en naturaleza y conservación",
+          "confiabilidad": "Alta",
+          "url": "https://laderasur.com/articulo/santuario-de-la-naturaleza-cascada-de-las-animas-una-iniciativa-de-conservacion-familiar-en-el-corazon-del-cajon-del-maipo/"
+        },
+        {
+          "nombre": "Mapcarta / OpenStreetMap (way 454992695, node N4039338529)",
+          "tipo": "Cartografía colaborativa",
+          "confiabilidad": "Media (coordenadas del ingreso, no de la cascada propiamente)",
+          "url": "https://mapcarta.com/N4039338529"
+        },
+        {
+          "nombre": "VisitChile.com (SERNATUR)",
+          "tipo": "Fuente oficial turismo Chile",
+          "confiabilidad": "Alta",
+          "url": "https://www.visitchile.com/en/las-animas-cascade-natural-sanctuary/"
+        },
+        {
+          "nombre": "TripAdvisor — Cascada de las Animas (reviews hasta diciembre 2025)",
+          "tipo": "Plataforma de reseñas de usuarios",
+          "confiabilidad": "Media-Alta (datos de experiencia de usuarios verificados)",
+          "url": "https://www.tripadvisor.com/Attraction_Review-g1646578-d2017284-Reviews-Cascada_de_las_Animas"
+        },
+        {
+          "nombre": "Booking.com — Cascada de las Animas",
+          "tipo": "Plataforma de reservas hoteleras",
+          "confiabilidad": "Media (precios referenciales)",
+          "url": "https://www.booking.com/hotel/cl/cabanas-cascada-de-las-animas.html"
+        },
+        {
+          "nombre": "cajondelmaipochile.cl — ficha Cascada de las Ánimas",
+          "tipo": "Portal turístico regional",
+          "confiabilidad": "Media-Alta",
+          "url": "https://cajondelmaipochile.cl/atractivos/cascada-de-las-animas/"
+        },
+        {
+          "nombre": "reservasnaturales.cl — ficha cascada",
+          "tipo": "Portal de reservas naturales",
+          "confiabilidad": "Media",
+          "url": "https://reservasnaturales.cl/cascada-de-las-animas/"
+        },
+        {
+          "nombre": "refugioanimalcascada.org (sitio oficial Refugio)",
+          "tipo": "Fuente primaria — fundación",
+          "confiabilidad": "Alta",
+          "url": "https://refugioanimalcascada.org"
+        },
+        {
+          "nombre": "Observatorio CIREN — perfil climático Precordillera Santiago",
+          "tipo": "Fuente científica oficial",
+          "confiabilidad": "Alta",
+          "url": "https://observatorio.ciren.cl/profile/clima/precordillera-santiago-cajon-del-maipo"
+        },
+        {
+          "nombre": "turismoencajondelmaipo.cl — cómo llegar",
+          "tipo": "Portal turístico regional",
+          "confiabilidad": "Media",
+          "url": "https://turismoencajondelmaipo.cl/como-llegar/"
+        }
+      ]
+    }
+  }
+}
