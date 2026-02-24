@@ -285,9 +285,31 @@ const cascada = {
   galeria,            // Array de URLs
 
   // Internal linking
-  cascadasCercanas,   // Array de { nombre, slug, region, altura }
+  cascadasCercanas,      // Array de { nombre, slug, region, altura, tipo: 'cercania' } — 3 por proximidad geográfica
+  cascadasRelacionadas,  // Array de { nombre, slug, region, altura, tipo: 'relacionada' } — 3 por relación semántica
 };
 ```
+
+### Internal Linking — Regla obligatoria
+
+Cada página de cascada DEBE tener:
+
+**1. Mínimo 3 enlaces inline** dentro del contenido (secciones Descripción, Historia, u otras):
+- Consultar `CONTEXTO_PROYECTO.md` para identificar cascadas relacionadas, regiones y hubs
+- Los enlaces deben ser **naturales y contextualmente relevantes** (no forzados)
+- Usar la clase `cascada-inline-link` para estilo consistente
+- Destinos típicos: página de región (`/region/{slug}`), hub de cascadas (`/cascadas`), cascadas mencionadas en el texto (`/cascadas/{slug}`)
+
+**2. Sección "Cascadas cercanas" con 6 cards** (no 3):
+- **3 por cercanía geográfica** (misma región o regiones adyacentes)
+- **3 por relación semántica** (misma dificultad, tipo de experiencia, acceso similar, o relevancia temática)
+- Las relaciones semánticas se definen consultando `CONTEXTO_PROYECTO.md`: gaps de contenido, co-ocurrencia de keywords, clusters por región
+- Cada card lleva badges: región + tipo (Cercanía / Relacionada)
+
+**3. Fuentes para decidir qué enlazar:**
+- `CONTEXTO_PROYECTO.md` → Gaps de contenido, keywords co-ocurrentes, clusters por región
+- Priorizar enlaces a páginas que existen o están planificadas en el topical map
+- No enlazar a URLs que no serán creadas
 
 ### Structured Data obligatorio por página
 

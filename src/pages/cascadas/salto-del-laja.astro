@@ -36,10 +36,17 @@ const cascada = {
     'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
     'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
   ],
+  // 3 por cercanía geográfica (misma región o adyacente)
   cascadasCercanas: [
-    { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Biobío', altura: 20 },
-    { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50 },
-    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 30 },
+    { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Biobío', altura: 20, tipo: 'cercania' },
+    { nombre: 'Salto Rehuen', slug: 'salto-rehuen', region: 'Biobío', altura: 15, tipo: 'cercania' },
+    { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (misma dificultad, tipo icónico, acceso Ruta 5)
+  cascadasRelacionadas: [
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+    { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', region: 'Maule', altura: 30, tipo: 'relacionada' },
+    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 30, tipo: 'relacionada' },
   ],
 
   // --- Datos verificados por chile-waterfalls-researcher (feb 2026) ---
@@ -245,9 +252,9 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
     <div class="cascada-two-col">
       <div class="reveal">
         <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
-        {cascada.descripcion.split('\n\n').map(p => (
-          <p class="cascada-body">{p.trim()}</p>
-        ))}
+        <p class="cascada-body">Los Saltos del Laja son un conjunto de cuatro cascadas independientes del Río Laja, formadas sobre una meseta de roca basáltica de origen volcánico. El salto principal alcanza los 35 metros de altura, mientras que los restantes varían entre 20 y 25 metros. Las cuatro cascadas caen en un radio de aproximadamente 1 km, separadas entre sí sobre el mismo lecho rocoso volcánico.</p>
+        <p class="cascada-body">El Río Laja nace en la Laguna del Laja (1.360 msnm) en la comuna de Antuco y recorre 140 km antes de desembocar en el Río Biobío. La cuenca total del Río Laja drena 4.040 km². Al llegar a este punto, el río se precipita sobre los escalones de roca basáltica generados por antiguas coladas de lava del volcán Antuco, creando este espectáculo natural. A diferencia de otros saltos de la <a href="/region/biobio" class="cascada-inline-link">Región del Biobío</a> como el <a href="/cascadas/salto-del-itata" class="cascada-inline-link">Salto del Itata</a>, el Salto del Laja destaca por su sistema de cuatro brazos simultáneos.</p>
+        <p class="cascada-body">Declarado Zona de Interés Turístico (ZOIT) por la Subsecretaría de Turismo en abril de 2016, los Saltos del Laja se ubican junto a la Ruta 5 Sur en el km 480, convirtiéndolos en una parada obligatoria para quienes viajan entre Santiago y el sur de Chile. En temporada alta (enero-febrero) el destino puede recibir hasta 30.000 visitantes diarios. Es, junto con los <a href="/cascadas/saltos-del-petrohue" class="cascada-inline-link">Saltos del Petrohué</a> en Los Lagos, una de las <a href="/cascadas" class="cascada-inline-link">cascadas más visitadas de Chile</a>.</p>
       </div>
 
       <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
@@ -438,14 +445,37 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
   </section>
 
 
-  <!-- ─── 14. CASCADAS CERCANAS ───────────────────────────────────────────── -->
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
   <section class="cascada-section cascada-section--navy">
     <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
       <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas por distancia geográfica en la zona centro-sur de Chile.
+      </p>
       <div class="cascada-cercanas-grid">
         {cascada.cascadasCercanas.map(c => (
           <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
-            <span class="cascada-cercana-card__badge">{c.region}</span>
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas similares en dificultad, acceso o tipo de experiencia.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
             <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
             <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
           </a>
@@ -530,6 +560,18 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
     font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
     text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
     margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
   }
 
   /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
@@ -751,11 +793,19 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
     transition: border-color 0.2s;
   }
   .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
   .cascada-cercana-card__badge {
     display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
     font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
     text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
-    margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
   }
   .cascada-cercana-card__title {
     font-family: 'Archivo Black', sans-serif;
