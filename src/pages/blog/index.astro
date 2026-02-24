@@ -1,0 +1,270 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const categorias = ['Todas', 'Guías', 'Datos', 'Familias', 'Trekking', 'Patagonia', 'Temporada'];
+
+const articulos = [
+  {
+    titulo: 'Las 10 Mejores Cascadas de Chile para Visitar en 2025',
+    slug: 'mejores-cascadas-chile',
+    categoria: 'Guías',
+    fecha: '15 ene 2025',
+    tiempo: '8 min',
+    resumen: 'Desde el Salto del Laja hasta los rincones más remotos de la Patagonia, esta guía recorre las cascadas imperdibles ordenadas por espectacularidad y accesibilidad.',
+    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
+    destacado: true,
+  },
+  {
+    titulo: 'Cascadas cerca de Santiago: guía completa para salir el fin de semana',
+    slug: 'cascadas-cerca-de-santiago',
+    categoria: 'Guías',
+    fecha: '3 ene 2025',
+    tiempo: '6 min',
+    resumen: 'El Cajón del Maipo esconde cascadas de hasta 55 metros a menos de 2 horas de la capital. Te contamos cuáles visitar y cómo llegar.',
+    img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
+    destacado: false,
+  },
+  {
+    titulo: '¿Cuál es la cascada más alta de Chile?',
+    slug: 'cascada-mas-alta-de-chile',
+    categoria: 'Datos',
+    fecha: '20 dic 2024',
+    tiempo: '3 min',
+    resumen: 'La respuesta no es tan simple. Chile tiene varias cascadas que compiten por el título según cómo se mida la altura. Te explicamos cuál es la campeona.',
+    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80',
+    destacado: false,
+  },
+  {
+    titulo: 'La cascada invertida: el fenómeno único de la Araucanía',
+    slug: 'cascada-invertida',
+    categoria: 'Datos',
+    fecha: '10 dic 2024',
+    tiempo: '4 min',
+    resumen: 'El viento patagónico es tan fuerte que a veces hace subir el agua en lugar de caer. Te contamos dónde verlo y en qué condiciones ocurre.',
+    img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
+    destacado: false,
+  },
+  {
+    titulo: 'Las mejores cascadas para ir con niños en Chile',
+    slug: 'cascadas-para-familias',
+    categoria: 'Familias',
+    fecha: '28 nov 2024',
+    tiempo: '5 min',
+    resumen: 'Selección de cascadas con acceso fácil, sin pendientes complicadas y con infraestructura para familias. Todas tienen estacionamiento y servicios básicos.',
+    img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
+    destacado: false,
+  },
+  {
+    titulo: 'Cascadas de la Patagonia: las más impresionantes y remotas',
+    slug: 'cascadas-patagonia',
+    categoria: 'Patagonia',
+    fecha: '15 nov 2024',
+    tiempo: '10 min',
+    resumen: 'Aysén y Magallanes concentran algunos de los saltos de agua más espectaculares del planeta. Una guía para los que quieren ir más lejos.',
+    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    destacado: false,
+  },
+  {
+    titulo: 'Cuándo visitar el Salto del Laja: guía de temporadas',
+    slug: 'cuando-visitar-salto-del-laja',
+    categoria: 'Temporada',
+    fecha: '5 nov 2024',
+    tiempo: '4 min',
+    resumen: 'El caudal del Salto del Laja varía enormemente según la época del año. Te decimos cuándo ir según lo que quieras experimentar.',
+    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80',
+    destacado: false,
+  },
+];
+
+const articuloDestacado = articulos.find(a => a.destacado)!;
+const articulosSecundarios = articulos.filter(a => !a.destacado);
+
+const categoriaColor: Record<string, string> = {
+  'Guías': '#00e5d4',
+  'Datos': '#b8e8e4',
+  'Familias': '#cceae6',
+  'Trekking': '#f4efe6',
+  'Patagonia': '#b8e8e4',
+  'Temporada': '#cceae6',
+};
+---
+
+<Layout
+  title="Blog — Guías y datos sobre cascadas de Chile"
+  description="Guías de viaje, datos curiosos y reportajes sobre las cascadas más impresionantes de Chile. Todo lo que necesitas saber antes de visitarlas."
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#091d2b;
+    padding: 10rem 2.5rem 5rem;
+  ">
+    <nav style="margin-bottom:2.5rem;">
+      <a href="/" style="color:rgba(244,239,230,0.5); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+      <span style="color:rgba(244,239,230,0.25); margin:0 0.5rem;">›</span>
+      <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Blog</span>
+    </nav>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:4rem;">
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 10vw, 12rem);
+        color:#f4efe6; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">GUÍAS<br/>&amp;<br/>DATOS</h1>
+      <p style="color:rgba(244,239,230,0.45); font-size:clamp(0.95rem, 1.5vw, 1.1rem); line-height:1.65; font-weight:300; max-width:400px; padding-bottom:0.5rem;">
+        Todo lo que necesitas saber antes de visitar una cascada en Chile. Guías de acceso, datos de temporada, reportajes y selecciones por tipo de viajero.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── FILTRO CATEGORÍAS ─────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 4rem;">
+    <div style="
+      border-top:1px solid rgba(244,239,230,0.08);
+      padding-top:2rem;
+      display:flex; gap:0.75rem; flex-wrap:wrap;
+    ">
+      {categorias.map((cat, i) => (
+        <button style={`
+          background:${i === 0 ? '#00e5d4' : 'transparent'};
+          color:${i === 0 ? '#091d2b' : 'rgba(244,239,230,0.6)'};
+          border:1px solid ${i === 0 ? '#00e5d4' : 'rgba(244,239,230,0.15)'};
+          font-size:0.75rem; font-weight:600; letter-spacing:0.1em;
+          text-transform:uppercase; padding:0.4rem 1.1rem; border-radius:999px;
+          cursor:pointer;
+        `}>{cat}</button>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── ARTÍCULO DESTACADO ────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 2rem;">
+    <a href={`/blog/${articuloDestacado.slug}`} style="
+      display:grid; grid-template-columns:1.4fr 1fr;
+      text-decoration:none; border-radius:4px; overflow:hidden;
+      cursor:pointer;
+    " class="cascade-card">
+      <!-- Imagen grande -->
+      <div style={`
+        min-height:500px;
+        background-image:url('${articuloDestacado.img}');
+        background-size:cover; background-position:center;
+        position:relative;
+      `}>
+        <div style="
+          position:absolute; inset:0;
+          background:linear-gradient(to right, rgba(9,29,43,0) 60%, rgba(9,29,43,0.6) 100%);
+        "></div>
+      </div>
+      <!-- Contenido -->
+      <div style="
+        background:#0d2a3d; padding:3.5rem;
+        display:flex; flex-direction:column; justify-content:center;
+      ">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;">
+          <span style="
+            background:#00e5d4; color:#091d2b;
+            font-size:0.7rem; font-weight:700; letter-spacing:0.12em;
+            text-transform:uppercase; padding:0.3rem 0.85rem; border-radius:999px;
+          ">{articuloDestacado.categoria}</span>
+          <span style="color:rgba(244,239,230,0.3); font-size:0.78rem;">Destacado</span>
+        </div>
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(1.6rem, 2.5vw, 2.4rem);
+          color:#f4efe6; margin:0 0 1.25rem;
+          text-transform:uppercase; line-height:1;
+        ">{articuloDestacado.titulo}</h2>
+        <p style="color:rgba(244,239,230,0.55); font-size:0.95rem; line-height:1.65; margin:0 0 2rem; font-weight:300;">{articuloDestacado.resumen}</p>
+        <div style="display:flex; align-items:center; gap:1.5rem;">
+          <span style="color:rgba(244,239,230,0.3); font-size:0.78rem;">{articuloDestacado.fecha}</span>
+          <span style="color:rgba(244,239,230,0.3); font-size:0.78rem;">{articuloDestacado.tiempo} de lectura</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+
+  <!-- ─── GRID DE ARTÍCULOS ─────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:2rem 2.5rem 8rem;">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {articulosSecundarios.map(art => (
+        <a href={`/blog/${art.slug}`} class="cascade-card" style="display:block; text-decoration:none;">
+          <!-- Imagen -->
+          <div style={`
+            height:220px;
+            background-image:url('${art.img}');
+            background-size:cover; background-position:center;
+            border-radius:4px; margin-bottom:1.25rem;
+            position:relative; overflow:hidden;
+          `}>
+            <span style={`
+              position:absolute; top:1rem; left:1rem;
+              background:${categoriaColor[art.categoria] ?? '#00e5d4'}; color:#091d2b;
+              font-size:0.68rem; font-weight:700; letter-spacing:0.1em;
+              text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:999px;
+            `}>{art.categoria}</span>
+          </div>
+          <!-- Meta -->
+          <div style="display:flex; gap:1rem; margin-bottom:0.75rem;">
+            <span style="color:rgba(244,239,230,0.3); font-size:0.75rem;">{art.fecha}</span>
+            <span style="color:rgba(244,239,230,0.3); font-size:0.75rem;">· {art.tiempo}</span>
+          </div>
+          <!-- Título -->
+          <h2 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.15rem; color:#f4efe6; margin:0 0 0.65rem;
+            text-transform:uppercase; line-height:1.1;
+          ">{art.titulo}</h2>
+          <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; line-height:1.55; margin:0; font-weight:300;">{art.resumen}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── NEWSLETTER CTA ────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
+      <div>
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#091d2b; margin:0 0 1rem; line-height:0.92;
+          text-transform:uppercase;
+        ">
+          Nuevas<br/>cascadas<br/>cada semana
+        </h2>
+        <p style="color:rgba(9,29,43,0.55); font-size:1rem; line-height:1.65; font-weight:300; max-width:380px;">
+          Recibe guías, datos de temporada y cascadas recién catalogadas directamente en tu correo.
+        </p>
+      </div>
+      <div>
+        <div style="display:flex; gap:0; border:1.5px solid rgba(9,29,43,0.2); border-radius:999px; overflow:hidden; max-width:460px;">
+          <input
+            type="email"
+            placeholder="tu@correo.cl"
+            style="
+              flex:1; border:none; background:transparent; outline:none;
+              padding:1rem 1.5rem; font-size:0.9rem; color:#091d2b;
+              font-family:'DM Sans',sans-serif;
+            "
+          />
+          <button style="
+            background:#091d2b; color:#f4efe6; border:none; cursor:pointer;
+            padding:1rem 1.75rem; font-size:0.78rem; font-weight:600;
+            letter-spacing:0.1em; text-transform:uppercase;
+            border-radius:999px; margin:3px;
+          ">Suscribirse</button>
+        </div>
+        <p style="color:rgba(9,29,43,0.35); font-size:0.75rem; margin:0.75rem 0 0 1.5rem;">
+          Sin spam. Puedes darte de baja cuando quieras.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,232 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const regiones = [
+  {
+    nombre: 'Tarapacá & Antofagasta',
+    slug: 'tarapaca-antofagasta',
+    zona: 'Norte Grande',
+    cascadas: 8,
+    descripcion: 'Desierto florido y quebradas andinas. Cascadas estacionales entre el Altiplano y la Puna.',
+    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    color: '#cceae6',
+  },
+  {
+    nombre: 'Atacama & Coquimbo',
+    slug: 'atacama-coquimbo',
+    zona: 'Norte Chico',
+    cascadas: 12,
+    descripcion: 'Ríos que bajan de la cordillera semiárida. Cascadas rodeadas de cactus y cielos despejados.',
+    img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
+    color: '#b8e8e4',
+  },
+  {
+    nombre: 'Metropolitana & Valparaíso',
+    slug: 'zona-central',
+    zona: 'Zona Central',
+    cascadas: 31,
+    descripcion: 'Cajón del Maipo, Radal Siete Tazas y cordillera de la capital. Las más visitadas del país.',
+    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80',
+    color: '#00e5d4',
+  },
+  {
+    nombre: 'O\'Higgins & Maule',
+    slug: 'maule',
+    zona: 'Zona Central Sur',
+    cascadas: 24,
+    descripcion: 'Salto del Itata, Salto La Placeta y cascadas del Maule en plena precordillera de secano.',
+    img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
+    color: '#cceae6',
+  },
+  {
+    nombre: 'Biobío',
+    slug: 'biobio',
+    zona: 'Zona Sur',
+    cascadas: 42,
+    descripcion: 'Salto del Laja, el ícono de Chile. Bosques de araucarias y cascadas volcánicas de la Cordillera de Nahuelbuta.',
+    img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
+    color: '#00e5d4',
+    destacada: true,
+  },
+  {
+    nombre: 'La Araucanía',
+    slug: 'araucania',
+    zona: 'Zona Sur',
+    cascadas: 48,
+    descripcion: 'Tierra de volcanes y parques nacionales. Cascadas en el Huerquehue, Conguillio y Villarrica.',
+    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    color: '#b8e8e4',
+  },
+  {
+    nombre: 'Los Ríos & Los Lagos',
+    slug: 'los-lagos',
+    zona: 'Patagonia Norte',
+    cascadas: 95,
+    descripcion: 'La mayor concentración de cascadas del país. Saltos del Petrohué, Cochamó y el Parque Alerce Andino.',
+    img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
+    color: '#00e5d4',
+    destacada: true,
+  },
+  {
+    nombre: 'Aysén',
+    slug: 'aysen',
+    zona: 'Patagonia',
+    cascadas: 73,
+    descripcion: 'Fiordos, campos de hielo y cascadas verticales. Algunas de las más espectaculares e inaccesibles del mundo.',
+    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80',
+    color: '#cceae6',
+    destacada: true,
+  },
+  {
+    nombre: 'Magallanes',
+    slug: 'magallanes',
+    zona: 'Patagonia Sur',
+    cascadas: 38,
+    descripcion: 'El fin del mundo. Cascadas en la Cordillera Darwin, Torres del Paine y los canales australes.',
+    img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
+    color: '#b8e8e4',
+  },
+];
+
+const totalCascadas = regiones.reduce((sum, r) => sum + r.cascadas, 0);
+---
+
+<Layout
+  title="Cascadas por Región — Explora Chile de Norte a Sur"
+  description={`Descubre las ${totalCascadas}+ cascadas de Chile organizadas por región. Desde el desierto de Atacama hasta los fiordos de Magallanes.`}
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#f4efe6;
+    padding: 10rem 2.5rem 6rem;
+  ">
+    <nav style="margin-bottom:2rem;">
+      <a href="/" style="color:rgba(9,29,43,0.4); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+      <span style="color:rgba(9,29,43,0.2); margin:0 0.5rem;">›</span>
+      <span style="color:#00b4a0; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Regiones</span>
+    </nav>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:4rem;">
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 10vw, 12rem);
+        color:#091d2b; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">
+        CHILE<br/>DE NORTE<br/>A SUR
+      </h1>
+      <div>
+        <p style="color:#091d2b; font-size:clamp(1rem, 1.6vw, 1.2rem); line-height:1.65; font-weight:300; max-width:420px; margin:0 0 2rem;">
+          Chile tiene más de 4.200 km de longitud. Cada región alberga un tipo distinto de cascada, desde los saltos del desierto hasta los fiordos patagónicos.
+        </p>
+        <div style="display:flex; gap:3rem;">
+          <div>
+            <p style="font-family:'Archivo Black',sans-serif; font-size:2.5rem; color:#00b4a0; margin:0; line-height:1;">{regiones.length}</p>
+            <p style="font-size:0.75rem; color:rgba(9,29,43,0.5); letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">Regiones</p>
+          </div>
+          <div>
+            <p style="font-family:'Archivo Black',sans-serif; font-size:2.5rem; color:#00b4a0; margin:0; line-height:1;">+{totalCascadas}</p>
+            <p style="font-size:0.75rem; color:rgba(9,29,43,0.5); letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">Cascadas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── GRID DE REGIONES ──────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 8rem;">
+
+    <!-- Regiones destacadas (grandes) -->
+    <div style="margin-bottom:1.25rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.25rem;">
+      {regiones.filter(r => r.destacada).map(r => (
+        <a href={`/region/${r.slug}`} style="display:block; text-decoration:none; position:relative; overflow:hidden; border-radius:4px; cursor:pointer;" class="cascade-card">
+          <!-- Foto -->
+          <div style={`
+            height:500px;
+            background-image:url('${r.img}');
+            background-size:cover; background-position:center;
+          `}></div>
+          <!-- Overlay -->
+          <div style="
+            position:absolute; inset:0;
+            background:linear-gradient(to top, rgba(9,29,43,0.85) 0%, rgba(9,29,43,0.1) 60%);
+          "></div>
+          <!-- Contenido -->
+          <div style="position:absolute; bottom:0; left:0; right:0; padding:2rem;">
+            <span style="
+              display:inline-block; font-size:0.68rem; font-weight:700;
+              letter-spacing:0.12em; text-transform:uppercase;
+              color:rgba(244,239,230,0.6); margin-bottom:0.5rem;
+            ">{r.zona}</span>
+            <h2 style="
+              font-family:'Archivo Black',sans-serif;
+              font-size:clamp(1.5rem, 2.5vw, 2.2rem);
+              color:#f4efe6; margin:0 0 0.35rem;
+              text-transform:uppercase; line-height:0.95;
+            ">{r.nombre}</h2>
+            <p style="color:#00e5d4; font-family:'Archivo Black',sans-serif; font-size:1rem; margin:0;">{r.cascadas} cascadas →</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Regiones estándar (lista) -->
+    <div style="border:1px solid rgba(9,29,43,0.1); border-radius:4px; overflow:hidden;">
+      {regiones.filter(r => !r.destacada).map((r, i) => (
+        <a href={`/region/${r.slug}`} style={`
+          display:grid; grid-template-columns:80px 1fr auto;
+          align-items:center; gap:2rem;
+          padding:1.75rem 2rem;
+          text-decoration:none; color:#091d2b;
+          background:white;
+          border-top:${i > 0 ? '1px solid rgba(9,29,43,0.08)' : 'none'};
+          transition:background 0.2s;
+        `}
+        onmouseenter="this.style.background='rgba(0,229,212,0.05)'"
+        onmouseleave="this.style.background='white'">
+          <!-- Miniatura -->
+          <div style={`
+            width:80px; height:60px; border-radius:3px;
+            background-image:url('${r.img}');
+            background-size:cover; background-position:center;
+            flex-shrink:0;
+          `}></div>
+          <!-- Info -->
+          <div>
+            <p style="font-size:0.7rem; color:#00b4a0; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 0.25rem;">{r.zona}</p>
+            <h2 style="font-family:'Archivo Black',sans-serif; font-size:1.3rem; margin:0 0 0.25rem; text-transform:uppercase;">{r.nombre}</h2>
+            <p style="color:rgba(9,29,43,0.55); font-size:0.88rem; margin:0; font-weight:300;">{r.descripcion}</p>
+          </div>
+          <!-- Count -->
+          <div style="text-align:right; flex-shrink:0;">
+            <p style="font-family:'Archivo Black',sans-serif; font-size:2rem; color:#00b4a0; margin:0; line-height:1;">{r.cascadas}</p>
+            <p style="font-size:0.7rem; color:rgba(9,29,43,0.4); letter-spacing:0.1em; text-transform:uppercase; margin:0.2rem 0 0;">cascadas →</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── CTA MAPA ─────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem; text-align:center;">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1.5rem; line-height:0.95;
+      text-transform:uppercase;
+    ">¿No sabes por dónde empezar?</h2>
+    <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300;">
+      Usa el mapa interactivo para explorar cascadas según tu ubicación o destino de viaje.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#091d2b; background:#00e5d4; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">Abrir mapa →</a>
+  </section>
+
+</Layout>

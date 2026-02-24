@@ -1,0 +1,166 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage } = Astro.props;
+---
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body style="background:#091d2b; font-family:'DM Sans',sans-serif;">
+
+  <!-- NAV -->
+  <nav id="navbar" style="
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 64px;
+    background: #091d2b;
+    transition: box-shadow 0.3s;
+  ">
+    <a href="/" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none;">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M14 2C14 2 6 10 6 17a8 8 0 0016 0C22 10 14 2 14 2Z" fill="#00e5d4"/>
+        <path d="M14 10C14 10 10 15 10 19a4 4 0 008 0C18 15 14 10 14 10Z" fill="#091d2b" opacity="0.5"/>
+      </svg>
+      <span style="font-family:'Archivo Black',sans-serif; font-size:1.1rem; color:#f4efe6; letter-spacing:0.04em;">
+        CASCADAS
+      </span>
+    </a>
+
+    <div style="display:flex; gap:2.5rem; align-items:center;">
+      <a class="nav-link" href="/cascadas" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Cascadas</a>
+      <a class="nav-link" href="/region" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Regiones</a>
+      <a class="nav-link" href="/blog" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Blog</a>
+      <a class="nav-link" href="/#sobre" style="color:#f4efe6; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;">Sobre</a>
+      <a href="/mapa" style="
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+        padding:0.5rem 1.2rem; border-radius:999px;
+        transition: background 0.2s;
+      ">Mapa</a>
+    </div>
+  </nav>
+
+  <!-- SLOT -->
+  <slot />
+
+  <!-- TICKER -->
+  <div style="
+    background:#0d2a3d;
+    overflow:hidden; padding:1.1rem 0;
+    border-top:1px solid rgba(0,229,212,0.1);
+    border-bottom:1px solid rgba(0,229,212,0.1);
+  ">
+    <div class="ticker-track" aria-hidden="true">
+      {Array.from({length:6}).map(() => (
+        <div style="display:flex; align-items:center; gap:2rem; padding:0 2rem; white-space:nowrap;">
+          <span style="color:#f4efe6; font-size:1rem; font-weight:400; letter-spacing:0.08em;">
+            Descubre las cascadas de Chile
+          </span>
+          <a href="#" style="
+            display:inline-block;
+            color:#091d2b; background:#00e5d4; text-decoration:none;
+            font-size:0.75rem; font-weight:700; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+          ">Instagram</a>
+          <span style="color:rgba(244,239,230,0.3);">✦</span>
+          <a href="#" style="
+            display:inline-block;
+            color:#091d2b; background:#00e5d4; text-decoration:none;
+            font-size:0.75rem; font-weight:700; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+          ">TikTok</a>
+          <span style="color:rgba(244,239,230,0.3);">✦</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="
+    background:#00b4a0;
+    padding: 5rem 2.5rem 3rem;
+  ">
+    <div style="margin-bottom:3rem; overflow:hidden;">
+      <p style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 12vw, 14rem);
+        color:#007d6e; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+        white-space:nowrap; overflow:hidden;
+      ">CASCADAS / CHILE</p>
+    </div>
+
+    <div style="
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:2rem; border-top:1px solid rgba(0,125,110,0.35);
+      padding-top:2.5rem;
+    ">
+      <div>
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;">Contacto</p>
+        <p style="color:#091d2b; font-size:0.9rem; line-height:1.7; margin:0; font-weight:300;">hola@cascadasdechile.cl</p>
+      </div>
+      <div>
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;">Regiones</p>
+        <div style="display:flex; flex-direction:column; gap:0.35rem;">
+          {['Norte', 'Centro', 'Sur', 'Patagonia'].map(r => (
+            <a href="#" style="color:#091d2b; text-decoration:none; font-size:0.9rem;">{r}</a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;">Legal</p>
+        <div style="display:flex; flex-direction:column; gap:0.35rem;">
+          {['Términos', 'Privacidad'].map(l => (
+            <a href="#" style="color:#091d2b; text-decoration:none; font-size:0.9rem;">{l}</a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#007d6e; margin:0 0 0.75rem;">Redes</p>
+        <div style="display:flex; flex-direction:column; gap:0.35rem;">
+          {['Instagram', 'TikTok', 'YouTube'].map(s => (
+            <a href="#" style="color:#091d2b; text-decoration:none; font-size:0.9rem;">{s}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <p style="color:#007d6e; font-size:0.78rem; margin:2rem 0 0; letter-spacing:0.05em;">
+      © 2025 Cascadas de Chile. Todos los derechos reservados.
+    </p>
+  </footer>
+
+</body>
+</html>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar!.style.boxShadow = window.scrollY > 40 ? '0 2px 24px rgba(0,0,0,0.35)' : 'none';
+  });
+</script>

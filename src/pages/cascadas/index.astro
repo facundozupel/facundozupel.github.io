@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const cascadas = [
+  { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80' },
+  { nombre: 'Cascada de los Cántaros', slug: 'cascada-de-los-cantaros', region: 'Los Lagos', altura: 50, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80' },
+  { nombre: 'Salto Río Ibáñez', slug: 'salto-rio-ibanez', region: 'Aysén', altura: 80, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80' },
+  { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 55, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80' },
+  { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petro­hue', region: 'Los Lagos', altura: 15, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80' },
+  { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Biobío', altura: 20, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80' },
+  { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'La Araucanía', altura: 12, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80' },
+  { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', region: 'Maule', altura: 40, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80' },
+  { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80' },
+];
+
+const regiones = ['Todas', 'Biobío', 'Los Lagos', 'Aysén', 'Metropolitana', 'La Araucanía', 'Maule', 'Magallanes'];
+
+const dificultadColor: Record<string, string> = {
+  'Fácil': '#00e5d4',
+  'Moderada': '#b8e8e4',
+  'Difícil': '#f4efe6',
+};
+---
+
+<Layout
+  title="Todas las Cascadas de Chile — Directorio completo"
+  description="Explora el directorio más completo de cascadas de Chile. Más de 500 saltos, cataratas y caídas de agua ordenadas por región y dificultad."
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#091d2b;
+    padding: 10rem 2.5rem 5rem;
+    position:relative; overflow:hidden;
+  ">
+    <!-- Noise texture -->
+    <div style="
+      position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.03%22/></svg>');
+    "></div>
+
+    <div style="position:relative; z-index:1;">
+      <!-- Breadcrumb -->
+      <nav style="margin-bottom:2rem;">
+        <a href="/" style="color:rgba(244,239,230,0.5); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.25); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Cascadas</span>
+      </nav>
+
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+        <h1 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(4rem, 12vw, 14rem);
+          color:#f4efe6; margin:0; line-height:0.88;
+          text-transform:uppercase; letter-spacing:-0.02em;
+        ">
+          TODAS<br/><span style="color:#00e5d4;">LAS</span><br/>CASCADAS
+        </h1>
+        <div style="padding-bottom:1rem; text-align:right;">
+          <p style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(2.5rem, 5vw, 5rem);
+            color:rgba(244,239,230,0.15); margin:0; line-height:1;
+          ">+500</p>
+          <p style="color:rgba(244,239,230,0.35); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">catalogadas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FILTROS ───────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 4rem;">
+    <div style="
+      border-top:1px solid rgba(244,239,230,0.08);
+      padding-top:2rem;
+      display:flex; gap:1rem; flex-wrap:wrap; align-items:center;
+    ">
+      <span style="color:rgba(244,239,230,0.35); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; margin-right:0.5rem;">Filtrar por región:</span>
+      {regiones.map((r, i) => (
+        <button style={`
+          background:${i === 0 ? '#00e5d4' : 'transparent'};
+          color:${i === 0 ? '#091d2b' : 'rgba(244,239,230,0.6)'};
+          border:1px solid ${i === 0 ? '#00e5d4' : 'rgba(244,239,230,0.15)'};
+          font-size:0.75rem; font-weight:600; letter-spacing:0.1em;
+          text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+          cursor:pointer;
+        `}>{r}</button>
+      ))}
+
+      <div style="margin-left:auto; display:flex; gap:0.75rem; align-items:center;">
+        <span style="color:rgba(244,239,230,0.35); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Dificultad:</span>
+        {['Fácil', 'Moderada', 'Difícil'].map(d => (
+          <button style="
+            background:transparent; color:rgba(244,239,230,0.6);
+            border:1px solid rgba(244,239,230,0.15);
+            font-size:0.75rem; font-weight:600; letter-spacing:0.1em;
+            text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+            cursor:pointer;
+          ">{d}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── GRID DE CASCADAS ──────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 8rem;">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {cascadas.map(c => (
+        <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none;">
+          <!-- Imagen -->
+          <div style={`
+            height:300px;
+            background-image:url('${c.img}');
+            background-size:cover; background-position:center;
+            border-radius:4px; margin-bottom:1.25rem;
+            position:relative; overflow:hidden;
+          `}>
+            <span style={`
+              position:absolute; top:1rem; left:1rem;
+              background:${dificultadColor[c.dificultad]}; color:#091d2b;
+              font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
+              text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+            `}>{c.dificultad}</span>
+            <span style="
+              position:absolute; bottom:1rem; right:1rem;
+              background:rgba(9,29,43,0.75); color:#f4efe6;
+              font-family:'Archivo Black',sans-serif; font-size:1rem;
+              padding:0.3rem 0.65rem; border-radius:4px;
+            ">{c.altura}m</span>
+          </div>
+          <h2 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
+            text-transform:uppercase;
+          ">{c.nombre}</h2>
+          <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0; font-weight:300;">{c.region}</p>
+        </a>
+      ))}
+    </div>
+
+    <!-- Paginación placeholder -->
+    <div style="
+      margin-top:5rem; display:flex; justify-content:center; align-items:center; gap:0.5rem;
+    ">
+      {[1,2,3,'...',18].map((p, i) => (
+        <button style={`
+          width:40px; height:40px; border-radius:4px;
+          background:${p === 1 ? '#00e5d4' : 'transparent'};
+          color:${p === 1 ? '#091d2b' : 'rgba(244,239,230,0.5)'};
+          border:1px solid ${p === 1 ? '#00e5d4' : 'rgba(244,239,230,0.12)'};
+          font-size:0.85rem; cursor:pointer;
+        `}>{p}</button>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── CTA MAPA ─────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#00e5d4; padding:6rem 2.5rem; text-align:center;
+  ">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#091d2b; margin:0 0 1.5rem; line-height:0.95;
+      text-transform:uppercase;
+    ">Búscalas en el Mapa</h2>
+    <p style="color:#091d2b; font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300; opacity:0.7;">
+      Usa el mapa interactivo para encontrar cascadas cerca de donde estás o planificar tu próximo viaje.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#00e5d4; background:#091d2b; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">Abrir mapa →</a>
+  </section>
+
+</Layout>

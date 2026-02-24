@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA REGIÓN ───────────────────────────────────────────────────────
+const region = {
+  nombre: 'Los Lagos',
+  slug: 'los-lagos',
+  descripcion: `La Región de Los Lagos es uno de los territorios más ricos en cascadas de Chile. Enclavada entre la Patagonia y el Lago Llanquihue, concentra decenas de saltos de agua alimentados por la intensa pluviosidad de la zona sur y por el deshielo de volcanes como el Osorno y el Calbuco.`,
+  subtitulo: 'Patagonia Norte · 95 cascadas catalogadas',
+  totalCascadas: 95,
+  imagen: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=80',
+  stats: [
+    { label: 'Cascadas', value: '95' },
+    { label: 'Parques nacionales', value: '4' },
+    { label: 'Altura máx.', value: '85 m' },
+    { label: 'Mejor época', value: 'Nov–Mar' },
+  ],
+  zonas: [
+    { nombre: 'Parque Vicente Pérez Rosales', cascadas: 12, descripcion: 'El parque nacional más antiguo de Chile. Alberga los Saltos del Petrohué y la Cascada de los Cántaros.' },
+    { nombre: 'Puerto Octay', cascadas: 8, descripcion: 'Cascadas escondidas entre bosques de coihue y mirtáceas. Destino poco masificado con senderos cortos.' },
+    { nombre: 'Cochamó', cascadas: 15, descripcion: 'El Yosemite patagónico. Cascadas verticales sobre paredes de granito en un valle de trekking de clase mundial.' },
+    { nombre: 'Lago Llanquihue', cascadas: 11, descripcion: 'Entorno volcánico con el Osorno y el Calbuco. Cascadas accesibles a orillas del lago más grande de Chile.' },
+  ],
+  cascadasDestacadas: [
+    {
+      nombre: 'Cascada de los Cántaros',
+      slug: 'cascada-de-los-cantaros',
+      altura: 50,
+      zona: 'Parque V. Pérez Rosales',
+      dificultad: 'Fácil',
+      imagen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80',
+    },
+    {
+      nombre: 'Saltos del Petrohué',
+      slug: 'saltos-del-petro­hue',
+      altura: 15,
+      zona: 'Puerto Varas',
+      dificultad: 'Fácil',
+      imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    },
+    {
+      nombre: 'Cascadas de Puerto Octay',
+      slug: 'cascadas-puerto-octay',
+      altura: 30,
+      zona: 'Puerto Octay',
+      dificultad: 'Moderada',
+      imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+    },
+    {
+      nombre: 'Cascada La Sirena',
+      slug: 'cascada-la-sirena',
+      altura: 40,
+      zona: 'Cochamó',
+      dificultad: 'Difícil',
+      imagen: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80',
+    },
+    {
+      nombre: 'Salto del Osorno',
+      slug: 'salto-del-osorno',
+      altura: 25,
+      zona: 'Lago Llanquihue',
+      dificultad: 'Fácil',
+      imagen: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80',
+    },
+    {
+      nombre: 'Cascada Esperanza',
+      slug: 'cascada-esperanza',
+      altura: 85,
+      zona: 'Cochamó',
+      dificultad: 'Difícil',
+      imagen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80',
+    },
+  ],
+  regionesAdyacentes: [
+    { nombre: 'Los Ríos', slug: 'los-rios', cascadas: 62 },
+    { nombre: 'Aysén', slug: 'aysen', cascadas: 73 },
+    { nombre: 'La Araucanía', slug: 'araucania', cascadas: 48 },
+  ],
+};
+
+const dificultadColor: Record<string, string> = {
+  'Fácil': '#00e5d4',
+  'Moderada': '#b8e8e4',
+  'Difícil': '#f4efe6',
+};
+---
+
+<Layout
+  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas catalogadas`}
+  description={`Descubre las ${region.totalCascadas} cascadas de la Región de ${region.nombre}. Guía completa con acceso, dificultad y cómo llegar a cada salto de agua.`}
+  ogImage={region.imagen}
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    position:relative;
+    min-height:80vh;
+    padding-top:64px;
+    overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  ">
+    <!-- Foto fondo -->
+    <div style={`
+      position:absolute; inset:0;
+      background-image:url('${region.imagen}');
+      background-size:cover; background-position:center;
+    `}></div>
+    <!-- Overlay -->
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(9,29,43,0.2) 0%, rgba(9,29,43,0.9) 100%);"></div>
+
+    <div style="position:relative; z-index:1; padding:4rem 2.5rem;">
+      <!-- Breadcrumb -->
+      <nav style="margin-bottom:1.5rem;">
+        <a href="/" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <a href="/region" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Regiones</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">{region.nombre}</span>
+      </nav>
+
+      <p style="color:#00e5d4; font-size:0.82rem; letter-spacing:0.15em; text-transform:uppercase; margin:0 0 0.75rem;">{region.subtitulo}</p>
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 10vw, 12rem);
+        color:#f4efe6; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">
+        Región<br/>de {region.nombre}
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ─── STATS ────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0;">
+    <div style="
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(0,229,212,0.15);
+    ">
+      {region.stats.map((stat, i) => (
+        <div style={`
+          padding:2.5rem 2rem;
+          border-right:${i < 3 ? '1px solid rgba(0,229,212,0.15)' : 'none'};
+        `}>
+          <p style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(2rem, 4vw, 3.5rem);
+            color:#00e5d4; margin:0; line-height:1;
+          ">{stat.value}</p>
+          <p style="color:rgba(244,239,230,0.45); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.5rem 0 0;">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── INTRO ────────────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;">
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#091d2b; margin:0 0 2rem; line-height:0.9;
+          text-transform:uppercase;
+        ">
+          El Sur<br/>Más Salvaje
+        </h2>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px;">{region.descripcion}</p>
+      </div>
+
+      <!-- Zonas de la región -->
+      <div class="reveal">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 1.5rem;">Zonas principales</p>
+        <div style="display:flex; flex-direction:column;">
+          {region.zonas.map((zona, i) => (
+            <div style={`
+              padding:1.5rem 0;
+              border-top:${i > 0 ? '1px solid rgba(9,29,43,0.1)' : 'none'};
+            `}>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+                <h3 style="font-size:1rem; font-weight:600; color:#091d2b; margin:0;">{zona.nombre}</h3>
+                <span style="font-family:'Archivo Black',sans-serif; font-size:0.9rem; color:#00b4a0;">{zona.cascadas} cascadas</span>
+              </div>
+              <p style="color:rgba(9,29,43,0.6); font-size:0.88rem; line-height:1.55; margin:0; font-weight:300;">{zona.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── GRID DE CASCADAS ──────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:7rem 2.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3rem, 7vw, 8rem);
+        color:#f4efe6; margin:0; line-height:0.9;
+        text-transform:uppercase;
+      ">
+        Cascadas<br/>en {region.nombre}
+      </h2>
+      <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
+        Mostrando 6 de {region.totalCascadas}
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {region.cascadasDestacadas.map(c => (
+        <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none; cursor:pointer;">
+          <!-- Imagen -->
+          <div style={`
+            height:280px;
+            background-image:url('${c.imagen}');
+            background-size:cover; background-position:center;
+            border-radius:4px; margin-bottom:1.25rem;
+            position:relative; overflow:hidden;
+          `}>
+            <span style={`
+              position:absolute; top:1rem; left:1rem;
+              background:${dificultadColor[c.dificultad]}; color:#091d2b;
+              font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
+              text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+            `}>{c.dificultad}</span>
+            <span style="
+              position:absolute; bottom:1rem; right:1rem;
+              background:rgba(9,29,43,0.8);
+              color:#f4efe6; font-family:'Archivo Black',sans-serif;
+              font-size:1.1rem; padding:0.35rem 0.75rem; border-radius:4px;
+            ">{c.altura}m</span>
+          </div>
+          <h3 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
+            text-transform:uppercase;
+          ">{c.nombre}</h3>
+          <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0; font-weight:300;">{c.zona}</p>
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA ver todas -->
+    <div style="margin-top:4rem; text-align:center;">
+      <a href={`/region/${region.slug}/todas`} style="
+        display:inline-flex; align-items:center; gap:0.75rem;
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+        text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+      ">
+        Ver las {region.totalCascadas} cascadas de {region.nombre} →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── REGIONES ADYACENTES ──────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Otras Regiones</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid rgba(9,29,43,0.12);">
+      {region.regionesAdyacentes.map((r, i) => (
+        <a href={`/region/${r.slug}`} style={`
+          display:block; padding:2.5rem;
+          text-decoration:none; color:#091d2b;
+          border-right:${i < 2 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          transition:background 0.2s;
+        `}
+        onmouseenter="this.style.background='rgba(0,229,212,0.08)'"
+        onmouseleave="this.style.background='transparent'">
+          <p style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem, 3vw, 2.5rem); margin:0 0 0.5rem; text-transform:uppercase;">{r.nombre}</p>
+          <p style="font-size:0.88rem; color:#00b4a0; margin:0; font-weight:500;">{r.cascadas} cascadas →</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</Layout>

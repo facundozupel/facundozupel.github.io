@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// En el futuro estos datos vendrán de un CMS o colección de Astro Content
+const cascada = {
+  nombre: 'Salto del Laja',
+  slug: 'salto-del-laja',
+  region: 'Biobío',
+  zona: 'Los Ángeles',
+  altura: 35,
+  caudal: 'Alto',
+  dificultad: 'Fácil',
+  acceso: 'Carretera (pavimentado)',
+  coordenadas: '37°24\'S 72°26\'W',
+  mejorEpoca: 'Junio — Octubre',
+  entrada: 'Gratuita',
+  horario: 'Todo el año',
+  descripcion: `El Salto del Laja es una de las cascadas más emblemáticas y visitadas de Chile. Ubicado a 25 km al norte de Los Ángeles, en la Región del Biobío, este espectacular salto de agua se forma donde el río Laja se precipita desde una meseta basáltica hacia el cañón que excava el mismo río.
+
+  Con una caída de 35 metros de altura, el Salto del Laja no es una sola cascada sino un sistema de cuatro brazos que se pueden apreciar desde distintos miradores. Su fuerza y belleza son producto del río Laja, que nace en la ladera norte del volcán Antuco y acumula un caudal importante antes de alcanzar este punto.
+
+  El acceso es sumamente sencillo: el complejo turístico está justo al borde de la Ruta 5 Sur (Panamericana), lo que lo convierte en una parada obligatoria para quienes viajan entre Santiago y el sur de Chile.`,
+  comoLlegar: `Desde Santiago (500 km): Tomar la Ruta 5 Sur (Panamericana) hacia el sur. A 25 km al norte de Los Ángeles, encontrará señalética claramente visible desde la ruta. El acceso principal está en el km 482.
+
+  Desde Los Ángeles (25 km): Por la Ruta 5 Norte hasta el km 482. El viaje dura aproximadamente 20 minutos.
+
+  Transporte público: Buses interurbanos Santiago–Los Ángeles–Temuco pasan por la parada del Salto del Laja. Consultar con la empresa de buses.`,
+  imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80',
+  galeria: [
+    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
+    'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
+    'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
+  ],
+  cascadasCercanas: [
+    { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Biobío', altura: 20 },
+    { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50 },
+    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 30 },
+  ],
+};
+---
+
+<Layout
+  title={`${cascada.nombre} — Cascadas de Chile`}
+  description={`Conoce el ${cascada.nombre}, una cascada de ${cascada.altura} m en ${cascada.region}. Cómo llegar, qué esperar y toda la información para tu visita.`}
+  ogImage={cascada.imagen}
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  ">
+    <!-- Foto de fondo -->
+    <div style={`
+      position: absolute; inset: 0;
+      background-image: url('${cascada.imagen}');
+      background-size: cover; background-position: center;
+    `}></div>
+    <!-- Gradiente overlay -->
+    <div style="
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+    "></div>
+
+    <!-- Contenido -->
+    <div style="
+      position: relative; z-index: 1;
+      height: 100%; display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 4rem 2.5rem;
+    ">
+      <!-- Breadcrumb -->
+      <nav style="margin-bottom:1.5rem;">
+        <a href="/" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <a href="/cascadas" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Cascadas</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">{cascada.region}</span>
+      </nav>
+
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+        <div>
+          <span style="
+            display:inline-block; background:#00e5d4; color:#091d2b;
+            font-size:0.75rem; font-weight:700; letter-spacing:0.12em;
+            text-transform:uppercase; padding:0.35rem 1rem; border-radius:999px;
+            margin-bottom:1rem;
+          ">{cascada.region}</span>
+          <h1 style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(3.5rem, 9vw, 10rem);
+            color:#f4efe6; margin:0; line-height:0.9;
+            text-transform:uppercase; letter-spacing:-0.02em;
+          ">{cascada.nombre}</h1>
+        </div>
+
+        <!-- Quick stat: altura -->
+        <div style="text-align:right; padding-bottom:0.5rem;">
+          <p style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(3rem, 6vw, 6rem);
+            color:#00e5d4; margin:0; line-height:1;
+          ">{cascada.altura}m</p>
+          <p style="color:rgba(244,239,230,0.55); font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:3rem 2.5rem;">
+    <div style="
+      display:grid; grid-template-columns:repeat(6,1fr);
+      gap:0; border:1px solid rgba(9,29,43,0.12);
+    ">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Horario', value: cascada.horario },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat, i) => (
+        <div style={`
+          padding:1.5rem 1.25rem;
+          border-right:${i < 5 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+        `}>
+          <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.4rem;">{stat.label}</p>
+          <p style="font-size:0.95rem; color:#091d2b; margin:0; font-weight:500;">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── DESCRIPCIÓN + CÓMO LLEGAR ───────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:5rem 2.5rem 7rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; max-width:1200px;">
+
+      <!-- Descripción -->
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(1.8rem, 3vw, 2.5rem);
+          color:#091d2b; margin:0 0 1.5rem;
+          text-transform:uppercase;
+        ">Sobre el {cascada.nombre}</h2>
+        {cascada.descripcion.split('\n\n').map(p => (
+          <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; margin:0 0 1.25rem; font-weight:300;">{p.trim()}</p>
+        ))}
+      </div>
+
+      <!-- Cómo llegar -->
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(1.8rem, 3vw, 2.5rem);
+          color:#091d2b; margin:0 0 1.5rem;
+          text-transform:uppercase;
+        ">Cómo llegar</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; margin:0 0 1.25rem; font-weight:300;">{p.trim()}</p>
+        ))}
+
+        <!-- Placeholder mapa -->
+        <div style="
+          background:#cceae6; border-radius:4px;
+          height:220px; display:flex; align-items:center;
+          justify-content:center; margin-top:2rem;
+        ">
+          <div style="text-align:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="opacity:0.4;">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#091d2b"/>
+            </svg>
+            <p style="font-size:0.8rem; color:rgba(9,29,43,0.5); margin:0.5rem 0 0; letter-spacing:0.1em; text-transform:uppercase;">Mapa próximamente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── GALERÍA ──────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2.5rem, 6vw, 6rem);
+      color:#f4efe6; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Galería</h2>
+
+    <div style="
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      grid-template-rows:280px 280px;
+      gap:0.75rem;
+    ">
+      <!-- Foto grande -->
+      <div style={`
+        grid-row:1/3;
+        background-image:url('${cascada.galeria[0]}');
+        background-size:cover; background-position:center;
+        border-radius:4px;
+      `}></div>
+      <!-- 3 fotos pequeñas -->
+      {cascada.galeria.slice(1).map(img => (
+        <div style={`
+          background-image:url('${img}');
+          background-size:cover; background-position:center;
+          border-radius:4px;
+        `}></div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── CASCADAS CERCANAS ────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 7rem;">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(2rem, 4vw, 4rem);
+        color:#f4efe6; margin:0 0 3rem; line-height:0.9;
+        text-transform:uppercase;
+      ">Cascadas Cercanas</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card" style="
+            display:block; text-decoration:none;
+            border:1px solid rgba(244,239,230,0.08);
+            border-radius:4px; padding:1.75rem;
+            transition:border-color 0.2s;
+          "
+          onmouseenter="this.style.borderColor='rgba(0,229,212,0.4)'"
+          onmouseleave="this.style.borderColor='rgba(244,239,230,0.08)'">
+            <span style="
+              display:inline-block; background:rgba(0,229,212,0.1); color:#00e5d4;
+              font-size:0.7rem; font-weight:600; letter-spacing:0.12em;
+              text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:999px;
+              margin-bottom:1rem;
+            ">{c.region}</span>
+            <h3 style="
+              font-family:'Archivo Black',sans-serif;
+              font-size:1.4rem; color:#f4efe6; margin:0 0 0.5rem;
+              text-transform:uppercase;
+            ">{c.nombre}</h3>
+            <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0; font-weight:300;">
+              {c.altura} m de altura →
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CTA MAPA ─────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#00e5d4;
+    padding: 6rem 2.5rem;
+    text-align:center;
+  ">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#091d2b; margin:0 0 1.5rem; line-height:0.95;
+      text-transform:uppercase;
+    ">
+      Descubre +500<br/>cascadas más
+    </h2>
+    <p style="color:#091d2b; font-size:1.05rem; max-width:500px; margin:0 auto 2.5rem; font-weight:300; opacity:0.75;">
+      Explora el mapa interactivo con todas las cascadas de Chile catalogadas.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#00e5d4; background:#091d2b; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">
+      Abrir mapa →
+    </a>
+  </section>
+
+</Layout>
