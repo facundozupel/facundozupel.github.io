@@ -99,7 +99,15 @@ Skill: `search-intent-analyzer`
 - Clasifica intent, content type ganador, estructura ideal
 - Define las secciones obligatorias y entidades que deben aparecer
 
-#### Paso 5: Construir la página
+#### Paso 5: Imágenes reales desde Wikimedia
+- Seguir el flujo de la sección "8. Imágenes reales desde Wikimedia Commons"
+- Buscar 5 fotos reales (1 hero + 4 galería) con licencia CC en Wikimedia Commons
+- Descargar y convertir a WebP con `scripts/download-wikimedia.sh`
+- Guardar en `public/assets/cascadas/{slug}/`
+- Registrar atribución (autor + licencia) para el campo `galeriaCreditos`
+- **No avanzar al paso siguiente sin imágenes reales**
+
+#### Paso 6: Construir la página
 - Usar el template de `src/pages/cascadas/salto-del-laja.astro` como referencia
 - Poblar el objeto `cascada` con los datos del researcher (Paso 1)
 - Incorporar los `consensus_terms` del análisis de entropía como entidades obligatorias
@@ -121,13 +129,13 @@ Skill: `search-intent-analyzer`
   15. CTA Mapa
 - **NO puede faltar NINGUNA sección**. Si el researcher no encontró datos para una sección, investigar más o marcar claramente qué falta.
 
-#### Paso 6: Structured Data
+#### Paso 7: Structured Data
 Cada página de cascada DEBE incluir JSON-LD:
 - `TouristAttraction` con coordenadas reales
 - `FAQPage` con las preguntas relevantes
 - `BreadcrumbList`
 
-#### Paso 7: Build y verificación
+#### Paso 8: Build y verificación
 - Ejecutar `npm run build`
 - Verificar que la página renderiza correctamente
 - Confirmar JSON-LD en el `<head>`
@@ -231,6 +239,80 @@ python scripts/seo-entropy/analyze.py
 
 ---
 
+### 8. Imágenes reales desde Wikimedia Commons
+
+Todas las páginas de cascadas usan **fotos reales** descargadas de Wikimedia Commons. **Nunca usar imágenes placeholder de Unsplash u otros stocks genéricos.**
+
+#### Flujo para obtener imágenes de una cascada nueva
+
+1. **Buscar en Wikimedia Commons API**:
+```bash
+curl -s -A "CascadasDeChile/1.0" \
+  "https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=NOMBRE+CASCADA&srnamespace=6&srlimit=10&format=json"
+```
+
+2. **Obtener URLs e info de licencia**:
+```bash
+curl -s -A "CascadasDeChile/1.0" \
+  "https://commons.wikimedia.org/w/api.php?action=query&titles=File:NOMBRE.jpg&prop=imageinfo&iiprop=url|size|extmetadata&format=json"
+```
+
+3. **Descargar y convertir con el script**:
+```bash
+# Hero (1600px ancho)
+scripts/download-wikimedia.sh "URL_WIKIMEDIA" "public/assets/cascadas/{slug}/hero.webp" 1600
+
+# Galería (800px ancho)
+scripts/download-wikimedia.sh "URL_WIKIMEDIA" "public/assets/cascadas/{slug}/galeria-1.webp" 800
+```
+
+4. **Se necesitan 5 imágenes por cascada**: 1 hero + 4 galería
+5. **Si no hay suficientes fotos en Wikimedia**: buscar con términos alternativos (nombre del río, región, términos en inglés). Si aún no hay suficientes, notificar al usuario.
+
+#### Licencias aceptables
+- **CC0** (dominio público) — no requiere atribución
+- **CC BY** — requiere atribución del autor
+- **CC BY-SA** — requiere atribución + misma licencia
+- **Public domain** — no requiere atribución
+
+#### Atribución obligatoria
+Cada página incluye un bloque `galeriaCreditos` con autor, licencia y URL. Se renderiza debajo de la galería con estilo discreto.
+
+#### Estructura de archivos
+```
+public/assets/cascadas/{slug}/
+├── hero.webp        # 1600px ancho, < 500KB
+├── galeria-1.webp   # 800px ancho, < 200KB
+├── galeria-2.webp
+├── galeria-3.webp
+└── galeria-4.webp
+```
+
+#### Formato del objeto `cascada` para imágenes
+```javascript
+imagen: '/assets/cascadas/{slug}/hero.webp',
+imagenAlt: 'Descripción visual de la imagen hero',
+galeria: [
+  { src: '/assets/cascadas/{slug}/galeria-1.webp', alt: 'Descripción de la foto 1' },
+  { src: '/assets/cascadas/{slug}/galeria-2.webp', alt: 'Descripción de la foto 2' },
+  { src: '/assets/cascadas/{slug}/galeria-3.webp', alt: 'Descripción de la foto 3' },
+  { src: '/assets/cascadas/{slug}/galeria-4.webp', alt: 'Descripción de la foto 4' },
+],
+galeriaCreditos: [
+  { autor: 'Nombre', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:...' },
+],
+```
+
+#### Reglas de SEO para imágenes
+- Hero usa `<img>` con `fetchpriority="high"` y `decoding="async"` (NO lazy)
+- Galería usa `<img>` con `loading="lazy"` y `decoding="async"`
+- **Nunca usar `background-image` en CSS** — siempre `<img>` para indexación en Google Images
+- Cada imagen DEBE tener `alt` descriptivo y único
+- OG image debe ser URL absoluta: `https://cascadasdechile.cl/assets/cascadas/{slug}/hero.webp`
+- Structured data `image` también debe ser URL absoluta
+
+---
+
 ## Deploy e Infraestructura
 
 ### GitHub Pages
@@ -280,9 +362,11 @@ const cascada = {
   alojamiento,        // Array de { nombre, tipo, precioDesde, url, descripcion }
   faq,                // Array de { pregunta, respuesta }
 
-  // Media
-  imagen,             // URL hero image
-  galeria,            // Array de URLs
+  // Media (ver sección "8. Imágenes reales desde Wikimedia Commons")
+  imagen,             // Ruta local WebP hero: '/assets/cascadas/{slug}/hero.webp'
+  imagenAlt,          // Alt text descriptivo del hero
+  galeria,            // Array de { src, alt } — 4 imágenes de galería
+  galeriaCreditos,    // Array de { autor, licencia, url } — atribución Wikimedia
 
   // Internal linking
   cascadasCercanas,      // Array de { nombre, slug, region, altura, tipo: 'cercania' } — 3 por proximidad geográfica
@@ -397,7 +481,7 @@ cascadas/
 
 | Necesidad | Herramienta |
 |-----------|-------------|
-| Crear página de cascada | `chile-waterfalls-researcher` → `search-intent-analyzer` → template |
+| Crear página de cascada | `chile-waterfalls-researcher` → `search-intent-analyzer` → Wikimedia images → template |
 | Crear artículo de blog | `search-intent-analyzer` + `chile-waterfalls-researcher` (si menciona cascadas) |
 | Analizar intención de búsqueda | `search-intent-analyzer` |
 | Investigar datos de cascadas | `chile-waterfalls-researcher` |
@@ -406,6 +490,7 @@ cascadas/
 | Analizar entidades NLP | MCP `mcp-ents` |
 | Curar contenido existente | `content-curation` |
 | Estrategia de internal linking | `interlinking-strategy` |
+| Fotos reales de cascadas | `scripts/download-wikimedia.sh` + Wikimedia Commons API |
 | Generar imágenes con IA | `python scripts/image-gen/generate.py` |
 | Análisis de entropía | `python scripts/seo-entropy/analyze.py` |
 | Limpiar código/archivos | `code-cleanup-analyzer` |

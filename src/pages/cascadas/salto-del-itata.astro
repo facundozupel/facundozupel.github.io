@@ -29,12 +29,16 @@ const cascada = {
   Desde Yungay (18 km, 30-40 min): Camino de ripio al oeste desde el pueblo, seguir señalización hacia Salto del Itata. Vehículo alto recomendado en invierno.
 
   Transporte público: Bus Santiago → Chillán (Pullman Bus, Turbus, ~5 horas). Desde Chillán tomar Pullman JR a Yungay (cada 1 hora, 1h15min, ~$5-9 USD). Desde Yungay al salto NO hay transporte público — se necesita vehículo particular, bicicleta o autostop.`,
-  imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80',
+  imagen: '/assets/cascadas/salto-del-itata/hero.webp',
+  imagenAlt: 'Vista panorámica del Salto del Itata, cascada de 75 metros en la Región de Ñuble',
   galeria: [
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
-    'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
-    'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
+    { src: '/assets/cascadas/salto-del-itata/galeria-1.webp', alt: 'Salto del Itata visto desde el mirador del parque con la caída de agua' },
+    { src: '/assets/cascadas/salto-del-itata/galeria-2.webp', alt: 'Detalle de la caída principal del Salto del Itata sobre los acantilados' },
+    { src: '/assets/cascadas/salto-del-itata/galeria-3.webp', alt: 'Vista del cañón y la vegetación que rodea al Salto del Itata' },
+    { src: '/assets/cascadas/salto-del-itata/galeria-4.webp', alt: 'El Río Itata precipitándose en el Salto del Itata, Ñuble' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Momocrackcorp', licencia: 'CC0', url: 'https://commons.wikimedia.org/wiki/File:Saltoitata.JPG' },
   ],
   // 3 por cercanía geográfica (misma región o adyacente)
   cascadasCercanas: [
@@ -144,7 +148,7 @@ const structuredData = [
     '@type': 'TouristAttraction',
     name: cascada.nombre,
     description: `Cascada de ${cascada.altura} metros de altura en la Región de ${cascada.region}, Chile. Caída vertical sobre ${cascada.tipoFormacion.toLowerCase()}. Entrada gratuita, a 18 km de Yungay por camino de ripio.`,
-    image: cascada.imagen,
+    image: `https://cascadasdechile.cl${cascada.imagen}`,
     geo: {
       '@type': 'GeoCoordinates',
       latitude: cascada.lat,
@@ -192,13 +196,13 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
 <Layout
   title={pageTitle}
   description={pageDescription}
-  ogImage={cascada.imagen}
+  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
   structuredData={structuredData}
 >
 
   <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
-  <section class="cascada-hero" style={`--bg-image: url('${cascada.imagen}')`}>
-    <div class="cascada-hero__bg"></div>
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="143" decoding="async" fetchpriority="high" />
     <div class="cascada-hero__overlay"></div>
     <div class="cascada-hero__content">
       <nav class="cascada-breadcrumb">
@@ -420,11 +424,22 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
     <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
       <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
       <div class="cascada-galeria">
-        <div class="cascada-galeria__big" style={`background-image:url('${cascada.galeria[0]}')`}></div>
-        {cascada.galeria.slice(1).map((img, i) => (
-          <div class="cascada-galeria__small" style={`background-image:url('${img}')`} role="img" aria-label={`${cascada.nombre} - foto ${i + 2}`}></div>
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
         ))}
       </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
     </div>
   </section>
 
@@ -506,8 +521,8 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
   }
   .cascada-hero__bg {
     position: absolute; inset: 0;
-    background-image: var(--bg-image);
-    background-size: cover; background-position: center;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
   }
   .cascada-hero__overlay {
     position: absolute; inset: 0;
@@ -750,10 +765,26 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
   }
   .cascada-galeria__big {
     grid-row: 1 / 3;
-    background-size: cover; background-position: center; border-radius: 4px;
+    border-radius: 4px; overflow: hidden;
   }
   .cascada-galeria__small {
-    background-size: cover; background-position: center; border-radius: 4px;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
   }
 
   /* ─── FAQ ───────────────────────────────────────────────────────────────── */

@@ -29,12 +29,19 @@ const cascada = {
   Desde Concepción (98 km, 1h 15min): Ruta 148 → Ruta Q-50 hasta Cabrero → Ruta 5 Sur.
 
   Transporte público: No hay bus directo desde Santiago. Tomar bus a Los Ángeles o Concepción (Pullman Bus, Turbus, Eme Bus, ~6 horas). Desde Los Ángeles o Concepción, buses de Pullman Bus y Jota Be llegan directamente al Salto del Laja (~$3.000 CLP, frecuencia cada 45 min en temporada alta).`,
-  imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80',
+  imagen: '/assets/cascadas/salto-del-laja/hero.webp',
+  imagenAlt: 'Vista panorámica del Salto del Laja con sus cuatro brazos cayendo sobre roca basáltica en la Región del Biobío',
   galeria: [
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80',
-    'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80',
-    'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80',
+    { src: '/assets/cascadas/salto-del-laja/galeria-1.webp', alt: 'Salto del Laja visto desde abajo con la roca basáltica y la caída de agua' },
+    { src: '/assets/cascadas/salto-del-laja/galeria-2.webp', alt: 'Salto del Laja en 2019 con vegetación verde en el entorno' },
+    { src: '/assets/cascadas/salto-del-laja/galeria-3.webp', alt: 'Vista lateral del Salto del Laja desde la ribera del río' },
+    { src: '/assets/cascadas/salto-del-laja/galeria-4.webp', alt: 'Salto del Laja con sus cascadas y el cañón de roca volcánica' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Miguel Hernandez', licencia: 'CC BY-SA 2.0', url: 'https://commons.wikimedia.org/wiki/File:SALTO_DEL_LAJA_(12480413093).jpg' },
+    { autor: 'Alonso Jiménez Quesada', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Laja_Chile.jpg' },
+    { autor: 'Monteaguilino1', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Laja_2019_(2).jpg' },
+    { autor: 'Warko', licencia: 'Dominio público', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Laja.jpg' },
   ],
   // 3 por cercanía geográfica (misma región o adyacente)
   cascadasCercanas: [
@@ -144,7 +151,7 @@ const structuredData = [
     '@type': 'TouristAttraction',
     name: cascada.nombre,
     description: `Cascada de ${cascada.altura} metros de altura en la Región del ${cascada.region}, Chile. ${cascada.numeroBrazos} brazos de agua sobre ${cascada.tipoFormacion.toLowerCase()}. Acceso gratuito junto a la Ruta 5 Sur.`,
-    image: cascada.imagen,
+    image: `https://cascadasdechile.cl${cascada.imagen}`,
     geo: {
       '@type': 'GeoCoordinates',
       latitude: cascada.lat,
@@ -192,13 +199,13 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
 <Layout
   title={pageTitle}
   description={pageDescription}
-  ogImage={cascada.imagen}
+  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
   structuredData={structuredData}
 >
 
   <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
-  <section class="cascada-hero" style={`--bg-image: url('${cascada.imagen}')`}>
-    <div class="cascada-hero__bg"></div>
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
     <div class="cascada-hero__overlay"></div>
     <div class="cascada-hero__content">
       <nav class="cascada-breadcrumb">
@@ -420,11 +427,22 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
     <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
       <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
       <div class="cascada-galeria">
-        <div class="cascada-galeria__big" style={`background-image:url('${cascada.galeria[0]}')`}></div>
-        {cascada.galeria.slice(1).map((img, i) => (
-          <div class="cascada-galeria__small" style={`background-image:url('${img}')`} role="img" aria-label={`${cascada.nombre} - foto ${i + 2}`}></div>
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
         ))}
       </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
     </div>
   </section>
 
@@ -506,8 +524,8 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
   }
   .cascada-hero__bg {
     position: absolute; inset: 0;
-    background-image: var(--bg-image);
-    background-size: cover; background-position: center;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
   }
   .cascada-hero__overlay {
     position: absolute; inset: 0;
@@ -750,10 +768,26 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${
   }
   .cascada-galeria__big {
     grid-row: 1 / 3;
-    background-size: cover; background-position: center; border-radius: 4px;
+    border-radius: 4px; overflow: hidden;
   }
   .cascada-galeria__small {
-    background-size: cover; background-position: center; border-radius: 4px;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
   }
 
   /* ─── FAQ ───────────────────────────────────────────────────────────────── */

@@ -2,27 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 
 const cascadas = [
-  { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80' },
-  { nombre: 'Cascada de los Cántaros', slug: 'cascada-de-los-cantaros', region: 'Los Lagos', altura: 50, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80' },
-  { nombre: 'Salto Río Ibáñez', slug: 'salto-rio-ibanez', region: 'Aysén', altura: 80, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80' },
-  { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 55, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80' },
-  { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petro­hue', region: 'Los Lagos', altura: 15, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80' },
-  { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Biobío', altura: 20, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80' },
-  { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'La Araucanía', altura: 12, dificultad: 'Fácil', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80' },
-  { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', region: 'Maule', altura: 40, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80' },
-  { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80' },
+  { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, dificultad: 'Fácil', img: '/assets/cascadas/salto-del-laja/hero.webp', imgAlt: 'Vista panorámica del Salto del Laja con sus cuatro brazos sobre roca basáltica' },
+  { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, dificultad: 'Fácil a moderado', img: '/assets/cascadas/cascada-de-las-animas/hero.webp', imgAlt: 'Santuario de la naturaleza Cascada de las Ánimas en el Cajón del Maipo' },
+  { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Ñuble', altura: 75, dificultad: 'Fácil a moderado', img: '/assets/cascadas/salto-del-itata/hero.webp', imgAlt: 'Salto del Itata, cascada de 75 metros en la Región de Ñuble' },
+  { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, dificultad: 'Fácil', img: '/assets/cascadas/saltos-del-petrohue/hero.webp', imgAlt: 'Saltos del Petrohué con agua turquesa sobre roca basáltica volcánica' },
 ];
 
 const dificultadColor: Record<string, string> = {
   'Fácil': '#00e5d4',
+  'Fácil a moderado': '#b8e8e4',
   'Moderada': '#b8e8e4',
   'Difícil': '#f4efe6',
 };
 ---
 
 <Layout
-  title="Todas las Cascadas de Chile — Directorio completo"
-  description="Explora el directorio más completo de cascadas de Chile. Más de 500 saltos, cataratas y caídas de agua ordenadas por región y dificultad."
+  title="Cascadas de Chile — Guías completas con cómo llegar, qué hacer y dónde alojarse"
+  description="Descubre las cascadas más impresionantes de Chile con guías completas: cómo llegar, actividades, alojamiento, clima y toda la información para tu visita."
 >
 
   <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
@@ -59,8 +55,8 @@ const dificultadColor: Record<string, string> = {
             font-family:'Archivo Black',sans-serif;
             font-size:clamp(2.5rem, 5vw, 5rem);
             color:rgba(244,239,230,0.15); margin:0; line-height:1;
-          ">+500</p>
-          <p style="color:rgba(244,239,230,0.35); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">catalogadas</p>
+          ">{cascadas.length}</p>
+          <p style="color:rgba(244,239,230,0.35); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">con guía completa</p>
         </div>
       </div>
     </div>
@@ -91,20 +87,14 @@ const dificultadColor: Record<string, string> = {
 
   <!-- ─── GRID DE CASCADAS ──────────────────────────────────────────────────── -->
   <section style="background:#091d2b; padding:0 2.5rem 8rem;">
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+    <div class="cascadas-grid">
       {cascadas.map(c => (
         <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none;">
-          <!-- Imagen -->
-          <div style={`
-            height:300px;
-            background-image:url('${c.img}');
-            background-size:cover; background-position:center;
-            border-radius:4px; margin-bottom:1.25rem;
-            position:relative; overflow:hidden;
-          `}>
+          <div class="cascade-card__img-wrap">
+            <img src={c.img} alt={c.imgAlt} loading="lazy" width="800" height="533" decoding="async" class="cascade-card__img" />
             <span style={`
               position:absolute; top:1rem; left:1rem;
-              background:${dificultadColor[c.dificultad]}; color:#091d2b;
+              background:${dificultadColor[c.dificultad] || '#00e5d4'}; color:#091d2b;
               font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
               text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
             `}>{c.dificultad}</span>
@@ -122,21 +112,6 @@ const dificultadColor: Record<string, string> = {
           ">{c.nombre}</h2>
           <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0; font-weight:300;">{c.region}</p>
         </a>
-      ))}
-    </div>
-
-    <!-- Paginación placeholder -->
-    <div style="
-      margin-top:5rem; display:flex; justify-content:center; align-items:center; gap:0.5rem;
-    ">
-      {[1,2,3,'...',18].map((p, i) => (
-        <button style={`
-          width:40px; height:40px; border-radius:4px;
-          background:${p === 1 ? '#00e5d4' : 'transparent'};
-          color:${p === 1 ? '#091d2b' : 'rgba(244,239,230,0.5)'};
-          border:1px solid ${p === 1 ? '#00e5d4' : 'rgba(244,239,230,0.12)'};
-          font-size:0.85rem; cursor:pointer;
-        `}>{p}</button>
       ))}
     </div>
   </section>
@@ -164,3 +139,28 @@ const dificultadColor: Record<string, string> = {
   </section>
 
 </Layout>
+
+<style>
+  .cascadas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .cascade-card__img-wrap {
+    height: 300px;
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cascade-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 768px) {
+    .cascadas-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

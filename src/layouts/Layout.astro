@@ -18,6 +18,7 @@ const { title, description, ogImage, structuredData } = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
   {ogImage && <meta property="og:image" content={ogImage} />}
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
