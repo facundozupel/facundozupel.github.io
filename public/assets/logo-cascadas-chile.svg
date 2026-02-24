@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" fill="none">
+  <!-- CASCADAS text -->
+  <text x="0" y="40" font-family="'Archivo Black', 'Arial Black', sans-serif" font-weight="900" font-size="38" fill="currentColor" letter-spacing="1">CASCADAS</text>
+  <!-- Water wave accent -->
+  <path d="M0 52 C30 52, 40 46, 70 46 C100 46, 110 52, 140 52 C170 52, 180 46, 210 46" stroke="#00e5d4" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M0 58 C25 58, 35 53, 60 53 C90 53, 100 58, 130 58 C160 58, 170 53, 195 53" stroke="#00e5d4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+  <!-- CHILE text -->
+  <text x="222" y="52" font-family="'DM Sans', 'Helvetica Neue', sans-serif" font-weight="300" font-size="18" fill="#00b4a0" letter-spacing="6">CHILE</text>
+</svg>
