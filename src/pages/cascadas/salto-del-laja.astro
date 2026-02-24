@@ -4,28 +4,31 @@ import Layout from '../../layouts/Layout.astro';
 // ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
 // En el futuro estos datos vendrán de un CMS o colección de Astro Content
 const cascada = {
+  // --- Identificación (verificado por chile-waterfalls-researcher, feb 2026) ---
   nombre: 'Salto del Laja',
   slug: 'salto-del-laja',
   region: 'Biobío',
   zona: 'Los Ángeles',
   altura: 35,
-  caudal: 'Alto',
+  caudal: 'Variable: 22 m³/s (verano) — 62 m³/s (invierno)',
   dificultad: 'Fácil',
-  acceso: 'Carretera (pavimentado)',
-  coordenadas: '37°24\'S 72°26\'W',
-  mejorEpoca: 'Junio — Octubre',
+  acceso: 'Ruta 5 Sur km 480 (pavimentado)',
+  coordenadas: '37°13\'S 72°23\'W',
+  mejorEpoca: 'Diciembre — Marzo',
   entrada: 'Gratuita',
   horario: 'Todo el año',
-  descripcion: `El Salto del Laja es una de las cascadas más emblemáticas y visitadas de Chile. Ubicado a 25 km al norte de Los Ángeles, en la Región del Biobío, este espectacular salto de agua se forma donde el río Laja se precipita desde una meseta basáltica hacia el cañón que excava el mismo río.
+  descripcion: `Los Saltos del Laja son un conjunto de cuatro cascadas independientes del Río Laja, formadas sobre una meseta de roca basáltica de origen volcánico. El salto principal alcanza los 35 metros de altura, mientras que los restantes varían entre 20 y 25 metros. Las cuatro cascadas caen en un radio de aproximadamente 1 km, separadas entre sí sobre el mismo lecho rocoso volcánico.
 
-  Con una caída de 35 metros de altura, el Salto del Laja no es una sola cascada sino un sistema de cuatro brazos que se pueden apreciar desde distintos miradores. Su fuerza y belleza son producto del río Laja, que nace en la ladera norte del volcán Antuco y acumula un caudal importante antes de alcanzar este punto.
+  El Río Laja nace en la Laguna del Laja (1.360 msnm) en la comuna de Antuco y recorre 140 km antes de desembocar en el Río Biobío. La cuenca total del Río Laja drena 4.040 km². Al llegar a este punto, el río se precipita sobre los escalones de roca basáltica generados por antiguas coladas de lava del volcán Antuco, creando este espectáculo natural.
 
-  El acceso es sumamente sencillo: el complejo turístico está justo al borde de la Ruta 5 Sur (Panamericana), lo que lo convierte en una parada obligatoria para quienes viajan entre Santiago y el sur de Chile.`,
-  comoLlegar: `Desde Santiago (500 km): Tomar la Ruta 5 Sur (Panamericana) hacia el sur. A 25 km al norte de Los Ángeles, encontrará señalética claramente visible desde la ruta. El acceso principal está en el km 482.
+  Declarado Zona de Interés Turístico (ZOIT) por la Subsecretaría de Turismo en abril de 2016, los Saltos del Laja se ubican junto a la Ruta 5 Sur en el km 480, convirtiéndolos en una parada obligatoria para quienes viajan entre Santiago y el sur de Chile. En temporada alta (enero-febrero) el destino puede recibir hasta 30.000 visitantes diarios.`,
+  comoLlegar: `Desde Santiago (480 km, 5-6 horas en auto): Tomar la Ruta 5 Sur (Panamericana) pasando por Talca y Chillán. El acceso está señalizado en el km 477-480 como "Saltos del Laja" o "Puente Salto del Laja".
 
-  Desde Los Ángeles (25 km): Por la Ruta 5 Norte hasta el km 482. El viaje dura aproximadamente 20 minutos.
+  Desde Los Ángeles (30 km, 30-35 min): Ruta 5 Norte, tomar salida señalizada en el km 484.
 
-  Transporte público: Buses interurbanos Santiago–Los Ángeles–Temuco pasan por la parada del Salto del Laja. Consultar con la empresa de buses.`,
+  Desde Concepción (98 km, 1h 15min): Ruta 148 → Ruta Q-50 hasta Cabrero → Ruta 5 Sur.
+
+  Transporte público: No hay bus directo desde Santiago. Tomar bus a Los Ángeles o Concepción (Pullman Bus, Turbus, Eme Bus, ~6 horas). Desde Los Ángeles o Concepción, buses de Pullman Bus y Jota Be llegan directamente al Salto del Laja (~$3.000 CLP, frecuencia cada 45 min en temporada alta).`,
   imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80',
   galeria: [
     'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
@@ -38,221 +41,413 @@ const cascada = {
     { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50 },
     { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 30 },
   ],
+
+  // --- Datos verificados por chile-waterfalls-researcher (feb 2026) ---
+  lat: -37.2167,
+  lng: -72.3833,
+  rio: 'Río Laja',
+  tipoFormacion: 'Meseta basáltica volcánica',
+  numeroBrazos: 4,
+  distanciaSantiago: 480,
+
+  historia: `Los Saltos del Laja fueron un lugar sagrado para las comunidades mapuche de la región. El río llevaba el nombre mapuche Nivequetén, y la zona era escenario de ceremonias, ofrendas y rituales de iniciación donde los jóvenes guerreros debían cruzar al otro lado del salto para ser considerados hombres. El nombre "Laja" proviene del español y refiere a una roca plana y lisa de capas delgadas, en alusión a la meseta basáltica sobre la que caen las cascadas.
+
+  En 1756, se celebró el Parlamento del Salto del Laja bajo el gobernador Manuel de Amat y Junient, uno de los eventos políticos coloniales más importantes del período. Reunió a españoles, chilenos, mapuches y pehuenches con el objetivo de establecer paz, abrir comunicación entre Concepción y Chiloé, y acordar la evangelización franciscana. Este parlamento impulsó la fundación de Villa Santa Bárbara (1758) y Villa Antuco.
+
+  Geológicamente, las cascadas se formaron hace 10.000-13.000 años por la actividad del Volcán Antuco (2.979 msnm). El volcán original experimentó un colapso gravitacional lateral que generó una avalancha volcánica masiva. Los flujos piroclásticos de ceniza basáltica se extendieron cubriendo la Depresión Intermedia, formando un abanico aluvial de 50 × 60 km². El Río Laja erosionó los depósitos de arena volcánica blanda hasta encontrar los flujos de lava consolidados, y la diferencia de elevación entre flujos sucesivos creó los escalones naturales que hoy forman las cuatro cascadas. Las primeras fotografías del lugar datan de fines del siglo XIX — el fotógrafo Félix Leblanc fue uno de los primeros en documentarlas, y la Biblioteca Nacional de Chile conserva imágenes de 1900 y 1906.`,
+
+  queHacer: [
+    { actividad: 'Mirador principal', descripcion: 'Plataforma de observación con vista directa a las cuatro cascadas. Acceso público y gratuito. Desde aquí se pueden fotografiar todos los saltos. Un mercado artesanal se encuentra en el camino de acceso.' },
+    { actividad: 'Sendero Mirador (0.96 km)', descripcion: 'Sendero corto que baja desde el mercado artesanal hasta la base de la cascada y sube al mirador elevado. Tramos adoquinados y caminos de tierra. Dificultad fácil, desnivel de 12 m. Duración 30-60 minutos.' },
+    { actividad: 'Canopy sobre el cañón', descripcion: 'Centro Recreativo Agua Morena ofrece dos líneas de canopy: 200 m y 400 m (la más larga de la Región del Biobío). También puente tibetano. Desde $12.000 CLP. Horario 11:00-19:00. Contacto: +56 9 6704 8096.' },
+    { actividad: 'Paseo en lancha', descripcion: 'Navegación por el tramo bajo del Río Laja, aguas abajo de las cascadas. Recorrido por el cañón de 4 km con paredes de roca volcánica. Desde $5.000 CLP (Paseo en Lancha Buenaventura).' },
+    { actividad: 'Cabalgata y trekking guiado', descripcion: 'Paseos a caballo ($5.000 CLP) y trekking por senderos boscosos del entorno (Sendero Encantado, 1 hora, desde $5.000 CLP). Disponible en Centro Recreativo Agua Morena.' },
+    { actividad: 'Fotografía y observación', descripcion: 'Las cuatro cascadas ofrecen excelentes oportunidades fotográficas desde los miradores. En verano, la interacción del sol con el spray genera arcoíris. El cañón aguas abajo de 4 km de largo y 20 m de ancho es también muy fotogénico.' },
+  ],
+
+  flora: `El entorno de los Saltos del Laja se encuentra en el límite entre el bosque esclerófilo mediterráneo y el bosque templado valdiviano, una zona de transición ecológica característica del paralelo 37°S. En las laderas del cañón predominan el quillay (Quillaja saponaria), el peumo (Cryptocarya alba), el boldo (Peumus boldus) y el litre (Lithrea caustica), especies típicas del matorral esclerófilo chileno.
+
+  Junto al río y en las zonas más húmedas cercanas a las cascadas crecen el maitén (Maytenus boaria) con sus hojas colgantes características, el arrayán (Luma apiculata) de corteza canela, la patagua (Crinodendron patagua) y la nalca (Gunnera tinctoria) con hojas de hasta 2 metros de diámetro. Los helechos nativos (Pteridium aquilinum y otras especies), musgos y líquenes cubren las rocas basálticas en las zonas umbrosas. El espino (Acacia caven), árbol espinoso del matorral, florece en primavera con flores amarillas aromáticas. La vegetación ribereña incluye sauces nativos e introducidos, alisos y álamos que estabilizan las orillas del Río Laja.`,
+
+  fauna: `La zona alberga una diversidad interesante de aves. Entre las más representativas se encuentran la loica (Leistes loyca) con su pecho rojo, el zorzal (Turdus falcklandii) de canto melodioso, y el jilguero (Spinus barbatus). En las riberas del río destacan la garza cuca (Ardea cocoi), los triles (Agelasticus thilius) y las bandurrias (Theristicus melanopis) con su pico curvo. Los loritos tricahue (Cyanoliseus patagonus) se escuchan al atardecer, y el cóndor (Vultur gryphus) sobrevuela ocasionalmente el cañón, siendo más frecuente en el cercano Parque Nacional Laguna del Laja.
+
+  Entre los mamíferos, el zorro chilla (Lycalopex griseus) es ocasionalmente avistado en el entorno del complejo turístico. El colocolo (Leopardus colocola), pequeño felino protegido de hábitos nocturnos, habita la zona aunque es difícil de observar. En las rocas volcánicas del cañón habita el matuasto (Pristidactylus spp.), lagarto grande y colorido, también protegido. En las aguas del Río Laja abundan el pejerrey (Odontesthes bonariensis) y la trucha arcoíris (Oncorhynchus mykiss), ambas especies apreciadas para la pesca deportiva.`,
+
+  clima: {
+    tipo: 'Mediterráneo con influencia oceánica (Csb)',
+    tempPromedio: '13.6°C',
+    tempVerano: '26-32°C',
+    tempInvierno: '4-11°C',
+    precipitaciones: '1.069 mm anuales (concentradas mayo-agosto)',
+    descripcion: 'Los veranos son cálidos y secos — enero es el mes más seco con solo 11 mm de precipitación. En invierno las temperaturas bajan a 4°C de mínima y las precipitaciones alcanzan los 230 mm mensuales en junio. La mejor época para visitar es diciembre a marzo: temperaturas agradables, poca lluvia y caudal garantizado por acuerdo DGA (mínimo 22 m³/s). En enero-febrero el destino puede recibir hasta 30.000 visitantes diarios.',
+  },
+
+  seguridad: [
+    'Prohibido bañarse en el río bajo las cascadas y bajo el puente — corrientes extremadamente peligrosas. Se han registrado accidentes fatales.',
+    'Bañarse únicamente en piscinas habilitadas dentro de los complejos turísticos',
+    'No acercarse a los bordes sin barandas de los miradores — las rocas basálticas son resbaladizas',
+    'El sendero principal puede estar cerrado por riesgo geológico (en 2022 se detectó una fisura en la roca). Verificar apertura antes de visitar.',
+    'En temporada de lluvias, el caudal puede aumentar drásticamente. Verificar condiciones del río.',
+    'Usar calzado apropiado para senderos húmedos y resbaladizos, especialmente en invierno',
+  ],
+
+  recomendaciones: [
+    'Cámara fotográfica — las cuatro cascadas ofrecen vistas espectaculares desde cada mirador',
+    'Calzado con buena tracción para senderos y rocas húmedas',
+    'Protector solar y agua en verano (máximas de 32°C)',
+    'Chaqueta impermeable en invierno (230 mm de lluvia mensual en junio)',
+    'Binoculares para observación de aves (loicas, garzas, bandurrias, tricahues)',
+    'Efectivo — algunos operadores no aceptan tarjeta',
+  ],
+
+  gastronomia: [
+    { plato: 'Trucha del Río Laja', descripcion: 'El plato estrella de la zona. Trucha entera a la mantequilla, al ajillo o ahumada, proveniente del Río Laja y la Laguna del Laja. Disponible en Restaurante San Luis, La Chinita, Los Arcos y Hotel Salto del Laja.' },
+    { plato: 'Asado de cordero al palo', descripcion: 'Tradición huasa del campo de la Región del Biobío. Cordero entero asado a fuego lento en estaca. Se ofrece en fondas y restaurantes del sector en temporada alta y Fiestas Patrias.' },
+    { plato: 'Cazuela de ave o vacuno', descripcion: 'Caldo contundente con trozos de carne, papas, choclo, zapallo y verduras. Plato cotidiano de la cocina sureña chilena, ideal para los días frescos de invierno.' },
+    { plato: 'Longaniza ahumada de Chillán', descripcion: 'Producto regional estrella de la zona Biobío-Ñuble. Se ofrece como entrada o acompañamiento en los restaurantes y mercados artesanales del sector.' },
+    { plato: 'Empanada de pino', descripcion: 'Empanada horneada rellena de carne picada, cebolla, aceitunas y huevo. Tradición criolla chilena disponible en puestos artesanales y restaurantes del área.' },
+    { plato: 'Cerveza artesanal local', descripcion: 'El Hotel Salto del Laja cuenta con cervecería artesanal propia. La zona del Biobío tiene una producción de cerveza artesanal en crecimiento.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Hotel Salto del Laja', tipo: 'Hotel', precioDesde: 'Desde ~$80.000 CLP/noche', url: 'https://saltodellaja.cl', descripcion: 'Ubicado en una isla privada rodeada por las cuatro cascadas. 35 hectáreas de parque, campo de golf de 9 hoyos, piscina, restaurante con cervecería artesanal, tinajas y actividades al aire libre. Desayuno incluido.' },
+    { nombre: 'Complejo Los Manantiales', tipo: 'Hotel + Cabañas', precioDesde: 'Hotel desde $70.000 CLP / Cabañas desde $50.000 CLP', url: 'https://losmanantiales.saltosdellaja.com', descripcion: 'Complejo turístico completo con hotel, cabañas (2-8 personas), camping, piscinas y restaurante con vista a las cascadas. Tel: +56 43 2314275.' },
+    { nombre: 'Cabañas Parque Salto del Laja', tipo: 'Cabaña', precioDesde: 'Desde ~$119.000 CLP/noche', url: '#', descripcion: 'Cabañas a 100 m de la cascada principal. Chimenea, cocina equipada, WiFi. Piscina, juegos infantiles, kayaks, paseos a caballo y en lancha. Registro SERNATUR.' },
+    { nombre: 'Camping Las Araucarias', tipo: 'Camping', precioDesde: 'Consultar precio', url: 'https://campinglasaraucarias.cl', descripcion: 'Camping familiar con sitios amplios, electricidad, agua potable, duchas calientes, piscinas y cancha de fútbol. Calificación 4.5/5 (236 reseñas). Tel: +56 9 7496 0748.' },
+    { nombre: 'Camping El Rinconcito', tipo: 'Camping', precioDesde: 'Desde $25.000 CLP (1-2 personas)', url: 'https://elrinconcitosaltodellaja.cl', descripcion: 'Complejo familiar con camping, cabañas, piscina y restaurante con comida criolla. Picnic adulto $9.000 CLP. Horario picnic 11:00-20:00.' },
+    { nombre: 'Cabañas Las Corrientes', tipo: 'Cabaña', precioDesde: 'Consultar precio', url: 'https://cabanaslascorrientes.cl', descripcion: 'Ubicadas a 3 km del Salto del Laja. WiFi gratuito, living y cocina equipada. Ambiente tranquilo rodeado de naturaleza.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto cuesta la entrada al Salto del Laja?', respuesta: 'El acceso al mirador principal y a la zona pública del Salto del Laja es completamente gratuito. Solo tienen costo las actividades adicionales como canopy (desde $12.000 CLP), trekking guiado (desde $5.000 CLP), paseos en lancha (desde $5.000 CLP), y el acceso a complejos turísticos privados con piscina y zonas de picnic.' },
+    { pregunta: '¿En qué región está el Salto del Laja?', respuesta: 'El Salto del Laja está en la Región del Biobío (VIII Región), provincia de Biobío, en el límite entre las comunas de Cabrero y Los Ángeles. Se ubica junto a la Ruta 5 Sur (Panamericana) en el km 477-480, a 480 km al sur de Santiago.' },
+    { pregunta: '¿Cuántos kilómetros hay de Santiago al Salto del Laja?', respuesta: 'El Salto del Laja está a 480 km al sur de Santiago por la Ruta 5 Sur. En auto el viaje toma entre 5 y 6 horas. En bus, entre 6 y 7 horas con trasbordo en Concepción o Los Ángeles (Pullman Bus, Turbus, Eme Bus).' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Salto del Laja?', respuesta: 'La mejor época es de diciembre a marzo (verano austral). Las temperaturas son agradables (26-32°C), hay poca lluvia (enero tiene solo 11 mm), y el caudal mínimo está garantizado por acuerdo con la DGA en 22 m³/s. Para evitar multitudes, la primavera (octubre-noviembre) también es buena opción. En invierno el caudal aumenta a 62 m³/s pero el clima es más frío y lluvioso.' },
+    { pregunta: '¿Qué actividades se pueden hacer en el Salto del Laja?', respuesta: 'Las actividades incluyen: miradores gratuitos de las cuatro cascadas, canopy (líneas de 200 m y 400 m en Agua Morena), sendero mirador (0.96 km, fácil), paseos en lancha por el cañón, cabalgatas, trekking guiado, kayak, rappel, mountain bike, parque aéreo, paintball, pesca deportiva de truchas y pejerreyes, y zonas de picnic con piscinas en los complejos turísticos.' },
+    { pregunta: '¿Dónde se puede alojar cerca del Salto del Laja?', respuesta: 'Hay más de 45 áreas de camping, 15 empresas de cabañas y 2 hoteles en el sector. Las opciones más conocidas: Hotel Salto del Laja (isla privada, desde ~$80.000 CLP/noche), Complejo Los Manantiales (hotel + cabañas + camping, desde $25.000 CLP camping), Cabañas Parque Salto del Laja (desde ~$119.000 CLP/noche) y Camping Las Araucarias (4.5/5 estrellas, 236 reseñas).' },
+    { pregunta: '¿El Salto del Laja es apto para visitar con niños?', respuesta: 'Sí, es un destino excelente para familias. El mirador principal es accesible y seguro, hay piscinas para niños en los complejos turísticos, juegos infantiles, caballos y bicicletas. La precaución clave: no bañarse en el río bajo las cascadas ni bajo el puente — las corrientes son muy peligrosas. Usar solo las piscinas habilitadas.' },
+    { pregunta: '¿Cómo llegar al Salto del Laja en transporte público?', respuesta: 'No hay bus directo desde Santiago. Tomar un bus a Los Ángeles o Concepción (Pullman Bus, Turbus, Eme Bus, ~6 horas desde Terminal Sur de Santiago). Desde Los Ángeles o Concepción (Terminal Collao), buses de Pullman Bus y Jota Be van directamente al Salto del Laja (~$3.000 CLP, frecuencia cada 45 minutos en temporada alta). Los buses dejan a metros de la cascada principal.' },
+  ],
 };
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada de ${cascada.altura} metros de altura en la Región del ${cascada.region}, Chile. ${cascada.numeroBrazos} brazos de agua sobre ${cascada.tipoFormacion.toLowerCase()}. Acceso gratuito junto a la Ruta 5 Sur.`,
+    image: cascada.imagen,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: true,
+    openingHours: 'Mo-Su',
+    touristType: ['Naturaleza', 'Aventura', 'Fotografía', 'Familiar'],
+    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${cascada.region}, Chile. Cómo llegar, qué hacer, dónde alojarse, clima y toda la información para tu visita.`;
 ---
 
 <Layout
-  title={`${cascada.nombre} — Cascadas de Chile`}
-  description={`Conoce el ${cascada.nombre}, una cascada de ${cascada.altura} m en ${cascada.region}. Cómo llegar, qué esperar y toda la información para tu visita.`}
+  title={pageTitle}
+  description={pageDescription}
   ogImage={cascada.imagen}
+  structuredData={structuredData}
 >
 
-  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
-  <section style="
-    position: relative;
-    height: 90vh;
-    min-height: 600px;
-    padding-top: 64px;
-    overflow: hidden;
-  ">
-    <!-- Foto de fondo -->
-    <div style={`
-      position: absolute; inset: 0;
-      background-image: url('${cascada.imagen}');
-      background-size: cover; background-position: center;
-    `}></div>
-    <!-- Gradiente overlay -->
-    <div style="
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
-    "></div>
-
-    <!-- Contenido -->
-    <div style="
-      position: relative; z-index: 1;
-      height: 100%; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 4rem 2.5rem;
-    ">
-      <!-- Breadcrumb -->
-      <nav style="margin-bottom:1.5rem;">
-        <a href="/" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
-        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
-        <a href="/cascadas" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Cascadas</a>
-        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
-        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">{cascada.region}</span>
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero" style={`--bg-image: url('${cascada.imagen}')`}>
+    <div class="cascada-hero__bg"></div>
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
       </nav>
 
-      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+      <div class="cascada-hero__bottom">
         <div>
-          <span style="
-            display:inline-block; background:#00e5d4; color:#091d2b;
-            font-size:0.75rem; font-weight:700; letter-spacing:0.12em;
-            text-transform:uppercase; padding:0.35rem 1rem; border-radius:999px;
-            margin-bottom:1rem;
-          ">{cascada.region}</span>
-          <h1 style="
-            font-family:'Archivo Black',sans-serif;
-            font-size:clamp(3.5rem, 9vw, 10rem);
-            color:#f4efe6; margin:0; line-height:0.9;
-            text-transform:uppercase; letter-spacing:-0.02em;
-          ">{cascada.nombre}</h1>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
         </div>
-
-        <!-- Quick stat: altura -->
-        <div style="text-align:right; padding-bottom:0.5rem;">
-          <p style="
-            font-family:'Archivo Black',sans-serif;
-            font-size:clamp(3rem, 6vw, 6rem);
-            color:#00e5d4; margin:0; line-height:1;
-          ">{cascada.altura}m</p>
-          <p style="color:rgba(244,239,230,0.55); font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.25rem 0 0;">Altura de caída</p>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── -->
-  <section style="background:#f4efe6; padding:3rem 2.5rem;">
-    <div style="
-      display:grid; grid-template-columns:repeat(6,1fr);
-      gap:0; border:1px solid rgba(9,29,43,0.12);
-    ">
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
       {[
         { label: 'Dificultad', value: cascada.dificultad },
         { label: 'Acceso', value: cascada.acceso },
         { label: 'Entrada', value: cascada.entrada },
-        { label: 'Horario', value: cascada.horario },
         { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazos` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
         { label: 'Coordenadas', value: cascada.coordenadas },
-      ].map((stat, i) => (
-        <div style={`
-          padding:1.5rem 1.25rem;
-          border-right:${i < 5 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
-        `}>
-          <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.4rem;">{stat.label}</p>
-          <p style="font-size:0.95rem; color:#091d2b; margin:0; font-weight:500;">{stat.value}</p>
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
         </div>
       ))}
     </div>
   </section>
 
 
-  <!-- ─── DESCRIPCIÓN + CÓMO LLEGAR ───────────────────────────────────────── -->
-  <section style="background:#f4efe6; padding:5rem 2.5rem 7rem;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; max-width:1200px;">
-
-      <!-- Descripción -->
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
       <div class="reveal">
-        <h2 style="
-          font-family:'Archivo Black',sans-serif;
-          font-size:clamp(1.8rem, 3vw, 2.5rem);
-          color:#091d2b; margin:0 0 1.5rem;
-          text-transform:uppercase;
-        ">Sobre el {cascada.nombre}</h2>
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
         {cascada.descripcion.split('\n\n').map(p => (
-          <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; margin:0 0 1.25rem; font-weight:300;">{p.trim()}</p>
+          <p class="cascada-body">{p.trim()}</p>
         ))}
       </div>
 
-      <!-- Cómo llegar -->
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
       <div class="reveal">
-        <h2 style="
-          font-family:'Archivo Black',sans-serif;
-          font-size:clamp(1.8rem, 3vw, 2.5rem);
-          color:#091d2b; margin:0 0 1.5rem;
-          text-transform:uppercase;
-        ">Cómo llegar</h2>
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
         {cascada.comoLlegar.split('\n\n').map(p => (
-          <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; margin:0 0 1.25rem; font-weight:300;">{p.trim()}</p>
+          <p class="cascada-body">{p.trim()}</p>
         ))}
-
-        <!-- Placeholder mapa -->
-        <div style="
-          background:#cceae6; border-radius:4px;
-          height:220px; display:flex; align-items:center;
-          justify-content:center; margin-top:2rem;
-        ">
-          <div style="text-align:center;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="opacity:0.4;">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#091d2b"/>
-            </svg>
-            <p style="font-size:0.8rem; color:rgba(9,29,43,0.5); margin:0.5rem 0 0; letter-spacing:0.1em; text-transform:uppercase;">Mapa próximamente</p>
-          </div>
-        </div>
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación del ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
       </div>
     </div>
   </section>
 
 
-  <!-- ─── GALERÍA ──────────────────────────────────────────────────────────── -->
-  <section style="background:#091d2b; padding:6rem 2.5rem;">
-    <h2 class="reveal" style="
-      font-family:'Archivo Black',sans-serif;
-      font-size:clamp(2.5rem, 6vw, 6rem);
-      color:#f4efe6; margin:0 0 3rem; line-height:0.9;
-      text-transform:uppercase;
-    ">Galería</h2>
-
-    <div style="
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      grid-template-rows:280px 280px;
-      gap:0.75rem;
-    ">
-      <!-- Foto grande -->
-      <div style={`
-        grid-row:1/3;
-        background-image:url('${cascada.galeria[0]}');
-        background-size:cover; background-position:center;
-        border-radius:4px;
-      `}></div>
-      <!-- 3 fotos pequeñas -->
-      {cascada.galeria.slice(1).map(img => (
-        <div style={`
-          background-image:url('${img}');
-          background-size:cover; background-position:center;
-          border-radius:4px;
-        `}></div>
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde miradores panorámicos hasta canopy sobre el cañón, el Salto del Laja ofrece actividades para todos los gustos y niveles.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
       ))}
     </div>
   </section>
 
 
-  <!-- ─── CASCADAS CERCANAS ────────────────────────────────────────────────── -->
-  <section style="background:#091d2b; padding:0 2.5rem 7rem;">
-    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
-      <h2 class="reveal" style="
-        font-family:'Archivo Black',sans-serif;
-        font-size:clamp(2rem, 4vw, 4rem);
-        color:#f4efe6; margin:0 0 3rem; line-height:0.9;
-        text-transform:uppercase;
-      ">Cascadas Cercanas</h2>
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
 
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body">{p.trim()}</p>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Cabañas, hoteles y camping junto a la cascada. Opciones para todos los presupuestos.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big" style={`background-image:url('${cascada.galeria[0]}')`}></div>
+        {cascada.galeria.slice(1).map((img, i) => (
+          <div class="cascada-galeria__small" style={`background-image:url('${img}')`} role="img" aria-label={`${cascada.nombre} - foto ${i + 2}`}></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS ───────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <div class="cascada-cercanas-grid">
         {cascada.cascadasCercanas.map(c => (
-          <a href={`/cascadas/${c.slug}`} class="cascade-card" style="
-            display:block; text-decoration:none;
-            border:1px solid rgba(244,239,230,0.08);
-            border-radius:4px; padding:1.75rem;
-            transition:border-color 0.2s;
-          "
-          onmouseenter="this.style.borderColor='rgba(0,229,212,0.4)'"
-          onmouseleave="this.style.borderColor='rgba(244,239,230,0.08)'">
-            <span style="
-              display:inline-block; background:rgba(0,229,212,0.1); color:#00e5d4;
-              font-size:0.7rem; font-weight:600; letter-spacing:0.12em;
-              text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:999px;
-              margin-bottom:1rem;
-            ">{c.region}</span>
-            <h3 style="
-              font-family:'Archivo Black',sans-serif;
-              font-size:1.4rem; color:#f4efe6; margin:0 0 0.5rem;
-              text-transform:uppercase;
-            ">{c.nombre}</h3>
-            <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0; font-weight:300;">
-              {c.altura} m de altura →
-            </p>
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <span class="cascada-cercana-card__badge">{c.region}</span>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
           </a>
         ))}
       </div>
@@ -260,31 +455,386 @@ const cascada = {
   </section>
 
 
-  <!-- ─── CTA MAPA ─────────────────────────────────────────────────────────── -->
-  <section style="
-    background:#00e5d4;
-    padding: 6rem 2.5rem;
-    text-align:center;
-  ">
-    <h2 style="
-      font-family:'Archivo Black',sans-serif;
-      font-size:clamp(2rem, 5vw, 5rem);
-      color:#091d2b; margin:0 0 1.5rem; line-height:0.95;
-      text-transform:uppercase;
-    ">
-      Descubre +500<br/>cascadas más
-    </h2>
-    <p style="color:#091d2b; font-size:1.05rem; max-width:500px; margin:0 auto 2.5rem; font-weight:300; opacity:0.75;">
-      Explora el mapa interactivo con todas las cascadas de Chile catalogadas.
-    </p>
-    <a href="/mapa" style="
-      display:inline-flex; align-items:center; gap:0.75rem;
-      color:#00e5d4; background:#091d2b; text-decoration:none;
-      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
-      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
-    ">
-      Abrir mapa →
-    </a>
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
   </section>
 
 </Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    background-image: var(--bg-image);
+    background-size: cover; background-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    background-size: cover; background-position: center; border-radius: 4px;
+  }
+  .cascada-galeria__small {
+    background-size: cover; background-position: center; border-radius: 4px;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:last-child { border-bottom: none; }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+
+  @media (max-width: 480px) {
+    .cascada-hero { min-height: 500px; height: 80vh; }
+    .cascada-hero__stat-number { font-size: 2.5rem; }
+    .cascada-galeria {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 200px);
+    }
+    .cascada-galeria__big { grid-column: 1; grid-row: 1; }
+  }
+</style>

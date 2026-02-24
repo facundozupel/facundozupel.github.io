@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  structuredData?: object[];
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, ogImage, structuredData } = Astro.props;
 ---
 
 <html lang="es">
@@ -20,6 +21,9 @@ const { title, description, ogImage } = Astro.props;
   {ogImage && <meta property="og:image" content={ogImage} />}
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  {structuredData?.map(sd => (
+    <script type="application/ld+json" set:html={JSON.stringify(sd)} />
+  ))}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
