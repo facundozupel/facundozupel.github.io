@@ -13,8 +13,6 @@ const cascadas = [
   { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 50, dificultad: 'Moderada', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80' },
 ];
 
-const regiones = ['Todas', 'Biobío', 'Los Lagos', 'Aysén', 'Metropolitana', 'La Araucanía', 'Maule', 'Magallanes'];
-
 const dificultadColor: Record<string, string> = {
   'Fácil': '#00e5d4',
   'Moderada': '#b8e8e4',
@@ -69,37 +67,24 @@ const dificultadColor: Record<string, string> = {
   </section>
 
 
-  <!-- ─── FILTROS ───────────────────────────────────────────────────────────── -->
+  <!-- ─── FILTRO DIFICULTAD ────────────────────────────────────────────────── -->
   <section style="background:#091d2b; padding:0 2.5rem 4rem;">
     <div style="
       border-top:1px solid rgba(244,239,230,0.08);
       padding-top:2rem;
-      display:flex; gap:1rem; flex-wrap:wrap; align-items:center;
+      display:flex; gap:0.75rem; align-items:center;
     ">
-      <span style="color:rgba(244,239,230,0.35); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; margin-right:0.5rem;">Filtrar por región:</span>
-      {regiones.map((r, i) => (
+      <span style="color:rgba(244,239,230,0.35); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; margin-right:0.5rem;">Dificultad:</span>
+      {['Todas', 'Fácil', 'Moderada', 'Difícil'].map((d, i) => (
         <button style={`
           background:${i === 0 ? '#00e5d4' : 'transparent'};
           color:${i === 0 ? '#091d2b' : 'rgba(244,239,230,0.6)'};
           border:1px solid ${i === 0 ? '#00e5d4' : 'rgba(244,239,230,0.15)'};
           font-size:0.75rem; font-weight:600; letter-spacing:0.1em;
-          text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
+          text-transform:uppercase; padding:0.4rem 1.1rem; border-radius:999px;
           cursor:pointer;
-        `}>{r}</button>
+        `}>{d}</button>
       ))}
-
-      <div style="margin-left:auto; display:flex; gap:0.75rem; align-items:center;">
-        <span style="color:rgba(244,239,230,0.35); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Dificultad:</span>
-        {['Fácil', 'Moderada', 'Difícil'].map(d => (
-          <button style="
-            background:transparent; color:rgba(244,239,230,0.6);
-            border:1px solid rgba(244,239,230,0.15);
-            font-size:0.75rem; font-weight:600; letter-spacing:0.1em;
-            text-transform:uppercase; padding:0.4rem 1rem; border-radius:999px;
-            cursor:pointer;
-          ">{d}</button>
-        ))}
-      </div>
     </div>
   </section>
 
