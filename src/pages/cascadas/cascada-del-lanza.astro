@@ -1,0 +1,909 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por chile-waterfalls-researcher + Municipalidad Lo Barnechea + megatiempo.cl + SUDA Outdoors + Wikipedia Los Trapenses + MMA Humedal Los Trapenses, feb 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Cascada del Lanza',
+  slug: 'cascada-del-lanza',
+  region: 'Metropolitana',
+  zona: 'Lo Barnechea',
+  altura: 10,
+  caudal: 'Variable estacional — mayor en invierno-primavera (junio-noviembre), mínimo en verano',
+  dificultad: 'Fácil',
+  acceso: 'Parque Los Trapenses, Lo Barnechea (Av. Camino Los Trapenses)',
+  coordenadas: '33°21\'S 70°30\'W',
+  mejorEpoca: 'Agosto — Diciembre',
+  entrada: 'Gratuita',
+  horario: 'Lunes a domingo 07:00 — 19:00',
+  descripcion: `La Cascada del Lanza es una caída de agua natural ubicada en el Parque Los Trapenses, comuna de Lo Barnechea, en la precordillera nor-oriente de Santiago. A tan solo 10 kilómetros de la estación Escuela Militar del Metro, es probablemente la cascada más accesible de toda la Región Metropolitana: se puede llegar en transporte público y el sendero hasta la caída de agua toma apenas 15 a 20 minutos de caminata.
+
+  El agua desciende entre rocas de la precordillera granítica-metamórfica del batolito andino, formando pozones en la base que los visitantes aprovechan para refrescarse en temporada cálida. El entorno corresponde al bosque esclerófilo mediterráneo, con quillays, litres, peumos, boldos y maquis. El sector Los Trapenses incluye además un Humedal Urbano declarado por el Ministerio del Medio Ambiente en julio de 2021, lo que refuerza el valor ecológico de la zona.
+
+  Es importante no confundir la Cascada del Lanza con la Cascada Uchuy (o Cascada del Maqui), ubicada en el cercano Parque Natural Las Hualtatas, que tiene cobro de entrada y horario diferente. La Cascada del Lanza es gratuita, abierta todos los días y de fácil acceso desde el transporte público.`,
+  comoLlegar: `Desde Santiago en transporte público (la opción recomendada): Tomar Metro Línea 1 hasta Estación Escuela Militar, salida Félix de Amesti. Tomar micro C28 en parada PC-160. Bajar en parada PC-1097 (entre Avenida Paseo Los Bravos y Avenida Paseo Entre Valles). Caminar aproximadamente 4 minutos hasta la segunda entrada del parque. Tiempo total: ~30-40 minutos desde Escuela Militar.
+
+  Desde Santiago en auto (~10 km, 15-20 min): Tomar Avenida Apoquindo hacia el oriente, continuar por Camino Los Trapenses. El Parque Los Trapenses se ubica en la intersección de Los Trapenses con Avenida El Parque, Lo Barnechea. IMPORTANTE: el parque no cuenta con estacionamiento propio. Se recomienda transporte público.
+
+  Acceso a la cascada: Una vez dentro del Parque Los Trapenses, tomar el sendero hacia la izquierda junto a los condominios (entrada principal). El recorrido hasta la cascada toma 15-20 minutos por senderos bien marcados de baja dificultad. No usar el descenso directo, que es peligroso especialmente para niños.`,
+  imagen: '/assets/cascadas/cascada-del-lanza/hero.webp',
+  imagenAlt: 'Cascada del Lanza en el Parque Los Trapenses, Lo Barnechea, caída de agua entre bosque esclerófilo de la precordillera de Santiago',
+  galeria: [
+    { src: '/assets/cascadas/cascada-del-lanza/galeria-1.webp', alt: 'Sendero del Parque Los Trapenses hacia la Cascada del Lanza' },
+    { src: '/assets/cascadas/cascada-del-lanza/galeria-2.webp', alt: 'Pozones naturales en la base de la Cascada del Lanza' },
+    { src: '/assets/cascadas/cascada-del-lanza/galeria-3.webp', alt: 'Bosque esclerófilo de quillays y peumos en el entorno de la cascada' },
+    { src: '/assets/cascadas/cascada-del-lanza/galeria-4.webp', alt: 'Vista de la precordillera de Lo Barnechea desde el Parque Los Trapenses' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Contribuidores de Wikimedia Commons', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/Category:Lo_Barnechea' },
+  ],
+  // 3 por cercanía geográfica (Metropolitana)
+  cascadasCercanas: [
+    { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, tipo: 'cercania' },
+    { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', region: 'Metropolitana', altura: 15, tipo: 'cercania' },
+    { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', region: 'Maule', altura: 30, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (acceso fácil, familia, urbana, gratuita)
+  cascadasRelacionadas: [
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+    { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 25, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados (megatiempo.cl + Municipalidad Lo Barnechea + Wikipedia + MMA, feb 2026) ---
+  lat: -33.355,
+  lng: -70.505,
+  rio: 'Estero Las Hualtatas (precordillera Lo Barnechea)',
+  tipoFormacion: 'Precordillera granítica-metamórfica del batolito andino',
+  numeroBrazos: 1,
+  distanciaSantiago: 10,
+
+  historia: `El sector Los Trapenses toma su nombre del monasterio de monjes de la Orden de la Trapa (Cistercienses de la Estricta Observancia) que se estableció en La Dehesa, Lo Barnechea, en 1960. Los monjes trapenses, fundados como rama benedictina en 1664 en la abadía La Trappe de Normandía, Francia, permanecieron en el sector hasta septiembre de 1986, cuando se trasladaron a Miraflores (Codegua, Sexta Región). La hacienda que administraban incluía los terrenos que hoy conforman el Parque Los Trapenses.
+
+  Los habitantes prehispánicos del sector eran los Huaicoches, término en mapudungun que significa "personas que viven en sectores de huaicos" (del quechua wayko: aluviones). Cuando Pedro de Valdivia fundó Santiago en 1541, el Longko Huara Huara y sus caciques Guampilla, Roquingua, Vichato, Polobanda y Biticuna administraban estos territorios. Tras la colonización, los Huaicoches fueron trasladados sucesivamente a Calera de Tango, Peñalolén y finalmente incorporados al pueblo indígena de Apoquindo.
+
+  En julio de 2021, el Ministerio del Medio Ambiente declaró el Humedal Los Trapenses como Humedal Urbano, protegiendo este ecosistema que había sido amenazado por relleno de tierra en 2019-2020. La <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a> en el Cajón del Maipo y la Cascada del Lanza son las dos principales caídas de agua de la <a href="/region/metropolitana" class="cascada-inline-link">Región Metropolitana</a>, representando destinos complementarios: una de montaña y otra urbana.`,
+
+  queHacer: [
+    { actividad: 'Senderismo familiar', descripcion: 'Senderos bien marcados de baja dificultad que llevan a la cascada en 15-20 minutos. El recorrido incluye un estero con pozones y es ideal para caminatas con niños. IMPORTANTE: usar la entrada principal a la izquierda junto a los condominios, no el descenso directo.' },
+    { actividad: 'Fotografía de naturaleza', descripcion: 'La cascada enmarcada por el bosque esclerófilo de la precordillera ofrece composiciones únicas. En primavera (septiembre-noviembre) el caudal es mayor y la vegetación está en plena floración. Mejor luz en las mañanas.' },
+    { actividad: 'Pícnic y descanso', descripcion: 'El parque cuenta con zonas de descanso y bancas para pícnic familiar. Ambiente tranquilo rodeado de naturaleza nativa a pocos kilómetros de Santiago.' },
+    { actividad: 'Juegos infantiles', descripcion: 'El Parque Los Trapenses tiene área de juegos para niños, complementando la visita a la cascada con actividades recreativas para los más pequeños.' },
+    { actividad: 'Refrescarse en pozones', descripcion: 'En temporada cálida, los pozones naturales del estero junto a la cascada permiten refrescarse. El agua es fría por provenir de la precordillera. Supervisión de niños recomendada.' },
+    { actividad: 'Observación de flora nativa', descripcion: 'El entorno del parque alberga un bosque esclerófilo mediterráneo con quillays, litres, peumos, boldos, maquis y quiscos. Una oportunidad para conocer la vegetación nativa de la zona central de Chile sin alejarse de Santiago.' },
+  ],
+
+  flora: `El entorno de la Cascada del Lanza presenta un bosque esclerófilo mediterráneo, la formación vegetal característica de la precordillera central de Chile. Esta vegetación está adaptada a los veranos secos y calurosos del clima mediterráneo, con hojas duras y brillantes que reducen la pérdida de agua.
+
+  Entre las especies nativas dominantes se encuentran el quillay (Quillaja saponaria), árbol endémico cuya corteza contiene sapogeninas utilizadas históricamente como jabón natural; el litre (Lithraea caustica), árbol nativo que puede causar dermatitis de contacto en personas sensibles — se recomienda no tocarlo; el peumo (Cryptocarya alba), de follaje perenne y frutos comestibles; y el boldo (Peumus boldus), árbol aromático de uso medicinal. El maqui (Aristotelia chilensis) aporta frutos comestibles ricos en antioxidantes, mientras que el espino (Acacia caven) es el árbol emblemático de la zona central. En sectores rocosos aparece el quisco (Echinopsis chiloensis), cactus columnar nativo. El colliguay (Colliguaja odorifera) y el maitén (Maytenus boaria) completan un ecosistema que convive con el cercano Humedal Los Trapenses, declarado Humedal Urbano en 2021.`,
+
+  fauna: `La fauna de la precordillera de Lo Barnechea es representativa del matorral esclerófilo y bosque nativo mediterráneo de Chile central. El sector Los Trapenses, con su combinación de parque, humedal y precordillera, favorece una biodiversidad notable para estar tan cerca de Santiago.
+
+  Entre los mamíferos se pueden encontrar el zorro culpeo (Lycalopex culpaeus) y el zorro chilla (Lycalopex griseus), ambos presentes en la precordillera metropolitana. El cururo (Spalacopus cyanus), roedor endémico de Chile central, habita en las zonas de matorral, y la vizcacha (Lagidium viscacia) puede encontrarse en los sectores rocosos de mayor altura. En cuanto a aves, destacan el pequén (Athene cunicularia), lechuza de campo muy común; la loica (Leistes loyca), con su característico pecho rojo; la tenca (Mimus thenca), ave endémica de Chile central; el águila mora (Geranoaetus melanoleucus), rapaz de gran envergadura; y el halcón peregrino (Falco peregrinus). Entre los reptiles se encuentran lagartijas de altitud (Liolaemus altissimus) y la culebra de cola larga (Philodryas chamissonis), inofensiva para humanos.`,
+
+  clima: {
+    tipo: 'Mediterráneo semiárido (BSks/Csa)',
+    tempPromedio: '14°C',
+    tempVerano: '25°C (máx.) / 12°C (mín.)',
+    tempInvierno: '12°C (máx.) / 1-3°C (mín.)',
+    precipitaciones: '178 mm anuales (concentradas en junio)',
+    descripcion: 'Clima mediterráneo con veranos cálidos y secos (diciembre-marzo) e inviernos suaves y lluviosos (mayo-agosto). El caudal de la cascada depende directamente de las precipitaciones invernales y el deshielo precordillerano: en verano puede ser muy reducido o nulo en años secos. La primavera (septiembre-noviembre) ofrece el mejor balance: caudal aún abundante, temperaturas agradables y floración del bosque esclerófilo.',
+  },
+
+  seguridad: [
+    'Usar siempre la entrada principal del parque (a la izquierda junto a los condominios) — el descenso directo es peligroso, especialmente para niños',
+    'En verano el caudal puede ser muy bajo o nulo — verificar condiciones antes de visitar si la cascada es el objetivo principal',
+    'El litre (Lithraea caustica) es un árbol común en el sector que puede causar dermatitis de contacto — no tocarlo',
+    'No dejar basura — el sector está en proceso de recuperación ambiental (Humedal Los Trapenses)',
+    'El parque cierra a las 19:00 — planificar el regreso con tiempo',
+    'Señal de celular puede ser limitada en algunos sectores del sendero',
+    'En invierno los senderos pueden estar resbaladizos por la humedad — usar calzado con buen agarre',
+  ],
+
+  recomendaciones: [
+    'Calzado de trekking o zapatillas con buena suela (terreno irregular precordillerano)',
+    'Agua suficiente (no hay servicios en el parque confirmados)',
+    'Protector solar (exposición solar importante en precordillera)',
+    'Ropa de abrigo extra (las tardes enfrían rápido, especialmente en otoño-invierno)',
+    'Bolsa para llevar tu basura de vuelta',
+    'Repelente de insectos en primavera-verano',
+    'Snacks (no hay kioscos ni tiendas en el parque)',
+    'Tarjeta Bip! cargada (acceso en Metro + micro C28)',
+  ],
+
+  gastronomia: [
+    { plato: 'Carnes a la parrilla en Santa Brasa', descripcion: 'Santa Brasa Los Trapenses es un restaurante especializado en carnes y parrilla, popular entre familias del sector. Ubicado en Av. José Alcalde Delano 10.545, Lo Barnechea, a pocos minutos del parque.' },
+    { plato: 'Gastronomía de pub en La Maestranza', descripcion: 'Bar americano ubicado en Camino del Monje 10530, Lo Barnechea. Ambiente casual con menú variado ideal para después de la caminata. En el eje Los Trapenses.' },
+    { plato: 'Empanadas artesanales', descripcion: 'Empanadas de pino al horno, especialidad de la zona central de Chile. Disponibles en panaderías y locales gastronómicos de Lo Barnechea y Las Condes, camino de regreso a Santiago.' },
+    { plato: 'Helados artesanales', descripcion: 'En la zona comercial de Los Trapenses hay heladerías artesanales ideales para premiar a los niños después del trekking. Variedad de sabores con ingredientes locales.' },
+    { plato: 'Café de especialidad', descripcion: 'Cafeterías de especialidad en el eje Los Trapenses ofrecen café de origen y repostería artesanal. Parada ideal para recargar energías antes o después de la visita.' },
+    { plato: 'Brunch de fin de semana', descripcion: 'Varios restaurantes del sector Los Trapenses ofrecen brunch los fines de semana, combinando la visita a la cascada con una experiencia gastronómica completa.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Núcleo Mayor Apartamentos', tipo: 'Aparthotel', precioDesde: 'Desde ~$377.000/noche', url: 'https://www.tripadvisor.com/Hotel_Review-g12291885-d25893458-Reviews-Nucleo_Mayor_Apartamentos-Lo_Barnechea_Santiago_Metropolitan_Region.html', descripcion: 'Departamentos modernos con cocina completa y terraza con vistas. #1 en TripAdvisor para Lo Barnechea. A menos de 3 km de la cascada. Av. Camino Los Trapenses 2140.' },
+    { nombre: 'Trapenses Boutique Hotel', tipo: 'Boutique', precioDesde: 'Consultar precio', url: 'https://www.tripadvisor.com/VacationRentalReview-g12291885-d12989989-Trapenses_Boutique_Hotel-Lo_Barnechea_Santiago_Metropolitan_Region.html', descripcion: 'Alojamiento boutique en el sector Los Trapenses con televisión y parrilla. Ambiente tranquilo en la precordillera.' },
+    { nombre: 'Hoteles en Las Condes / Vitacura', tipo: 'Hoteles urbanos', precioDesde: 'Desde ~$50.000/noche', url: '#', descripcion: 'La cascada está a 10 km de Escuela Militar, por lo que todos los hoteles de Las Condes y Vitacura son opciones válidas. Acceso en metro + micro en 30-40 minutos.' },
+    { nombre: 'Cascada de Las Ánimas', tipo: 'Resort ecoturístico', precioDesde: 'Desde $25.000/noche', url: 'https://cascadadelasanimas.cl/', descripcion: 'Para quienes quieran combinar con la Cascada de las Ánimas en el Cajón del Maipo (~45 km). Lodges, domos, cabañas y camping junto al río Maipo.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto cuesta la entrada a la Cascada del Lanza?', respuesta: 'El acceso es totalmente gratuito. El Parque Los Trapenses es un parque municipal de Lo Barnechea sin cobro de entrada. No confundir con el Parque Natural Las Hualtatas (donde está la Cascada Uchuy), que sí cobra entrada.' },
+    { pregunta: '¿Cómo llegar a la Cascada del Lanza en transporte público?', respuesta: 'Metro Línea 1 hasta Estación Escuela Militar, salida Félix de Amesti. Tomar micro C28 en parada PC-160 y bajar en parada PC-1097 (entre Paseo Los Bravos y Paseo Entre Valles). Caminar 4 minutos hasta la segunda entrada del parque. Tiempo total: 30-40 minutos.' },
+    { pregunta: '¿La Cascada del Lanza está en el Cajón del Maipo?', respuesta: 'No. La Cascada del Lanza está en el Parque Los Trapenses, comuna de Lo Barnechea, en la precordillera nor-oriente de Santiago. El Cajón del Maipo es una zona diferente (al sur-oriente). La Cascada Las Melosas y la Cascada de las Ánimas sí están en el Cajón del Maipo.' },
+    { pregunta: '¿Es apta para ir con niños?', respuesta: 'Sí. El parque tiene área de juegos, senderos de baja dificultad y la caminata a la cascada toma solo 15-20 minutos. Se recomienda usar la entrada principal (izquierda junto a condominios) y no el descenso directo, que puede ser peligroso para niños.' },
+    { pregunta: '¿Hay estacionamiento en la Cascada del Lanza?', respuesta: 'No. El Parque Los Trapenses no cuenta con estacionamiento propio. Se recomienda enfáticamente llegar en transporte público (Metro + micro C28).' },
+    { pregunta: '¿Cuál es la mejor época para visitar la Cascada del Lanza?', respuesta: 'La primavera (septiembre a noviembre) es ideal: mayor caudal por deshielo precordillerano, temperaturas agradables y floración del bosque esclerófilo. En invierno (junio-agosto) también hay buen caudal. En verano (enero-marzo) el caudal puede ser muy bajo o nulo en años secos.' },
+    { pregunta: '¿Cuál es el horario del Parque Los Trapenses?', respuesta: 'Lunes a domingo de 07:00 a 19:00 horas. El parque cierra al atardecer, por lo que se recomienda planificar el regreso con tiempo.' },
+    { pregunta: '¿Cuál es la diferencia entre la Cascada del Lanza y la Cascada Uchuy?', respuesta: 'Son cascadas diferentes en sectores cercanos pero distintos. La Cascada del Lanza está en el Parque Los Trapenses (gratuito, todos los días 07:00-19:00). La Cascada Uchuy está en el Parque Natural Las Hualtatas (entrada ~$3.450 adultos, viernes a domingo 08:00-18:00), administrado por la Asociación Parque Cordillera.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada natural gratuita en el Parque Los Trapenses, Lo Barnechea, a 10 km de Santiago. Accesible en Metro + micro. Sendero fácil de 15-20 minutos, ideal para familias.`,
+    image: `https://cascadasdechile.cl${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: true,
+    openingHours: 'Mo-Su 07:00-19:00',
+    touristType: ['Naturaleza', 'Senderismo', 'Familia'],
+    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada gratuita en Lo Barnechea a 10 km de Santiago. Acceso en Metro + micro, sendero fácil de 15 min. Cómo llegar, horarios y toda la información.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">~{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazo` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre la {cascada.nombre}</h2>
+        <p class="cascada-body">La Cascada del Lanza es una caída de agua natural ubicada en el Parque Los Trapenses de Lo Barnechea, en la precordillera nor-oriente de Santiago. A tan solo 10 kilómetros de la estación Escuela Militar del Metro, es probablemente la cascada más accesible de toda la <a href="/region/metropolitana" class="cascada-inline-link">Región Metropolitana</a>: se puede llegar en transporte público y el sendero hasta la caída de agua toma apenas 15 a 20 minutos.</p>
+        <p class="cascada-body">El agua desciende entre rocas de la precordillera granítica del batolito andino, formando pozones naturales en la base. El entorno corresponde al bosque esclerófilo mediterráneo — quillays, litres, peumos, boldos y maquis — que convive con el Humedal Los Trapenses, declarado Humedal Urbano por el Ministerio del Medio Ambiente en 2021.</p>
+        <p class="cascada-body">Junto con la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a> en el Cajón del Maipo y la <a href="/cascadas/cascada-las-melosas" class="cascada-inline-link">Cascada Las Melosas</a>, conforma el trío de cascadas visitables de la Región Metropolitana, cada una con su propio carácter: El Lanza es la más urbana y accesible, Las Ánimas la más aventurera, y Las Melosas la más geológica.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar a la {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación de la ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Senderismo familiar, fotografía de naturaleza y pozones a minutos de Santiago. Ideal para una escapada de medio día sin salir de la ciudad.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora de la {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna de la {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura de la {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía cerca de la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Al estar en Santiago, las opciones de alojamiento incluyen desde hoteles boutique en Los Trapenses hasta toda la oferta hotelera de Las Condes y Vitacura.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en la Región Metropolitana y zona central de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas de acceso fácil y aptas para familia en otras regiones de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>

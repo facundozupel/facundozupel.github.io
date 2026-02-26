@@ -1,0 +1,914 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por chile-waterfalls-researcher + Municipalidad San José de Maipo + chiletourspirquemaipo + turismoencajondelmaipo + viajandoconladani + MapCarta/OSM, feb 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Cascada Las Melosas',
+  slug: 'cascada-las-melosas',
+  region: 'Metropolitana',
+  zona: 'San José de Maipo',
+  altura: 15,
+  caudal: 'Variable estacional — mayor en primavera (deshielo oct-nov), menor en verano tardío y otoño',
+  dificultad: 'Fácil',
+  acceso: 'Ruta G-465, Camino a Las Melosas (desde Los Queltehues)',
+  coordenadas: '33°49\'S 70°13\'W',
+  mejorEpoca: 'Noviembre — Marzo',
+  entrada: 'Gratuita',
+  horario: 'Todo el año (acceso puede cortarse en invierno por nieve)',
+  descripcion: `La Cascada Las Melosas es una caída de agua natural ubicada en el sector de Las Melosas, Cajón del Maipo, a aproximadamente 87 kilómetros de Santiago. Se accede bajando desde el Puente El Cristo por un sendero corto de 5 a 15 minutos, lo que la convierte en un destino accesible para familias con niños y visitantes de todos los niveles.
+
+  La cascada es alimentada por el Estero Las Melosas, afluente del Río Maipo, que desciende entre paredes de roca del Plutón San Gabriel — una formación ígnea intrusiva de granodiorita que se formó hace más de 11 millones de años. Las paredes rocosas muestran tonos anaranjados característicos y superficies onduladas y pulidas por la erosión fluvial y glaciar, creando un paisaje geológico único en la precordillera de Santiago.
+
+  Es importante no confundir la Cascada Las Melosas con dos atractivos cercanos pero diferentes: el "Velo de la Novia", que es una descarga artificial de la Central Hidroeléctrica Los Queltehues (construida en 1926), y el Monumento Natural El Morado, un área protegida de CONAF ubicada en Baños Morales, a unos 15 km al interior. El nombre "Las Melosas" proviene de la planta nativa melosa (familia Asteraceae), cuyas flores pegajosas se adhieren a la ropa y al pelaje de los animales, actuando como dispersoras de semillas.`,
+  comoLlegar: `Desde Santiago (87 km, ~1h 45min en auto): Tomar la Ruta G-25 "Camino al Volcán" desde Puente Alto pasando por San José de Maipo, San Alfonso y San Gabriel. En la localidad de Los Queltehues, buscar la bifurcación a la derecha hacia la Ruta G-465 "Camino a Las Melosas". Continuar hasta el sector Puente El Cristo donde se puede estacionar y acceder al sendero de la cascada.
+
+  Desde San José de Maipo (40 km, ~45 min): Continuar por la Ruta G-25 hacia el interior del cajón hasta Los Queltehues, luego tomar la Ruta G-465 hacia Las Melosas.
+
+  Transporte público: Buses del Cajón del Maipo desde Terminal San Borja o Estación Bellavista de La Florida (Metro Línea 4) llegan hasta San José de Maipo o San Gabriel. Desde allí no hay transporte público regular a Las Melosas — se requiere vehículo propio, taxi o coordinar con conductor local.
+
+  La Ruta G-465 es de tierra en algunos tramos. No se requiere vehículo 4x4 en temporada seca, pero sí se recomienda algo de altura al chasis. En invierno (junio-agosto) la ruta puede estar cortada por nieve o barro — verificar condiciones en la Municipalidad de San José de Maipo antes de viajar.`,
+  imagen: '/assets/cascadas/cascada-las-melosas/hero.webp',
+  imagenAlt: 'Cascada Las Melosas en el Cajón del Maipo, caída de agua natural sobre rocas del Plutón San Gabriel',
+  galeria: [
+    { src: '/assets/cascadas/cascada-las-melosas/galeria-1.webp', alt: 'Sendero de acceso a la Cascada Las Melosas desde el Puente El Cristo' },
+    { src: '/assets/cascadas/cascada-las-melosas/galeria-2.webp', alt: 'Formaciones rocosas del Plutón San Gabriel con tonos anaranjados en Las Melosas' },
+    { src: '/assets/cascadas/cascada-las-melosas/galeria-3.webp', alt: 'Vista del Estero Las Melosas entre rocas de granodiorita en el Cajón del Maipo' },
+    { src: '/assets/cascadas/cascada-las-melosas/galeria-4.webp', alt: 'Paisaje andino del sector Las Melosas con vegetación de precordillera' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Contribuidores de Wikimedia Commons', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/Category:Caj%C3%B3n_del_Maipo' },
+  ],
+  // 3 por cercanía geográfica (Cajón del Maipo / Metropolitana)
+  cascadasCercanas: [
+    { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, tipo: 'cercania' },
+    { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 25, tipo: 'cercania' },
+    { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', region: 'Maule', altura: 30, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (acceso fácil, familia, precordillera)
+  cascadasRelacionadas: [
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'Maule', altura: 50, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados (MapCarta/OSM + Municipalidad SJM + múltiples fuentes, feb 2026) ---
+  lat: -33.82168,
+  lng: -70.22479,
+  rio: 'Estero Las Melosas (afluente del Río Maipo)',
+  tipoFormacion: 'Plutón San Gabriel — granodiorita intrusiva (11+ millones de años)',
+  numeroBrazos: 1,
+  distanciaSantiago: 87,
+
+  historia: `El nombre "Las Melosas" proviene de la planta nativa melosa (familia Asteraceae), cuyas flores pegajosas se adhieren a la ropa y al pelaje de los animales que recorren los senderos andinos. Esta planta, característica de los valles de la zona central, fue tan abundante en el sector que dio nombre al estero, al poblado y a toda el área circundante.
+
+  El sector tiene una profunda historia como zona de paso de arrieros y ganadería transhumante entre Chile y Argentina. La Mina del Cristo, explotada por ingenieros alemanes a inicios del siglo XX, fue abandonada durante la Segunda Guerra Mundial y sus vestigios forman parte del paisaje actual del sector. El Puente El Cristo, punto de acceso a la cascada, es hoy un geositio reconocido dentro del Proyecto Geoparque Cajón del Maipo.
+
+  En el sector existe un notable patrimonio arqueológico: los Petroglifos del Cerro Los Ratones, descubiertos en 1969 por la arqueóloga Jacqueline Madrid. Se trata de grabados rupestres encontrados en la superficie horizontal de grupos de rocas en una ladera empinada. No se ha determinado con certeza qué cultura los creó: se atribuyen a los Aconcagua, Diaguitas, Incas o Chiquillanes — un grupo transhumante que cruzaba entre Chile y Argentina. Una investigación de 2015 publicada en el Boletín del Museo Chileno de Arte Precolombino documenta la superposición de culturas en estos grabados. El Cajón del Maipo, donde también se encuentra la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a>, es candidato a convertirse en Geoparque UNESCO por su excepcional valor geológico y cultural.`,
+
+  queHacer: [
+    { actividad: 'Senderismo al Puente El Cristo', descripcion: 'Sendero corto de 5 a 15 minutos desde el estacionamiento hasta la cascada. Apto para familias con niños. El terreno tiene suelo irregular y pendiente leve-moderada, sin señalización oficial. Se recomienda calzado cerrado con buen agarre.' },
+    { actividad: 'Fotografía paisajística y geológica', descripcion: 'Las paredes de roca ondulada del Plutón San Gabriel con sus tonos anaranjados y superficies pulidas ofrecen oportunidades únicas para fotografía. La cascada enmarcada entre formaciones de granodiorita de 11 millones de años es el motivo más capturado.' },
+    { actividad: 'Pícnic familiar junto al río', descripcion: 'El área al borde del Estero Las Melosas permite hacer pícnic en verano. No hay infraestructura de mesas ni sombra artificial. Llevar todo lo necesario y retirar la basura del lugar.' },
+    { actividad: 'Tour en cuatrimoto', descripcion: 'La empresa Congui (congui.cl) ofrece tours en cuatrimoto por el Cajón del Maipo que incluyen el sector Las Melosas. Punto de encuentro: Camino al Volcán 29.510, Melocotón. Requiere licencia Clase B. Reservas: WhatsApp +56 9 9139 9293.' },
+    { actividad: 'Tour geológico e histórico guiado', descripcion: 'Identidades del Maipo (chiletourspirquemaipo.com) ofrece recorridos guiados que incluyen el Plutón San Gabriel, la Mina del Cristo abandonada y los petroglifos del Cerro Los Ratones. Ideal para conocer la geología y arqueología del sector.' },
+    { actividad: 'Ciclismo de montaña', descripcion: 'El camino G-465 y los senderos del sector son aptos para mountain bike. El recorrido desde San Gabriel hasta Las Melosas ofrece vistas andinas espectaculares y terreno de dificultad moderada.' },
+    { actividad: 'Refrescarse en el estero', descripcion: 'En temporada estival, la zona del río junto a la cascada es apta para que niños se refresquen. El agua proviene del deshielo andino y es muy fría. No hay piscinas ni infraestructura de seguridad acuática. Cuidado con crecidas repentinas en primavera.' },
+  ],
+
+  flora: `La vegetación del sector Las Melosas corresponde a la zona de transición entre la precordillera mediterránea y la alta montaña andina. La especie que da nombre al lugar es la melosa (familia Asteraceae), una planta nativa con flores pegajosas que se adhieren a la ropa y al pelaje de los animales, actuando como dispersoras de semillas a lo largo de los senderos andinos.
+
+  Entre las especies nativas destacadas se encuentra la queñoa (Polylepis sp.), árbol emblemático de las zonas andinas de altura; el franjel u olivillo de la cordillera (Kageneckia angustifolia), especie en peligro de extinción presente en los matorrales esclerófilos andinos del sector; y la siete camisas (Escallonia illinita), arbusto andino de flores rosadas y rojas común en el entorno. En las zonas de pastos abiertos predominan gramíneas como el coirón (Pappostipa sp.) y en la alta montaña aparecen plantas cushion como la llaretilla. Las alstroemerias (Alstroemeria sp.) aportan color con sus flores silvestres en la precordillera durante la primavera. A diferencia de otras <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a> rodeadas de bosque nativo denso, aquí la vegetación es más abierta y adaptada a la aridez andina.`,
+
+  fauna: `La fauna del sector Las Melosas es representativa de la precordillera y alta montaña andina de la Región Metropolitana. El avistamiento más emblemático es el del cóndor andino (Vultur gryphus), que se observa regularmente planeando sobre los cerros del Cajón del Maipo y es una de las experiencias más valoradas por los visitantes.
+
+  Entre los mamíferos destaca el zorro culpeo (Lycalopex culpaeus), avistado ocasionalmente en el sector, y el puma (Puma concolor), presente en el cajón aunque rara vez visto por visitantes. La vizcacha (Lagidium viscacia), roedor andino que habita entre las rocas, es común en los sectores de mayor altura. En cuanto a aves, además del cóndor se pueden observar el zorzal (Turdus falcklandii), el picaflor gigante (Patagona gigas) — el colibrí más grande del mundo — y el cometocino del norte, pequeña ave semillera que frecuenta los matorrales andinos.`,
+
+  clima: {
+    tipo: 'Mediterráneo de altura / Estepario andino frío',
+    tempPromedio: '10-14°C',
+    tempVerano: '28°C (máx.) / 8°C (mín.)',
+    tempInvierno: '8°C (máx.) / bajo 0°C (mín.)',
+    precipitaciones: '1.200-2.000 mm anuales (agua y nieve)',
+    descripcion: 'Veranos secos y cálidos (diciembre-marzo), ideales para visitar la cascada. Inviernos fríos con nevadas frecuentes que pueden cerrar el acceso por la Ruta G-465. La primavera (septiembre-noviembre) ofrece el mayor caudal por deshielo pero días variables. El viento puede ser fuerte en el cañón. La altitud de 2.200 msnm implica radiación UV alta y temperaturas nocturnas frescas incluso en verano.',
+  },
+
+  seguridad: [
+    'No acercarse al borde del río durante la época de deshielo (octubre-noviembre) — el caudal puede aumentar repentinamente',
+    'Verificar condiciones de la Ruta G-465 antes de visitar en invierno (junio-agosto): puede haber nieve, barro o cortes de ruta',
+    'El sendero a la cascada no tiene señalización oficial ni infraestructura de seguridad — llevar calzado con buen agarre',
+    'La altitud (~2.200 msnm) puede afectar a personas no aclimatadas — hidratarse bien y ascender gradualmente',
+    'En caso de tormenta eléctrica, alejarse de los afloramientos rocosos y del río',
+    'No escalar las formaciones rocosas sin equipamiento y experiencia técnica adecuados',
+    'No hay teléfono de emergencias en el sector y la señal móvil puede ser limitada — informar a alguien sobre el plan de visita',
+    'El puesto de Carabineros más cercano está en San Gabriel',
+  ],
+
+  recomendaciones: [
+    'Agua en cantidad suficiente (mínimo 1,5 litros por persona)',
+    'Protector solar y lentes de sol (radiación UV alta en zona andina)',
+    'Ropa en capas: puede hacer frío incluso en verano con el viento andino',
+    'Calzado de trekking o zapatillas con buen agarre (no sandalias)',
+    'Snacks o almuerzo (no hay kioscos ni tiendas en el sector de la cascada)',
+    'Botiquín básico de primeros auxilios',
+    'Cámara fotográfica (las formaciones del Plutón San Gabriel son muy fotogénicas)',
+    'Efectivo CLP (algunos accesos pueden cobrar informalmente)',
+  ],
+
+  gastronomia: [
+    { plato: 'Empanadas de pino al horno', descripcion: 'Empanadas artesanales, especialidad del Cajón del Maipo con más de 27 variedades en locales como Charlie la Fábrica de Empanadas. Emblema de la gastronomía cajonina, disponibles a lo largo de la Ruta G-25.' },
+    { plato: 'Trucha al horno o frita', descripcion: 'Truchas cultivadas en los ríos de la zona, preparadas de diversas formas en restaurantes de San José de Maipo y pueblos del recorrido. Producto fresco y local.' },
+    { plato: 'Asado criollo', descripcion: 'Carnes a la parrilla con preparaciones locales, plato estrella de los restaurantes del Cajón del Maipo. Se acompañan con ensaladas y pebre artesanal.' },
+    { plato: 'Mote con huesillo', descripcion: 'Bebida-postre tradicional chilena de trigo mote y duraznos deshidratados en almíbar. De venta en múltiples puestos del Cajón del Maipo durante la temporada estival.' },
+    { plato: 'Chorrillana cajonina', descripcion: 'Versión local de la chorrillana con longaniza de pollo y ají en escabeche. Plato contundente para después de la caminata, disponible en locales de la zona.' },
+    { plato: 'Quesillos y mermeladas artesanales', descripcion: 'Productos locales elaborados por campesinos del Cajón del Maipo. Quesillos frescos con mermelada de membrillo o rosa mosqueta, disponibles en ferias y puestos de la ruta.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Cascada de Las Ánimas', tipo: 'Resort ecoturístico', precioDesde: 'Desde $25.000/noche', url: 'https://cascadadelasanimas.cl/', descripcion: 'Centro ecoturístico en San Alfonso (~30 km antes de Las Melosas). Lodges junto al río, domos, cabañas y camping. Actividades: rafting, trekking, canopy, cabalgata. El operador turístico más completo del Cajón del Maipo.' },
+    { nombre: 'Hostería Baños Morales', tipo: 'Hostería', precioDesde: 'Desde ~$27.000/persona', url: 'https://xn--hosteriabaosmorales-43b.cl/', descripcion: 'Pensión en sistema de media o pensión completa en Baños Morales, a ~15 km al interior de Las Melosas. Ambiente familiar, cercano a las termas naturales y al Monumento Natural El Morado.' },
+    { nombre: 'Cabañas Los Chicos Malos', tipo: 'Cabañas', precioDesde: 'Desde ~$27.000/persona', url: 'http://www.banosmorales.cl/', descripcion: 'Cabañas en Baños Morales con desayuno y cena incluidos. Ubicación privilegiada para combinar la visita a Las Melosas con las termas y El Morado.' },
+    { nombre: 'Cabañas Mirador del Maipo', tipo: 'Cabañas', precioDesde: 'Consultar precio', url: 'https://miradordelmaipo.cl/', descripcion: 'Cabañas en la zona media del Cajón del Maipo. Base estratégica para explorar Las Melosas y otros atractivos del cajón. Incluyen guía de cómo llegar a Las Melosas.' },
+    { nombre: 'Lodge Piolet', tipo: 'Lodge boutique', precioDesde: 'Consultar precio', url: 'https://www.airbnb.com/rooms/51576990', descripcion: 'Lodge boutique en Baños Morales disponible en Airbnb. Entorno de alta montaña con vistas a la cordillera. A 15 km de Las Melosas.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto cuesta la entrada a la Cascada Las Melosas?', respuesta: 'La Cascada Las Melosas no tiene entrada oficial cobrada por CONAF ni por el municipio. Sin embargo, algunas fuentes mencionan cobros informales en el acceso. No confundir con el Monumento Natural El Morado (CONAF), que es un área diferente en Baños Morales (~15 km al interior) y sí cobra entrada.' },
+    { pregunta: '¿Cómo llegar a la Cascada Las Melosas desde Santiago?', respuesta: 'En automóvil: tomar la Ruta G-25 "Camino al Volcán" desde Santiago (Puente Alto), pasar por San José de Maipo, San Alfonso y San Gabriel hasta Los Queltehues. Allí doblar a la derecha por la Ruta G-465 "Camino a Las Melosas" y continuar hasta el sector Puente El Cristo. Duración: ~1 hora 45 minutos (87 km).' },
+    { pregunta: '¿Es difícil llegar a la cascada?', respuesta: 'No. El sendero desde el estacionamiento en Puente El Cristo hasta la cascada toma entre 5 y 15 minutos caminando y es de dificultad fácil. Apto para familias con niños. Se recomienda calzado cerrado con buen agarre ya que el terreno es irregular.' },
+    { pregunta: '¿En qué época es mejor visitar la Cascada Las Melosas?', respuesta: 'La mejor época es de noviembre a marzo (verano). En primavera (octubre-noviembre) el caudal es mayor por el deshielo. En invierno (junio-agosto) el acceso puede estar cortado por nieve en la Ruta G-465. Verificar condiciones antes de viajar.' },
+    { pregunta: '¿La Cascada Las Melosas y el Monumento Natural El Morado son lo mismo?', respuesta: 'No. Son atractivos diferentes. La Cascada Las Melosas se accede desde el Puente El Cristo en la Ruta G-465. El Monumento Natural El Morado (CONAF) está en Baños Morales, ~15 km más al interior, con sendero al glaciar San Francisco. Tienen accesos y características distintas.' },
+    { pregunta: '¿El "Velo de la Novia" es la misma cascada?', respuesta: 'No. El "Velo de la Novia" es una descarga artificial de la Central Hidroeléctrica Los Queltehues (construida en 1926), visible desde la ruta. Es visualmente impresionante pero no es una cascada natural. La Cascada Las Melosas es de origen completamente natural.' },
+    { pregunta: '¿Se puede nadar en la Cascada Las Melosas?', respuesta: 'En verano, el sector del río junto a la cascada es usado para refrescarse, especialmente por niños. El agua proviene del deshielo andino y es muy fría. No hay piscinas ni infraestructura de seguridad. En época de deshielo (octubre-noviembre) el caudal puede ser peligroso.' },
+    { pregunta: '¿Hay restaurantes o servicios cerca de la cascada?', respuesta: 'No hay servicios directamente en el sector de la cascada. Los restaurantes se encuentran en San José de Maipo, San Alfonso y San Gabriel, a lo largo de la Ruta G-25. Se recomienda llevar agua y alimentos propios.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada natural en el Cajón del Maipo, Región Metropolitana, Chile. Accesible por sendero de 5-15 minutos desde el Puente El Cristo. Formaciones rocosas del Plutón San Gabriel de 11+ millones de años.`,
+    image: `https://cascadasdechile.cl${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: true,
+    openingHours: 'Mo-Su',
+    touristType: ['Naturaleza', 'Senderismo', 'Fotografía', 'Familia'],
+    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada natural en el Cajón del Maipo a 87 km de Santiago. Sendero fácil de 15 min, formaciones del Plutón San Gabriel. Cómo llegar, actividades y toda la info.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">~{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazo` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre la {cascada.nombre}</h2>
+        <p class="cascada-body">La Cascada Las Melosas es una caída de agua natural ubicada en el Cajón del Maipo, a tan solo 87 kilómetros de Santiago. Se accede bajando desde el Puente El Cristo por un sendero corto de 5 a 15 minutos, lo que la convierte en uno de los destinos de naturaleza más accesibles de la Región Metropolitana, ideal para familias con niños y visitantes de todos los niveles.</p>
+        <p class="cascada-body">La cascada es alimentada por el Estero Las Melosas, afluente del Río Maipo, y desciende entre paredes del Plutón San Gabriel — una formación ígnea de granodiorita que se formó hace más de 11 millones de años. Las rocas muestran tonos anaranjados y superficies onduladas por la erosión, creando un paisaje geológico único. A solo 30 km río abajo se encuentra la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a>, de 60 metros de altura, consolidando al Cajón del Maipo como el cluster de <a href="/cascadas" class="cascada-inline-link">cascadas más cercano a Santiago</a>.</p>
+        <p class="cascada-body">Es importante no confundir esta cascada natural con el "Velo de la Novia", una descarga artificial de la Central Hidroeléctrica Los Queltehues (1926), ni con el Monumento Natural El Morado, ubicado en Baños Morales a 15 km al interior. El nombre proviene de la planta nativa melosa (Asteraceae), cuyas flores pegajosas se adhieren a la ropa, dando nombre al estero, al poblado y a toda el área.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar a la {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación de la ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde senderismo familiar y fotografía geológica hasta tours en cuatrimoto y ciclismo de montaña, el sector Las Melosas ofrece actividades para todos los niveles.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora de la {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna de la {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura de la {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca de la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        No hay alojamiento directamente en el sector de la cascada. Las mejores opciones están en el Cajón del Maipo y Baños Morales.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en el Cajón del Maipo y la zona central de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas de acceso fácil y aptas para familia en otras regiones de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>
