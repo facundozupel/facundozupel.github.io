@@ -483,6 +483,37 @@ cascadas/
 
 ---
 
+## Uso de Agentes en Paralelo (Worktrees)
+
+Cuando se lancen múltiples agentes con `isolation: "worktree"` para crear cascadas en paralelo:
+
+### Problema conocido
+Los agentes trabajan en worktrees aislados (`.claude/worktrees/agent-{id}/`). **Sus cambios NO se copian automáticamente al repo principal.** Además, múltiples agentes modifican `index.astro` por separado, generando conflictos.
+
+### Protocolo obligatorio post-agentes
+
+1. **Copiar archivos de CADA worktree al repo principal**:
+   ```bash
+   # Para cada agente/worktree:
+   cp .claude/worktrees/agent-{id}/src/pages/cascadas/{slug}.astro src/pages/cascadas/
+   cp -r .claude/worktrees/agent-{id}/public/assets/cascadas/{slug}/ public/assets/cascadas/
+   ```
+
+2. **Fusionar manualmente los cambios de `index.astro`**: Cada agente agrega su cascada al array por separado. Hay que agregar TODAS las entradas nuevas al `index.astro` del repo principal manualmente (no copiar el archivo de un solo worktree).
+
+3. **Verificar con `npm run build`**: Confirmar que TODAS las páginas nuevas aparecen en el output del build (buscar los slugs en la salida).
+
+4. **Limpiar worktrees**:
+   ```bash
+   git worktree remove --force .claude/worktrees/agent-{id}
+   git branch -D worktree-agent-{id}
+   ```
+
+### Alternativa preferida: Sin worktrees
+Para evitar estos problemas, cuando se crean 2 cascadas en paralelo, usar agentes **sin** `isolation: "worktree"` ejecutándolos secuencialmente, o usar un solo agente que cree ambas cascadas. Los worktrees solo valen la pena si los agentes NO modifican archivos compartidos (como `index.astro`).
+
+---
+
 ## Tabla de Referencia Rápida
 
 | Necesidad | Herramienta |
