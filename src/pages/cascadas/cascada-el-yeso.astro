@@ -1,0 +1,921 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por web search + Wikiloc + Asociación Parque Cordillera + viajandoconladani + cajondelmaipo.com + Sernatur + TripAdvisor + Mapcarta/OSM, feb 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Cascada El Yeso',
+  slug: 'cascada-el-yeso',
+  region: 'Metropolitana',
+  zona: 'San José de Maipo',
+  altura: 15,
+  caudal: 'Variable estacional — mayor en primavera-verano (deshielo oct-ene), mínimo en otoño tardío',
+  dificultad: 'Fácil a moderado',
+  acceso: 'Ruta G-455, Camino al Embalse El Yeso km 20 (desde San José de Maipo)',
+  coordenadas: '33°40\'S 70°06\'W',
+  mejorEpoca: 'Noviembre — Marzo',
+  entrada: '$3.450 adultos / $2.300 niños y tercera edad',
+  horario: 'Lunes a domingo 09:00 — 16:00 (último ingreso)',
+  descripcion: `La Cascada El Yeso — también conocida como Salto El Yeso — es una caída de agua natural de aproximadamente 15 metros ubicada en el Valle del Yeso, dentro del Cajón del Maipo, a unos 95 kilómetros de Santiago. Se encuentra en el kilómetro 20 de la Ruta G-455 (Camino al Embalse El Yeso), antes de llegar al embalse propiamente tal, a una altitud de aproximadamente 2.415 metros sobre el nivel del mar.
+
+  La cascada es alimentada por el Río Yeso, uno de los principales afluentes del Río Maipo, cuyas aguas provienen del deshielo de los glaciares andinos Yeso, Bello, Del Pirámide y Marmolejo. El color turquesa característico del agua se debe a los sedimentos glaciares en suspensión — partículas finas de roca molida por la acción glaciar que dispersan las longitudes de onda de la luz, enfatizando los tonos azules y verdes.
+
+  El sector ha sido desarrollado como el Parque Salto El Yeso, un espacio privado con infraestructura turística que incluye baños, mesas de pícnic, mirador sobre la cascada, pista de patinaje ecológica y sendero junto al Río Yeso. Es un destino popular para los tours que recorren el Cajón del Maipo, combinando la visita a la cascada con el mirador del Embalse El Yeso. La cercanía a otras <a href="/cascadas" class="cascada-inline-link">cascadas del Cajón del Maipo</a> como la <a href="/cascadas/cascada-las-melosas" class="cascada-inline-link">Cascada Las Melosas</a> y la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a> convierte a esta zona en el cluster de cascadas más cercano a Santiago.`,
+  comoLlegar: `Desde Santiago (95 km, ~2h 30min en auto): Tomar la Ruta G-25 "Camino al Volcán" desde Puente Alto, pasando por San José de Maipo, San Alfonso y San Gabriel. En San Gabriel, continuar hasta la bifurcación del Valle del Yeso donde se toma la Ruta G-455. La cascada se encuentra en el kilómetro 20 de este camino, antes de llegar al embalse.
+
+  Desde San José de Maipo (50 km, ~1h 15min): Seguir por la Ruta G-25 hacia el interior hasta la bifurcación del Valle del Yeso, luego tomar la G-455.
+
+  La Ruta G-455 tiene 17 kilómetros pavimentados desde Romeral y luego un tramo de ripio con curvas y pendientes pronunciadas. No se requiere vehículo 4x4 en temporada seca con manejo prudente, pero sí se recomienda un vehículo con buena altura al chasis. Tras nevadas o lluvias, la ruta puede quedar comprometida.
+
+  Transporte público: No hay transporte público hasta el sector. Las opciones son vehículo propio o contratar un tour con operador turístico desde Santiago. Múltiples agencias ofrecen tours de día completo que incluyen Salto El Yeso + Embalse El Yeso.
+
+  El acceso a la Ruta G-455 se cierra estacionalmente entre abril y agosto (invierno) por condiciones climáticas: nieve, hielo y riesgo de caída de rocas. Existe una barrera en el km 21,7 que impide el paso de vehículos en temporada invernal. Verificar condiciones actuales antes de viajar.`,
+  imagen: '/assets/cascadas/cascada-el-yeso/hero.webp',
+  imagenAlt: 'Embalse El Yeso con aguas turquesa y montañas nevadas de los Andes en el Cajón del Maipo, Región Metropolitana de Chile',
+  galeria: [
+    { src: '/assets/cascadas/cascada-el-yeso/galeria-1.webp', alt: 'Vista panorámica del Embalse El Yeso rodeado de montañas andinas nevadas' },
+    { src: '/assets/cascadas/cascada-el-yeso/galeria-2.webp', alt: 'Aguas turquesa del Embalse El Yeso en la comuna de San José de Maipo' },
+    { src: '/assets/cascadas/cascada-el-yeso/galeria-3.webp', alt: 'Laguna Negra y Embalse El Yeso en la alta cordillera de Chile central' },
+    { src: '/assets/cascadas/cascada-el-yeso/galeria-4.webp', alt: 'Paisaje cordillerano del Valle del Yeso con cielos despejados sobre los Andes' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Rod Sot', licencia: 'CC0', url: 'https://commons.wikimedia.org/wiki/File:Embalse_el_Yeso_(Unsplash).jpg' },
+    { autor: 'R.A.T.P.', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Embalse_El_Yeso._-_panoramio.jpg' },
+    { autor: 'Karinadelpilarcontreras', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Embalse_del_yeso,_Chile.JPG' },
+    { autor: 'Diode', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Laguna_Negra_y_Embalse_El_Yeso.jpg' },
+  ],
+  // 3 por cercanía geográfica (Cajón del Maipo / Metropolitana)
+  cascadasCercanas: [
+    { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, tipo: 'cercania' },
+    { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', region: 'Metropolitana', altura: 15, tipo: 'cercania' },
+    { nombre: 'Cascada del Lanza', slug: 'cascada-del-lanza', region: 'Metropolitana', altura: 10, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (alta montaña, paisaje andino, acceso moderado)
+  cascadasRelacionadas: [
+    { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'Maule', altura: 50, tipo: 'relacionada' },
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados (Wikiloc waypoint + Mapcarta/OSM + Asociación Parque Cordillera + múltiples fuentes, feb 2026) ---
+  lat: -33.67871,
+  lng: -70.10037,
+  rio: 'Río Yeso (afluente del Río Maipo)',
+  tipoFormacion: 'Valle glaciar andino — sedimentos glaciares y roca volcánica-sedimentaria',
+  numeroBrazos: 1,
+  distanciaSantiago: 95,
+
+  historia: `El nombre "El Yeso" proviene del mineral yeso (sulfato de calcio), abundante en las formaciones geológicas de este valle andino. El Río Yeso nace a los pies del Paso Piuquenes a aproximadamente 4.020 metros de altitud y recorre un valle glaciar tallado durante las glaciaciones cuaternarias antes de desembocar en el Río Maipo.
+
+  La historia moderna del Valle del Yeso está marcada por la construcción del Embalse El Yeso, cuya idea se remonta a 1873 cuando Benjamín Vicuña Mackenna lideró la exploración de Laguna Negra y Lo Encañado, con el ingeniero Ernesto Ansart desarrollando el primer proyecto. La construcción del embalse se inició en 1953 y finalizó en 1967, creando un reservorio de 253 millones de metros cúbicos de agua que hoy provee entre el 70% y el 90% del agua potable de Santiago. Con una extensión de 6 km de largo, 1,4 km de ancho y 50 metros de profundidad, el embalse fue construido sobre una antigua laguna glaciar naturalmente represada por una morrena.
+
+  El Cajón del Maipo, donde se encuentra esta cascada junto con la <a href="/cascadas/cascada-las-melosas" class="cascada-inline-link">Cascada Las Melosas</a> y la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a>, es candidato a convertirse en Geoparque UNESCO por su excepcional valor geológico, paleontológico y cultural. El sector del Valle del Yeso integra un sistema de reservas de alta montaña — junto con Laguna Negra y Laguna Lo Encañado — que sostiene el suministro hídrico de toda la Región Metropolitana.`,
+
+  queHacer: [
+    { actividad: 'Mirador de la cascada', descripcion: 'El Parque Salto El Yeso cuenta con un mirador habilitado sobre la cascada con delimitación de seguridad. El acceso desde el estacionamiento toma 10 a 15 minutos por sendero señalizado. Apto para familias.' },
+    { actividad: 'Sendero del Río Yeso', descripcion: 'Sendero corto (1,2 km ida y vuelta) de dificultad baja que recorre el borde del Río Yeso. Permite apreciar el color turquesa del agua glaciar y las formaciones rocosas del valle. Tiempo estimado: 40 minutos.' },
+    { actividad: 'Fotografía paisajística', descripcion: 'El contraste entre el agua turquesa de la cascada, las montañas nevadas y el cielo andino ofrece oportunidades excepcionales para fotografía. Las mejores condiciones de luz se dan en la mañana cuando el sol ilumina el valle de frente.' },
+    { actividad: 'Pícnic con vista andina', descripcion: 'El parque dispone de mesas de pícnic con sombrillas y zona habilitada para comer. Es la parada ideal para almorzar durante un tour al Embalse El Yeso. Se recomienda llevar alimentos propios.' },
+    { actividad: 'Patinaje en pista ecológica', descripcion: 'El parque cuenta con una pista de patinaje ecológica operativa durante todo el año. Una actividad recreativa para niños y familias que complementa la visita a la cascada.' },
+    { actividad: 'Visita al Embalse El Yeso', descripcion: 'A pocos kilómetros de la cascada se encuentra el mirador del Embalse El Yeso, con sus aguas turquesa a 2.500 msnm. El sendero Cortina del Embalse (3 km, baja intensidad) permite cruzar el muro del embalse y disfrutar de vistas panorámicas.' },
+    { actividad: 'Avistamiento de cóndores', descripcion: 'La zona de alta cordillera del Valle del Yeso es uno de los mejores lugares cerca de Santiago para observar el cóndor andino (Vultur gryphus) planeando sobre los cerros. Llevar binoculares y mirar hacia las cumbres, especialmente en la mañana.' },
+  ],
+
+  flora: `La vegetación del entorno de la Cascada El Yeso corresponde a la zona de estepa alto-andina, característica de altitudes superiores a 2.000 metros en la cordillera de Chile central. A diferencia de las cascadas de zonas más bajas del Cajón del Maipo, aquí el paisaje es abierto, con vegetación escasa y adaptada a condiciones extremas de frío, viento, radiación UV y sequedad.
+
+  Las especies dominantes incluyen la llareta (Laretia acaulis), planta nativa de los Andes que crece en formaciones compactas y densas a modo de cojín, con un crecimiento extremadamente lento (1-2 mm/año). También se encuentran arbustos espinosos como la zarcilla (Berberis empetrifolia), la chuquiraga y el neneo. En las zonas más bajas del sendero aparecen gramíneas como el coirón (Pappostipa sp.) y la llaretilla, especie en peligro de extinción. La riqueza de flora vascular del Cajón del Maipo incluye aproximadamente 450 especies, de las cuales unas 400 son nativas. En el entorno inmediato de la cascada, la vegetación ribereña es más abundante gracias a la humedad del Río Yeso.`,
+
+  fauna: `La fauna del Valle del Yeso es representativa de la alta montaña andina de la Región Metropolitana. El avistamiento más emblemático es el del cóndor andino (Vultur gryphus), que se observa regularmente planeando sobre los cerros del sector y constituye una de las experiencias más valoradas por los visitantes. La zona ha sido identificada como uno de los mejores puntos cerca de Santiago para avistamiento de esta especie.
+
+  Entre los mamíferos destaca la vizcacha (Lagidium viscacia), roedor andino que habita entre las rocas de la alta montaña y se puede observar en los afloramientos rocosos del valle. El zorro culpeo (Lycalopex culpaeus) es avistado ocasionalmente, y el puma (Puma concolor) está presente en las zonas más remotas del cajón. En el sector se han identificado al menos 140 especies de vertebrados no acuáticos, con las aves representando un 58% de las especies. Además del cóndor, se pueden observar el águila mora (Geranoaetus melanoleucus), el cometocino de Gay, y el picaflor gigante (Patagona gigas), el colibrí más grande del mundo.`,
+
+  clima: {
+    tipo: 'Estepario de alta montaña / Tundra andina',
+    tempPromedio: '8-12°C',
+    tempVerano: '22°C (máx.) / 2°C (mín.)',
+    tempInvierno: '5°C (máx.) / -10°C (mín.)',
+    precipitaciones: '350-500 mm anuales (mayoritariamente nieve)',
+    descripcion: 'El Valle del Yeso presenta un clima de alta montaña con inviernos muy fríos y nevados que cierran el acceso entre abril y agosto. Los veranos (diciembre-marzo) son secos, soleados y con temperaturas diurnas agradables, pero las noches son frías incluso en pleno verano. La altitud de 2.415 msnm implica radiación UV muy alta — protector solar es imprescindible. El viento puede ser fuerte y constante, especialmente en las tardes. La primavera (septiembre-noviembre) ofrece el mayor caudal de la cascada por el deshielo, pero el clima es variable y el acceso puede estar aún restringido.',
+  },
+
+  seguridad: [
+    'Verificar condiciones de la Ruta G-455 antes de viajar — puede estar cerrada por nieve, hielo o caída de rocas (frecuente en invierno y primavera temprana)',
+    'La altitud (~2.415 msnm) puede provocar mal de altura en personas sensibles — ascender gradualmente, hidratarse bien y evitar esfuerzo físico intenso las primeras horas',
+    'El camino de ripio tiene curvas cerradas y pendientes pronunciadas — manejar con precaución y a velocidad reducida',
+    'No acercarse al borde de la cascada ni al río durante época de deshielo (octubre-noviembre) cuando el caudal puede aumentar repentinamente',
+    'Protección solar obligatoria: la radiación UV a 2.400 msnm es significativamente mayor que a nivel del mar',
+    'No hay señal de teléfono móvil confiable en el sector — informar a alguien sobre el plan de visita',
+    'Cargar combustible antes de subir — no hay gasolineras en el Valle del Yeso',
+    'No se permiten mascotas ni drones en el Parque Natural Embalse El Yeso (Asociación Parque Cordillera)',
+  ],
+
+  recomendaciones: [
+    'Agua en cantidad suficiente (mínimo 2 litros por persona — la altura deshidrata más rápido)',
+    'Protector solar FPS 50+ y lentes de sol con protección UV',
+    'Ropa en capas: incluso en verano las mañanas y tardes son frías (llevar cortaviento)',
+    'Calzado de trekking o zapatillas con buen agarre (no sandalias)',
+    'Gorro o sombrero para protección solar',
+    'Snacks y almuerzo (no hay kioscos ni tiendas de alimentos en la ruta al embalse)',
+    'Mapa offline descargado (señal móvil intermitente)',
+    'Cámara fotográfica (paisaje andino excepcional)',
+    'Efectivo en CLP (el parque puede cobrar entrada)',
+    'Binoculares para avistamiento de cóndores',
+  ],
+
+  gastronomia: [
+    { plato: 'Empanadas de pino al horno', descripcion: 'Empanadas artesanales del Cajón del Maipo, disponibles en múltiples locales a lo largo de la Ruta G-25. La Fábrica de Empanadas en San José de Maipo ofrece más de 27 variedades. Emblema de la gastronomía cajonina.' },
+    { plato: 'Trucha al horno o frita', descripcion: 'Truchas cultivadas en los ríos de la zona, preparadas de diversas formas en restaurantes de San José de Maipo, San Alfonso y San Gabriel. Producto fresco y local del Cajón del Maipo.' },
+    { plato: 'Asado criollo', descripcion: 'Carnes a la parrilla con preparaciones locales, plato estrella de los restaurantes del Cajón del Maipo. Se acompañan con ensaladas y pebre artesanal. Ideal para después del trekking.' },
+    { plato: 'Mote con huesillo', descripcion: 'Bebida-postre tradicional chilena de trigo mote y duraznos deshidratados en almíbar. De venta en puestos a lo largo de la Ruta G-25, especialmente en temporada de verano.' },
+    { plato: 'Chorrillana cajonina', descripcion: 'Versión local de la chorrillana con longaniza de pollo y ají en escabeche. Plato contundente disponible en locales de San José de Maipo y pueblos del recorrido.' },
+    { plato: 'Quesillos y mermeladas artesanales', descripcion: 'Productos elaborados por campesinos del Cajón del Maipo. Quesillos frescos con mermelada de membrillo o rosa mosqueta. Disponibles en ferias y puestos de la ruta.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Cascada de Las Ánimas', tipo: 'Resort ecoturístico', precioDesde: 'Desde $25.000/noche', url: 'https://cascadadelasanimas.cl/', descripcion: 'Centro ecoturístico en San Alfonso. Lodges junto al río, domos, cabañas y camping. Actividades: rafting, trekking, canopy, cabalgata. El operador turístico más completo del Cajón del Maipo.' },
+    { nombre: 'Hostería Baños Morales', tipo: 'Hostería', precioDesde: 'Desde ~$27.000/persona', url: 'https://xn--hosteriabaosmorales-43b.cl/', descripcion: 'Pensión en media o pensión completa en Baños Morales. Ambiente familiar, cercano a las termas naturales y al Monumento Natural El Morado.' },
+    { nombre: 'Hostería Millahue', tipo: 'Hostería con piscina temperada', precioDesde: 'Consultar precio', url: 'https://www.cajondelmaipo.com/categoria/alojamientos/', descripcion: 'Hostería con piscinas temperadas en el Cajón del Maipo. Una de las opciones más confortables para descansar después de la excursión al Valle del Yeso.' },
+    { nombre: 'Cabañas Cajón del Maipo', tipo: 'Cabañas', precioDesde: 'Desde ~$36.000/noche', url: 'https://www.booking.com/hotel/cl/cabana-cajon-del-maipo-san-jose-de-maipo12.html', descripcion: 'Cabañas independientes a 45 km de Santiago. 2 dormitorios, cocina equipada, Wi-Fi, terraza, barbacoa y acceso a piscina. Base ideal para explorar el Valle del Yeso.' },
+    { nombre: 'Álamo Huacho', tipo: 'Cabañas premium', precioDesde: 'Consultar precio', url: 'https://www.cajondelmaipo.com/cabanas/', descripcion: 'Cabañas en Baños Morales con servicios premium. Ubicación privilegiada para combinar la visita al Valle del Yeso con las termas y el Monumento Natural El Morado.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto cuesta la entrada a la Cascada El Yeso?', respuesta: 'El Parque Salto El Yeso cobra una entrada de $3.450 para adultos y $2.300 para niños (2-12 años) y tercera edad (60+). El Parque Natural Embalse El Yeso, administrado por la Asociación Parque Cordillera, tiene la misma tarifa. Los niños menores de 2 años entran gratis. Los tickets se pueden comprar en línea a través de PuntoTicket o Chiletur.' },
+    { pregunta: '¿Cómo llegar a la Cascada El Yeso desde Santiago?', respuesta: 'En automóvil: tomar la Ruta G-25 "Camino al Volcán" desde Santiago por Puente Alto, pasar por San José de Maipo, San Alfonso y San Gabriel. Continuar hasta la bifurcación del Valle del Yeso donde se toma la Ruta G-455. La cascada está en el km 20 de este camino. Duración: ~2 horas 30 minutos (95 km). No hay transporte público — se necesita auto propio o tour.' },
+    { pregunta: '¿La Cascada El Yeso y el Embalse El Yeso son lo mismo?', respuesta: 'No. Son atractivos diferentes pero cercanos. La Cascada El Yeso (Salto El Yeso) se encuentra en el km 20 de la Ruta G-455, antes de llegar al embalse. El Embalse El Yeso está más arriba, a 2.500 msnm. Muchos tours combinan ambas visitas en un mismo recorrido de día completo.' },
+    { pregunta: '¿Se necesita vehículo 4x4 para llegar?', respuesta: 'No es estrictamente necesario en temporada seca (noviembre-marzo). La Ruta G-455 tiene 17 km pavimentados desde Romeral y luego un tramo de ripio. Con manejo prudente se puede transitar en vehículo normal con buena altura al chasis. Después de lluvias o nevadas, las condiciones pueden requerir 4x4.' },
+    { pregunta: '¿En qué época es mejor visitar la Cascada El Yeso?', respuesta: 'La mejor época es de noviembre a marzo (primavera-verano). En invierno (abril-agosto) el acceso por la Ruta G-455 se cierra por nieve y condiciones peligrosas. La primavera ofrece el mayor caudal por el deshielo. El verano tiene clima más estable y días largos.' },
+    { pregunta: '¿Puedo llevar perros a la Cascada El Yeso?', respuesta: 'No. El Parque Natural Embalse El Yeso, administrado por la Asociación Parque Cordillera, no permite el ingreso de mascotas. Tampoco se permiten drones.' },
+    { pregunta: '¿Hay riesgo de mal de altura en la Cascada El Yeso?', respuesta: 'La cascada está a ~2.415 msnm, lo que puede causar molestias leves en personas sensibles a la altura (dolor de cabeza, fatiga, falta de aire). Se recomienda ascender gradualmente, hidratarse bien y evitar esfuerzo físico intenso las primeras horas. El embalse está a 2.500 msnm.' },
+    { pregunta: '¿Hay restaurantes o servicios cerca de la cascada?', respuesta: 'El Parque Salto El Yeso tiene baños y mesas de pícnic. No hay restaurantes ni tiendas de alimentos en el Valle del Yeso. Los restaurantes más cercanos están en San José de Maipo, San Alfonso y San Gabriel, a lo largo de la Ruta G-25. Se recomienda llevar alimentos y agua propios.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada natural de 15 metros en el Valle del Yeso, Cajón del Maipo, Región Metropolitana, Chile. A 95 km de Santiago y 2.415 msnm. Aguas turquesa de origen glaciar. Parque con mirador, senderos y pícnic.`,
+    image: `https://cascadasdechile.cl${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: false,
+    openingHours: 'Mo-Su 09:00-16:00',
+    touristType: ['Naturaleza', 'Senderismo', 'Fotografía', 'Familia'],
+    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de 15 m en el Valle del Yeso, Cajón del Maipo, a 95 km de Santiago. Aguas turquesa glaciar a 2.415 msnm. Cómo llegar, entrada, actividades y toda la info.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">~{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazo` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre la {cascada.nombre}</h2>
+        <p class="cascada-body">La Cascada El Yeso es una caída de agua natural de aproximadamente 15 metros ubicada en el Valle del Yeso, Cajón del Maipo, a 95 kilómetros de Santiago. Se encuentra en el kilómetro 20 de la Ruta G-455, antes de llegar al Embalse El Yeso, a una altitud de 2.415 metros sobre el nivel del mar. Es una de las cascadas más cercanas a Santiago en zona de alta cordillera.</p>
+        <p class="cascada-body">La cascada es alimentada por el Río Yeso, afluente del Río Maipo, cuyas aguas provienen del deshielo de los glaciares andinos. El color turquesa característico del agua se debe a sedimentos glaciares en suspensión que dispersan la luz. El sector ha sido habilitado como Parque Salto El Yeso, con mirador, senderos, baños y zona de pícnic, lo que lo convierte en una parada popular en los tours al <a href="/cascadas" class="cascada-inline-link">Cajón del Maipo</a>.</p>
+        <p class="cascada-body">A solo 30 kilómetros río abajo se encuentra la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a>, de 60 metros, y en el sector interior del cajón la <a href="/cascadas/cascada-las-melosas" class="cascada-inline-link">Cascada Las Melosas</a>, consolidando al Cajón del Maipo como el cluster de cascadas más cercano a Santiago con opciones para todos los niveles.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar a la {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación de la ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde el mirador de la cascada y senderos junto al río hasta avistamiento de cóndores y visita al Embalse El Yeso, el Valle del Yeso ofrece actividades para todos los niveles en un entorno de alta cordillera.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora de la {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna de la {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura de la {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca de la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        No hay alojamiento directamente en el Valle del Yeso. Las mejores opciones están en el Cajón del Maipo, entre San José de Maipo y Baños Morales.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en el Cajón del Maipo y la Región Metropolitana.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas con paisaje andino y acceso de dificultad similar en otras regiones de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>

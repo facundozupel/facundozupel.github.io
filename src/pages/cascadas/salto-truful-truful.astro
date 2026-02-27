@@ -1,0 +1,917 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por web search: Wikipedia, reconocechile.com, andeshandbook.org, turismolikankura.cl, araucaniaandina.com, conaf.cl, pewenmapu.cl, feb 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Salto Truful-Truful',
+  slug: 'salto-truful-truful',
+  region: 'La Araucanía',
+  zona: 'Melipeuco',
+  altura: 20,
+  caudal: 'Permanente — alimentado por el Río Truful-Truful, originado entre el Volcán Llaima y Sierra Nevada',
+  dificultad: 'Fácil',
+  acceso: 'Sendero Truful-Truful (circuito de 1,25 km) dentro del Parque Nacional Conguillío',
+  coordenadas: '38°47\'S 71°38\'W',
+  mejorEpoca: 'Noviembre — Marzo',
+  entrada: '$6.300 CLP (nacionales) / $13.500 CLP (extranjeros)',
+  horario: 'Martes a Domingo, 8:30 – 18:00 hrs (último ingreso 14:00)',
+  descripcion: `El Salto Truful-Truful es un conjunto de cascadas ubicado en la zona alta del Río Truful-Truful, dentro del Parque Nacional Conguillío, en la comuna de Melipeuco, Región de La Araucanía. Su nombre proviene del mapudungun y significa "de salto en salto", en alusión a los múltiples saltos de agua que el río forma al descender por antiguos escoriales volcánicos del Volcán Llaima.
+
+  La cascada principal del sendero turístico tiene una caída de aproximadamente 20 metros de altura y se precipita sobre formaciones de lava solidificada que el río ha erosionado durante milenios. El agua adquiere una coloración particular debido a los minerales volcánicos presentes en las rocas. El entorno está dominado por bosques milenarios de araucarias (Araucaria araucana), coigües y lengas, creando un paisaje que ha sido descrito como un "bosque jurásico".
+
+  El Salto Truful-Truful forma parte del Geoparque Kütralkura, reconocido por la UNESCO, y el Cañadón del Truful-Truful es un geositio que revela más de 13.000 años de historia eruptiva del Volcán Llaima. Además del salto principal dentro del parque, existen otros saltos notables sobre el mismo río: el Salto Grande (7 metros) a 4 km de Melipeuco y el Salto Chico (~30 metros) a 12 km de Melipeuco, en la entrada sur del parque.`,
+  comoLlegar: `Desde Santiago (770 km, ~8 horas en auto): Tomar la Ruta 5 Sur hasta Temuco. Desde Temuco, continuar por la Ruta S-31 hacia Cunco y luego por la Ruta S-61 hasta Melipeuco. Desde Melipeuco, tomar el camino internacional a Icalma; el acceso al sector Truful-Truful del parque se encuentra a unos 12 km de Melipeuco, en la guardería Truful-Truful (entrada sur de Conguillío).
+
+  Desde Temuco (112 km, ~2 horas): Dirigirse hacia el sureste por Ruta S-31 hasta Cunco, luego tomar Ruta S-61 hasta Melipeuco. Desde Melipeuco, continuar por el camino internacional a Icalma hasta la guardería Truful-Truful del Parque Nacional Conguillío.
+
+  Desde Melipeuco (12 km, ~20 min en auto): Tomar el camino internacional a Icalma. A unos 12 km se encuentra la guardería Truful-Truful (CONAF), entrada sur del parque. El sendero Truful-Truful es un circuito de 1,25 km que parte desde la guardería y desciende al cañadón donde se encuentran las cascadas.
+
+  Transporte público: Buses desde Santiago y Temuco llegan a Melipeuco (empresas TranSantin, Condor Bus, Igillaima). El viaje en bus desde Santiago toma ~10 horas. Desde Melipeuco al parque no hay transporte público regular; se recomienda contratar un tour local o ir en vehículo propio. Las entradas deben comprarse en línea con anticipación en pasesparques.cl.`,
+  imagen: '/assets/cascadas/salto-truful-truful/hero.webp',
+  imagenAlt: 'Salto Truful-Truful, cascada sobre formaciones de lava volcánica en el Parque Nacional Conguillío, La Araucanía',
+  galeria: [
+    { src: '/assets/cascadas/salto-truful-truful/galeria-1.webp', alt: 'Vista del Salto Truful-Truful entre rocas volcánicas y vegetación nativa en Melipeuco' },
+    { src: '/assets/cascadas/salto-truful-truful/galeria-2.webp', alt: 'Bruma y vegetación nativa tras las cascadas del Truful-Truful en el Parque Nacional Conguillío' },
+    { src: '/assets/cascadas/salto-truful-truful/galeria-3.webp', alt: 'Araucarias milenarias en el Parque Nacional Conguillío, entorno del Salto Truful-Truful' },
+    { src: '/assets/cascadas/salto-truful-truful/galeria-4.webp', alt: 'Bosque de araucarias con el Volcán Llaima de fondo en el Parque Nacional Conguillío' },
+  ],
+  galeriaCreditos: [
+    { autor: 'LBM1948', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Truful-Truful_1.jpg' },
+    { autor: 'Cris.tbl', licencia: 'CC BY 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_Truful_Truful.jpg' },
+    { autor: 'Vicente Fernández Rioja', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Araucaria_en_Parque_Nacional_Conguillio.jpg' },
+    { autor: 'Wpriscy', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Araucarias_parque_Nacional_Conguillio.jpg' },
+  ],
+  // 3 por cercanía geográfica (La Araucanía / regiones vecinas)
+  cascadasCercanas: [
+    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 70, tipo: 'cercania' },
+    { nombre: 'Salto Quino', slug: 'salto-quino', region: 'La Araucanía', altura: 30, tipo: 'cercania' },
+    { nombre: 'Salto del Buey', slug: 'salto-del-buey', region: 'Los Ríos', altura: 90, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (parque nacional, formación volcánica, sendero fácil)
+  cascadasRelacionadas: [
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'Maule', altura: 50, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados (Wikipedia + reconocechile + andeshandbook + conaf.cl, feb 2026) ---
+  lat: -38.775168,
+  lng: -71.633375,
+  rio: 'Río Truful-Truful',
+  tipoFormacion: 'Escorial volcánico erosionado por agua (lavas del Volcán Llaima)',
+  numeroBrazos: 2,
+  distanciaSantiago: 770,
+
+  historia: `El nombre Truful-Truful proviene del mapudungun y significa "de salto en salto", describiendo onomatopéyicamente el sonido tumultuoso del agua al descender por múltiples caídas sobre la roca volcánica. Para el pueblo mapuche, este lugar tiene un significado sagrado: según relatos de turismo local, el Salto Grande del Truful-Truful era reconocido como un "alihuen" (altar mapuche), y líderes como Calfucurá realizaban ceremonias aquí antes de sus travesías. Las machis (curanderas mapuche) visitaban el lugar para recolectar agua sagrada y plantas medicinales.
+
+  El Río Truful-Truful nace en las profundidades de la cordillera andina, entre el Volcán Llaima y la Sierra Nevada. Desciende a través de antiguos flujos de lava que el volcán ha depositado durante miles de años, formando los lagos Verde, Arcoíris y Conguillío al represar los valles con lava solidificada. Durante la gran erupción de 1751, un flujo de lava descendió por el valle del río Truful-Truful hasta las cercanías de Melipeuco, alcanzando 23 km de longitud. El <a href="/cascadas/salto-del-laja" class="cascada-inline-link">Salto del Laja</a>, en la Región del Biobío, comparte este origen volcánico basáltico.
+
+  El Cañadón del Truful-Truful es un geositio del Geoparque Kütralkura que revela más de 13.000 años de historia eruptiva del Volcán Llaima. En sus paredes se observa una sucesión piroclástica donde los eventos más antiguos aparecen en la parte inferior y los más recientes hacia arriba. El Parque Nacional Conguillío fue creado el 26 de mayo de 1950 y desde 1983 forma parte de la Reserva de la Biósfera Araucarias, declarada por la UNESCO, que protege los bosques milenarios de araucarias y la biodiversidad única de esta zona de la <a href="/cascadas" class="cascada-inline-link">Araucanía</a>.`,
+
+  queHacer: [
+    { actividad: 'Sendero Truful-Truful', descripcion: 'Circuito de 1,25 km que desciende al cañadón donde se encuentran las cascadas. Dificultad fácil, duración de 30 minutos, con 19 metros de desnivel. Permite apreciar la geología volcánica, las capas de lava y la erosión del río sobre los escoriales del Volcán Llaima.' },
+    { actividad: 'Fotografía de naturaleza', descripcion: 'El entorno de araucarias milenarias, formaciones volcánicas y cascadas ofrece composiciones únicas. La bruma generada por las caídas de agua y la vegetación frondosa crean condiciones ideales para fotografía de paisaje y larga exposición.' },
+    { actividad: 'Senderismo en Conguillío', descripcion: 'El parque ofrece cinco senderos señalizados: Sierra Nevada, Las Araucarias, Los Carpinteros, Truful-Truful y los circuitos de Laguna Captrén y Laguna Arcoíris. Se pueden combinar varios en una jornada completa.' },
+    { actividad: 'Observación de flora y fauna', descripcion: 'El bosque de araucarias milenarias (algunas de más de 1.200 años) alberga especies como el puma, la güiña, el monito del monte, el carpintero negro y la rana de Darwin. Ideal para amantes de la naturaleza y la biodiversidad.' },
+    { actividad: 'Kayak y navegación', descripcion: 'El Lago Conguillío y la Laguna Verde permiten actividades náuticas. Sendas Conguillío ofrece arriendo de kayaks y botes dentro del parque. Vistas privilegiadas del Volcán Llaima desde el agua.' },
+    { actividad: 'Rafting en el Río Truful-Truful', descripcion: 'El río ofrece tramos de rápidos aptos para rafting, combinando naturaleza y aventura. Operadores locales en Melipeuco organizan bajadas guiadas por el río en temporada estival.' },
+    { actividad: 'Camping en el parque', descripcion: 'Conguillío cuenta con zonas de camping administradas por Sendas Conguillío (www.sendasconguillio.cl) con cabañas, sitios de camping y áreas de picnic. Una excelente base para explorar el parque durante varios días.' },
+  ],
+
+  flora: `El entorno del Salto Truful-Truful se encuentra inmerso en uno de los bosques de araucarias (Araucaria araucana) más antiguos y emblemáticos de Chile. Algunas de estas coníferas milenarias superan los 1.200 años de edad, alcanzando alturas de 40 a 50 metros con sus siluetas características que han sido comparadas con un "bosque jurásico". La araucaria, declarada Monumento Natural en Chile, es el árbol más importante del Parque Nacional Conguillío y la especie que motivó la creación de la Reserva de la Biósfera Araucarias por la UNESCO en 1983.
+
+  Junto a las araucarias, el bosque del sector Truful-Truful presenta coigües (Nothofagus dombeyi), lengas (Nothofagus pumilio), ñirres (Nothofagus antarctica) y raulíes (Nothofagus alpina), conformando un bosque templado mixto de extraordinaria diversidad. En las zonas más húmedas cercanas a las cascadas crecen canelos (Drimys winteri), árbol sagrado mapuche, junto con notros (Embothrium coccineum) de flores rojas, tineo, luma y maitén. El sotobosque está cubierto por abundantes helechos, musgos y líquenes que prosperan con la humedad constante generada por las cascadas. La zona también incluye <a href="/cascadas/salto-chancagua" class="cascada-inline-link">especies vegetales endémicas similares a las del Salto Chancagua</a>, ambos en la Región de La Araucanía.`,
+
+  fauna: `La fauna del Parque Nacional Conguillío y del entorno del Salto Truful-Truful es excepcionalmente diversa, reflejando la importancia ecológica de la Reserva de la Biósfera Araucarias. Entre los mamíferos más emblemáticos se encuentra el pudú (Pudu puda), el ciervo más pequeño del mundo, que habita los densos bosques del parque aunque rara vez es avistado por visitantes. También están presentes el puma (Puma concolor), principal depredador de la zona; la güiña (Leopardus guigna), el felino más pequeño de América y catalogado como vulnerable; el quique (Galictis cuja) y el zorro gris (Lycalopex griseus).
+
+  Una de las especies más notables es el monito del monte (Dromiciops gliroides), un marsupial considerado "fósil viviente" y único representante actual del orden Microbiotheria, presente exclusivamente en los bosques templados del sur de Chile y Argentina. En las aves destaca el carpintero negro (Campephilus magellanicus), el pájaro carpintero más grande de Sudamérica, junto con el chucao (Scelorchilus rubecula) y el huet-huet (Pteroptochos tarnii). En las aguas del Río Truful-Truful habita el pato cortacorrientes (Merganetta armata), adaptado a vivir en ríos de montaña turbulentos. Entre los anfibios se encuentra la rana de Darwin (Rhinoderma darwinii), especie en peligro de extinción, y entre los reptiles el lagarto matuasto listado.`,
+
+  clima: {
+    tipo: 'Templado lluvioso con influencia andina (Cfb)',
+    tempPromedio: '8-10°C',
+    tempVerano: '25°C (máx.) / 6°C (mín.)',
+    tempInvierno: '8°C (máx.) / -2°C (mín.)',
+    precipitaciones: '2.000-3.000 mm anuales',
+    descripcion: 'Clima templado lluvioso de montaña con inviernos fríos y lluviosos y veranos templados. La zona de Melipeuco y Conguillío recibe abundantes precipitaciones, con nevadas frecuentes en invierno que pueden bloquear accesos al parque entre mayo y septiembre. La mejor época para visitar es de noviembre a marzo: temperaturas agradables, senderos accesibles y mayor caudal en las cascadas por el deshielo primaveral. En otoño (abril-mayo) el parque ofrece un espectáculo de colores con las lengas y ñirres cambiando de follaje.',
+  },
+
+  seguridad: [
+    'Comprar la entrada al parque en línea con anticipación en pasesparques.cl — no se venden entradas en la guardería',
+    'Respetar los senderos señalizados — la zona volcánica puede tener terreno inestable fuera de los caminos habilitados',
+    'Llevar calzado de trekking con buen agarre — las rocas volcánicas y la humedad pueden hacer los senderos resbaladizos',
+    'No acercarse al borde de las cascadas — las formaciones de lava pueden ser frágiles e inestables',
+    'En invierno y primavera temprana, consultar el estado de los caminos antes de partir — la nieve puede bloquear accesos',
+    'Llevar capas de abrigo incluso en verano — la temperatura baja significativamente en el interior del bosque y cerca de las cascadas',
+    'No alimentar ni perturbar a la fauna silvestre — el parque alberga especies en peligro como la rana de Darwin',
+  ],
+
+  recomendaciones: [
+    'Calzado de trekking o botas con suela antideslizante',
+    'Ropa de abrigo en capas y chaqueta impermeable (el clima puede cambiar rápidamente)',
+    'Protector solar y lentes de sol (la radiación UV es alta en la montaña)',
+    'Agua potable (mín. 1,5L por persona) y snacks energéticos',
+    'Cámara fotográfica con trípode para las cascadas y los bosques de araucarias',
+    'Binoculares para observación de aves (carpintero negro, chucao, pato cortacorrientes)',
+    'Efectivo CLP para servicios en Melipeuco (algunos comercios no aceptan tarjeta)',
+    'Repelente de insectos y bloqueador solar en verano',
+    'Bolsa para retirar toda tu basura del parque',
+  ],
+
+  gastronomia: [
+    { plato: 'Piñones de araucaria', descripcion: 'Fruto sagrado del pewen (araucaria), base de la alimentación ancestral mapuche-pehuenche. Se preparan hervidos, tostados, en puré o en el tradicional mudai (bebida fermentada). Melipeuco se ubica en la "ruta del fruto sagrado" y ofrece degustaciones en temporada de cosecha (marzo-abril).' },
+    { plato: 'Catutos (multrun)', descripcion: 'Preparación ancestral mapuche a base de trigo cocido y molido, formado en bastoncitos. Plato tradicional presente en celebraciones y ferias de la Araucanía Andina. Se sirven acompañados de merquén y pebre.' },
+    { plato: 'Asado de cordero al palo', descripcion: 'Cordero preparado a fuego lento al estilo campesino de la Araucanía. Plato emblemático de las celebraciones y festividades locales, acompañado con ensaladas y pebre. Disponible en restaurantes rurales y fogones de Melipeuco.' },
+    { plato: 'Sopaipillas y empanadas de quínoa', descripcion: 'Preparaciones tradicionales de la cocina mapuche de Melipeuco. Las empanadas de quínoa con verduras reflejan la tradición agrícola ancestral de la zona. Disponibles en fogones como Folil Koyam Newen, a 5 km de Melipeuco.' },
+    { plato: 'Cazuela con locro y mote de maíz', descripcion: 'Guiso tradicional del sur de Chile preparado al estilo mapuche con ingredientes locales. El locro (maíz molido) y el mote dan un carácter único a esta versión regional de la cazuela. Disponible en cocinerías de Melipeuco.' },
+    { plato: 'Mermeladas de murta y rosa mosqueta', descripcion: 'Conservas artesanales elaboradas con frutos silvestres recolectados en los bosques de La Araucanía. La murta y la rosa mosqueta son productos emblemáticos de la recolección campesina del sur de Chile.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Sendas Conguillío', tipo: 'Cabañas y Camping', precioDesde: 'Desde $65.000 CLP/noche', url: 'https://sendasconguillio.cl/', descripcion: 'Concesionario oficial del parque. Cabañas equipadas con electricidad, agua caliente, calefacción a leña y tinaja al aire libre. Camping con sitios habilitados. Directamente dentro del Parque Nacional Conguillío.' },
+    { nombre: 'Cabañas de Conguillío', tipo: 'Cabañas', precioDesde: 'Desde $50.000 CLP/noche', url: 'https://www.cabanasconguillio.com/', descripcion: 'Cabañas modernas minimalistas con cocina equipada, terraza, calefacción y ventanas termopanel. Ubicadas junto al parque. WhatsApp: +56 9 7358 2671.' },
+    { nombre: 'Cabañas Vista Hermosa Conguillío', tipo: 'Cabañas', precioDesde: 'Consultar precio', url: 'https://www.vistahermosaconguillio.cl/', descripcion: 'Cabañas y habitaciones para 2 a 8 personas, construidas en maderas nativas. Vista al Volcán Llaima. Equilibrio entre naturaleza y comodidad moderna.' },
+    { nombre: 'Hospedaje Icalma', tipo: 'Bed & Breakfast', precioDesde: 'Desde $40.000 CLP/noche', url: '#', descripcion: 'Hospedaje en Melipeuco con terraza, WiFi y TV. Opción económica a 12 km del acceso sur del parque. Buen punto de partida para explorar Conguillío y la Reserva China Muerta.' },
+    { nombre: 'Camping en el parque (CONAF)', tipo: 'Camping', precioDesde: 'Desde $8.000 CLP/sitio', url: 'https://sendasconguillio.cl/', descripcion: 'Sitios de camping administrados por Sendas Conguillío dentro del parque. Incluyen acceso a baños, agua y fogón. Ideal para estadías de varios días y explorar todos los senderos.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto mide el Salto Truful-Truful?', respuesta: 'El salto principal del sendero Truful-Truful dentro del Parque Nacional Conguillío tiene una caída de aproximadamente 20 metros. Sin embargo, el Río Truful-Truful forma múltiples cascadas a lo largo de su recorrido: el Salto Grande (7 metros) a 4 km de Melipeuco y el Salto Chico (~30 metros) a 12 km de Melipeuco, en la entrada sur del parque.' },
+    { pregunta: '¿Qué significa Truful-Truful en mapudungun?', respuesta: 'Truful-Truful significa "de salto en salto" en mapudungun, la lengua del pueblo mapuche. También se interpreta como onomatopeya del sonido tumultuoso que produce el agua al descender por las múltiples cascadas sobre las rocas volcánicas.' },
+    { pregunta: '¿Cuánto cuesta la entrada al Parque Nacional Conguillío?', respuesta: 'La entrada al Parque Nacional Conguillío cuesta $6.300 CLP para residentes en Chile y $13.500 CLP para extranjeros (precios 2025). Las entradas deben comprarse obligatoriamente en línea a través de pasesparques.cl con anticipación. No se venden entradas en los accesos al parque.' },
+    { pregunta: '¿Cómo llegar al Salto Truful-Truful desde Temuco?', respuesta: 'Desde Temuco (112 km, ~2 horas), tomar la Ruta S-31 hacia Cunco y luego la Ruta S-61 hasta Melipeuco. Desde Melipeuco, continuar 12 km por el camino internacional a Icalma hasta la guardería Truful-Truful, entrada sur del Parque Nacional Conguillío. El sendero al salto es un circuito de 1,25 km que toma unos 30 minutos.' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Salto Truful-Truful?', respuesta: 'La mejor época es de noviembre a marzo (primavera-verano). Las temperaturas son agradables, los senderos están accesibles y el caudal de las cascadas es abundante por el deshielo. En otoño (abril-mayo) el parque ofrece colores espectaculares. En invierno (junio-septiembre) la nieve puede bloquear accesos y algunos senderos se cierran.' },
+    { pregunta: '¿Qué dificultad tiene el sendero Truful-Truful?', respuesta: 'El Sendero Truful-Truful es de dificultad fácil. Es un circuito de 1,25 km con un desnivel de solo 19 metros que se recorre en aproximadamente 30 minutos. Es apto para familias y personas con condición física básica. El sendero está señalizado por CONAF.' },
+    { pregunta: '¿Se puede ver el Volcán Llaima desde el Salto Truful-Truful?', respuesta: 'Desde el sendero Truful-Truful hay vistas parciales, pero las mejores vistas del Volcán Llaima (3.125 m) se obtienen desde otros puntos del Parque Nacional Conguillío, como el Lago Conguillío, el sendero Sierra Nevada y la playa de arena volcánica del parque.' },
+    { pregunta: '¿Qué es el Geoparque Kütralkura?', respuesta: 'El Geoparque Kütralkura es un territorio geológico reconocido por UNESCO que abarca parte de La Araucanía, incluyendo el Parque Nacional Conguillío. El Cañadón del Truful-Truful es uno de sus geositios más importantes, ya que revela más de 13.000 años de historia eruptiva del Volcán Llaima en las capas de lava y piroclastos visibles en sus paredes.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Conjunto de cascadas de ${cascada.altura} metros en el Parque Nacional Conguillío, Melipeuco, Región de La Araucanía, Chile. Nombre mapuche que significa "de salto en salto". Geositio del Geoparque Kütralkura (UNESCO).`,
+    image: `https://cascadasdechile.cl${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: false,
+    openingHours: 'Tu-Su 08:30-18:00',
+    touristType: ['Naturaleza', 'Senderismo', 'Fotografía', 'Geoturismo'],
+    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en el Parque Nacional Conguillío, La Araucanía. Cómo llegar, senderos, flora, fauna y toda la información para tu visita.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazos` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        <p class="cascada-body">El Salto Truful-Truful es un conjunto de cascadas ubicado en la zona alta del Río Truful-Truful, dentro del Parque Nacional Conguillío, en la comuna de Melipeuco, Región de La Araucanía. Su nombre proviene del mapudungun y significa "de salto en salto", describiendo los múltiples saltos de agua que el río forma al descender por antiguos escoriales volcánicos del Volcán Llaima.</p>
+        <p class="cascada-body">La cascada principal del sendero turístico tiene una caída de aproximadamente 20 metros y se precipita sobre formaciones de lava solidificada que el río ha erosionado durante milenios. El entorno está dominado por bosques milenarios de araucarias, coigües y lengas, creando un paisaje que ha sido descrito como un "bosque jurásico". Los <a href="/cascadas/saltos-del-petrohue" class="cascada-inline-link">Saltos del Petrohué</a>, en la Región de Los Lagos, comparten esta misma naturaleza volcánica basáltica que da a las cascadas su carácter único.</p>
+        <p class="cascada-body">El Salto Truful-Truful forma parte del Geoparque Kütralkura, reconocido por la UNESCO, y el Cañadón del Truful-Truful es un geositio que revela más de 13.000 años de historia eruptiva del Volcán Llaima. El parque fue creado en 1950 y desde 1983 integra la Reserva de la Biósfera Araucarias, que protege uno de los ecosistemas forestales más antiguos del planeta. El <a href="/cascadas/salto-chancagua" class="cascada-inline-link">Salto Chancagua</a>, también en La Araucanía, comparte la formación sobre basaltos volcánicos que caracteriza a las <a href="/cascadas" class="cascada-inline-link">cascadas de esta región</a>.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación del ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde senderismo entre araucarias milenarias hasta rafting y kayak, el entorno del Salto Truful-Truful en el Parque Nacional Conguillío ofrece actividades para todo nivel.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Hospedajes dentro del Parque Nacional Conguillío y en la comuna de Melipeuco, a 12 km de la entrada sur del parque.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en la Región de La Araucanía y regiones vecinas del sur de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas similares en formación volcánica, acceso fácil o dentro de parques nacionales.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>
