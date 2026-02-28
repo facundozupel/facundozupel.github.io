@@ -428,6 +428,277 @@ Cada página de cascada DEBE tener:
 
 ---
 
+## Template de Regiones — Referencia Rápida
+
+> **Página de referencia**: `src/pages/region/los-lagos.astro` (primera implementación, pendiente de actualizar al template formal).
+> **Intención de búsqueda validada**: TOFU informativa/exploratoria — catálogo/grid de cascadas con datos prácticos y señal geográfica fuerte (análisis SERP feb 2026, keyword "cascadas región del biobío").
+
+### Objeto `region` — Campos obligatorios
+
+```javascript
+const region = {
+  // ─── Identificación ───────────────────────────────────────────────
+  nombre: 'Biobío',                         // Nombre oficial de la región
+  slug: 'biobio',                           // URL-friendly
+  zona: 'Zona Sur',                         // Macro-zona geográfica
+  subtitulo: 'Volcanes, ríos y bosques nativos · 42 cascadas catalogadas',
+
+  // ─── Stats (4 métricas clave para la ficha) ───────────────────────
+  totalCascadas: 42,
+  stats: [
+    { label: 'Cascadas', value: '42' },
+    { label: 'Parques nacionales', value: '2' },
+    { label: 'Altura máx.', value: '75 m' },
+    { label: 'Mejor época', value: 'Oct–Mar' },
+  ],
+
+  // ─── Imagen hero (foto real Wikimedia, NO placeholder Unsplash) ───
+  imagen: '/assets/region/biobio/hero.webp',
+  imagenAlt: 'Vista panorámica de los Saltos del Laja en la Región del Biobío',
+
+  // ─── Descripción regional (2-3 párrafos, entidades obligatorias) ──
+  descripcion: `Texto con entidades: cascadas, saltos, ríos, bosque nativo,
+    Concepción, Antuco, Arauco, sendero, trekking...`,
+
+  // ─── Zonas / Sub-regiones ─────────────────────────────────────────
+  zonas: [
+    {
+      nombre: 'Antuco y Sierra Velluda',
+      cascadas: 6,
+      descripcion: 'Cascadas volcánicas alimentadas por glaciares...',
+    },
+    // ... más zonas
+  ],
+
+  // ─── Catálogo de cascadas (CORE de la página) ─────────────────────
+  // Incluir TODAS las cascadas publicadas de la región + destacadas sin página
+  cascadasDestacadas: [
+    {
+      nombre: 'Saltos del Laja',
+      slug: 'salto-del-laja',         // Solo si tiene página publicada
+      altura: 35,
+      zona: 'Cabrero',                // Comuna/localidad
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-del-laja/hero.webp',
+      imagenAlt: 'Saltos del Laja con sus cuatro brazos de agua',
+      destacado: 'Junto a la Ruta 5 Sur',  // Dato rápido 1 línea
+      tienepagina: true,              // true = link activo, false = card sin link
+    },
+    // ... más cascadas
+  ],
+
+  // ─── Tabla comparativa (datos duros para scan rápido) ─────────────
+  tablaCascadas: [
+    {
+      nombre: 'Saltos del Laja',
+      slug: 'salto-del-laja',
+      altura: '35 m',
+      dificultad: 'Fácil',
+      acceso: 'Ruta 5 Sur',
+      entrada: 'Gratis',
+      tienepagina: true,
+    },
+    // ... todas las cascadas de la región
+  ],
+
+  // ─── Mapa ─────────────────────────────────────────────────────────
+  // Centro del mapa (lat/lng del centroide de la región)
+  mapCenter: { lat: -37.47, lng: -72.35 },
+  mapZoom: 8,
+  // Los markers se generan automáticamente desde cascadasDestacadas
+
+  // ─── Cómo llegar a la región ──────────────────────────────────────
+  comoLlegar: `Desde Santiago (480 km, 5-6 horas en auto por Ruta 5 Sur)...
+    Desde Concepción (capital regional)...
+    Aeropuerto: Carriel Sur (CCP)...`,
+
+  // ─── Clima / Mejor época ──────────────────────────────────────────
+  clima: {
+    tipo: 'Mediterráneo con influencia oceánica',
+    tempVerano: '26-32°C',
+    tempInvierno: '4-11°C',
+    precipitaciones: '1.069 mm anuales',
+    mejorEpoca: 'Octubre a Marzo',
+    descripcion: 'Veranos cálidos y secos, inviernos lluviosos...',
+  },
+
+  // ─── FAQ (schema FAQPage) ─────────────────────────────────────────
+  faq: [
+    {
+      pregunta: '¿Cuántas cascadas hay en la Región del Biobío?',
+      respuesta: 'La Región del Biobío cuenta con más de 42 cascadas...',
+    },
+    {
+      pregunta: '¿Cuál es la cascada más alta del Biobío?',
+      respuesta: 'El Salto del Itata, con 75 metros de altura...',
+    },
+    // 4-6 preguntas basadas en PAA de la SERP
+  ],
+
+  // ─── Regiones adyacentes (internal linking) ───────────────────────
+  regionesAdyacentes: [
+    { nombre: 'Ñuble', slug: 'nuble', cascadas: 15 },
+    { nombre: 'La Araucanía', slug: 'araucania', cascadas: 48 },
+    { nombre: 'Maule', slug: 'maule', cascadas: 24 },
+  ],
+
+  // ─── CAMPOS OPCIONALES (flexibilidad por región) ──────────────────
+  // Agregar según lo que el search-intent-analyzer determine para cada región
+
+  // Sección especial (contenido único de la región)
+  seccionEspecial?: {
+    titulo: 'La Ruta de las Cascadas del Biobío',    // H2 semántico
+    contenido: 'SERNATUR creó la Ruta de las Cascadas...',
+    tipo: 'ruta' | 'parque' | 'historia' | 'experiencia',
+  },
+
+  // Actividades regionales (si la SERP muestra intención de actividades)
+  actividades?: [
+    { actividad: 'Trekking', descripcion: '...' },
+  ],
+
+  // Gastronomía regional (si la SERP lo justifica)
+  gastronomia?: [
+    { plato: 'Trucha del Río Laja', descripcion: '...' },
+  ],
+
+  // Alojamiento por zona (si la SERP muestra intención transaccional)
+  alojamiento?: [
+    { nombre: '...', tipo: '...', zona: '...', precioDesde: '...' },
+  ],
+};
+```
+
+### Secciones del template — Orden de prioridad (validado por SERP)
+
+Las secciones se dividen en **obligatorias** (siempre presentes) y **opcionales** (activadas por el `search-intent-analyzer` de cada región específica).
+
+#### Secciones OBLIGATORIAS (en este orden)
+
+| # | Sección | Fondo | Justificación SERP |
+|---|---------|-------|---------------------|
+| 1 | **Hero** | Navy + imagen real | 80% competidores abren con visual de la región. `<img>` con `fetchpriority="high"`, NO `background-image` |
+| 2 | **Stats** (4 métricas) | Navy | Ficha rápida: cascadas, parques, altura máx, mejor época |
+| 3 | **Grid/Catálogo de cascadas** | Navy | **CORE** — 80% de competidores usan listicle. Cards con foto, nombre, altura, dificultad, comuna. Link a página si `tienepagina: true` |
+| 4 | **Tabla comparativa** | Cream | **Gap total** — ningún competidor la tiene. Scan rápido: nombre, altura, dificultad, acceso, entrada |
+| 5 | **Mapa de la región** | Navy | Local Pack domina pos 1 en SERP — mapa OpenStreetMap con markers de cascadas |
+| 6 | **Zonas de la región** | Cream | 60% menciona sub-zonas. Cards con nombre de zona, cantidad de cascadas, descripción corta |
+| 7 | **Descripción regional** | Cream | Contexto geográfico + entidades NLP obligatorias (cascadas, saltos, ríos, bosque, trekking, sendero) |
+| 8 | **Mejor época / Clima** | Navy | Gap — nadie lo cubre. Dato práctico de alto valor para planificación |
+| 9 | **Cómo llegar** | Cream | Desde Santiago + capital regional + aeropuerto |
+| 10 | **FAQ** (schema FAQPage) | Cream | PAA presente en SERP, ningún competidor tiene FAQ con schema |
+| 11 | **Regiones adyacentes** | Cream | Internal linking horizontal entre hubs regionales |
+| 12 | **CTA Mapa** | Navy | Call to action al mapa interactivo general |
+
+#### Secciones OPCIONALES (activar según intención de la región)
+
+| Sección | Cuándo activar | Campo en objeto |
+|---------|----------------|-----------------|
+| **Sección especial** (ruta temática, parque, historia) | Si la SERP muestra un concepto propio de la región (ej: "Ruta de las Cascadas del Biobío", "Carretera Austral" en Aysén) | `seccionEspecial` |
+| **Actividades** | Si el `search-intent-analyzer` detecta intención de actividades outdoor | `actividades` |
+| **Gastronomía regional** | Si la SERP o PAA incluyen preguntas sobre comida/dónde comer | `gastronomia` |
+| **Alojamiento por zona** | Si la SERP muestra intención transaccional (dónde dormir) | `alojamiento` |
+
+> **Regla de inserción de secciones opcionales**: Se insertan DESPUÉS de la sección 7 (Descripción regional) y ANTES de la sección 8 (Clima). El orden entre opcionales sigue la prioridad que indique el análisis de intención.
+
+### Flujo para crear una página de región
+
+1. **`search-intent-analyzer`** con la keyword de la región (ej: "cascadas región del biobío")
+2. **Definir secciones opcionales** según resultados del análisis
+3. **Recopilar cascadasDestacadas** del listado de cascadas publicadas en `/cascadas/index.astro` + cascadas relevantes sin página
+4. **Imágenes reales** desde Wikimedia (hero + miniatura por cascada si no tiene página con foto propia)
+5. **Construir la página** usando el template
+6. **Agregar al index de regiones** si no está (verificar `src/pages/region/index.astro`)
+7. **`npm run build`** y verificar
+
+### Structured Data obligatorio por página de región
+
+```javascript
+const structuredData = [
+  // 1. ItemList — Listado de cascadas de la región
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Cascadas en la Región de ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región de ${region.nombre}, Chile.`,
+    numberOfItems: region.cascadasDestacadas.length,
+    itemListElement: region.cascadasDestacadas.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.nombre,
+      url: c.tienepagina
+        ? `https://cascadasdechile.cl/cascadas/${c.slug}`
+        : undefined,
+    })),
+  },
+  // 2. FAQPage
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: region.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+    })),
+  },
+  // 3. BreadcrumbList
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadasdechile.cl/region' },
+      { '@type': 'ListItem', position: 3, name: region.nombre },
+    ],
+  },
+];
+```
+
+### SEO on-page por página de región
+
+- **Title**: `Cascadas en ${nombre} — ${totalCascadas} cascadas y saltos de agua | Cascadas de Chile`
+- **H1**: `Región de ${nombre}` (display, visual)
+- **H2s**: Semánticamente ricos:
+  - "Cascadas en ${nombre}" (grid)
+  - "Comparativa de cascadas" (tabla)
+  - "Mapa de cascadas en ${nombre}"
+  - "Zonas para explorar en ${nombre}"
+  - "${nombre}: tierra de cascadas" (descripción)
+  - "Mejor época para visitar"
+  - "Cómo llegar a ${nombre}"
+  - "Preguntas frecuentes" (FAQ)
+  - "Regiones cercanas"
+  - Título de sección especial si aplica
+- **Meta description**: `Descubre las ${totalCascadas} cascadas de la Región de ${nombre}. Guía completa con mapa, alturas, dificultad y cómo llegar a cada salto de agua.`
+- **OG image**: URL absoluta del hero regional
+
+### Design System (consistente con cascadas)
+
+| Sección | Fondo | Tipografía títulos |
+|---------|-------|--------------------|
+| Hero, Stats, Grid cascadas, Mapa, Clima, CTA | Navy `#091d2b` | Archivo Black, `#f4efe6` |
+| Tabla, Zonas, Descripción, Cómo llegar, FAQ, Regiones adyacentes | Cream `#f4efe6` | Archivo Black, `#091d2b` |
+| Acentos, badges, números | — | Cyan `#00e5d4` / Teal `#00b4a0` |
+
+### Reglas de imágenes en páginas de región
+
+- **Hero regional**: `<img>` con `fetchpriority="high"`, NO `background-image`. Ruta: `public/assets/region/{slug}/hero.webp`
+- **Cards de cascadas**: Si la cascada tiene página publicada, usar su hero existente (`/assets/cascadas/{slug}/hero.webp`). Si no tiene página, buscar imagen en Wikimedia
+- **Todas las imágenes**: `<img>` con `alt` descriptivo, `loading="lazy"` (excepto hero), `decoding="async"`
+
+### Diferencias clave vs template de cascadas
+
+| Aspecto | Template Cascada | Template Región |
+|---------|-----------------|-----------------|
+| Intención | Informativa profunda (1 cascada) | Exploratoria/catálogo (N cascadas) |
+| Schema principal | `TouristAttraction` | `ItemList` |
+| Contenido texto | Extenso (15 secciones, datos factuales) | Moderado (catálogo + contexto regional) |
+| Secciones flexibles | Ninguna (todas obligatorias) | 4 opcionales según `search-intent-analyzer` |
+| Imágenes mínimas | 5 (1 hero + 4 galería) | 1 hero + 1 por cascada destacada |
+| Internal linking | 6 cascadas cercanas/relacionadas | Cascadas con página + regiones adyacentes |
+
+---
+
 ## Reglas Generales
 
 ### Antes de Crear Contenido
