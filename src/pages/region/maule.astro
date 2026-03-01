@@ -1,0 +1,588 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA REGIÓN ───────────────────────────────────────────────────────
+const region = {
+  nombre: "O'Higgins & Maule",
+  slug: 'maule',
+  zona: 'Zona Central Sur',
+  subtitulo: 'Siete Tazas, Geoparque del Maule y precordillera · 24 cascadas catalogadas',
+  totalCascadas: 24,
+  imagen: '/assets/cascadas/salto-la-leona/hero.webp',
+  imagenAlt: 'Salto La Leona, cascada de 25 metros sobre roca basáltica en el Parque Nacional Radal Siete Tazas, Región del Maule',
+  stats: [
+    { label: 'Cascadas', value: '24' },
+    { label: 'Parques nacionales', value: '1' },
+    { label: 'Altura máx.', value: '75 m' },
+    { label: 'Mejor época', value: 'Sep–Abr' },
+  ],
+  zonas: [
+    { nombre: 'Radal Siete Tazas', cascadas: 8, descripcion: 'Parque Nacional con Salto La Leona y las famosas Siete Tazas. Pozones escalonados de roca basáltica sobre el Río Claro.' },
+    { nombre: 'Geoparque Saltos del Maule', cascadas: 6, descripcion: 'Cascada Invertida, Salto del Maule y Monjes Blancos. Fenómenos geológicos únicos en la ruta al Paso Pehuenche.' },
+    { nombre: 'Precordillera del Maule', cascadas: 5, descripcion: 'Salto La Placeta y cascadas estacionales en quebradas de la precordillera de San Clemente y Colbún.' },
+    { nombre: 'Ñuble', cascadas: 5, descripcion: 'Salto del Itata de 75 metros en San Fabián de Alico. La cascada más alta de la zona central-sur de Chile.' },
+  ],
+  descripcion: `Las regiones de O'Higgins y Maule albergan un corredor de cascadas que se extiende desde los viñedos de la zona central hasta la alta cordillera andina. El Parque Nacional Radal Siete Tazas —con su icónico Salto La Leona de 25 metros sobre roca basáltica— y el Geoparque Saltos del Maule —donde la Cascada Invertida desafía la gravedad con sus vientos del oeste— son los dos polos de atracción de una región con más de 24 cascadas catalogadas.`,
+  descripcion2: `El Salto del Itata, en la vecina Región de Ñuble, es la cascada más alta de la zona con 75 metros de caída libre sobre el río Itata. La combinación de paisaje volcánico, bosque esclerófilo y tradición vitivinícola hacen de esta región una experiencia única para quienes buscan cascadas fuera del circuito patagónico.`,
+  cascadasDestacadas: [
+    {
+      nombre: 'Salto del Itata',
+      slug: 'salto-del-itata',
+      altura: 75,
+      zona: 'San Fabián de Alico',
+      dificultad: 'Fácil a moderado',
+      imagen: '/assets/cascadas/salto-del-itata/hero.webp',
+      imagenAlt: 'Salto del Itata, cascada de 75 metros en la Región de Ñuble',
+      destacado: 'La más alta de la zona',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Cascada Invertida',
+      slug: 'cascada-invertida',
+      altura: 50,
+      zona: 'San Clemente',
+      dificultad: 'Fácil a moderado',
+      imagen: '/assets/cascadas/cascada-invertida/hero.webp',
+      imagenAlt: 'Paisaje cordillerano del Geoparque Saltos del Maule',
+      destacado: 'El agua sube por el viento',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Salto La Placeta',
+      slug: 'salto-la-placeta',
+      altura: 30,
+      zona: 'San Clemente',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-la-placeta/hero.webp',
+      imagenAlt: 'Salto La Placeta, cascada de 30 metros en la precordillera del Maule',
+      destacado: 'Bosque nativo precordillerano',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Salto La Leona',
+      slug: 'salto-la-leona',
+      altura: 25,
+      zona: 'Radal Siete Tazas',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-la-leona/hero.webp',
+      imagenAlt: 'Salto La Leona en el Parque Nacional Radal Siete Tazas',
+      destacado: 'Parque Nacional',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Salto del Maule',
+      slug: 'salto-del-maule',
+      altura: 70,
+      zona: 'San Clemente',
+      dificultad: 'Moderada',
+      imagen: '/assets/cascadas/cascada-invertida/galeria-1.webp',
+      imagenAlt: 'Entorno cordillerano del Geoparque Saltos del Maule',
+      destacado: 'Geoparque Saltos del Maule',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Siete Tazas',
+      slug: 'siete-tazas',
+      altura: 15,
+      zona: 'Radal Siete Tazas',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-la-leona/galeria-1.webp',
+      imagenAlt: 'Pozones escalonados de las Siete Tazas en el Parque Nacional',
+      destacado: 'Pozones naturales escalonados',
+      tienepagina: false,
+    },
+  ],
+  tablaCascadas: [
+    { nombre: 'Salto del Itata', slug: 'salto-del-itata', altura: '75 m', dificultad: 'Fácil a moderado', acceso: 'San Fabián de Alico, Ñuble', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Salto del Maule', slug: '', altura: '70 m', dificultad: 'Moderada', acceso: 'Ruta 115-CH km 127', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada Invertida', slug: 'cascada-invertida', altura: '50 m', dificultad: 'Fácil a moderado', acceso: 'Ruta 115-CH km 125', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', altura: '30 m', dificultad: 'Fácil', acceso: 'San Clemente precordillera', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Salto La Leona', slug: 'salto-la-leona', altura: '25 m', dificultad: 'Fácil', acceso: 'PN Radal Siete Tazas', entrada: '$5.000 CLP', tienepagina: true },
+    { nombre: 'Siete Tazas', slug: '', altura: '15 m', dificultad: 'Fácil', acceso: 'PN Radal Siete Tazas', entrada: '$5.000 CLP', tienepagina: false },
+  ],
+  mapCenter: { lat: -35.5, lng: -71.0 },
+  mapZoom: 8,
+  comoLlegar: [
+    { titulo: 'Desde Santiago (250-350 km, 3-5 horas en auto)', descripcion: 'Por Ruta 5 Sur. Para Radal Siete Tazas, desvío en Molina hacia el este (115 km adicionales). Para la Cascada Invertida, continuar hasta Talca y tomar la Ruta 115-CH hacia el Paso Pehuenche. Para el Salto del Itata, desvío en Chillán hacia San Fabián de Alico.' },
+    { titulo: 'Desde Talca (capital regional)', descripcion: 'Base ideal para explorar el Geoparque Saltos del Maule (130 km, 2 hrs) y Radal Siete Tazas (100 km, 1.5 hrs).' },
+    { titulo: 'Transporte público', descripcion: 'Buses desde Santiago a Talca, Molina y Chillán. Desde estas ciudades, transporte local limitado a los sitios de cascadas. Se recomienda vehículo propio o tour organizado.' },
+  ],
+  clima: {
+    tipo: 'Mediterráneo templado (Csb)',
+    tempVerano: '25-32°C',
+    tempInvierno: '3-12°C',
+    precipitaciones: '500-700 mm anuales (más en cordillera)',
+    mejorEpoca: 'Septiembre a Abril',
+    descripcion: 'Clima mediterráneo con estación seca prolongada. Los veranos son cálidos y secos; los inviernos fríos y lluviosos. En la cordillera (Cascada Invertida, 1.700 msnm), las temperaturas son significativamente más bajas y la ruta puede cerrarse por nieve entre junio y septiembre. La mejor época es primavera y verano.',
+  },
+  faq: [
+    { pregunta: '¿Cuáles son las cascadas más importantes del Maule?', respuesta: 'Las principales son la Cascada Invertida (50 m), el Salto La Leona (25 m) en el Parque Nacional Radal Siete Tazas, y el Salto La Placeta (30 m). El Salto del Itata (75 m), en la vecina Región de Ñuble, es la más alta de la zona.' },
+    { pregunta: '¿Cuándo se puede ver la Cascada Invertida?', respuesta: 'El fenómeno de inversión ocurre cuando los vientos del oeste suspenden el agua. Se observa mejor entre las 14:00 y las 17:00 horas, desde septiembre hasta abril. La ruta de acceso puede cerrarse por nieve en invierno.' },
+    { pregunta: '¿Se puede visitar Radal Siete Tazas gratis?', respuesta: 'No. El Parque Nacional Radal Siete Tazas cobra entrada de aproximadamente $5.000 CLP por persona. Las entradas deben comprarse en línea con anticipación en pasesparques.cl.' },
+    { pregunta: '¿Cuánto se demora en llegar al Salto del Itata desde Santiago?', respuesta: 'El Salto del Itata está a unos 420 km de Santiago, aproximadamente 5 horas en auto. Se llega tomando la Ruta 5 Sur hasta Chillán y luego desviando hacia San Fabián de Alico.' },
+    { pregunta: '¿Cuál es la mejor época para visitar cascadas en el Maule?', respuesta: 'La mejor época es de septiembre a abril. En primavera las cascadas tienen máximo caudal por el deshielo. En verano se pueden disfrutar las pozas de Siete Tazas y el clima es ideal para trekking.' },
+  ],
+  regionesAdyacentes: [
+    { nombre: 'Metropolitana', slug: 'zona-central', cascadas: 31 },
+    { nombre: 'Biobío', slug: 'biobio', cascadas: 42 },
+    { nombre: 'La Araucanía', slug: 'araucania', cascadas: 48 },
+  ],
+};
+
+const dificultadColor: Record<string, string> = {
+  'Fácil': '#00e5d4',
+  'Fácil a moderado': '#5ee8d5',
+  'Moderada': '#b8e8e4',
+  'Difícil': '#f4efe6',
+};
+
+// ─── STRUCTURED DATA ──────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Cascadas en la Región de ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de las regiones de O'Higgins y Maule, Chile.`,
+    numberOfItems: region.cascadasDestacadas.length,
+    itemListElement: region.cascadasDestacadas.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.nombre,
+      ...(c.tienepagina ? { url: `https://cascadaschile.com/cascadas/${c.slug}` } : {}),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: region.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadaschile.com/region' },
+      { '@type': 'ListItem', position: 3, name: region.nombre },
+    ],
+  },
+];
+---
+
+<Layout
+  title={`Cascadas en O'Higgins & Maule — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de las regiones de O'Higgins y Maule. Guía completa con mapa, alturas, dificultad y cómo llegar a cada salto de agua.`}
+  ogImage={`https://cascadaschile.com${region.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    position:relative;
+    min-height:80vh;
+    padding-top:64px;
+    overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  ">
+    <!-- Foto fondo con <img> para SEO -->
+    <img
+      src={region.imagen}
+      alt={region.imagenAlt}
+      fetchpriority="high"
+      decoding="async"
+      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+    />
+    <!-- Overlay -->
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(9,29,43,0.2) 0%, rgba(9,29,43,0.9) 100%);"></div>
+
+    <div style="position:relative; z-index:1; padding:4rem 2.5rem;">
+      <!-- Breadcrumb -->
+      <nav style="margin-bottom:1.5rem;">
+        <a href="/" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <a href="/region" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Regiones</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">{region.nombre}</span>
+      </nav>
+
+      <p style="color:#00e5d4; font-size:0.82rem; letter-spacing:0.15em; text-transform:uppercase; margin:0 0 0.75rem;">{region.subtitulo}</p>
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3.5rem, 9vw, 11rem);
+        color:#f4efe6; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">
+        Región de<br/>O'Higgins<br/>& Maule
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ─── STATS ────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0;">
+    <div style="
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(0,229,212,0.15);
+    ">
+      {region.stats.map((stat, i) => (
+        <div style={`
+          padding:2.5rem 2rem;
+          border-right:${i < 3 ? '1px solid rgba(0,229,212,0.15)' : 'none'};
+        `}>
+          <p style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(2rem, 4vw, 3.5rem);
+            color:#00e5d4; margin:0; line-height:1;
+          ">{stat.value}</p>
+          <p style="color:rgba(244,239,230,0.45); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.5rem 0 0;">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── GRID DE CASCADAS ──────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:7rem 2.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3rem, 7vw, 8rem);
+        color:#f4efe6; margin:0; line-height:0.9;
+        text-transform:uppercase;
+      ">
+        Cascadas en<br/>O'Higgins & Maule
+      </h2>
+      <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
+        Mostrando 6 de {region.totalCascadas}
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {region.cascadasDestacadas.map(c => {
+        const inner = (
+          <>
+            {/* Imagen */}
+            <div style="position:relative; overflow:hidden; border-radius:4px; margin-bottom:1.25rem;">
+              <img
+                src={c.imagen}
+                alt={c.imagenAlt}
+                loading="lazy"
+                decoding="async"
+                style="display:block; width:100%; height:280px; object-fit:cover;"
+              />
+              <span style={`
+                position:absolute; top:1rem; left:1rem;
+                background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
+                text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+              `}>{c.dificultad}</span>
+              <span style="
+                position:absolute; bottom:1rem; right:1rem;
+                background:rgba(9,29,43,0.8);
+                color:#f4efe6; font-family:'Archivo Black',sans-serif;
+                font-size:1.1rem; padding:0.35rem 0.75rem; border-radius:4px;
+              ">{c.altura}m</span>
+              {c.destacado && (
+                <span style="
+                  position:absolute; bottom:1rem; left:1rem;
+                  background:rgba(0,229,212,0.15); color:#00e5d4;
+                  font-size:0.68rem; font-weight:600; letter-spacing:0.08em;
+                  text-transform:uppercase; padding:0.25rem 0.65rem; border-radius:999px;
+                  backdrop-filter:blur(4px);
+                ">{c.destacado}</span>
+              )}
+            </div>
+            <h3 style="
+              font-family:'Archivo Black',sans-serif;
+              font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
+              text-transform:uppercase;
+            ">{c.nombre}</h3>
+            <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0; font-weight:300;">{c.zona}</p>
+          </>
+        );
+
+        return c.tienepagina ? (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none; cursor:pointer;">
+            {inner}
+          </a>
+        ) : (
+          <div class="cascade-card" style="display:block;">
+            {inner}
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+
+  <!-- ─── TABLA COMPARATIVA ────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Comparativa<br/>de Cascadas</h2>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.92rem;">
+        <thead>
+          <tr style="border-bottom:2px solid #091d2b;">
+            <th style="text-align:left; padding:1rem 1rem 1rem 0; font-weight:600; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Nombre</th>
+            <th style="text-align:left; padding:1rem; font-weight:600; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Altura</th>
+            <th style="text-align:left; padding:1rem; font-weight:600; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Dificultad</th>
+            <th style="text-align:left; padding:1rem; font-weight:600; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Acceso</th>
+            <th style="text-align:right; padding:1rem 0 1rem 1rem; font-weight:600; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {region.tablaCascadas.map(c => (
+            <tr style="border-bottom:1px solid rgba(9,29,43,0.1);">
+              <td style="padding:1rem 1rem 1rem 0; font-weight:500; color:#091d2b;">
+                {c.tienepagina ? (
+                  <a href={`/cascadas/${c.slug}`} style="color:#091d2b; text-decoration:none; border-bottom:1px solid #00e5d4; transition:color 0.2s;">
+                    {c.nombre}
+                  </a>
+                ) : (
+                  <span>{c.nombre}</span>
+                )}
+              </td>
+              <td style="padding:1rem; color:#091d2b; font-family:'Archivo Black',sans-serif; font-size:0.95rem;">{c.altura}</td>
+              <td style="padding:1rem;">
+                <span style={`
+                  display:inline-block;
+                  background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                  font-size:0.7rem; font-weight:700; letter-spacing:0.08em;
+                  text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:999px;
+                `}>{c.dificultad}</span>
+              </td>
+              <td style="padding:1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.acceso}</td>
+              <td style="padding:1rem 0 1rem 1rem; text-align:right; color:#091d2b; font-weight:500;">{c.entrada}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ─── MAPA ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2.5rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mapa de Cascadas<br/>en O'Higgins & Maule</h2>
+
+    <div style="border-radius:8px; overflow:hidden; aspect-ratio:16/9;">
+      <iframe
+        title={`Mapa de cascadas en la región de ${region.nombre}`}
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 1.5}%2C${region.mapCenter.lat - 1.2}%2C${region.mapCenter.lng + 1.5}%2C${region.mapCenter.lat + 1.2}&layer=mapnik&marker=${region.mapCenter.lat}%2C${region.mapCenter.lng}`}
+        style="width:100%; height:100%; border:none;"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <p style="color:rgba(244,239,230,0.35); font-size:0.78rem; margin:1rem 0 0; text-align:right;">
+      Datos cartográficos © <a href="https://www.openstreetmap.org/copyright" style="color:rgba(244,239,230,0.5); text-decoration:none;">OpenStreetMap</a>
+    </p>
+  </section>
+
+
+  <!-- ─── ZONAS + DESCRIPCIÓN ──────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start;">
+      <!-- Descripción regional -->
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#091d2b; margin:0 0 2rem; line-height:0.9;
+          text-transform:uppercase;
+        ">
+          Viñedos,<br/>Volcanes<br/>y Cascadas
+        </h2>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin-bottom:1.5rem;">{region.descripcion}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px;">{region.descripcion2}</p>
+      </div>
+
+      <!-- Zonas de la región -->
+      <div class="reveal">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 1.5rem;">Zonas principales</p>
+        <div style="display:flex; flex-direction:column;">
+          {region.zonas.map((zona, i) => (
+            <div style={`
+              padding:1.5rem 0;
+              border-top:${i > 0 ? '1px solid rgba(9,29,43,0.1)' : 'none'};
+            `}>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+                <h3 style="font-size:1rem; font-weight:600; color:#091d2b; margin:0;">{zona.nombre}</h3>
+                <span style="font-family:'Archivo Black',sans-serif; font-size:0.9rem; color:#00b4a0;">{zona.cascadas} cascadas</span>
+              </div>
+              <p style="color:rgba(9,29,43,0.6); font-size:0.88rem; line-height:1.55; margin:0; font-weight:300;">{zona.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CLIMA / MEJOR ÉPOCA ──────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start;">
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#f4efe6; margin:0 0 2rem; line-height:0.9;
+          text-transform:uppercase;
+        ">Mejor Época<br/>Para Visitar</h2>
+        <p style="color:rgba(244,239,230,0.75); font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px;">{region.clima.descripcion}</p>
+      </div>
+
+      <div class="reveal">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div style="padding:1.5rem; background:rgba(0,229,212,0.06); border-radius:8px; border:1px solid rgba(0,229,212,0.1);">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Tipo de clima</p>
+            <p style="color:#f4efe6; font-size:0.95rem; font-weight:400; margin:0;">{region.clima.tipo}</p>
+          </div>
+          <div style="padding:1.5rem; background:rgba(0,229,212,0.06); border-radius:8px; border:1px solid rgba(0,229,212,0.1);">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor época</p>
+            <p style="color:#00e5d4; font-family:'Archivo Black',sans-serif; font-size:1.4rem; margin:0;">{region.clima.mejorEpoca}</p>
+          </div>
+          <div style="padding:1.5rem; background:rgba(0,229,212,0.06); border-radius:8px; border:1px solid rgba(0,229,212,0.1);">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Verano</p>
+            <p style="color:#f4efe6; font-family:'Archivo Black',sans-serif; font-size:1.4rem; margin:0;">{region.clima.tempVerano}</p>
+          </div>
+          <div style="padding:1.5rem; background:rgba(0,229,212,0.06); border-radius:8px; border:1px solid rgba(0,229,212,0.1);">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Invierno</p>
+            <p style="color:#f4efe6; font-family:'Archivo Black',sans-serif; font-size:1.4rem; margin:0;">{region.clima.tempInvierno}</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1.5rem; background:rgba(0,229,212,0.06); border-radius:8px; border:1px solid rgba(0,229,212,0.1);">
+          <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Precipitaciones</p>
+          <p style="color:#f4efe6; font-size:0.95rem; font-weight:400; margin:0;">{region.clima.precipitaciones}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CÓMO LLEGAR ──────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2.5rem, 5vw, 5rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Cómo Llegar</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;">
+      {region.comoLlegar.map((ruta, i) => (
+        <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+            <span style="
+              display:inline-flex; align-items:center; justify-content:center;
+              width:2.5rem; height:2.5rem; border-radius:50%;
+              background:#091d2b; color:#00e5d4;
+              font-family:'Archivo Black',sans-serif; font-size:1rem;
+            ">{i + 1}</span>
+            <h3 style="font-size:0.95rem; font-weight:600; color:#091d2b; margin:0;">{ruta.titulo}</h3>
+          </div>
+          <p style="color:rgba(9,29,43,0.7); font-size:0.9rem; line-height:1.65; margin:0; font-weight:300;">{ruta.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── FAQ ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Preguntas<br/>Frecuentes</h2>
+
+    <div style="max-width:800px;">
+      {region.faq.map((item, i) => (
+        <details style={`
+          border-top:${i === 0 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          border-bottom:1px solid rgba(9,29,43,0.12);
+        `}>
+          <summary style="
+            padding:1.5rem 0;
+            font-size:1.05rem; font-weight:500; color:#091d2b;
+            cursor:pointer; list-style:none;
+            display:flex; justify-content:space-between; align-items:center;
+          ">
+            {item.pregunta}
+            <span style="color:#00b4a0; font-size:1.5rem; font-weight:300; margin-left:1rem; flex-shrink:0;">+</span>
+          </summary>
+          <p style="
+            padding:0 0 1.5rem;
+            color:rgba(9,29,43,0.7); font-size:0.95rem; line-height:1.7;
+            margin:0; font-weight:300;
+          ">{item.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── REGIONES ADYACENTES ──────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Regiones<br/>Cercanas</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid rgba(9,29,43,0.12);">
+      {region.regionesAdyacentes.map((r, i) => (
+        <a href={`/region/${r.slug}`} style={`
+          display:block; padding:2.5rem;
+          text-decoration:none; color:#091d2b;
+          border-right:${i < 2 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          transition:background 0.2s;
+        `}
+        onmouseenter="this.style.background='rgba(0,229,212,0.08)'"
+        onmouseleave="this.style.background='transparent'">
+          <p style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem, 3vw, 2.5rem); margin:0 0 0.5rem; text-transform:uppercase;">{r.nombre}</p>
+          <p style="font-size:0.88rem; color:#00b4a0; margin:0; font-weight:500;">{r.cascadas} cascadas &#8594;</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── CTA MAPA ──────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:7rem 2.5rem; text-align:center;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(3rem, 7vw, 8rem);
+      color:#f4efe6; margin:0 0 1.5rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Explora el<br/>Mapa Completo</h2>
+    <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; font-weight:300; max-width:520px; margin:0 auto 3rem; line-height:1.6;">
+      Descubre las {region.totalCascadas} cascadas de O'Higgins y Maule en nuestro mapa interactivo con rutas, dificultad y coordenadas.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#091d2b; background:#00e5d4; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+      transition:background 0.2s;
+    ">
+      Ver mapa interactivo &#8594;
+    </a>
+  </section>
+
+</Layout>

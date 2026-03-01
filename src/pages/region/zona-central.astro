@@ -1,0 +1,964 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA REGIÓN ───────────────────────────────────────────────────────
+const region = {
+  nombre: 'Metropolitana',
+  slug: 'zona-central',
+  zona: 'Zona Central',
+  subtitulo: 'Cajón del Maipo y precordillera andina · 31 cascadas catalogadas',
+  totalCascadas: 31,
+  imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
+  imagenAlt: 'Santuario de la naturaleza Cascada de las Ánimas en el Cajón del Maipo, Región Metropolitana',
+  stats: [
+    { label: 'Cascadas', value: '31' },
+    { label: 'Santuarios de la naturaleza', value: '3' },
+    { label: 'Altura máx.', value: '60 m' },
+    { label: 'Mejor época', value: 'Sep–Abr' },
+  ],
+  zonas: [
+    { nombre: 'Cajón del Maipo', cascadas: 18, descripcion: 'El corazón de las cascadas de la Región Metropolitana. Ánimas, Las Melosas y El Yeso entre montañas a solo 1 hora de Santiago.' },
+    { nombre: 'Precordillera de Santiago', cascadas: 8, descripcion: 'Cascadas accesibles en Lo Barnechea y Las Condes. La Cascada del Lanza en el Parque Los Trapenses es la más popular.' },
+    { nombre: 'Cordillera de la Costa', cascadas: 5, descripcion: 'Caídas de agua estacionales en quebradas húmedas del litoral central. Menor caudal pero rodeadas de bosque esclerófilo.' },
+  ],
+  descripcion: `La Región Metropolitana concentra una sorprendente variedad de cascadas a menos de dos horas de Santiago. El Cajón del Maipo es el epicentro: un corredor de más de 60 kilómetros que asciende desde los 800 hasta los 3.000 metros de altitud, donde tributarios del río Maipo alimentan decenas de caídas de agua rodeadas de bosque esclerófilo y precordillera andina.
+
+  Desde la Cascada de las Ánimas —un santuario de la naturaleza de 3.600 hectáreas con 60 metros de caída— hasta la Cascada del Lanza en los cerros de Lo Barnechea, la región ofrece opciones para todos los niveles: familias, trekkers y fotógrafos encuentran aquí cascadas accesibles sin necesidad de viajar al sur del país.`,
+  cascadasDestacadas: [
+    {
+      nombre: 'Cascada de las Ánimas',
+      slug: 'cascada-de-las-animas',
+      altura: 60,
+      zona: 'San José de Maipo',
+      dificultad: 'Fácil a moderado',
+      imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
+      imagenAlt: 'Santuario de la naturaleza Cascada de las Ánimas en el Cajón del Maipo',
+      destacado: 'Santuario de la Naturaleza',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Cascada del Lanza',
+      slug: 'cascada-del-lanza',
+      altura: 10,
+      zona: 'Lo Barnechea',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/cascada-del-lanza/hero.webp',
+      imagenAlt: 'Cascada del Lanza en el Parque Los Trapenses, Lo Barnechea',
+      destacado: 'A 30 min del centro de Santiago',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Cascada Las Melosas',
+      slug: 'cascada-las-melosas',
+      altura: 15,
+      zona: 'San José de Maipo',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/cascada-las-melosas/hero.webp',
+      imagenAlt: 'Cascada Las Melosas en el Cajón del Maipo',
+      destacado: 'Cajón del Maipo profundo',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Cascada El Yeso',
+      slug: 'cascada-el-yeso',
+      altura: 15,
+      zona: 'San José de Maipo',
+      dificultad: 'Fácil a moderado',
+      imagen: '/assets/cascadas/cascada-el-yeso/hero.webp',
+      imagenAlt: 'Embalse El Yeso con aguas turquesa y montañas nevadas',
+      destacado: 'Junto al Embalse El Yeso',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Cascada de los Vientos',
+      slug: 'cascada-de-los-vientos',
+      altura: 30,
+      zona: 'San José de Maipo',
+      dificultad: 'Moderada',
+      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-1.webp',
+      imagenAlt: 'Cascada de los Vientos en el Cajón del Maipo',
+      destacado: 'Trekking de montaña',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada Termas del Plomo',
+      slug: 'cascada-termas-del-plomo',
+      altura: 25,
+      zona: 'San José de Maipo',
+      dificultad: 'Difícil',
+      imagen: '/assets/cascadas/cascada-el-yeso/galeria-1.webp',
+      imagenAlt: 'Cascada en la ruta a las Termas del Plomo',
+      destacado: 'Ruta de alta montaña',
+      tienepagina: false,
+    },
+  ],
+  tablaCascadas: [
+    { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', altura: '60 m', dificultad: 'Fácil a moderado', acceso: 'Ruta G-25, San Alfonso', entrada: 'Solo con reserva', tienepagina: true },
+    { nombre: 'Cascada de los Vientos', slug: '', altura: '30 m', dificultad: 'Moderada', acceso: 'Cajón del Maipo', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada Termas del Plomo', slug: '', altura: '25 m', dificultad: 'Difícil', acceso: 'Sendero alta montaña', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada El Yeso', slug: 'cascada-el-yeso', altura: '15 m', dificultad: 'Fácil a moderado', acceso: 'Ruta al Embalse El Yeso', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', altura: '15 m', dificultad: 'Fácil', acceso: 'Cajón del Maipo km 73', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Cascada del Lanza', slug: 'cascada-del-lanza', altura: '10 m', dificultad: 'Fácil', acceso: 'Parque Los Trapenses', entrada: 'Gratuita', tienepagina: true },
+  ],
+  mapCenter: { lat: -33.65, lng: -70.25 },
+  mapZoom: 10,
+  comoLlegar: `Desde el centro de Santiago (60-90 km, 1-2 horas en auto): La mayoría de las cascadas se concentran en el Cajón del Maipo. Tomar la Ruta G-25 (Camino al Volcán) desde Puente Alto. Para la Cascada del Lanza, acceder por Lo Barnechea hacia el Parque Los Trapenses.
+
+  Transporte público: Metro Línea 4 hasta Las Mercedes, luego microbuses MB-72 hacia San José de Maipo y San Alfonso. Para Lo Barnechea, Metro Línea 1 hasta Los Dominicos.
+
+  Aeropuerto: Arturo Merino Benítez (SCL), a 50 km del Cajón del Maipo.`,
+  clima: {
+    tipo: 'Mediterráneo (Csb)',
+    tempVerano: '28-33°C',
+    tempInvierno: '2-10°C',
+    precipitaciones: '350-500 mm anuales',
+    mejorEpoca: 'Septiembre a Abril',
+    descripcion: 'Clima mediterráneo con veranos cálidos y secos e inviernos fríos y lluviosos. Las cascadas del Cajón del Maipo tienen mayor caudal en primavera (septiembre-noviembre) por el deshielo andino. En invierno, los caminos de montaña pueden tener nieve sobre los 2.000 msnm.',
+  },
+  faq: [
+    { pregunta: '¿Cuántas cascadas hay cerca de Santiago?', respuesta: 'La Región Metropolitana cuenta con más de 31 cascadas catalogadas, la mayoría ubicadas en el Cajón del Maipo, a solo 1-2 horas en auto desde el centro de Santiago.' },
+    { pregunta: '¿Cuál es la cascada más alta cerca de Santiago?', respuesta: 'La Cascada de las Ánimas, con 60 metros de altura, es la cascada más alta de la Región Metropolitana. Se ubica en San Alfonso, Cajón del Maipo, a 60 km de Santiago.' },
+    { pregunta: '¿Se puede visitar la Cascada de las Ánimas sin reserva?', respuesta: 'No. El Santuario de la Naturaleza Cascada de las Ánimas requiere reserva previa obligatoria. Se accede únicamente a través de actividades o alojamiento contratado con anticipación.' },
+    { pregunta: '¿Cuál es la cascada más fácil de visitar en Santiago?', respuesta: 'La Cascada del Lanza, en el Parque Los Trapenses de Lo Barnechea, es la más accesible. Se llega en 30 minutos desde el centro de Santiago y el sendero es corto y apto para familias.' },
+    { pregunta: '¿Cuál es la mejor época para ver cascadas en el Cajón del Maipo?', respuesta: 'La mejor época es de septiembre a abril. En primavera (septiembre-noviembre) las cascadas tienen mayor caudal por el deshielo andino. En verano se pueden disfrutar las pozas naturales.' },
+  ],
+  regionesAdyacentes: [
+    { nombre: 'O\'Higgins & Maule', slug: 'maule', cascadas: 24 },
+    { nombre: 'Atacama & Coquimbo', slug: 'atacama-coquimbo', cascadas: 12 },
+    { nombre: 'Valparaíso', slug: 'valparaiso', cascadas: 15 },
+  ],
+};
+
+const dificultadColor: Record<string, string> = {
+  'Fácil': '#00e5d4',
+  'Fácil a moderado': '#00e5d4',
+  'Moderada': '#b8e8e4',
+  'Difícil': '#f4efe6',
+};
+
+// ─── STRUCTURED DATA ──────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Cascadas en la Región ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región ${region.nombre}, Chile.`,
+    numberOfItems: region.cascadasDestacadas.length,
+    itemListElement: region.cascadasDestacadas.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.nombre,
+      ...(c.tienepagina ? { url: `https://cascadaschile.com/cascadas/${c.slug}` } : {}),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: region.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadaschile.com/region' },
+      { '@type': 'ListItem', position: 3, name: region.nombre },
+    ],
+  },
+];
+---
+
+<Layout
+  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de la Región Metropolitana. Guía completa con mapa, alturas, dificultad y cómo llegar a cada salto de agua del Cajón del Maipo y Santiago.`}
+  ogImage={`https://cascadaschile.com${region.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ─────────────────────────────────────────────────────────────── -->
+  <section class="region-hero">
+    <img
+      src={region.imagen}
+      alt={region.imagenAlt}
+      class="region-hero__bg"
+      fetchpriority="high"
+      decoding="async"
+      width="1600"
+      height="900"
+    />
+    <div class="region-hero__overlay"></div>
+
+    <div class="region-hero__content">
+      <!-- Breadcrumb -->
+      <nav class="region-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/region">Regiones</a>
+        <span>›</span>
+        <span class="region-breadcrumb__current">{region.nombre}</span>
+      </nav>
+
+      <p class="region-hero__subtitle">{region.subtitulo}</p>
+      <h1 class="region-hero__title">
+        Región<br/>{region.nombre}
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. STATS ────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0;">
+    <div class="region-stats">
+      {region.stats.map((stat, i) => (
+        <div class="region-stats__item" style={i < 3 ? 'border-right:1px solid rgba(0,229,212,0.15);' : ''}>
+          <p class="region-stats__value">{stat.value}</p>
+          <p class="region-stats__label">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. GRID / CATÁLOGO DE CASCADAS ──────────────────────────────────────── -->
+  <section class="region-section region-section--navy" style="padding-top:7rem; padding-bottom:7rem;">
+    <div class="region-grid-header">
+      <h2 class="region-h2 region-h2--light region-h2--large reveal">
+        Cascadas<br/>en {region.nombre}
+      </h2>
+      <p class="region-grid-header__count">
+        Mostrando {region.cascadasDestacadas.length} de {region.totalCascadas}
+      </p>
+    </div>
+
+    <div class="region-cascade-grid">
+      {region.cascadasDestacadas.map(c => {
+        const inner = (
+          <>
+            <div class="region-cascade-card__image-wrap">
+              <img
+                src={c.imagen}
+                alt={c.imagenAlt}
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="400"
+                class="region-cascade-card__image"
+              />
+              <span class="region-cascade-card__difficulty" style={`background:${dificultadColor[c.dificultad] || '#00e5d4'};`}>
+                {c.dificultad}
+              </span>
+              <span class="region-cascade-card__height">{c.altura}m</span>
+            </div>
+            <h3 class="region-cascade-card__name">{c.nombre}</h3>
+            <p class="region-cascade-card__zona">{c.zona}</p>
+            {c.destacado && (
+              <p class="region-cascade-card__destacado">{c.destacado}</p>
+            )}
+          </>
+        );
+
+        return c.tienepagina ? (
+          <a href={`/cascadas/${c.slug}`} class="region-cascade-card cascade-card">
+            {inner}
+          </a>
+        ) : (
+          <div class="region-cascade-card region-cascade-card--no-link">
+            {inner}
+          </div>
+        );
+      })}
+    </div>
+
+    <div style="margin-top:4rem; text-align:center;">
+      <a href="/cascadas" class="region-cta-btn">
+        Ver todas las cascadas de Chile →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── 4. TABLA COMPARATIVA ────────────────────────────────────────────────── -->
+  <section class="region-section region-section--cream">
+    <h2 class="region-h2 reveal">Comparativa de cascadas</h2>
+    <p class="region-body reveal" style="max-width:700px; margin-bottom:2.5rem;">
+      Datos clave de las cascadas de la Región Metropolitana para planificar tu visita.
+    </p>
+    <div class="region-table-wrap reveal">
+      <table class="region-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Altura</th>
+            <th>Dificultad</th>
+            <th>Acceso</th>
+            <th>Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {region.tablaCascadas.map(c => (
+            <tr>
+              <td>
+                {c.tienepagina ? (
+                  <a href={`/cascadas/${c.slug}`} class="region-table__link">{c.nombre}</a>
+                ) : (
+                  <span>{c.nombre}</span>
+                )}
+              </td>
+              <td>{c.altura}</td>
+              <td>
+                <span class="region-table__badge" style={`background:${dificultadColor[c.dificultad] || '#00e5d4'}20; color:${dificultadColor[c.dificultad] || '#00e5d4'};`}>
+                  {c.dificultad}
+                </span>
+              </td>
+              <td>{c.acceso}</td>
+              <td>{c.entrada}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. MAPA ─────────────────────────────────────────────────────────────── -->
+  <section class="region-section region-section--navy">
+    <h2 class="region-h2 region-h2--light region-h2--large reveal">
+      Mapa de cascadas<br/>en {region.nombre}
+    </h2>
+    <div class="region-map-container reveal">
+      <iframe
+        class="region-map"
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 0.6}%2C${region.mapCenter.lat - 0.4}%2C${region.mapCenter.lng + 0.6}%2C${region.mapCenter.lat + 0.4}&layer=mapnik&marker=${region.mapCenter.lat}%2C${region.mapCenter.lng}`}
+        loading="lazy"
+        title={`Mapa de cascadas en la Región ${region.nombre}`}
+        width="100%"
+        height="500"
+      ></iframe>
+    </div>
+  </section>
+
+
+  <!-- ─── 6 + 7. ZONAS + DESCRIPCIÓN REGIONAL ────────────────────────────────── -->
+  <section class="region-section region-section--cream">
+    <div class="region-intro-grid">
+      <div class="reveal">
+        <h2 class="region-h2" style="line-height:0.9;">
+          Cajón del Maipo:<br/>Cascadas a pasos<br/>de Santiago
+        </h2>
+        <p class="region-body">{region.descripcion}</p>
+      </div>
+
+      <!-- Zonas de la región -->
+      <div class="reveal">
+        <p class="region-zonas-label">Zonas para explorar</p>
+        <div class="region-zonas-list">
+          {region.zonas.map((zona, i) => (
+            <div class="region-zona-item" style={i > 0 ? 'border-top:1px solid rgba(9,29,43,0.1);' : ''}>
+              <div class="region-zona-item__header">
+                <h3 class="region-zona-item__name">{zona.nombre}</h3>
+                <span class="region-zona-item__count">{zona.cascadas} cascadas</span>
+              </div>
+              <p class="region-zona-item__desc">{zona.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. CLIMA / MEJOR ÉPOCA ──────────────────────────────────────────────── -->
+  <section class="region-section region-section--navy">
+    <h2 class="region-h2 region-h2--light reveal">Mejor época para visitar</h2>
+    <p class="region-body region-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+      {region.clima.descripcion}
+    </p>
+    <div class="region-clima-grid reveal">
+      <div class="region-clima-stat">
+        <p class="region-clima-stat__label">Tipo de clima</p>
+        <p class="region-clima-stat__value">{region.clima.tipo}</p>
+      </div>
+      <div class="region-clima-stat">
+        <p class="region-clima-stat__label">Verano</p>
+        <p class="region-clima-stat__value">{region.clima.tempVerano}</p>
+      </div>
+      <div class="region-clima-stat">
+        <p class="region-clima-stat__label">Invierno</p>
+        <p class="region-clima-stat__value">{region.clima.tempInvierno}</p>
+      </div>
+      <div class="region-clima-stat">
+        <p class="region-clima-stat__label">Precipitaciones</p>
+        <p class="region-clima-stat__value">{region.clima.precipitaciones}</p>
+      </div>
+      <div class="region-clima-stat" style="border-right:none;">
+        <p class="region-clima-stat__label">Mejor época</p>
+        <p class="region-clima-stat__value">{region.clima.mejorEpoca}</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 9. CÓMO LLEGAR ──────────────────────────────────────────────────────── -->
+  <section class="region-section region-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="region-h2">Cómo llegar a las cascadas de {region.nombre}</h2>
+      <div class="region-body" style="white-space:pre-line;">
+        {region.comoLlegar}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. FAQ ──────────────────────────────────────────────────────────────── -->
+  <section class="region-section region-section--cream" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(9,29,43,0.1); padding-top:5rem;">
+      <div class="reveal" style="max-width:800px;">
+        <h2 class="region-h2">Preguntas frecuentes</h2>
+      </div>
+      <div class="region-faq">
+        {region.faq.map(f => (
+          <details class="region-faq__item reveal">
+            <summary class="region-faq__question">{f.pregunta}</summary>
+            <p class="region-faq__answer">{f.respuesta}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 11. REGIONES ADYACENTES ─────────────────────────────────────────────── -->
+  <section class="region-section region-section--cream" style="padding-top:0;">
+    <h2 class="region-h2 reveal">Regiones cercanas</h2>
+    <div class="region-adjacent-grid">
+      {region.regionesAdyacentes.map((r, i) => (
+        <a href={`/region/${r.slug}`} class="region-adjacent-card" style={i < 2 ? 'border-right:1px solid rgba(9,29,43,0.12);' : ''}>
+          <p class="region-adjacent-card__name">{r.nombre}</p>
+          <p class="region-adjacent-card__count">{r.cascadas} cascadas →</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. CTA MAPA ────────────────────────────────────────────────────────── -->
+  <section class="region-cta-section">
+    <h2 class="region-cta-section__title reveal">Descubre +500<br/>cascadas más</h2>
+    <p class="region-cta-section__text reveal">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="region-cta-section__button reveal">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .region-hero {
+    position: relative;
+    min-height: 80vh;
+    padding-top: 64px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .region-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .region-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.2) 0%, rgba(9,29,43,0.9) 100%);
+  }
+  .region-hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 4rem 2.5rem;
+  }
+  .region-hero__subtitle {
+    color: #00e5d4;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+  .region-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(4rem, 10vw, 12rem);
+    color: #f4efe6;
+    margin: 0;
+    line-height: 0.88;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .region-breadcrumb {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .region-breadcrumb a {
+    color: rgba(244,239,230,0.6);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .region-breadcrumb a:hover { color: #00e5d4; }
+  .region-breadcrumb span {
+    color: rgba(244,239,230,0.3);
+    font-size: 0.78rem;
+  }
+  .region-breadcrumb__current {
+    color: #00e5d4;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ─── STATS ─────────────────────────────────────────────────────────────── */
+  .region-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(0,229,212,0.15);
+  }
+  .region-stats__item {
+    padding: 2.5rem 2rem;
+  }
+  .region-stats__value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: #00e5d4;
+    margin: 0;
+    line-height: 1;
+  }
+  .region-stats__label {
+    color: rgba(244,239,230,0.45);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0.5rem 0 0;
+  }
+
+  /* ─── SECTIONS ──────────────────────────────────────────────────────────── */
+  .region-section { padding: 5rem 2.5rem; }
+  .region-section--cream { background: #f4efe6; }
+  .region-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ────────────────────────────────────────────────────────── */
+  .region-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b;
+    margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .region-h2--light { color: #f4efe6; }
+  .region-h2--large {
+    font-size: clamp(3rem, 7vw, 8rem);
+    line-height: 0.9;
+    margin-bottom: 3rem;
+  }
+  .region-body {
+    color: #091d2b;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin: 0 0 1.25rem;
+    font-weight: 300;
+  }
+  .region-body--light { color: rgba(244,239,230,0.75); }
+
+  /* ─── CASCADE GRID ──────────────────────────────────────────────────────── */
+  .region-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+  .region-grid-header__count {
+    color: rgba(244,239,230,0.4);
+    font-size: 0.85rem;
+    align-self: center;
+  }
+  .region-cascade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .region-cascade-card {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px;
+    padding: 0 0 1.5rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .region-cascade-card:hover {
+    border-color: rgba(0,229,212,0.3);
+  }
+  .region-cascade-card--no-link {
+    cursor: default;
+  }
+  .region-cascade-card__image-wrap {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+  .region-cascade-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .region-cascade-card__difficulty {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #091d2b;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+  .region-cascade-card__height {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(9,29,43,0.8);
+    color: #f4efe6;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+  }
+  .region-cascade-card__name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem;
+    color: #f4efe6;
+    margin: 0 1rem 0.3rem;
+    text-transform: uppercase;
+  }
+  .region-cascade-card__zona {
+    color: rgba(244,239,230,0.45);
+    font-size: 0.88rem;
+    margin: 0 1rem;
+    font-weight: 300;
+  }
+  .region-cascade-card__destacado {
+    color: #00e5d4;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin: 0.5rem 1rem 0;
+  }
+
+  /* ─── CTA BUTTON ────────────────────────────────────────────────────────── */
+  .region-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #091d2b;
+    background: #00e5d4;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+    transition: background 0.2s;
+  }
+  .region-cta-btn:hover { background: #00b4a0; }
+
+  /* ─── TABLE ──────────────────────────────────────────────────────────────── */
+  .region-table-wrap {
+    overflow-x: auto;
+  }
+  .region-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .region-table thead th {
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #00b4a0;
+    padding: 1rem 1.25rem;
+    border-bottom: 2px solid rgba(9,29,43,0.15);
+  }
+  .region-table tbody td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgba(9,29,43,0.08);
+    color: #091d2b;
+    font-weight: 400;
+  }
+  .region-table tbody tr:hover {
+    background: rgba(0,229,212,0.04);
+  }
+  .region-table__link {
+    color: #091d2b;
+    text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .region-table__link:hover {
+    color: #00b4a0;
+    text-decoration-color: #00b4a0;
+  }
+  .region-table__badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── MAP ─────────────────────────────────────────────────────────────── */
+  .region-map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(244,239,230,0.1);
+  }
+  .region-map {
+    border: 0;
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+
+  /* ─── INTRO / ZONAS ──────────────────────────────────────────────────────── */
+  .region-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .region-zonas-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #00b4a0;
+    margin: 0 0 1.5rem;
+  }
+  .region-zonas-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .region-zona-item {
+    padding: 1.5rem 0;
+  }
+  .region-zona-item__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+  .region-zona-item__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #091d2b;
+    margin: 0;
+  }
+  .region-zona-item__count {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.9rem;
+    color: #00b4a0;
+  }
+  .region-zona-item__desc {
+    color: rgba(9,29,43,0.6);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* ─── CLIMA ───────────────────────────────────────────────────────────── */
+  .region-clima-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .region-clima-stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .region-clima-stat:last-child { border-right: none; }
+  .region-clima-stat__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00e5d4;
+    margin: 0 0 0.4rem;
+  }
+  .region-clima-stat__value {
+    font-size: 0.95rem;
+    color: #f4efe6;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* ─── FAQ ──────────────────────────────────────────────────────────────── */
+  .region-faq {
+    max-width: 800px;
+  }
+  .region-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.1);
+  }
+  .region-faq__question {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #091d2b;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .region-faq__question::-webkit-details-marker { display: none; }
+  .region-faq__question::after {
+    content: '+';
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem;
+    color: #00b4a0;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .region-faq__item[open] .region-faq__question::after {
+    transform: rotate(45deg);
+  }
+  .region-faq__answer {
+    color: rgba(9,29,43,0.7);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+    padding: 0 0 1.25rem;
+    font-weight: 300;
+  }
+
+  /* ─── ADJACENT REGIONS ──────────────────────────────────────────────────── */
+  .region-adjacent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .region-adjacent-card {
+    display: block;
+    padding: 2.5rem;
+    text-decoration: none;
+    color: #091d2b;
+    transition: background 0.2s;
+  }
+  .region-adjacent-card:hover {
+    background: rgba(0,229,212,0.08);
+  }
+  .region-adjacent-card__name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .region-adjacent-card__count {
+    font-size: 0.88rem;
+    color: #00b4a0;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* ─── CTA SECTION ───────────────────────────────────────────────────────── */
+  .region-cta-section {
+    background: #091d2b;
+    padding: 8rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(0,229,212,0.1);
+  }
+  .region-cta-section__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 8vw, 10rem);
+    color: #f4efe6;
+    margin: 0 0 1.5rem;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+  .region-cta-section__text {
+    color: rgba(244,239,230,0.6);
+    font-size: 1.1rem;
+    margin: 0 0 2.5rem;
+    font-weight: 300;
+  }
+  .region-cta-section__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #091d2b;
+    background: #00e5d4;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+    transition: background 0.2s;
+  }
+  .region-cta-section__button:hover { background: #00b4a0; }
+
+  /* ─── RESPONSIVE ────────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .region-cascade-grid { grid-template-columns: repeat(2, 1fr); }
+    .region-clima-grid { grid-template-columns: repeat(3, 1fr); }
+    .region-clima-stat:nth-child(3) { border-right: none; }
+    .region-intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 768px) {
+    .region-stats { grid-template-columns: repeat(2, 1fr); }
+    .region-stats__item { border-right: none !important; }
+    .region-stats__item:nth-child(1),
+    .region-stats__item:nth-child(2) { border-bottom: 1px solid rgba(0,229,212,0.15); }
+    .region-stats__item:nth-child(odd) { border-right: 1px solid rgba(0,229,212,0.15) !important; }
+    .region-cascade-grid { grid-template-columns: 1fr; }
+    .region-grid-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .region-clima-grid { grid-template-columns: repeat(2, 1fr); }
+    .region-clima-stat { border-right: none !important; }
+    .region-clima-stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1) !important; }
+    .region-adjacent-grid { grid-template-columns: 1fr; }
+    .region-adjacent-card { border-right: none !important; border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .region-adjacent-card:last-child { border-bottom: none; }
+    .region-hero__title { font-size: clamp(3rem, 12vw, 6rem); }
+    .region-section { padding: 3.5rem 1.5rem; }
+    .region-hero__content { padding: 3rem 1.5rem; }
+    .region-table { font-size: 0.85rem; }
+    .region-table thead th,
+    .region-table tbody td { padding: 0.75rem 0.75rem; }
+  }
+</style>
