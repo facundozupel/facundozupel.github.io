@@ -1,0 +1,601 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA REGION ───────────────────────────────────────────────────────
+const region = {
+  nombre: 'Atacama & Coquimbo',
+  slug: 'atacama-coquimbo',
+  zona: 'Norte Chico',
+  subtitulo: 'Ríos cordilleranos, valles transversales y desierto florido · 12 cascadas catalogadas',
+  totalCascadas: 12,
+  imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
+  imagenAlt: 'Paisaje cordillerano del Norte Chico de Chile con ríos que bajan hacia los valles transversales',
+  stats: [
+    { label: 'Cascadas', value: '12' },
+    { label: 'Valles transversales', value: '4' },
+    { label: 'Altura máx.', value: '60 m' },
+    { label: 'Mejor época', value: 'Sep–Dic' },
+  ],
+  zonas: [
+    { nombre: 'Valle del Huasco & Cordillera de Atacama', cascadas: 4, descripcion: 'Cascadas alimentadas por los ríos Huasco y Copiapó que bajan de los Andes. Quebradas de roca rojiza entre los 2.000 y 4.000 m de altitud.' },
+    { nombre: 'Valle del Elqui & Río Turbio', cascadas: 4, descripcion: 'Saltos de agua en los ríos Elqui, Turbio y Claro. Cascadas entre viñedos pisqueros y observatorios astronómicos, bajo los cielos más limpios del mundo.' },
+    { nombre: 'Valle del Limarí & Choapa', cascadas: 4, descripcion: 'Caídas de agua en los valles del Limarí y Choapa. Zona de transición entre el semidesierto y el Chile central, con cactus y bosque esclerófilo.' },
+  ],
+  descripcion: `Atacama y Coquimbo forman el Norte Chico, una región de transición entre el desierto absoluto y el Chile central verde. Sus 12 cascadas catalogadas se esconden en los valles transversales —Huasco, Elqui, Limarí y Choapa— donde ríos cordilleranos cruzan la aridez para llegar al Pacífico.`,
+  descripcion2: `El Valle del Elqui, famoso por el pisco y la astronomía, alberga cascadas estacionales que cobran fuerza durante los deshielos de primavera. En la Cordillera de Atacama, los ríos Huasco y Copiapó forman saltos entre formaciones de roca rojiza a miles de metros de altitud. Cada ciertos años, el fenómeno del desierto florido transforma el paisaje circundante, creando un contraste extraordinario entre las cascadas y los campos de flores silvestres.`,
+  cascadasDestacadas: [
+    {
+      nombre: 'Cascada del Huasco',
+      slug: 'cascada-del-huasco',
+      altura: 60,
+      zona: 'Alto del Carmen',
+      dificultad: 'Moderado',
+      imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
+      imagenAlt: 'Cascada del río Huasco en la cordillera de la Región de Atacama',
+      destacado: 'La más alta del Norte Chico',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto del Elqui',
+      slug: 'salto-del-elqui',
+      altura: 35,
+      zona: 'Paihuano',
+      dificultad: 'Fácil a moderado',
+      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-2.webp',
+      imagenAlt: 'Salto del río Elqui en el Valle del Elqui, Región de Coquimbo',
+      destacado: 'Valle del Elqui',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada Río Turbio',
+      slug: 'cascada-rio-turbio',
+      altura: 25,
+      zona: 'Vicuña',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-3.webp',
+      imagenAlt: 'Cascada del Río Turbio cerca de Vicuña en el Valle del Elqui',
+      destacado: 'Cerca de Vicuña',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto del Copiapó',
+      slug: 'salto-del-copiapo',
+      altura: 40,
+      zona: 'Tierra Amarilla',
+      dificultad: 'Difícil',
+      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-4.webp',
+      imagenAlt: 'Salto del río Copiapó en la cordillera de la Región de Atacama',
+      destacado: 'Cordillera de Atacama',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada del Limarí',
+      slug: 'cascada-del-limari',
+      altura: 20,
+      zona: 'Monte Patria',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/cascada-las-melosas/hero.webp',
+      imagenAlt: 'Cascada en el Valle del Limarí, Región de Coquimbo',
+      destacado: 'Valle del Limarí',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto del Choapa',
+      slug: 'salto-del-choapa',
+      altura: 30,
+      zona: 'Salamanca',
+      dificultad: 'Moderado',
+      imagen: '/assets/cascadas/cascada-del-lanza/hero.webp',
+      imagenAlt: 'Salto del río Choapa en la precordillera de Coquimbo',
+      destacado: 'Valle del Choapa',
+      tienepagina: false,
+    },
+  ],
+  tablaCascadas: [
+    { nombre: 'Cascada del Huasco', slug: '', altura: '60 m', dificultad: 'Moderado', acceso: 'Alto del Carmen, camino rural', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto del Copiapó', slug: '', altura: '40 m', dificultad: 'Difícil', acceso: 'Tierra Amarilla, 4x4', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto del Elqui', slug: '', altura: '35 m', dificultad: 'Fácil a moderado', acceso: 'Paihuano, sendero', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto del Choapa', slug: '', altura: '30 m', dificultad: 'Moderado', acceso: 'Salamanca, camino rural', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada Río Turbio', slug: '', altura: '25 m', dificultad: 'Fácil', acceso: 'Vicuña, ruta asfaltada', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada del Limarí', slug: '', altura: '20 m', dificultad: 'Fácil', acceso: 'Monte Patria, camino rural', entrada: 'Gratuita', tienepagina: false },
+  ],
+  mapCenter: { lat: -29.5, lng: -70.5 },
+  mapZoom: 7,
+  comoLlegar: `Desde Santiago a La Serena (470 km, 5-6 horas en auto): Ruta 5 Norte o Ruta del Elqui. La Serena es la mejor base para cascadas del Valle del Elqui y Limarí. Desde Santiago a Copiapó (800 km, 8-9 horas): Ruta 5 Norte, base para cascadas de la Cordillera de Atacama.`,
+  comoLlegar2: `Desde La Serena y Copiapó: Ambas ciudades tienen aeropuerto con vuelos diarios desde Santiago (1-1,5 hrs, LATAM, Sky, JetSmart). Alquiler de vehículos disponible. Para cascadas de cordillera se recomienda 4x4. El Valle del Elqui está a 60 km de La Serena por ruta asfaltada.`,
+  comoLlegar3: `Transporte público: Vuelos diarios Santiago-La Serena (1 hr) y Santiago-Copiapó (1,5 hrs). Buses Santiago-La Serena (6 hrs, Tur Bus, Pullman) y Santiago-Copiapó (9 hrs). Buses locales a Vicuña, Paihuano y Alto del Carmen. Para cascadas de montaña se necesita vehículo propio o tour.`,
+  clima: {
+    tipo: 'Semiárido (BSk) con influencia costera',
+    tempVerano: '22-30°C (valle) / 10-20°C (cordillera)',
+    tempInvierno: '8-18°C (valle) / -5 a 10°C (cordillera)',
+    precipitaciones: '80-150 mm anuales',
+    mejorEpoca: 'Septiembre a Diciembre',
+    descripcion: 'Clima semiárido con cielos despejados más de 300 días al año. Las cascadas tienen mayor caudal en primavera (septiembre-diciembre) con los deshielos cordilleranos. En años de El Niño las lluvias aumentan significativamente y pueden activar el desierto florido. Veranos cálidos en los valles, noches frías en la cordillera. El Valle del Elqui tiene uno de los climas más estables de Chile.',
+  },
+  faq: [
+    { pregunta: '¿Hay cascadas en la Región de Atacama y Coquimbo?', respuesta: 'Sí, existen 12 cascadas catalogadas en el Norte Chico. Se encuentran principalmente en los valles transversales del Huasco, Elqui, Limarí y Choapa, alimentadas por ríos que bajan de la Cordillera de los Andes.' },
+    { pregunta: '¿Cuál es la mejor época para visitar cascadas en el Norte Chico?', respuesta: 'De septiembre a diciembre, durante los deshielos de primavera. Es cuando los ríos cordilleranos tienen mayor caudal. En años de El Niño, las lluvias invernales también pueden aumentar el caudal.' },
+    { pregunta: '¿Se pueden combinar las cascadas con visitas al Valle del Elqui?', respuesta: 'Sí, el Valle del Elqui es la zona más accesible. Se puede combinar la visita a cascadas con degustación de pisco, observación astronómica y trekking. Vicuña y Paihuano son buenas bases.' },
+    { pregunta: '¿Qué es el desierto florido y cuándo ocurre?', respuesta: 'El desierto florido es un fenómeno natural que ocurre en años lluviosos (generalmente por El Niño), cuando más de 200 especies de flores silvestres cubren el desierto entre agosto y noviembre. Coincide con la mejor época para cascadas.' },
+    { pregunta: '¿Necesito vehículo especial para llegar a las cascadas?', respuesta: 'Depende. Las cascadas del Valle del Elqui son accesibles con vehículo normal. Para cascadas de la Cordillera de Atacama (Huasco, Copiapó) se recomienda 4x4 y experiencia en conducción de montaña. Siempre consultar condiciones del camino antes de salir.' },
+  ],
+  regionesAdyacentes: [
+    { nombre: 'Tarapacá & Antofagasta', slug: 'tarapaca-antofagasta', cascadas: 8 },
+    { nombre: 'Metropolitana & Valparaíso', slug: 'zona-central', cascadas: 31 },
+    { nombre: "O'Higgins & Maule", slug: 'maule', cascadas: 24 },
+  ],
+};
+
+const dificultadColor: Record<string, string> = {
+  'Fácil': '#00e5d4',
+  'Moderado': '#b8e8e4',
+  'Moderada': '#b8e8e4',
+  'Fácil a moderado': '#b8e8e4',
+  'Difícil': '#f4efe6',
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Cascadas en ${region.nombre}`,
+    description: `Las ${region.totalCascadas} cascadas y saltos de agua en las regiones de Atacama y Coquimbo, Norte Chico de Chile.`,
+    numberOfItems: region.cascadasDestacadas.length,
+    itemListElement: region.cascadasDestacadas.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.nombre,
+      ...(c.tienepagina ? { url: `https://cascadaschile.com/cascadas/${c.slug}` } : {}),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: region.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadaschile.com/region' },
+      { '@type': 'ListItem', position: 3, name: region.nombre },
+    ],
+  },
+];
+---
+
+<Layout
+  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas en el Norte Chico | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas del Norte Chico de Chile. Guía con mapa, alturas y cómo llegar a cascadas del Valle del Elqui, Cordillera de Atacama y más.`}
+  ogImage={`https://cascadaschile.com${region.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    position:relative;
+    min-height:80vh;
+    padding-top:64px;
+    overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  ">
+    <img
+      src={region.imagen}
+      alt={region.imagenAlt}
+      fetchpriority="high"
+      decoding="async"
+      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+    />
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(9,29,43,0.2) 0%, rgba(9,29,43,0.9) 100%);"></div>
+
+    <div style="position:relative; z-index:1; padding:4rem 2.5rem;">
+      <nav style="margin-bottom:1.5rem;">
+        <a href="/" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <a href="/region" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Regiones</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">{region.nombre}</span>
+      </nav>
+
+      <p style="color:#00e5d4; font-size:0.82rem; letter-spacing:0.15em; text-transform:uppercase; margin:0 0 0.75rem;">{region.subtitulo}</p>
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 10vw, 12rem);
+        color:#f4efe6; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">
+        Norte<br/>Chico
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. STATS ────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0;">
+    <div style="
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(0,229,212,0.15);
+    ">
+      {region.stats.map((stat, i) => (
+        <div style={`
+          padding:2.5rem 2rem;
+          border-right:${i < 3 ? '1px solid rgba(0,229,212,0.15)' : 'none'};
+        `}>
+          <p style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(2rem, 4vw, 3.5rem);
+            color:#00e5d4; margin:0; line-height:1;
+          ">{stat.value}</p>
+          <p style="color:rgba(244,239,230,0.45); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.5rem 0 0;">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. GRID DE CASCADAS ──────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:7rem 2.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3rem, 7vw, 8rem);
+        color:#f4efe6; margin:0; line-height:0.9;
+        text-transform:uppercase;
+      ">
+        Cascadas<br/>del Norte Chico
+      </h2>
+      <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
+        Mostrando 6 de {region.totalCascadas}
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {region.cascadasDestacadas.map(c => {
+        const inner = (
+          <>
+            <div style="height:280px; border-radius:4px; margin-bottom:1.25rem; position:relative; overflow:hidden;">
+              <img
+                src={c.imagen}
+                alt={c.imagenAlt}
+                loading="lazy"
+                decoding="async"
+                style="width:100%; height:100%; object-fit:cover;"
+              />
+              <span style={`
+                position:absolute; top:1rem; left:1rem;
+                background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
+                text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+              `}>{c.dificultad}</span>
+              <span style="
+                position:absolute; bottom:1rem; right:1rem;
+                background:rgba(9,29,43,0.8);
+                color:#f4efe6; font-family:'Archivo Black',sans-serif;
+                font-size:1.1rem; padding:0.35rem 0.75rem; border-radius:4px;
+              ">{c.altura}m</span>
+            </div>
+            <h3 style="
+              font-family:'Archivo Black',sans-serif;
+              font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
+              text-transform:uppercase;
+            ">{c.nombre}</h3>
+            <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0 0 0.2rem; font-weight:300;">{c.zona}</p>
+            <p style="color:#00b4a0; font-size:0.78rem; margin:0; font-weight:500;">{c.destacado}</p>
+          </>
+        );
+
+        return c.tienepagina ? (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none; cursor:pointer;">
+            {inner}
+          </a>
+        ) : (
+          <div class="cascade-card" style="display:block;">
+            {inner}
+          </div>
+        );
+      })}
+    </div>
+
+    <div style="margin-top:4rem; text-align:center;">
+      <a href="/cascadas" style="
+        display:inline-flex; align-items:center; gap:0.75rem;
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+        text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+      ">
+        Ver todas las cascadas de Chile
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── 4. TABLA COMPARATIVA ─────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 1rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Comparativa de Cascadas</h2>
+    <p style="color:rgba(9,29,43,0.5); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300;">
+      Datos clave para planificar tu visita a las cascadas del Norte Chico.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.92rem;">
+        <thead>
+          <tr style="border-bottom:2px solid #091d2b;">
+            <th style="text-align:left; padding:1rem 1rem 1rem 0; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Nombre</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Altura</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Dificultad</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Acceso</th>
+            <th style="text-align:left; padding:1rem 0 1rem 1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {region.tablaCascadas.map((c, i) => (
+            <tr style={`border-bottom:1px solid rgba(9,29,43,0.1); ${i % 2 === 1 ? 'background:rgba(0,180,160,0.04);' : ''}`}>
+              <td style="padding:1rem 1rem 1rem 0; font-weight:500; color:#091d2b;">
+                {c.tienepagina ? (
+                  <a href={`/cascadas/${c.slug}`} style="color:#091d2b; text-decoration:none; border-bottom:1px solid #00b4a0; transition:color 0.2s;">
+                    {c.nombre}
+                  </a>
+                ) : (
+                  <span>{c.nombre}</span>
+                )}
+              </td>
+              <td style="padding:1rem; color:#091d2b;">
+                <span style="font-family:'Archivo Black',sans-serif; color:#00b4a0;">{c.altura}</span>
+              </td>
+              <td style="padding:1rem; color:#091d2b;">
+                <span style={`
+                  display:inline-block;
+                  font-size:0.72rem; font-weight:700; letter-spacing:0.08em;
+                  text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:999px;
+                  background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                `}>{c.dificultad}</span>
+              </td>
+              <td style="padding:1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.acceso}</td>
+              <td style="padding:1rem 0 1rem 1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.entrada}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. MAPA ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mapa de Cascadas<br/>del Norte Chico</h2>
+    <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300; max-width:560px;">
+      Las cascadas del Norte Chico se distribuyen a lo largo de los valles transversales, desde el Valle del Huasco en Atacama hasta el Valle del Choapa en el sur de Coquimbo.
+    </p>
+    <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(0,229,212,0.15);">
+      <iframe
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 2}%2C${region.mapCenter.lat - 2}%2C${region.mapCenter.lng + 2}%2C${region.mapCenter.lat + 2}&layer=mapnik`}
+        style="width:100%; height:450px; border:0;"
+        loading="lazy"
+        title={`Mapa de cascadas en ${region.nombre}`}
+      ></iframe>
+    </div>
+  </section>
+
+
+  <!-- ─── 6+7. ZONAS + DESCRIPCION REGIONAL ───────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start;">
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#091d2b; margin:0 0 2rem; line-height:0.9;
+          text-transform:uppercase;
+        ">
+          Valles,<br/>Estrellas<br/>y Cascadas
+        </h2>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0 0 1.5rem;">{region.descripcion}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;">{region.descripcion2}</p>
+      </div>
+
+      <div class="reveal">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 1.5rem;">Zonas principales</p>
+        <div style="display:flex; flex-direction:column;">
+          {region.zonas.map((zona, i) => (
+            <div style={`
+              padding:1.5rem 0;
+              border-top:${i > 0 ? '1px solid rgba(9,29,43,0.1)' : 'none'};
+            `}>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+                <h3 style="font-size:1rem; font-weight:600; color:#091d2b; margin:0;">{zona.nombre}</h3>
+                <span style="font-family:'Archivo Black',sans-serif; font-size:0.9rem; color:#00b4a0;">{zona.cascadas} cascadas</span>
+              </div>
+              <p style="color:rgba(9,29,43,0.6); font-size:0.88rem; line-height:1.55; margin:0; font-weight:300;">{zona.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. CLIMA / MEJOR EPOCA ───────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#f4efe6; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mejor Época<br/>para Visitar</h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div class="reveal">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Tipo de clima</p>
+            <p style="color:#f4efe6; font-size:0.95rem; margin:0; font-weight:300;">{region.clima.tipo}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor epoca</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.mejorEpoca}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Verano</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.tempVerano}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Invierno</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.tempInvierno}</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+          <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Precipitaciones</p>
+          <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.precipitaciones}</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p style="color:rgba(244,239,230,0.75); font-size:1.05rem; line-height:1.75; font-weight:300; margin:0;">
+          {region.clima.descripcion}
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 9. COMO LLEGAR ───────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Cómo Llegar<br/>al Norte Chico</h2>
+
+    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2.5rem;">
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128663;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">En auto desde Santiago</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar}</p>
+      </div>
+
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#9992;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde La Serena y Copiapó</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar2}</p>
+      </div>
+
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128652;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte publico</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar3}</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. FAQ ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 2.5rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Preguntas Frecuentes</h2>
+
+    <div class="reveal" style="max-width:800px;">
+      {region.faq.map((f, i) => (
+        <details style={`
+          border-top:${i === 0 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          border-bottom:1px solid rgba(9,29,43,0.12);
+        `}>
+          <summary style="
+            padding:1.5rem 0;
+            cursor:pointer;
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.05rem;
+            color:#091d2b;
+            text-transform:uppercase;
+            list-style:none;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+          ">
+            {f.pregunta}
+            <span style="color:#00b4a0; font-size:1.5rem; font-family:'DM Sans',sans-serif; font-weight:300; margin-left:1rem; flex-shrink:0;">+</span>
+          </summary>
+          <div style="padding:0 0 1.5rem;">
+            <p style="color:rgba(9,29,43,0.7); font-size:0.95rem; line-height:1.7; font-weight:300; margin:0;">
+              {f.respuesta}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. REGIONES ADYACENTES ──────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Regiones Cercanas</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid rgba(9,29,43,0.12);">
+      {region.regionesAdyacentes.map((r, i) => (
+        <a href={`/region/${r.slug}`} style={`
+          display:block; padding:2.5rem;
+          text-decoration:none; color:#091d2b;
+          border-right:${i < 2 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          transition:background 0.2s;
+        `}
+        onmouseenter="this.style.background='rgba(0,229,212,0.08)'"
+        onmouseleave="this.style.background='transparent'">
+          <p style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem, 3vw, 2.5rem); margin:0 0 0.5rem; text-transform:uppercase;">{r.nombre}</p>
+          <p style="font-size:0.88rem; color:#00b4a0; margin:0; font-weight:500;">{r.cascadas} cascadas</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. CTA MAPA ────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem; text-align:center;">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1.5rem; line-height:0.95;
+      text-transform:uppercase;
+    ">Explora las Cascadas<br/>en el Mapa</h2>
+    <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300;">
+      Usa el mapa interactivo para planificar tu viaje por las cascadas del Norte Chico, entre el desierto y los valles transversales.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#091d2b; background:#00e5d4; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">Abrir mapa</a>
+  </section>
+
+</Layout>

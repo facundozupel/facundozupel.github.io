@@ -1,0 +1,601 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA REGION ───────────────────────────────────────────────────────
+const region = {
+  nombre: 'Ñuble',
+  slug: 'nuble',
+  zona: 'Zona Sur',
+  subtitulo: 'Termas, viñedos y bosques de montaña · 15 cascadas catalogadas',
+  totalCascadas: 15,
+  imagen: '/assets/cascadas/salto-del-itata/hero.webp',
+  imagenAlt: 'Salto del Itata, cascada de 75 metros en la precordillera de la Región de Ñuble',
+  stats: [
+    { label: 'Cascadas', value: '15' },
+    { label: 'Reservas nacionales', value: '2' },
+    { label: 'Altura máx.', value: '75 m' },
+    { label: 'Mejor época', value: 'Oct–Mar' },
+  ],
+  zonas: [
+    { nombre: 'Valle del Itata & Precordillera', cascadas: 6, descripcion: 'Salto del Itata de 75 metros y cascadas en quebradas de la precordillera. Zona de transición entre el valle vinícola y los bosques de montaña.' },
+    { nombre: 'Termas de Chillán & Volcán Chillán', cascadas: 5, descripcion: 'Cascadas alimentadas por deshielos del volcán Chillán Nuevo. Bosques de araucarias sobre los 1.500 m y aguas termales volcánicas.' },
+    { nombre: 'Reserva Ñuble & Cordillera', cascadas: 4, descripcion: 'Saltos en la Reserva Nacional Ñuble. Bosques de roble, lenga y ciprés de la cordillera en quebradas profundas.' },
+  ],
+  descripcion: `Ñuble es la región más joven de Chile, creada en 2018 al separarse del Biobío. Con 15 cascadas catalogadas, su joya es el Salto del Itata: una caída de 75 metros que marca el nacimiento del río Itata en la precordillera. La región combina la tradición vitivinícola del Valle del Itata con los bosques de araucarias del volcán Chillán.`,
+  descripcion2: `El complejo termal de Nevados de Chillán —uno de los centros de esquí más importantes de Chile— es también punto de partida para cascadas de deshielo que bajan desde el volcán Chillán Nuevo (3.212 m). En la Reserva Nacional Ñuble, los ríos Diguillín y Chillán forman saltos entre bosques de roble y lenga. Chillán, la capital regional, está a solo 400 km de Santiago y es la puerta de entrada a todas las cascadas de la zona.`,
+  cascadasDestacadas: [
+    {
+      nombre: 'Salto del Itata',
+      slug: 'salto-del-itata',
+      altura: 75,
+      zona: 'Coihueco',
+      dificultad: 'Fácil a moderado',
+      imagen: '/assets/cascadas/salto-del-itata/hero.webp',
+      imagenAlt: 'Salto del Itata, cascada de 75 metros en la precordillera de Ñuble',
+      destacado: 'La más alta de la región',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Cascada del Diguillín',
+      slug: 'cascada-del-diguillin',
+      altura: 40,
+      zona: 'Pinto',
+      dificultad: 'Moderado',
+      imagen: '/assets/cascadas/salto-del-itata/galeria-1.webp',
+      imagenAlt: 'Cascada del Diguillín en bosque nativo precordillerano de Ñuble',
+      destacado: 'Río Diguillín',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto Termas de Chillán',
+      slug: 'salto-termas-de-chillan',
+      altura: 30,
+      zona: 'Nevados de Chillán',
+      dificultad: 'Moderado',
+      imagen: '/assets/cascadas/salto-del-itata/galeria-2.webp',
+      imagenAlt: 'Cascada de deshielo volcánico en las Termas de Chillán',
+      destacado: 'Deshielo volcánico',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada Reserva Ñuble',
+      slug: 'cascada-reserva-nuble',
+      altura: 25,
+      zona: 'San Fabián de Alico',
+      dificultad: 'Moderado',
+      imagen: '/assets/cascadas/salto-del-itata/galeria-3.webp',
+      imagenAlt: 'Cascada en la Reserva Nacional Ñuble entre bosques de roble y lenga',
+      destacado: 'Reserva Nacional Ñuble',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto del Chillán',
+      slug: 'salto-del-chillan',
+      altura: 20,
+      zona: 'Pinto',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-del-itata/galeria-4.webp',
+      imagenAlt: 'Salto del Chillán en el valle precordillerano de Ñuble',
+      destacado: 'Acceso familiar',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada San Fabián',
+      slug: 'cascada-san-fabian',
+      altura: 35,
+      zona: 'San Fabián de Alico',
+      dificultad: 'Difícil',
+      imagen: '/assets/cascadas/cascada-invertida/hero.webp',
+      imagenAlt: 'Cascada en quebrada profunda cerca de San Fabián de Alico',
+      destacado: 'Trekking de montaña',
+      tienepagina: false,
+    },
+  ],
+  tablaCascadas: [
+    { nombre: 'Salto del Itata', slug: 'salto-del-itata', altura: '75 m', dificultad: 'Fácil a moderado', acceso: 'Coihueco, camino rural', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Cascada del Diguillín', slug: '', altura: '40 m', dificultad: 'Moderado', acceso: 'Pinto, sendero', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada San Fabián', slug: '', altura: '35 m', dificultad: 'Difícil', acceso: 'San Fabián de Alico', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto Termas de Chillán', slug: '', altura: '30 m', dificultad: 'Moderado', acceso: 'Nevados de Chillán', entrada: 'Pagada', tienepagina: false },
+    { nombre: 'Cascada Reserva Ñuble', slug: '', altura: '25 m', dificultad: 'Moderado', acceso: 'RN Ñuble, San Fabián', entrada: '$3.500 CLP', tienepagina: false },
+    { nombre: 'Salto del Chillán', slug: '', altura: '20 m', dificultad: 'Fácil', acceso: 'Pinto, camino vehicular', entrada: 'Gratuita', tienepagina: false },
+  ],
+  mapCenter: { lat: -36.62, lng: -71.95 },
+  mapZoom: 9,
+  comoLlegar: `Desde Santiago (400 km, 4-5 horas en auto): Ruta 5 Sur hasta Chillán (capital regional). El Salto del Itata está a 85 km al este de Chillán, en la comuna de Coihueco. Para las Termas de Chillán, tomar la ruta hacia Pinto (80 km desde Chillán).`,
+  comoLlegar2: `Desde Chillán: Capital regional y mejor base para explorar. Aeródromo General Bernardo O'Higgins (sin vuelos comerciales regulares). Terminal de buses con conexiones frecuentes desde Santiago (4-5 hrs, Tur Bus, Pullman Bus). Chillán es también la puerta a los Nevados de Chillán.`,
+  comoLlegar3: `Transporte público: Buses desde Santiago a Chillán (4-5 hrs, frecuencia cada 30 min). Buses rurales desde Chillán a Coihueco, Pinto y San Fabián de Alico. Para las Termas de Chillán hay transfers desde Chillán. Para el Salto del Itata y cascadas de montaña se recomienda vehículo propio.`,
+  clima: {
+    tipo: 'Mediterráneo cálido (Csb)',
+    tempVerano: '28-34°C',
+    tempInvierno: '3-12°C',
+    precipitaciones: '1.100 mm anuales',
+    mejorEpoca: 'Octubre a Marzo',
+    descripcion: 'Veranos cálidos y secos, ideales para trekking a cascadas de montaña. Inviernos lluviosos con nieve abundante sobre los 1.500 m (temporada de esquí en Nevados de Chillán). El Salto del Itata tiene mejor caudal en primavera (septiembre-noviembre) tras los deshielos. Las cascadas del volcán Chillán solo son accesibles entre noviembre y abril.',
+  },
+  faq: [
+    { pregunta: '¿Cuántas cascadas hay en la Región de Ñuble?', respuesta: 'La Región de Ñuble cuenta con 15 cascadas catalogadas, desde el imponente Salto del Itata de 75 metros hasta cascadas de deshielo en los Nevados de Chillán y la Reserva Nacional Ñuble.' },
+    { pregunta: '¿Cuál es la cascada más alta de Ñuble?', respuesta: 'El Salto del Itata con 75 metros de caída libre. Marca el nacimiento del río Itata en la precordillera de Coihueco y es una de las cascadas más altas de la zona centro-sur de Chile.' },
+    { pregunta: '¿Cómo llegar al Salto del Itata?', respuesta: 'Desde Chillán, tomar la ruta hacia Coihueco (35 km), luego seguir el camino rural hacia la precordillera (50 km más). El último tramo es camino de ripio. Se recomienda vehículo alto.' },
+    { pregunta: '¿Cuál es la mejor época para visitar las cascadas de Ñuble?', respuesta: 'De octubre a marzo para la mayoría de cascadas. El Salto del Itata es más espectacular en primavera (septiembre-noviembre) con los deshielos. Las cascadas de Nevados de Chillán solo son accesibles en verano.' },
+    { pregunta: '¿Se puede combinar la visita con las Termas de Chillán?', respuesta: 'Sí, las Termas de Chillán están a 80 km de Chillán y son un excelente complemento. En verano se puede hacer trekking a cascadas de deshielo y luego relajarse en las termas volcánicas.' },
+  ],
+  regionesAdyacentes: [
+    { nombre: 'Biobío', slug: 'biobio', cascadas: 42 },
+    { nombre: "O'Higgins & Maule", slug: 'maule', cascadas: 24 },
+    { nombre: 'La Araucanía', slug: 'araucania', cascadas: 48 },
+  ],
+};
+
+const dificultadColor: Record<string, string> = {
+  'Fácil': '#00e5d4',
+  'Moderado': '#b8e8e4',
+  'Moderada': '#b8e8e4',
+  'Fácil a moderado': '#b8e8e4',
+  'Difícil': '#f4efe6',
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Cascadas en la Región de ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región de ${region.nombre}, Chile.`,
+    numberOfItems: region.cascadasDestacadas.length,
+    itemListElement: region.cascadasDestacadas.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.nombre,
+      ...(c.tienepagina ? { url: `https://cascadaschile.com/cascadas/${c.slug}` } : {}),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: region.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadaschile.com/region' },
+      { '@type': 'ListItem', position: 3, name: region.nombre },
+    ],
+  },
+];
+---
+
+<Layout
+  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de la Región de Ñuble. Guía completa con mapa, alturas, dificultad y cómo llegar al Salto del Itata, cascadas de Nevados de Chillán y más.`}
+  ogImage={`https://cascadaschile.com${region.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    position:relative;
+    min-height:80vh;
+    padding-top:64px;
+    overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  ">
+    <img
+      src={region.imagen}
+      alt={region.imagenAlt}
+      fetchpriority="high"
+      decoding="async"
+      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+    />
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(9,29,43,0.2) 0%, rgba(9,29,43,0.9) 100%);"></div>
+
+    <div style="position:relative; z-index:1; padding:4rem 2.5rem;">
+      <nav style="margin-bottom:1.5rem;">
+        <a href="/" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <a href="/region" style="color:rgba(244,239,230,0.6); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Regiones</a>
+        <span style="color:rgba(244,239,230,0.3); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">{region.nombre}</span>
+      </nav>
+
+      <p style="color:#00e5d4; font-size:0.82rem; letter-spacing:0.15em; text-transform:uppercase; margin:0 0 0.75rem;">{region.subtitulo}</p>
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(4rem, 10vw, 12rem);
+        color:#f4efe6; margin:0; line-height:0.88;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">
+        Región<br/>de {region.nombre}
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. STATS ────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0;">
+    <div style="
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(0,229,212,0.15);
+    ">
+      {region.stats.map((stat, i) => (
+        <div style={`
+          padding:2.5rem 2rem;
+          border-right:${i < 3 ? '1px solid rgba(0,229,212,0.15)' : 'none'};
+        `}>
+          <p style="
+            font-family:'Archivo Black',sans-serif;
+            font-size:clamp(2rem, 4vw, 3.5rem);
+            color:#00e5d4; margin:0; line-height:1;
+          ">{stat.value}</p>
+          <p style="color:rgba(244,239,230,0.45); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin:0.5rem 0 0;">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. GRID DE CASCADAS ──────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:7rem 2.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3rem, 7vw, 8rem);
+        color:#f4efe6; margin:0; line-height:0.9;
+        text-transform:uppercase;
+      ">
+        Cascadas<br/>en {region.nombre}
+      </h2>
+      <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
+        Mostrando 6 de {region.totalCascadas}
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {region.cascadasDestacadas.map(c => {
+        const inner = (
+          <>
+            <div style="height:280px; border-radius:4px; margin-bottom:1.25rem; position:relative; overflow:hidden;">
+              <img
+                src={c.imagen}
+                alt={c.imagenAlt}
+                loading="lazy"
+                decoding="async"
+                style="width:100%; height:100%; object-fit:cover;"
+              />
+              <span style={`
+                position:absolute; top:1rem; left:1rem;
+                background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
+                text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+              `}>{c.dificultad}</span>
+              <span style="
+                position:absolute; bottom:1rem; right:1rem;
+                background:rgba(9,29,43,0.8);
+                color:#f4efe6; font-family:'Archivo Black',sans-serif;
+                font-size:1.1rem; padding:0.35rem 0.75rem; border-radius:4px;
+              ">{c.altura}m</span>
+            </div>
+            <h3 style="
+              font-family:'Archivo Black',sans-serif;
+              font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
+              text-transform:uppercase;
+            ">{c.nombre}</h3>
+            <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0 0 0.2rem; font-weight:300;">{c.zona}</p>
+            <p style="color:#00b4a0; font-size:0.78rem; margin:0; font-weight:500;">{c.destacado}</p>
+          </>
+        );
+
+        return c.tienepagina ? (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none; cursor:pointer;">
+            {inner}
+          </a>
+        ) : (
+          <div class="cascade-card" style="display:block;">
+            {inner}
+          </div>
+        );
+      })}
+    </div>
+
+    <div style="margin-top:4rem; text-align:center;">
+      <a href="/cascadas" style="
+        display:inline-flex; align-items:center; gap:0.75rem;
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+        text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+      ">
+        Ver todas las cascadas de Chile
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── 4. TABLA COMPARATIVA ─────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 1rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Comparativa de Cascadas</h2>
+    <p style="color:rgba(9,29,43,0.5); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300;">
+      Datos clave para planificar tu visita a las cascadas de Ñuble.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.92rem;">
+        <thead>
+          <tr style="border-bottom:2px solid #091d2b;">
+            <th style="text-align:left; padding:1rem 1rem 1rem 0; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Nombre</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Altura</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Dificultad</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Acceso</th>
+            <th style="text-align:left; padding:1rem 0 1rem 1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {region.tablaCascadas.map((c, i) => (
+            <tr style={`border-bottom:1px solid rgba(9,29,43,0.1); ${i % 2 === 1 ? 'background:rgba(0,180,160,0.04);' : ''}`}>
+              <td style="padding:1rem 1rem 1rem 0; font-weight:500; color:#091d2b;">
+                {c.tienepagina ? (
+                  <a href={`/cascadas/${c.slug}`} style="color:#091d2b; text-decoration:none; border-bottom:1px solid #00b4a0; transition:color 0.2s;">
+                    {c.nombre}
+                  </a>
+                ) : (
+                  <span>{c.nombre}</span>
+                )}
+              </td>
+              <td style="padding:1rem; color:#091d2b;">
+                <span style="font-family:'Archivo Black',sans-serif; color:#00b4a0;">{c.altura}</span>
+              </td>
+              <td style="padding:1rem; color:#091d2b;">
+                <span style={`
+                  display:inline-block;
+                  font-size:0.72rem; font-weight:700; letter-spacing:0.08em;
+                  text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:999px;
+                  background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                `}>{c.dificultad}</span>
+              </td>
+              <td style="padding:1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.acceso}</td>
+              <td style="padding:1rem 0 1rem 1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.entrada}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. MAPA ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mapa de Cascadas<br/>en {region.nombre}</h2>
+    <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300; max-width:560px;">
+      Explora la ubicación de las principales cascadas de la región. La mayoría se concentra en la precordillera, entre Coihueco y los Nevados de Chillán, al este de la capital regional.
+    </p>
+    <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(0,229,212,0.15);">
+      <iframe
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 1.5}%2C${region.mapCenter.lat - 1}%2C${region.mapCenter.lng + 1.5}%2C${region.mapCenter.lat + 1}&layer=mapnik`}
+        style="width:100%; height:450px; border:0;"
+        loading="lazy"
+        title={`Mapa de cascadas en la Región de ${region.nombre}`}
+      ></iframe>
+    </div>
+  </section>
+
+
+  <!-- ─── 6+7. ZONAS + DESCRIPCION REGIONAL ───────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start;">
+      <div class="reveal">
+        <h2 style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(2.5rem, 5vw, 5rem);
+          color:#091d2b; margin:0 0 2rem; line-height:0.9;
+          text-transform:uppercase;
+        ">
+          Termas,<br/>Viñedos<br/>y Cascadas
+        </h2>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0 0 1.5rem;">{region.descripcion}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;">{region.descripcion2}</p>
+      </div>
+
+      <div class="reveal">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 1.5rem;">Zonas principales</p>
+        <div style="display:flex; flex-direction:column;">
+          {region.zonas.map((zona, i) => (
+            <div style={`
+              padding:1.5rem 0;
+              border-top:${i > 0 ? '1px solid rgba(9,29,43,0.1)' : 'none'};
+            `}>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
+                <h3 style="font-size:1rem; font-weight:600; color:#091d2b; margin:0;">{zona.nombre}</h3>
+                <span style="font-family:'Archivo Black',sans-serif; font-size:0.9rem; color:#00b4a0;">{zona.cascadas} cascadas</span>
+              </div>
+              <p style="color:rgba(9,29,43,0.6); font-size:0.88rem; line-height:1.55; margin:0; font-weight:300;">{zona.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. CLIMA / MEJOR EPOCA ───────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#f4efe6; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mejor Época<br/>para Visitar</h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div class="reveal">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Tipo de clima</p>
+            <p style="color:#f4efe6; font-size:0.95rem; margin:0; font-weight:300;">{region.clima.tipo}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor epoca</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.mejorEpoca}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Verano</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.tempVerano}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Invierno</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.tempInvierno}</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+          <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Precipitaciones</p>
+          <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.precipitaciones}</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p style="color:rgba(244,239,230,0.75); font-size:1.05rem; line-height:1.75; font-weight:300; margin:0;">
+          {region.clima.descripcion}
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 9. COMO LLEGAR ───────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Cómo Llegar<br/>a {region.nombre}</h2>
+
+    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2.5rem;">
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128663;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">En auto desde Santiago</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar}</p>
+      </div>
+
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#9992;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde Chillán</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar2}</p>
+      </div>
+
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128652;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte publico</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar3}</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. FAQ ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 2.5rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Preguntas Frecuentes</h2>
+
+    <div class="reveal" style="max-width:800px;">
+      {region.faq.map((f, i) => (
+        <details style={`
+          border-top:${i === 0 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          border-bottom:1px solid rgba(9,29,43,0.12);
+        `}>
+          <summary style="
+            padding:1.5rem 0;
+            cursor:pointer;
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.05rem;
+            color:#091d2b;
+            text-transform:uppercase;
+            list-style:none;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+          ">
+            {f.pregunta}
+            <span style="color:#00b4a0; font-size:1.5rem; font-family:'DM Sans',sans-serif; font-weight:300; margin-left:1rem; flex-shrink:0;">+</span>
+          </summary>
+          <div style="padding:0 0 1.5rem;">
+            <p style="color:rgba(9,29,43,0.7); font-size:0.95rem; line-height:1.7; font-weight:300; margin:0;">
+              {f.respuesta}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. REGIONES ADYACENTES ──────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Regiones Cercanas</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid rgba(9,29,43,0.12);">
+      {region.regionesAdyacentes.map((r, i) => (
+        <a href={`/region/${r.slug}`} style={`
+          display:block; padding:2.5rem;
+          text-decoration:none; color:#091d2b;
+          border-right:${i < 2 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          transition:background 0.2s;
+        `}
+        onmouseenter="this.style.background='rgba(0,229,212,0.08)'"
+        onmouseleave="this.style.background='transparent'">
+          <p style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem, 3vw, 2.5rem); margin:0 0 0.5rem; text-transform:uppercase;">{r.nombre}</p>
+          <p style="font-size:0.88rem; color:#00b4a0; margin:0; font-weight:500;">{r.cascadas} cascadas</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. CTA MAPA ────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem; text-align:center;">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1.5rem; line-height:0.95;
+      text-transform:uppercase;
+    ">Explora las Cascadas<br/>en el Mapa</h2>
+    <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300;">
+      Usa el mapa interactivo para planificar tu ruta por las cascadas de Ñuble y la zona centro-sur de Chile.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#091d2b; background:#00e5d4; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">Abrir mapa</a>
+  </section>
+
+</Layout>

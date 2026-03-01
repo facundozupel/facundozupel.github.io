@@ -150,7 +150,7 @@ const structuredData = [
     '@type': 'TouristAttraction',
     name: cascada.nombre,
     description: `Serie de rápidos escalonados sobre roca basáltica volcánica en la Región de ${cascada.region}, Chile. Caudal de 370 m³/s sobre ${cascada.tipoFormacion.toLowerCase()}. Dentro del Parque Nacional Vicente Pérez Rosales.`,
-    image: `https://cascadasdechile.cl${cascada.imagen}`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
     geo: {
       '@type': 'GeoCoordinates',
       latitude: cascada.lat,
@@ -165,7 +165,7 @@ const structuredData = [
     isAccessibleForFree: false,
     openingHours: 'Mo-Su 09:00-17:00',
     touristType: ['Naturaleza', 'Aventura', 'Fotografía', 'Familiar'],
-    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
   },
   {
     '@context': 'https://schema.org',
@@ -183,9 +183,9 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
-      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
-      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
       { '@type': 'ListItem', position: 4, name: cascada.nombre },
     ],
   },
@@ -198,7 +198,7 @@ const pageDescription = `${cascada.nombre}: serie escalonada de rápidos sobre b
 <Layout
   title={pageTitle}
   description={pageDescription}
-  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
   structuredData={structuredData}
 >
 

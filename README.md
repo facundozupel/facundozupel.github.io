@@ -2,7 +2,7 @@
 
 > El directorio más completo de cascadas, saltos y caídas de agua a lo largo de toda Chile.
 
-**Dominio:** cascadasdechile.cl
+**Dominio:** cascadaschile.com
 **Stack:** Astro 5 + Tailwind CSS 4
 **Output:** Estático (GitHub Pages)
 

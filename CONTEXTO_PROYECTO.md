@@ -10,8 +10,8 @@
 
 | Campo | Valor |
 |---|---|
-| Dominio | cascadasdechile.cl |
-| Email de contacto | hola@cascadasdechile.cl |
+| Dominio | cascadaschile.com |
+| Email de contacto | hola@cascadaschile.com |
 | Stack técnico | Astro 5 + Tailwind CSS 4 |
 | Idioma | Español |
 | Estado actual | Landing homepage publicada (1 página) |
@@ -368,7 +368,7 @@ El término tiene múltiples acepciones que generan ruido en keyword research. E
 
 9. **AI Overview ya presente** en "cascadas más bonitas" y "cascadas para visitar" — señal de que necesitamos Entity Authority, no solo SEO tradicional. Datos estructurados (Schema) y actualización frecuente son prioritarios.
 
-10. **reconocechile.com es el competidor más replicable** — directorio con páginas individuales por cascada/salto, baja autoridad (ETV 16K), formato que cascadasdechile.cl puede superar con mejor UX y más cobertura.
+10. **reconocechile.com es el competidor más replicable** — directorio con páginas individuales por cascada/salto, baja autoridad (ETV 16K), formato que cascadaschile.com puede superar con mejor UX y más cobertura.
 
 ---
 

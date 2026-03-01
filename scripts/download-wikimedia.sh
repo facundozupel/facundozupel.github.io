@@ -12,7 +12,7 @@ WIDTH="${3:-1600}"
 TMPFILE=$(mktemp /tmp/wikimedia-XXXXXX)
 
 echo "Downloading: $URL"
-curl -s -L -A "CascadasDeChile/1.0 (cascadasdechile.cl)" -o "$TMPFILE" "$URL"
+curl -s -L -A "CascadasDeChile/1.0 (cascadaschile.com)" -o "$TMPFILE" "$URL"
 
 # Get file size
 SIZE=$(wc -c < "$TMPFILE" | tr -d ' ')

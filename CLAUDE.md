@@ -10,7 +10,7 @@
 - Las keywords por página
 - La priorización de contenido
 
-> **Dominio:** cascadasdechile.cl
+> **Dominio:** cascadaschile.com
 > **Stack:** Astro 5 + Tailwind CSS 4
 > **Deploy:** GitHub Pages (CI/CD con GitHub Actions)
 
@@ -314,7 +314,7 @@ galeriaCreditos: [
 - Galería usa `<img>` con `loading="lazy"` y `decoding="async"`
 - **Nunca usar `background-image` en CSS** — siempre `<img>` para indexación en Google Images
 - Cada imagen DEBE tener `alt` descriptivo y único
-- OG image debe ser URL absoluta: `https://cascadasdechile.cl/assets/cascadas/{slug}/hero.webp`
+- OG image debe ser URL absoluta: `https://cascadaschile.com/assets/cascadas/{slug}/hero.webp`
 - Structured data `image` también debe ser URL absoluta
 
 ---
@@ -323,7 +323,7 @@ galeriaCreditos: [
 
 ### GitHub Pages
 
-- **Site URL**: `https://cascadasdechile.cl`
+- **Site URL**: `https://cascadaschile.com`
 - **Build**: `npm run build` genera en `dist/`
 - Push a `main` despliega automáticamente via GitHub Actions
 - **NO editar archivos en `dist/`** — siempre trabajar en source y hacer build
@@ -627,7 +627,7 @@ const structuredData = [
       position: i + 1,
       name: c.nombre,
       url: c.tienepagina
-        ? `https://cascadasdechile.cl/cascadas/${c.slug}`
+        ? `https://cascadaschile.com/cascadas/${c.slug}`
         : undefined,
     })),
   },
@@ -646,8 +646,8 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
-      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadasdechile.cl/region' },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadaschile.com/region' },
       { '@type': 'ListItem', position: 3, name: region.nombre },
     ],
   },

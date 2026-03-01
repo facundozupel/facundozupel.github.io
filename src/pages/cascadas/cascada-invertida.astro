@@ -158,7 +158,7 @@ const structuredData = [
     '@type': 'TouristAttraction',
     name: cascada.nombre,
     description: `Cascada de ${cascada.altura} metros en la Región del ${cascada.region}, Chile. Fenómeno natural donde el viento invierte la caída del agua. Acceso gratuito en la ruta al Paso Pehuenche.`,
-    image: `https://cascadasdechile.cl${cascada.imagen}`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
     geo: {
       '@type': 'GeoCoordinates',
       latitude: cascada.lat,
@@ -173,7 +173,7 @@ const structuredData = [
     isAccessibleForFree: true,
     openingHours: 'Mo-Su',
     touristType: ['Naturaleza', 'Aventura', 'Fotografía', 'Fenómeno natural'],
-    url: `https://cascadasdechile.cl/cascadas/${cascada.slug}`,
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
   },
   {
     '@context': 'https://schema.org',
@@ -191,9 +191,9 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadasdechile.cl/' },
-      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadasdechile.cl/cascadas' },
-      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadasdechile.cl/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
       { '@type': 'ListItem', position: 4, name: cascada.nombre },
     ],
   },
@@ -206,7 +206,7 @@ const pageDescription = `${cascada.nombre}: fenómeno natural de ${cascada.altur
 <Layout
   title={pageTitle}
   description={pageDescription}
-  ogImage={`https://cascadasdechile.cl${cascada.imagen}`}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
   structuredData={structuredData}
 >
 

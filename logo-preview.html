@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo — Cascadas Chile</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0f14;
+    color: #f4efe6;
+    min-height: 100vh;
+    padding: 60px 40px;
+  }
+
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #00e5d4;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #111920;
+    border: 1px solid #1a2730;
+    border-radius: 16px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    transition: border-color 0.3s;
+  }
+  .card:hover { border-color: #00e5d4; }
+
+  .card h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5a7a8a;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+  }
+
+  .dark-bg {
+    background: #091d2b;
+    border-color: #0d2a3d;
+  }
+
+  .light-bg {
+    background: #f4efe6;
+    border-color: #e0d9cc;
+  }
+  .light-bg h2 { color: #8a7a6a; }
+
+  .sizes {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-top: 16px;
+    opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+
+<h1>Cascadas Chile — Logo Concepts</h1>
+
+<div class="grid">
+
+  <!-- OPTION A: Minimal geometric mark + text -->
+  <div class="card">
+    <h2>A — Minimal Mark</h2>
+    <div class="logo-container">
+      <svg width="280" height="80" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Waterfall icon: 3 flowing lines converging into a curve -->
+        <g transform="translate(0, 4)">
+          <!-- Three water streams -->
+          <path d="M24 4 C24 4, 22 32, 26 52 C28 60, 32 64, 36 66" stroke="#00e5d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M36 0 C36 0, 36 30, 36 50 C36 60, 36 64, 36 66" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M48 4 C48 4, 50 32, 46 52 C44 60, 40 64, 36 66" stroke="#00e5d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <!-- Pool ripple -->
+          <ellipse cx="36" cy="70" rx="18" ry="4" stroke="#00e5d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+        </g>
+        <!-- Text -->
+        <text x="80" y="38" font-family="'Archivo Black', sans-serif" font-size="28" fill="#f4efe6" letter-spacing="2">CASCADAS</text>
+        <text x="80" y="60" font-family="'DM Sans', sans-serif" font-weight="300" font-size="16" fill="#00b4a0" letter-spacing="8">CHILE</text>
+      </svg>
+    </div>
+    <div class="sizes">
+      <svg width="48" height="48" viewBox="0 0 72 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4 C24 4, 22 32, 26 52 C28 60, 32 64, 36 66" stroke="#00e5d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M36 0 C36 0, 36 30, 36 50 C36 60, 36 64, 36 66" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M48 4 C48 4, 50 32, 46 52 C44 60, 40 64, 36 66" stroke="#00e5d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="36" cy="70" rx="18" ry="4" stroke="#00e5d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+      </svg>
+      <svg width="24" height="24" viewBox="0 0 72 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4 C24 4, 22 32, 26 52 C28 60, 32 64, 36 66" stroke="#00e5d4" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M36 0 C36 0, 36 30, 36 50 C36 60, 36 64, 36 66" stroke="#00e5d4" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+        <path d="M48 4 C48 4, 50 32, 46 52 C44 60, 40 64, 36 66" stroke="#00e5d4" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="36" cy="70" rx="18" ry="4" stroke="#00e5d4" stroke-width="3" fill="none" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- OPTION B: Filled drop shape with waterfall -->
+  <div class="card">
+    <h2>B — Shield Mark</h2>
+    <div class="logo-container">
+      <svg width="280" height="80" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 2)">
+          <!-- Rounded shield / badge shape -->
+          <path d="M10 8 C10 4, 14 0, 18 0 L50 0 C54 0, 58 4, 58 8 L58 48 C58 60, 48 72, 34 76 C20 72, 10 60, 10 48 Z" fill="#091d2b"/>
+          <!-- Water streams inside -->
+          <path d="M28 14 C27 14, 25 30, 28 44 C30 50, 32 54, 34 56" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <path d="M34 10 C34 10, 34 28, 34 44 C34 50, 34 54, 34 56" stroke="#00e5d4" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <path d="M40 14 C41 14, 43 30, 40 44 C38 50, 36 54, 34 56" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <!-- Pool -->
+          <ellipse cx="34" cy="60" rx="12" ry="3" stroke="#00e5d4" stroke-width="1.2" fill="none" opacity="0.4"/>
+        </g>
+        <!-- Text -->
+        <text x="80" y="38" font-family="'Archivo Black', sans-serif" font-size="28" fill="#f4efe6" letter-spacing="2">CASCADAS</text>
+        <text x="80" y="60" font-family="'DM Sans', sans-serif" font-weight="300" font-size="16" fill="#00b4a0" letter-spacing="8">CHILE</text>
+      </svg>
+    </div>
+    <div class="sizes">
+      <svg width="48" height="48" viewBox="0 0 68 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 8 C10 4, 14 0, 18 0 L50 0 C54 0, 58 4, 58 8 L58 48 C58 60, 48 72, 34 76 C20 72, 10 60, 10 48 Z" fill="#091d2b"/>
+        <path d="M28 14 C27 14, 25 30, 28 44 C30 50, 32 54, 34 56" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M34 10 C34 10, 34 28, 34 44 C34 50, 34 54, 34 56" stroke="#00e5d4" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <path d="M40 14 C41 14, 43 30, 40 44 C38 50, 36 54, 34 56" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <ellipse cx="34" cy="60" rx="12" ry="3" stroke="#00e5d4" stroke-width="1.2" fill="none" opacity="0.4"/>
+      </svg>
+      <svg width="24" height="24" viewBox="0 0 68 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 8 C10 4, 14 0, 18 0 L50 0 C54 0, 58 4, 58 8 L58 48 C58 60, 48 72, 34 76 C20 72, 10 60, 10 48 Z" fill="#091d2b"/>
+        <path d="M28 14 C27 14, 25 30, 28 44 C30 50, 32 54, 34 56" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M34 10 C34 10, 34 28, 34 44 C34 50, 34 54, 34 56" stroke="#00e5d4" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+        <path d="M40 14 C41 14, 43 30, 40 44 C38 50, 36 54, 34 56" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <ellipse cx="34" cy="60" rx="12" ry="3" stroke="#00e5d4" stroke-width="2.5" fill="none" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- OPTION C: Circular emblem -->
+  <div class="card">
+    <h2>C — Circle Emblem</h2>
+    <div class="logo-container">
+      <svg width="280" height="80" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 2)">
+          <!-- Circle -->
+          <circle cx="38" cy="38" r="36" fill="#091d2b"/>
+          <circle cx="38" cy="38" r="36" stroke="#00e5d4" stroke-width="1" opacity="0.2"/>
+          <!-- Simplified cliff shapes -->
+          <path d="M16 22 L28 16 L28 52 L16 48 Z" fill="#1a3a4a" opacity="0.6"/>
+          <path d="M48 16 L60 22 L60 48 L48 52 Z" fill="#1a3a4a" opacity="0.6"/>
+          <!-- Water streams -->
+          <path d="M33 16 C32 16, 30 32, 33 46 C35 52, 37 55, 38 57" stroke="#00e5d4" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M38 12 C38 12, 38 30, 38 46 C38 52, 38 55, 38 57" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <path d="M43 16 C44 16, 46 32, 43 46 C41 52, 39 55, 38 57" stroke="#00e5d4" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <!-- Pool arc -->
+          <path d="M24 60 Q31 66, 38 66 Q45 66, 52 60" stroke="#00e5d4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+        </g>
+        <!-- Text -->
+        <text x="88" y="38" font-family="'Archivo Black', sans-serif" font-size="28" fill="#f4efe6" letter-spacing="2">CASCADAS</text>
+        <text x="88" y="60" font-family="'DM Sans', sans-serif" font-weight="300" font-size="16" fill="#00b4a0" letter-spacing="8">CHILE</text>
+      </svg>
+    </div>
+    <div class="sizes">
+      <svg width="48" height="48" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="38" cy="38" r="36" fill="#091d2b"/>
+        <path d="M16 22 L28 16 L28 52 L16 48 Z" fill="#1a3a4a" opacity="0.6"/>
+        <path d="M48 16 L60 22 L60 48 L48 52 Z" fill="#1a3a4a" opacity="0.6"/>
+        <path d="M33 16 C32 16, 30 32, 33 46 C35 52, 37 55, 38 57" stroke="#00e5d4" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M38 12 C38 12, 38 30, 38 46 C38 52, 38 55, 38 57" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M43 16 C44 16, 46 32, 43 46 C41 52, 39 55, 38 57" stroke="#00e5d4" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M24 60 Q31 66, 38 66 Q45 66, 52 60" stroke="#00e5d4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      </svg>
+      <svg width="24" height="24" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="38" cy="38" r="36" fill="#091d2b"/>
+        <path d="M33 16 C32 16, 30 32, 33 46 C35 52, 37 55, 38 57" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M38 12 C38 12, 38 30, 38 46 C38 52, 38 55, 38 57" stroke="#00e5d4" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+        <path d="M43 16 C44 16, 46 32, 43 46 C41 52, 39 55, 38 57" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M24 60 Q31 66, 38 66 Q45 66, 52 60" stroke="#00e5d4" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- OPTION D: Pure typography with water accent -->
+  <div class="card">
+    <h2>D — Typographic</h2>
+    <div class="logo-container">
+      <svg width="300" height="70" viewBox="0 0 300 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Main text -->
+        <text x="0" y="42" font-family="'Archivo Black', sans-serif" font-size="38" fill="#f4efe6" letter-spacing="1">CASCADAS</text>
+        <!-- Water accent line flowing under the text -->
+        <path d="M0 54 C30 54, 40 48, 70 48 C100 48, 110 54, 140 54 C170 54, 180 48, 210 48" stroke="#00e5d4" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M0 60 C25 60, 35 55, 60 55 C90 55, 100 60, 130 60 C160 60, 170 55, 195 55" stroke="#00e5d4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+        <!-- Chile text -->
+        <text x="222" y="54" font-family="'DM Sans', sans-serif" font-weight="300" font-size="18" fill="#00b4a0" letter-spacing="6">CHILE</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Light background variants -->
+  <div class="card light-bg">
+    <h2>On Light Background</h2>
+    <div class="logo-container" style="flex-direction: column; gap: 32px;">
+      <!-- A on light -->
+      <svg width="260" height="60" viewBox="0 0 280 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0, 0)">
+          <path d="M24 4 C24 4, 22 32, 26 52 C28 60, 32 64, 36 66" stroke="#00b4a0" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M36 0 C36 0, 36 30, 36 50 C36 60, 36 64, 36 66" stroke="#00b4a0" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M48 4 C48 4, 50 32, 46 52 C44 60, 40 64, 36 66" stroke="#00b4a0" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <ellipse cx="36" cy="70" rx="18" ry="4" stroke="#00b4a0" stroke-width="1.5" fill="none" opacity="0.4"/>
+        </g>
+        <text x="72" y="32" font-family="'Archivo Black', sans-serif" font-size="24" fill="#091d2b" letter-spacing="2">CASCADAS</text>
+        <text x="72" y="52" font-family="'DM Sans', sans-serif" font-weight="300" font-size="14" fill="#00b4a0" letter-spacing="7">CHILE</text>
+      </svg>
+      <!-- B on light -->
+      <svg width="260" height="70" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 2)">
+          <path d="M10 8 C10 4, 14 0, 18 0 L50 0 C54 0, 58 4, 58 8 L58 48 C58 60, 48 72, 34 76 C20 72, 10 60, 10 48 Z" fill="#091d2b"/>
+          <path d="M28 14 C27 14, 25 30, 28 44 C30 50, 32 54, 34 56" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <path d="M34 10 C34 10, 34 28, 34 44 C34 50, 34 54, 34 56" stroke="#00e5d4" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <path d="M40 14 C41 14, 43 30, 40 44 C38 50, 36 54, 34 56" stroke="#00e5d4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <ellipse cx="34" cy="60" rx="12" ry="3" stroke="#00e5d4" stroke-width="1.2" fill="none" opacity="0.4"/>
+        </g>
+        <text x="80" y="38" font-family="'Archivo Black', sans-serif" font-size="28" fill="#091d2b" letter-spacing="2">CASCADAS</text>
+        <text x="80" y="60" font-family="'DM Sans', sans-serif" font-weight="300" font-size="16" fill="#00b4a0" letter-spacing="8">CHILE</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Favicon / small sizes -->
+  <div class="card dark-bg">
+    <h2>Favicon Variants</h2>
+    <div class="logo-container" style="gap: 40px;">
+      <!-- Favicon A -->
+      <div style="text-align: center;">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="14" fill="#091d2b"/>
+          <path d="M26 12 C25 12, 23 28, 26 40 C28 46, 30 50, 32 52" stroke="#00e5d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M32 8 C32 8, 32 26, 32 40 C32 46, 32 50, 32 52" stroke="#00e5d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M38 12 C39 12, 41 28, 38 40 C36 46, 34 50, 32 52" stroke="#00e5d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <ellipse cx="32" cy="55" rx="12" ry="3" stroke="#00e5d4" stroke-width="1.5" fill="none" opacity="0.4"/>
+        </svg>
+        <div style="font-size: 10px; margin-top: 8px; color: #5a7a8a;">64px</div>
+      </div>
+      <!-- Favicon 32 -->
+      <div style="text-align: center;">
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="14" fill="#091d2b"/>
+          <path d="M26 12 C25 12, 23 28, 26 40 C28 46, 30 50, 32 52" stroke="#00e5d4" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <path d="M32 8 C32 8, 32 26, 32 40 C32 46, 32 50, 32 52" stroke="#00e5d4" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+          <path d="M38 12 C39 12, 41 28, 38 40 C36 46, 34 50, 32 52" stroke="#00e5d4" stroke-width="5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div style="font-size: 10px; margin-top: 8px; color: #5a7a8a;">32px</div>
+      </div>
+      <!-- Favicon 16 -->
+      <div style="text-align: center;">
+        <svg width="16" height="16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="14" fill="#091d2b"/>
+          <path d="M26 14 C25 14, 24 30, 28 44 C30 48, 32 50, 32 52" stroke="#00e5d4" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <path d="M32 10 L32 52" stroke="#00e5d4" stroke-width="8" stroke-linecap="round"/>
+          <path d="M38 14 C39 14, 40 30, 36 44 C34 48, 32 50, 32 52" stroke="#00e5d4" stroke-width="8" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div style="font-size: 10px; margin-top: 8px; color: #5a7a8a;">16px</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
