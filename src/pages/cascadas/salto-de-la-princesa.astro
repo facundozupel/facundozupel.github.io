@@ -1,0 +1,589 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por web search: kutralkura.cl (UNESCO), araucaniaandina.com, reconocechile.com, alltrails.com, climate-data.org, mar 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Salto de la Princesa',
+  slug: 'salto-de-la-princesa',
+  region: 'La Araucanía',
+  zona: 'Curacautín',
+  altura: 25,
+  caudal: 'Permanente — mayor caudal en invierno-primavera (junio-noviembre). Alimentado por el Estero La Gloria, afluente del Río Cautín',
+  dificultad: 'Fácil',
+  acceso: 'Sendero de 2,1 km ida y vuelta desde la Ruta 181, a 22 km de Curacautín',
+  coordenadas: '38°28\'S 71°40\'W',
+  mejorEpoca: 'Junio — Noviembre (mayor caudal) · Todo el año',
+  entrada: 'Gratuita',
+  horario: 'Acceso libre, sin horario',
+  descripcion: `El Salto de la Princesa es una cascada de 25 metros de altura ubicada a 22 km de Curacautín, sobre la Ruta 181 que conecta con el Paso Pino Hachado hacia Argentina. El Estero La Gloria se precipita sobre basaltos columnares formados por una colada de lava del Volcán Sierra Nevada, datada entre 126.000 y 13.000 años atrás, creando una caída tipo cola de caballo que mantiene contacto con la roca en su descenso. Al pie de la cascada, la erosión hídrica ha formado una pequeña cueva natural.
+
+  La cascada es el Geositio N°30 del Geoparque Kütralkura, reconocido por la UNESCO en 2019 como el primer geoparque de Chile. Este territorio de 8.100 km² en la Araucanía Andina protege un patrimonio geológico y cultural excepcional. El nombre Kütralkura significa "piedra de fuego" en mapudungún, reflejando la cosmovisión andina del territorio volcánico.
+
+  El Salto de la Princesa tiene profundo significado para las comunidades mapuche y pehuenche de la zona. Su nombre proviene de una leyenda de amor trágico entre la princesa Rayén y el joven mestizo Nahuelcura, perseguidos por la tribu del lonco Huillical. Acorralados al borde del precipicio, se lanzaron al vacío y, según la tradición oral, sus cuerpos se transformaron en las aguas de la cascada, que tiene la forma de la cola de un caballo blanco.`,
+  comoLlegar: `Desde Santiago (571 km, 6,5-7 horas en auto): Tomar la Ruta 5 Sur hasta el cruce de Victoria o Collipulli. Desde allí, tomar la Ruta 181 (ruta internacional hacia Paso Pino Hachado) dirección este, pasando por Curacautín. Aproximadamente 22 km después de Curacautín, sobre la Ruta 181, se encuentra el desvío señalizado al Salto de la Princesa. Desde el desvío, 500 metros de camino de tierra hasta la cascada.
+
+  Desde Temuco (90 km, 1,5 horas): Tomar Ruta S-21 hacia el norte hasta Victoria, luego Ruta 181 este hacia Curacautín y continuar 22 km más hasta el desvío.
+
+  Desde Curacautín (22 km, ~25 min): Tomar Ruta 181 en dirección a Malalcahuello. A 22 km del pueblo, desvío señalizado a la derecha. 500 metros de ripio hasta el estacionamiento.
+
+  Transporte público: Buses Turbus y otras líneas operan Santiago-Curacautín (~8 horas). Desde Curacautín al salto no hay transporte público; se requiere auto, taxi o excursión desde Curacautín, Malalcahuello o Corralco.`,
+  imagen: '/assets/cascadas/salto-de-la-princesa/hero.webp',
+  imagenAlt: 'Salto de la Princesa, cascada de 25 metros sobre basaltos columnares en Curacautín, La Araucanía',
+  galeria: [
+    { src: '/assets/cascadas/salto-de-la-princesa/galeria-1.webp', alt: 'Caída de agua tipo cola de caballo sobre basaltos columnares en el Salto de la Princesa' },
+    { src: '/assets/cascadas/salto-de-la-princesa/galeria-2.webp', alt: 'Cueva natural al pie del Salto de la Princesa formada por erosión hídrica' },
+    { src: '/assets/cascadas/salto-de-la-princesa/galeria-3.webp', alt: 'Bosque nativo de coihues y raulíes junto al Salto de la Princesa en Curacautín' },
+    { src: '/assets/cascadas/salto-de-la-princesa/galeria-4.webp', alt: 'Vista del sendero de acceso al Salto de la Princesa entre vegetación nativa' },
+  ],
+  galeriaCreditos: [],
+  // 3 por cercanía geográfica (La Araucanía)
+  cascadasCercanas: [
+    { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', region: 'La Araucanía', altura: 20, tipo: 'cercania' },
+    { nombre: 'Salto Quino', slug: 'salto-quino', region: 'La Araucanía', altura: 30, tipo: 'cercania' },
+    { nombre: 'Salto Rehuén', slug: 'salto-rehuen', region: 'Biobío', altura: 70, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (formación volcánica, acceso fácil, leyenda)
+  cascadasRelacionadas: [
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 70, tipo: 'relacionada' },
+    { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', region: 'Metropolitana', altura: 15, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados (kutralkura.cl UNESCO + alltrails + climate-data.org, mar 2026) ---
+  lat: -38.474377,
+  lng: -71.673385,
+  rio: 'Estero La Gloria (afluente del Río Cautín)',
+  tipoFormacion: 'Basaltos columnares sobre colada de lava volcánica (Volcán Sierra Nevada)',
+  numeroBrazos: 1,
+  distanciaSantiago: 571,
+
+  historia: `El Salto de la Princesa debe su nombre a una leyenda pehuenche-mapuche transmitida por generaciones. Durante los siglos XVI a XVIII, el lonco Huillical quedó fascinado con un potro blanco llamado Malalcahuello y ofreció a su hija Rayén a quien lo capturara. Un joven mestizo llamado Nahuelcura logró capturar el caballo, pero Huillical rechazó el matrimonio por ser mestizo. Cuando el lonco intentó forzar la unión de Rayén con otro hombre, los jóvenes enamorados huyeron perseguidos por la tribu. Acorralados en el borde del precipicio sobre el río, Rayén y Nahuelcura se tomaron de la mano y se lanzaron al vacío. Según la tradición oral, sus cuerpos se transformaron en las aguas de la cascada, que tiene la forma de la cola de un caballo blanco en honor al animal que los unió.
+
+  El <a href="/cascadas/salto-truful-truful" class="cascada-inline-link">Salto Truful-Truful</a>, también en La Araucanía, comparte esta profunda conexión entre paisaje volcánico y cosmovisión mapuche. Ambas cascadas forman parte del Geoparque Kütralkura, el primer geoparque UNESCO de Chile, reconocido en 2019. El Salto de la Princesa es el Geositio N°30, y su formación geológica data de una colada de lava basáltica del Volcán Sierra Nevada de hace entre 13.000 y 126.000 años.
+
+  El lugar ha sido un atractivo turístico regional desde las primeras décadas del siglo XX, consolidándose como punto imperdible del circuito de la Ruta 181 que conecta Curacautín con el Paso Pino Hachado hacia Argentina. La cascada es gestionada como espacio de acceso libre, con emprendedores locales que ofrecen comida típica y artesanías en temporada alta. Conoce más sobre las <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a> con raíces volcánicas y culturales.`,
+
+  queHacer: [
+    { actividad: 'Senderismo familiar', descripcion: 'Sendero de 2,1 km ida y vuelta con 51 metros de desnivel positivo. Duración de 30 a 60 minutos. Dificultad baja, apto para todas las edades. Terreno de tierra compacta en buen estado.' },
+    { actividad: 'Fotografía y geoturismo', descripcion: 'El entorno combina basaltos columnares, vegetación nativa densa y la cascada de 25 metros. La cueva al pie de la caída ofrece perspectivas únicas. Forma parte del Geoparque Kütralkura UNESCO, con guías de la Asociación Trekan Monghen disponibles para recorridos interpretativos.' },
+    { actividad: 'Turismo cultural mapuche-pehuenche', descripcion: 'La cascada tiene una leyenda ancestral y es punto de partida para conocer la cosmovisión mapuche del territorio. Las comunidades pehuenches ofrecen experiencias de agroturismo con degustación de piñones y gastronomía ancestral.' },
+    { actividad: 'Picnic junto a la cascada', descripcion: 'El área permite realizar picnic en un entorno de bosque nativo. En temporada alta hay puestos de emprendedores locales con comida típica regional y artesanías.' },
+    { actividad: 'Observación de flora y fauna', descripcion: 'El bosque nativo alberga coihues, raulíes, radales y lengas. En fauna destacan el loro choroy (endémico chileno), el carpintero negro, el monito del monte y el zorro culpeo. Ideal para amantes de la naturaleza.' },
+  ],
+
+  flora: `El entorno del Salto de la Princesa presenta una rica cobertura vegetal del bosque templado andino de la Araucanía. Las especies arbóreas dominantes son el coihue (Nothofagus dombeyi), el raulí (Nothofagus nervosa), el roble (Nothofagus obliqua) y el radal (Lomatia hirsuta). En el sotobosque predominan helechos, musgos y arbustos nativos que cubren las rocas húmedas adyacentes a la cascada.
+
+  La lenga (Nothofagus pumilio) aparece en cotas más altas y presenta coloración rojiza en otoño. La araucaria (Araucaria araucana), árbol sagrado para el pueblo mapuche-pehuenche, está presente en las zonas más elevadas del territorio circundante. También se registra la presencia de morchella (hongo comestible de alto valor) en el área. Una composición vegetal compartida con el <a href="/cascadas/salto-chancagua" class="cascada-inline-link">Salto Chancagua</a>, también en la <a href="/region/araucania" class="cascada-inline-link">Región de La Araucanía</a>.`,
+
+  fauna: `La fauna del entorno incluye especies representativas del bosque templado húmedo andino. El zorro culpeo (Lycalopex culpaeus), animal solitario y omnívoro, habita los bosques circundantes. El monito del monte (Dromiciops gliroides), marsupial considerado un fósil viviente y relicto de la fauna gondwánica, es uno de los mamíferos más singulares del ecosistema.
+
+  Entre las aves destacan el loro choroy (Enicognathus leptorhynchus), especie endémica chilena que habita los bosques de Nothofagus y se alimenta de piñones, y el carpintero negro (Campephilus magellanicus), el ave más grande del bosque andino. Otras aves del área incluyen el chucao, el hued-hued y diversas rapaces del corredor biológico andino.`,
+
+  clima: {
+    tipo: 'Templado húmedo con influencia cordillerana (Cfb)',
+    tempPromedio: '9,3°C',
+    tempVerano: '23-25°C (máx.) / 9°C (mín.)',
+    tempInvierno: '7-8°C (máx.) / 0-2°C (mín.)',
+    precipitaciones: '2.173 mm anuales',
+    descripcion: 'Clima templado húmedo con marcada influencia cordillerana. Veranos cálidos y secos, con máximas que superan los 25°C. Inviernos fríos y muy lluviosos, con frecuentes nevadas en zonas altas. Junio es el mes más lluvioso (~393 mm) y enero el más seco (~57 mm). La primavera (septiembre-noviembre) es la época de deshielo, cuando la cascada alcanza su mayor caudal. El otoño combina buenas temperaturas con la coloración característica de lengas y ñirres.',
+  },
+
+  seguridad: [
+    'No acercarse al borde de la cascada — la caída de 25 metros sobre basalto no tiene protección perimetral',
+    'En invierno, verificar el estado de la Ruta 181 por posible nieve o hielo. Llevar cadenas para el auto entre junio y agosto',
+    'No encender fogatas en el área — el bosque nativo está dentro del territorio del Geoparque UNESCO',
+    'No dejar basura — no hay servicios de recolección formal',
+    'Llevar agua potable suficiente — no existe instalación de agua potable en el sitio',
+    'En época de deshielo (septiembre-octubre), el caudal puede ser alto. No ingresar al cauce',
+    'Informar el itinerario a alguien antes de salir — la cobertura móvil puede ser limitada',
+  ],
+
+  recomendaciones: [
+    'Calzado de trekking con buen agarre — el sendero tiene tramos húmedos y raíces',
+    'Ropa de abrigo en capas incluso en verano — las mañanas y tardes son frescas en zona andina',
+    'Cámara fotográfica con buena batería — la luz de la mañana (8-10 am) es ideal para la cascada',
+    'Repelente de insectos en primavera (octubre-noviembre)',
+    'Efectivo CLP — los puestos de emprendedores locales no aceptan tarjeta',
+    'Combinar la visita con el Parque Nacional Conguillío (28 km desde Curacautín)',
+    'En invierno, llevar botas impermeables — el suelo cerca de la cascada permanece encharcado',
+  ],
+
+  gastronomia: [
+    { plato: 'Asado de cordero al palo', descripcion: 'Plato emblema de la Araucanía Andina. Cordero cocido lentamente sobre brasas, con carne tierna y sabor intenso. Se consigue en restaurantes de Curacautín y festividades costumbristas locales.' },
+    { plato: 'Sopaipillas con piñones', descripcion: 'Versión local con piñones molidos de araucaria —fruto sagrado pehuenche— incorporados a la masa. Abundante en toda la zona andina en época de cosecha (marzo-mayo).' },
+    { plato: 'Catutos (multrung)', descripcion: 'Pan mapuche ancestral de trigo molido o piñones cocidos, moldeado en forma cilíndrica y tostado sobre brasas. Se adquiere en comunidades locales y mercados de Curacautín.' },
+    { plato: 'Trucha del Río Cautín', descripcion: 'Trucha arcoíris preparada al horno con hierbas nativas. Las aguas del Río Cautín y afluentes son hábitat de trucha. Uno de los platos más solicitados en restaurantes de Curacautín y Malalcahuello.' },
+    { plato: 'Muday y merkén', descripcion: 'El muday es bebida fermentada mapuche de maíz o piñones. El merkén, condimento ahumado de ají cacho de cabra, acompaña carnes y preparaciones locales. Disponibles en ferias gastronómicas del territorio pehuenche.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Malalcahuello Thermal Hotel & Spa', tipo: 'Hotel 4 estrellas', precioDesde: 'Desde $155.000 CLP/noche', url: 'https://www.booking.com/hotel/cl/malalcahuello-thermal-resort.html', descripcion: 'Hotel con 35 habitaciones, tina de agua termal, piscina, spa, restaurante. A 15 km del Salto de la Princesa en la localidad de Malalcahuello.' },
+    { nombre: 'Vórtice Chile Eco-Lodge', tipo: 'Eco-lodge / Domos', precioDesde: 'Consultar', url: 'https://www.vorticechile.com', descripcion: 'Domos geodésicos con calefacción, baño privado, jardines de bosque nativo a orillas del Río Cautín. A 8 km del desvío al Salto de la Princesa. Excursiones incluidas.' },
+    { nombre: 'Hostal y Cabañas El Coigüe', tipo: 'Hostal y cabañas', precioDesde: 'Desde $106.000 CLP/persona', url: 'https://hostalelcoigue.cl/', descripcion: 'Parque de 11 hectáreas de bosque nativo, cabañas con calefacción central y privacidad total. A 5 km de villa Malalcahuello, cercano a Corralco y termas.' },
+    { nombre: 'Corralco Mountain & Ski Resort', tipo: 'Resort 5 estrellas', precioDesde: 'Consultar', url: 'https://www.corralco.com', descripcion: '54 habitaciones de lujo, piscina, spa, bar-restaurante. A 20 km del Salto de la Princesa en faldeos del Volcán Lonquimay. Excursiones a la cascada disponibles.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto cuesta la entrada al Salto de la Princesa?', respuesta: 'El acceso es completamente gratuito. No hay portería ni cobro de entrada. Es un atractivo de libre acceso ubicado en el borde de la Ruta 181, a 22 km de Curacautín.' },
+    { pregunta: '¿Cuánto se tarda en llegar desde Santiago?', respuesta: 'Aproximadamente 571 km, con un tiempo de viaje de 6,5 a 7 horas en automóvil por Ruta 5 Sur hasta Victoria o Collipulli, y luego Ruta 181 hasta Curacautín. En bus hasta Curacautín dura entre 7h 50m y 8h 30m.' },
+    { pregunta: '¿Cuál es la mejor época para visitar?', respuesta: 'El salto es visitable todo el año. La temporada de invierno a primavera (junio-noviembre) tiene el mayor caudal por lluvias y deshielo. El verano (diciembre-febrero) ofrece mejor clima pero caudal reducido.' },
+    { pregunta: '¿Qué es el Geoparque Kütralkura?', respuesta: 'Es el primer Geoparque Mundial de la UNESCO en Chile, reconocido en 2019. Abarca 8.100 km² en la Araucanía Andina y el Salto de la Princesa es su Geositio N°30. La cascada se formó sobre una colada de lava del Volcán Sierra Nevada.' },
+    { pregunta: '¿Se puede nadar en el Salto de la Princesa?', respuesta: 'No se recomienda. El agua es muy fría casi todo el año, la corriente varía según la temporada y no hay guardavidas ni señalización de seguridad.' },
+    { pregunta: '¿Hay servicios de alimentación en el sitio?', respuesta: 'No hay infraestructura permanente de baños ni comedores. En temporada alta hay puestos de emprendedores locales con comida típica. Se recomienda llevar agua y alimentos propios.' },
+    { pregunta: '¿Se puede llegar en transporte público?', respuesta: 'No hay transporte público directo al salto. Se llega en bus hasta Curacautín (desde Santiago o Temuco) y desde allí en taxi, tour organizado o vehículo de alquiler. Corralco y Malalcahuello organizan excursiones.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada de ${cascada.altura} metros sobre basaltos columnares en Curacautín, Región de La Araucanía, Chile. Geositio N°30 del Geoparque Kütralkura (UNESCO). Leyenda pehuenche de Rayén y Nahuelcura.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: true,
+    touristType: ['Naturaleza', 'Geoturismo', 'Senderismo', 'Cultura Mapuche'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Curacautín, La Araucanía. Geositio UNESCO, leyenda pehuenche, basaltos columnares. Entrada gratuita, cómo llegar y qué hacer.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazo` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        <p class="cascada-body">El Salto de la Princesa es una cascada de 25 metros ubicada a 22 km de Curacautín, sobre la Ruta 181. El Estero La Gloria se precipita sobre basaltos columnares formados por una colada de lava del Volcán Sierra Nevada, datada entre 126.000 y 13.000 años atrás. Al pie de la caída, la erosión hídrica ha formado una pequeña cueva natural que ofrece una perspectiva única.</p>
+        <p class="cascada-body">La cascada es el Geositio N°30 del Geoparque Kütralkura, reconocido por la UNESCO en 2019 como el primer geoparque de Chile. Una formación volcánica que comparte orígenes con el <a href="/cascadas/salto-truful-truful" class="cascada-inline-link">Salto Truful-Truful</a>, también dentro del Geoparque, y con el <a href="/cascadas/salto-del-laja" class="cascada-inline-link">Salto del Laja</a> en el Biobío.</p>
+        <p class="cascada-body">Su nombre proviene de una leyenda pehuenche de amor trágico entre la princesa Rayén y el joven Nahuelcura, cuyos cuerpos se transformaron en las aguas de la cascada con forma de cola de caballo blanco. Explora más <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a> con raíces culturales profundas.</p>
+      </div>
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe class="cascada-map" width="100%" height="300" loading="lazy" title={`Mapa de ubicación del ${cascada.nombre}`} src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Senderismo entre basaltos columnares, geoturismo UNESCO, cultura pehuenche y fotografía en un entorno de bosque templado andino.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">{cascada.clima.descripcion}</p>
+    </div>
+  </section>
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (<li>{tip}</li>))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (<li>{item}</li>))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Hospedajes en Malalcahuello y Curacautín, desde eco-lodges hasta resort de montaña.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en la Araucanía Andina y regiones vecinas del sur de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas con formación volcánica, acceso fácil y leyendas ancestrales.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  .cascada-hero { position: relative; height: 90vh; min-height: 600px; padding-top: 64px; overflow: hidden; }
+  .cascada-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .cascada-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%); }
+  .cascada-hero__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem 2.5rem; }
+  .cascada-hero__bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cascada-hero__title { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 9vw, 10rem); color: #f4efe6; margin: 0; line-height: 0.9; text-transform: uppercase; letter-spacing: -0.02em; }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 6vw, 6rem); color: #00e5d4; margin: 0; line-height: 1; }
+  .cascada-hero__stat-label { color: rgba(244,239,230,0.55); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0; }
+  .cascada-breadcrumb { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .cascada-breadcrumb a { color: rgba(244,239,230,0.6); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current { color: #00e5d4; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cascada-badge { display: inline-block; background: #00e5d4; color: #091d2b; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1rem; }
+  .cascada-inline-link { color: #00b4a0; text-decoration: underline; text-decoration-color: rgba(0,180,160,0.3); text-underline-offset: 2px; transition: text-decoration-color 0.2s; }
+  .cascada-inline-link:hover { text-decoration-color: #00b4a0; color: #00e5d4; }
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+  .cascada-h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: #091d2b; margin: 0 0 1.5rem; text-transform: uppercase; }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+  .cascada-body { color: #091d2b; font-size: 1.05rem; line-height: 1.75; margin: 0 0 1.25rem; font-weight: 300; }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+  .cascada-list { list-style: none; padding: 0; margin: 0; }
+  .cascada-list li { color: #091d2b; font-size: 1rem; line-height: 1.75; padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-weight: 300; }
+  .cascada-list li::before { content: ''; position: absolute; left: 0; top: 1rem; width: 6px; height: 6px; border-radius: 50%; background: #00e5d4; }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+  .cascada-ficha { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(9,29,43,0.12); }
+  .cascada-ficha__item { padding: 1.5rem 1.25rem; border-right: 1px solid rgba(9,29,43,0.12); border-bottom: 1px solid rgba(9,29,43,0.12); }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem; }
+  .cascada-ficha__value { font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500; }
+  .cascada-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; max-width: 1200px; }
+  .cascada-map { border-radius: 4px; border: 0; margin-top: 2rem; }
+  .cascada-activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cascada-card { border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 2rem; transition: border-color 0.2s; }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: #00e5d4; line-height: 1; display: block; margin-bottom: 1rem; }
+  .cascada-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem; text-transform: uppercase; }
+  .cascada-card__text { color: rgba(244,239,230,0.6); font-size: 0.92rem; line-height: 1.65; margin: 0; font-weight: 300; }
+  .cascada-clima__stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid rgba(244,239,230,0.1); border-radius: 4px; overflow: hidden; }
+  .cascada-clima__stat { padding: 1.5rem 1.25rem; border-right: 1px solid rgba(244,239,230,0.1); }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem; }
+  .cascada-clima__value { font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400; }
+  .cascada-gastro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 1000px; }
+  .cascada-gastro-card { border: 1px solid rgba(9,29,43,0.1); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s; }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem; text-transform: uppercase; }
+  .cascada-gastro-card__text { color: rgba(9,29,43,0.7); font-size: 0.92rem; line-height: 1.65; margin: 0; font-weight: 300; }
+  .cascada-alojamiento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cascada-alojamiento-card { display: block; text-decoration: none; border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s, transform 0.3s; }
+  .cascada-alojamiento-card:hover { border-color: rgba(0,229,212,0.4); transform: translateY(-4px); }
+  .cascada-alojamiento-card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .cascada-alojamiento-card__badge { display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; }
+  .cascada-alojamiento-card__price { color: #00e5d4; font-size: 0.85rem; font-weight: 500; }
+  .cascada-alojamiento-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem; text-transform: uppercase; }
+  .cascada-alojamiento-card__text { color: rgba(244,239,230,0.55); font-size: 0.9rem; line-height: 1.6; margin: 0; font-weight: 300; }
+  .cascada-galeria { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 0.75rem; }
+  .cascada-galeria__big { grid-row: 1 / 3; border-radius: 4px; overflow: hidden; }
+  .cascada-galeria__small { border-radius: 4px; overflow: hidden; }
+  .cascada-galeria__big img, .cascada-galeria__small img { width: 100%; height: 100%; object-fit: cover; }
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+  .cascada-faq__question { font-family: 'Archivo Black', sans-serif; font-size: 1.05rem; color: #091d2b; padding: 1.25rem 0; cursor: pointer; text-transform: uppercase; list-style: none; }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after { content: '+'; float: right; color: #00e5d4; font-size: 1.4rem; font-weight: 400; transition: transform 0.2s; }
+  details[open] .cascada-faq__question::after { content: '−'; }
+  .cascada-faq__answer { color: rgba(9,29,43,0.75); font-size: 1rem; line-height: 1.75; margin: 0; padding: 0 0 1.5rem; font-weight: 300; }
+  .cascada-cercanas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .cascada-cercana-card { display: block; text-decoration: none; border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s; }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .cascada-cercana-card__badge { display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; }
+  .cascada-cercana-card__badge--tipo { background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5); }
+  .cascada-cercana-card__badge--semantic { background: rgba(0,180,160,0.15); color: #00b4a0; }
+  .cascada-cercana-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem; text-transform: uppercase; }
+  .cascada-cercana-card__meta { color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300; }
+  .cascada-cta { background: #00e5d4; padding: 6rem 2.5rem; text-align: center; }
+  .cascada-cta__title { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 5vw, 5rem); color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95; text-transform: uppercase; }
+  .cascada-cta__text { color: #091d2b; font-size: 1.05rem; max-width: 500px; margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75; }
+  .cascada-cta__button { display: inline-flex; align-items: center; gap: 0.75rem; color: #00e5d4; background: #091d2b; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px; }
+
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-galeria { grid-template-columns: 1fr 1fr; grid-template-rows: 250px 200px 200px; }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>
