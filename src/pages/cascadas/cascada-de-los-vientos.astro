@@ -1,0 +1,652 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por web search: wikiexplora.com, alltrails.com, wikiloc.com, suda.io, cajondelmaipochile.cl, mar 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Cascada de los Vientos',
+  slug: 'cascada-de-los-vientos',
+  region: 'Metropolitana',
+  zona: 'San Alfonso, Cajón del Maipo',
+  altura: 30,
+  caudal: 'Régimen nival-pluvial. Mayor caudal en primavera (octubre-diciembre), alimentado por deshielo cordillerano del Estero San Alfonso',
+  dificultad: 'Moderado',
+  acceso: 'Ruta G-25 hasta San Alfonso, luego trekking de 3,6 km con cruces de río',
+  coordenadas: '33°43\'S 70°17\'W',
+  mejorEpoca: 'Octubre — Marzo',
+  entrada: 'Gratuita',
+  horario: 'Acceso libre, sin horario restringido',
+  descripcion: `La Cascada de los Vientos es una de las joyas escondidas del Cajón del Maipo, a solo hora y media de Santiago. Enclavada al final de un cañón labrado por el Estero San Alfonso, esta cascada debe su nombre al intenso viento que genera la caída de agua contra las rocas: un espray constante que empapa a quien se acerque a su base y que en días soleados dibuja arcoíris efímeros sobre la roca oscura. Con una caída estimada de 30 metros sobre un anfiteatro natural de roca volcánica, la Cascada de los Vientos es el destino final de un trekking que atraviesa el encajonamiento del estero, un desfiladero angosto donde el agua ha esculpido formas caprichosas durante milenios.
+
+  El trekking hasta la cascada no tiene sendero marcado: se avanza directamente por el lecho del Estero San Alfonso, cruzando el río en múltiples ocasiones, escalando pequeños saltos intermedios y reptando entre rocas. Esta ausencia de camino formal es precisamente lo que hace de la ruta una experiencia de aventura auténtica, a diferencia de senderos más turísticos como los de la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a>, también en el Cajón del Maipo. El encajonamiento es un túnel de roca y vegetación donde la luz filtra en ángulos dramáticos, creando un ambiente que parece de otro mundo.
+
+  San Alfonso, el pueblo base para esta excursión, es un caserío cordillerano a 1.096 m.s.n.m. que conserva la tranquilidad de los pueblos del cajón. Desde aquí, el sendero remonta el estero hasta los 1.335 m.s.n.m., donde la cascada marca el fin del recorrido y el punto más alto de la ruta. Es una de las <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a> más accesibles desde la capital y una alternativa perfecta para quienes buscan naturaleza sin alejarse demasiado de Santiago.`,
+  comoLlegar: `Desde Santiago (55 km, 1,5 horas en auto por Ruta G-25): Tomar Av. La Florida hacia el sur hasta conectar con el Camino al Volcán (Ruta G-25). Continuar por el Cajón del Maipo pasando San José de Maipo hasta llegar al pueblo de San Alfonso. Aproximadamente 1,5 km después de San Alfonso, buscar un puente metálico (puente mecano) sobre el Estero San Alfonso a mano derecha. Estacionar junto al puente. El trekking comienza cruzando el puente y descendiendo al lecho del estero.
+
+  En transporte público: Metro Bellavista La Florida (Línea 5) o Las Mercedes (Línea 4), luego Metrobus Nº 72 hacia San José de Maipo. Desde San José de Maipo, tomar bus local o colectivo hasta San Alfonso (15 min). Desde San Alfonso, caminar 1,5 km hasta el puente metálico de inicio.
+
+  Con tour guiado: Operadores como Turismo Arpue ofrecen excursiones guiadas desde Santiago. Salida desde Metro Baquedano a las 7:30 AM, llegada a San Alfonso ~10:00 AM. Precio aproximado: CLP 10.000 por persona. Recomendado para quienes no conocen la ruta, ya que el sendero no está señalizado.`,
+  imagen: '/assets/cascadas/cascada-de-los-vientos/hero.webp',
+  imagenAlt: 'Cascada de los Vientos en el Cajón del Maipo, caída de agua de 30 metros sobre roca volcánica en San Alfonso',
+  galeria: [
+    { src: '/assets/cascadas/cascada-de-los-vientos/galeria-1.webp', alt: 'Encajonamiento del Estero San Alfonso, desfiladero de roca camino a la Cascada de los Vientos' },
+    { src: '/assets/cascadas/cascada-de-los-vientos/galeria-2.webp', alt: 'Cruce de río durante el trekking a la Cascada de los Vientos en el Cajón del Maipo' },
+    { src: '/assets/cascadas/cascada-de-los-vientos/galeria-3.webp', alt: 'Vista del sendero ribereño entre rocas volcánicas hacia la Cascada de los Vientos' },
+    { src: '/assets/cascadas/cascada-de-los-vientos/galeria-4.webp', alt: 'Vegetación andina y roca volcánica en el cañón del Estero San Alfonso' },
+  ],
+  galeriaCreditos: [],
+  // 3 por cercanía geográfica (Metropolitana / Cajón del Maipo)
+  cascadasCercanas: [
+    { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, tipo: 'cercania' },
+    { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', region: 'Metropolitana', altura: 15, tipo: 'cercania' },
+    { nombre: 'Cascada El Yeso', slug: 'cascada-el-yeso', region: 'Metropolitana', altura: 15, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (trekking de dificultad moderada, aventura, cañón)
+  cascadasRelacionadas: [
+    { nombre: 'Cascada del Lanza', slug: 'cascada-del-lanza', region: 'Metropolitana', altura: 10, tipo: 'relacionada' },
+    { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Ñuble', altura: 75, tipo: 'relacionada' },
+    { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'Maule', altura: 50, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados (wikiloc + alltrails + wikiexplora, mar 2026) ---
+  lat: -33.726983,
+  lng: -70.291268,
+  rio: 'Estero San Alfonso',
+  tipoFormacion: 'Caída sobre anfiteatro de roca volcánica andina',
+  numeroBrazos: 1,
+  distanciaSantiago: 55,
+
+  historia: `El Cajón del Maipo ha sido territorio de tránsito y asentamiento humano desde tiempos prehispánicos. Las comunidades picunche y luego los incas utilizaron estos valles como ruta de intercambio entre la vertiente occidental y oriental de los Andes. San Alfonso, el pueblo a los pies del Estero que alimenta la cascada, debe su nombre a la antigua hacienda colonial que ocupó estas tierras en el período hispánico. El nombre del estero y la localidad se consolidaron durante el siglo XIX, cuando el Cajón del Maipo comenzó a poblarse con mayor densidad gracias a la minería de plata y cobre en las quebradas cordilleranas.
+
+  La Cascada de los Vientos no tiene registro histórico formal como atractivo turístico hasta las últimas décadas del siglo XX, cuando el auge del trekking y las actividades outdoor en Chile la pusieron en el mapa de los excursionistas santiaguinos. Su nombre —de los Vientos— alude al fenómeno que experimenta quien llega a su base: la fuerza de la caída genera una corriente de aire húmedo que empapa todo a su alrededor, como un viento constante cargado de espray. Quienes la visitan en pleno deshielo primaveral describen la experiencia como "entrar en una tormenta".
+
+  A pocos kilómetros del estero se encuentra el Monumento Natural El Morado, área protegida de 3.009 hectáreas administrada por CONAF que resguarda el circo glaciar del Estero Morales y la Laguna Morales. El mismo macizo andino que alimenta El Morado nutre el Estero San Alfonso. La <a href="/region/metropolitana" class="cascada-inline-link">Región Metropolitana</a> alberga un sorprendente patrimonio de cascadas que desafía la imagen de Santiago como ciudad exclusivamente urbana.`,
+
+  queHacer: [
+    { actividad: 'Trekking por el encajonamiento', descripcion: 'La ruta de 3,6 km (ida y vuelta) remonta el Estero San Alfonso por su lecho rocoso, cruzando el río múltiples veces. El desfiladero angosto, con paredes de roca volcánica, crea un paisaje de cañón espectacular. Duración: 2-2,5 horas. Desnivel: 233 metros.' },
+    { actividad: 'Fotografía de paisaje y aventura', descripcion: 'El encajonamiento ofrece composiciones fotográficas únicas: paredes de roca, agua cristalina, juegos de luz en el desfiladero y la cascada final con su espray permanente. Traer funda impermeable para la cámara. Mejor luz: mañanas entre 9:00 y 12:00.' },
+    { actividad: 'Baño en pozas naturales', descripcion: 'A lo largo del recorrido se forman pozas naturales de agua cristalina entre las rocas. En verano (enero-febrero), el agua alcanza temperaturas tolerables para un baño rápido. La poza al pie de la cascada es la más impresionante pero también la más fría.' },
+    { actividad: 'Escalada y boulder', descripcion: 'Las paredes del cañón y los bloques de roca volcánica ofrecen oportunidades informales de boulder y escalada. No hay rutas equipadas: actividad solo para personas con experiencia y equipo propio. Se recomienda casco.' },
+    { actividad: 'Observación de flora andina', descripcion: 'El recorrido atraviesa vegetación esclerófila y andina de transición. Cactus columnares, quillay, litre y plantas rupícolas en las paredes del cañón. El contraste entre la aridez de las laderas y la humedad del fondo del estero crea microhábitats únicos.' },
+    { actividad: 'Excursión guiada', descripcion: 'Operadores como Turismo Arpue y SUDA Outdoors ofrecen excursiones guiadas desde Santiago con transporte, guía y equipo básico. Recomendado para primera visita, ya que la ruta carece de señalización.' },
+  ],
+
+  flora: `La vegetación del cañón del Estero San Alfonso presenta una transición notable entre la zona esclerófila mediterránea y la flora andina de altura. En las laderas expuestas al sol dominan especies xerófitas: el quillay (Quillaja saponaria), el litre (Lithraea caustica) y el espino (Vachellia caven) forman el matorral característico de la precordillera de Santiago. En las quebradas húmedas y el fondo del cañón, la vegetación cambia radicalmente: helechos (Adiantum, Blechnum), musgos y plantas rupícolas tapizan las paredes de roca donde el espray de los saltos mantiene humedad constante.
+
+  A medida que se asciende hacia la cascada, aparecen cactus columnares (Echinopsis chiloensis) en las laderas más áridas y arbustos como el colliguay (Colliguaja odorifera) en los claros. El olivillo de la cordillera (Kageneckia angustifolia), especie endémica de los Andes centrales de Chile, se encuentra en las laderas del cañón. La <a href="/cascadas/cascada-del-lanza" class="cascada-inline-link">Cascada del Lanza</a>, en la precordillera de Lo Barnechea, comparte esta misma transición de vegetación esclerófila a andina típica de la Región Metropolitana.`,
+
+  fauna: `La fauna del cañón del Estero San Alfonso es representativa de la zona de transición entre el matorral esclerófilo mediterráneo y los ecosistemas andinos de altura. En el agua y sus márgenes, el pato cortacorrientes (Merganetta armata) puede observarse en los tramos de mayor velocidad del estero, mientras que la trucha arcoíris (Oncorhynchus mykiss), especie introducida, habita las pozas más profundas. El sapito de cuatro ojos (Pleurodema thaul), anfibio endémico de Chile central, frecuenta las zonas húmedas del fondo del cañón.
+
+  En el matorral circundante, el zorro culpeo (Lycalopex culpaeus), el más grande de los zorros sudamericanos, es habitante habitual del Cajón del Maipo. La vizcacha (Lagidium viscacia) puede avistarse en las laderas rocosas por encima del cañón, especialmente al atardecer. Entre las aves, el cóndor andino (Vultur gryphus) sobrevuela ocasionalmente el cajón, y el águila mora (Geranoaetus melanoleucus) patrulla las laderas. El picaflor gigante (Patagona gigas), el colibrí más grande del mundo, frecuenta las flores del matorral en primavera y verano.`,
+
+  clima: {
+    tipo: 'Mediterráneo semiárido de montaña (Csb)',
+    tempPromedio: '14°C',
+    tempVerano: '22-32°C',
+    tempInvierno: '2-12°C',
+    precipitaciones: '350-500 mm anuales',
+    descripcion: 'Clima mediterráneo semiárido de montaña, con veranos calurosos y secos e inviernos fríos con precipitaciones concentradas entre mayo y agosto. Las nevadas son posibles en la zona alta del cañón (sobre 1.200 m.s.n.m.) entre junio y agosto. La amplitud térmica diaria es notable: incluso en verano, las mañanas tempranas y las tardes pueden ser frescas en el fondo del cañón. La mejor época para el trekking es de octubre a marzo, cuando el caudal del estero permite los cruces sin riesgo. Evitar la ruta tras lluvias fuertes o en período de deshielo intenso (septiembre), cuando las crecidas pueden ser peligrosas.',
+  },
+
+  seguridad: [
+    'No realizar el trekking tras lluvias fuertes o durante crecidas: el Estero San Alfonso crece rápidamente y los cruces se vuelven peligrosos',
+    'Llevar casco: hay tramos con escalada sobre rocas y un paso por una cascada intermedia de 3 metros',
+    'Usar calzado de trekking con suela adherente: las rocas del lecho están permanentemente mojadas y resbaladizas',
+    'No ir solo: la ruta carece de señalización y cobertura de celular. Informar a alguien del itinerario',
+    'Llevar cortavientos o chaqueta impermeable: el espray de la cascada final empapa completamente',
+    'Llevar zapatos de repuesto: los cruces de río mojan los pies inevitablemente',
+    'Respetar el entorno natural: no dejar basura, no encender fuego, no desviar cauces de agua',
+    'Iniciar temprano (antes de las 10:00 AM) para evitar el calor del mediodía en verano',
+  ],
+
+  recomendaciones: [
+    'Calzado de trekking resistente al agua con suela adherente (imprescindible)',
+    'Cortavientos o chaqueta impermeable para el espray de la cascada',
+    'Zapatos de repuesto secos para el regreso',
+    'Mínimo 2 litros de agua por persona y snacks energéticos',
+    'Protector solar y gorra — las laderas del cañón reflejan calor en verano',
+    'Funda impermeable para el celular y la cámara',
+    'Casco (recomendado) para los tramos de escalada entre rocas',
+    'Ropa de muda si se planea baño en las pozas',
+  ],
+
+  gastronomia: [
+    { plato: 'Empanadas de horno de San José de Maipo', descripcion: 'Las empanadas del Cajón del Maipo son famosas en Santiago: masa al horno de barro, pino jugoso con carne, cebolla, huevo, aceituna y pasas. Los locales de la plaza de San José de Maipo las preparan a diario.' },
+    { plato: 'Trucha a la parrilla del Cajón', descripcion: 'Truchas capturadas en los esteros del cajón, preparadas a la parrilla con limón, mantequilla y hierbas. Varios restaurantes de San Alfonso y San José de Maipo la ofrecen como especialidad.' },
+    { plato: 'Pastel de choclo', descripcion: 'Preparación campesina de la zona central de Chile: base de pino con carne, pollo, cebolla, huevo duro y aceituna, cubierta por una capa de choclo molido horneado. Plato emblemático del verano en los restaurantes del Cajón.' },
+    { plato: 'Sopaipillas con pebre', descripcion: 'Las sopaipillas fritas de zapallo son el snack por excelencia del invierno en el Cajón del Maipo. Acompañadas de pebre chileno (tomate, cebolla, cilantro, ají) y servidas calientes en los puestos de la ruta.' },
+    { plato: 'Kuchen y strudel de la colonia alemana', descripcion: 'La influencia de colonos europeos en la zona se refleja en pastelerías artesanales que ofrecen kuchen de nuez, strudel de manzana y tortas con frutos del cajón. Tradición viva en San José de Maipo.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Cascada de las Ánimas Lodge', tipo: 'Lodge ecoturístico', precioDesde: 'Desde $80.000 CLP/noche', url: 'https://www.cascadadelasanimas.cl', descripcion: 'Santuario de la naturaleza con cabañas, camping, rafting y trekking. El lodge más emblemático del Cajón del Maipo, a 3 km de San Alfonso. Incluye acceso a senderos y actividades outdoor.' },
+    { nombre: 'Hotel Altiplánico Cajón del Maipo', tipo: 'Hotel boutique', precioDesde: 'Desde $120.000 CLP/noche', url: 'https://www.altiplanico.cl', descripcion: 'Hotel de diseño con piscina temperada, spa y restaurant con vista al río Maipo. Ubicado en San Alfonso, a minutos del inicio del trekking a la Cascada de los Vientos.' },
+    { nombre: 'Camping El Sauce', tipo: 'Camping', precioDesde: 'Desde $8.000 CLP/persona', url: '#', descripcion: 'Camping equipado en San Alfonso con sitios junto al río, baños, duchas calientes y quincho. Opción económica para quienes quieren pernoctar cerca de la ruta de trekking.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto dura el trekking a la Cascada de los Vientos?', respuesta: 'El trekking completo toma entre 2 y 2,5 horas (ida y vuelta). La ruta es de 3,6 km en circuito con 233 metros de desnivel. Se recomienda calcular al menos 3 horas con paradas para fotos y descanso en la cascada.' },
+    { pregunta: '¿Es difícil llegar a la Cascada de los Vientos?', respuesta: 'La dificultad es moderada. No hay sendero marcado: se camina por el lecho del estero con múltiples cruces de río, tramos de escalada sobre rocas y un paso por una cascada intermedia de 3 metros. No requiere equipo técnico pero sí calzado adherente, buena condición física y preferiblemente experiencia en trekking.' },
+    { pregunta: '¿Cuánto cuesta la entrada a la Cascada de los Vientos?', respuesta: 'El acceso es completamente gratuito. No hay cobro de entrada ni estacionamiento formal. El puente metálico donde comienza la ruta tiene espacio para estacionar en la berma.' },
+    { pregunta: '¿Se puede ir con niños a la Cascada de los Vientos?', respuesta: 'No es recomendable para niños pequeños. Los múltiples cruces de río, los tramos de escalada y la ausencia de sendero formal hacen la ruta inadecuada para menores de 10-12 años. Para familias con niños, la Cascada de las Ánimas (a 3 km) es una alternativa más segura.' },
+    { pregunta: '¿Cuál es la mejor época para visitar la Cascada de los Vientos?', respuesta: 'De octubre a marzo. En verano (enero-febrero) el caudal es menor y los cruces de río son más seguros. Evitar después de lluvias fuertes o durante el deshielo intenso de septiembre, cuando las crecidas pueden hacer la ruta peligrosa.' },
+    { pregunta: '¿Cómo llegar en transporte público desde Santiago?', respuesta: 'Metro Bellavista La Florida (Línea 5) o Las Mercedes (Línea 4), luego Metrobus Nº 72 hasta San José de Maipo. Desde ahí, bus local o colectivo hasta San Alfonso (15 min). Caminar 1,5 km hasta el puente metálico de inicio. Tiempo total desde Santiago: ~2 horas.' },
+    { pregunta: '¿Hay tours guiados a la Cascada de los Vientos?', respuesta: 'Sí. Operadores como Turismo Arpue y SUDA Outdoors ofrecen excursiones guiadas desde Santiago con transporte y guía. Precio aproximado: CLP 10.000-15.000 por persona. Recomendado para primera visita por la falta de señalización.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada de ${cascada.altura} metros en el Cajón del Maipo, Región Metropolitana, Chile. Trekking de aventura por el cañón del Estero San Alfonso con cruces de río y escalada sobre rocas.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: true,
+    touristType: ['Naturaleza', 'Trekking', 'Aventura', 'Fotografía'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en el Cajón del Maipo. Trekking de aventura por el cañón del Estero San Alfonso, a 55 km de Santiago. Entrada gratuita, cómo llegar y toda la información.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazo` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre la {cascada.nombre}</h2>
+        <p class="cascada-body">La Cascada de los Vientos es una de las joyas escondidas del Cajón del Maipo, a solo hora y media de Santiago. Enclavada al final del cañón del Estero San Alfonso, debe su nombre al intenso viento que genera la caída de agua contra las rocas: un espray constante que empapa a quien se acerque. Con una caída de 30 metros sobre un anfiteatro de roca volcánica, es el destino final de un trekking que atraviesa un desfiladero angosto donde el agua ha esculpido formas caprichosas durante milenios.</p>
+        <p class="cascada-body">El trekking no tiene sendero marcado: se avanza por el lecho del Estero San Alfonso, cruzando el río en múltiples ocasiones. Esta ausencia de camino formal es lo que hace de la ruta una experiencia de aventura auténtica, a diferencia de senderos más turísticos como los de la <a href="/cascadas/cascada-de-las-animas" class="cascada-inline-link">Cascada de las Ánimas</a>, también en el Cajón del Maipo.</p>
+        <p class="cascada-body">San Alfonso, el pueblo base para esta excursión, es un caserío cordillerano a 1.096 m.s.n.m. Desde aquí, el sendero remonta el estero hasta los 1.335 m.s.n.m. Es una de las <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a> más accesibles desde la capital.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar a la {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación de la ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Trekking de aventura por el cañón, fotografía de paisaje, baño en pozas naturales y escalada sobre roca volcánica: una experiencia outdoor completa a menos de 2 horas de Santiago.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora de la {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna de la {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura de la {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca de la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Hospedajes en San Alfonso y el Cajón del Maipo, a minutos del inicio del trekking.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en la Región Metropolitana y el Cajón del Maipo.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas con trekking de aventura, cañones y paisaje cordillerano en Chile central.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero { position: relative; height: 90vh; min-height: 600px; padding-top: 64px; overflow: hidden; }
+  .cascada-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .cascada-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%); }
+  .cascada-hero__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem 2.5rem; }
+  .cascada-hero__bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cascada-hero__title { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 9vw, 10rem); color: #f4efe6; margin: 0; line-height: 0.9; text-transform: uppercase; letter-spacing: -0.02em; }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 6vw, 6rem); color: #00e5d4; margin: 0; line-height: 1; }
+  .cascada-hero__stat-label { color: rgba(244,239,230,0.55); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0; }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .cascada-breadcrumb a { color: rgba(244,239,230,0.6); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current { color: #00e5d4; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge { display: inline-block; background: #00e5d4; color: #091d2b; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1rem; }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link { color: #00b4a0; text-decoration: underline; text-decoration-color: rgba(0,180,160,0.3); text-underline-offset: 2px; transition: text-decoration-color 0.2s; }
+  .cascada-inline-link:hover { text-decoration-color: #00b4a0; color: #00e5d4; }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: #091d2b; margin: 0 0 1.5rem; text-transform: uppercase; }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+  .cascada-body { color: #091d2b; font-size: 1.05rem; line-height: 1.75; margin: 0 0 1.25rem; font-weight: 300; }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+  .cascada-list { list-style: none; padding: 0; margin: 0; }
+  .cascada-list li { color: #091d2b; font-size: 1rem; line-height: 1.75; padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-weight: 300; }
+  .cascada-list li::before { content: ''; position: absolute; left: 0; top: 1rem; width: 6px; height: 6px; border-radius: 50%; background: #00e5d4; }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(9,29,43,0.12); }
+  .cascada-ficha__item { padding: 1.5rem 1.25rem; border-right: 1px solid rgba(9,29,43,0.12); border-bottom: 1px solid rgba(9,29,43,0.12); }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem; }
+  .cascada-ficha__value { font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500; }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; max-width: 1200px; }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map { border-radius: 4px; border: 0; margin-top: 2rem; }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cascada-card { border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 2rem; transition: border-color 0.2s; }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: #00e5d4; line-height: 1; display: block; margin-bottom: 1rem; }
+  .cascada-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem; text-transform: uppercase; }
+  .cascada-card__text { color: rgba(244,239,230,0.6); font-size: 0.92rem; line-height: 1.65; margin: 0; font-weight: 300; }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid rgba(244,239,230,0.1); border-radius: 4px; overflow: hidden; }
+  .cascada-clima__stat { padding: 1.5rem 1.25rem; border-right: 1px solid rgba(244,239,230,0.1); }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem; }
+  .cascada-clima__value { font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400; }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 1000px; }
+  .cascada-gastro-card { border: 1px solid rgba(9,29,43,0.1); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s; }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem; text-transform: uppercase; }
+  .cascada-gastro-card__text { color: rgba(9,29,43,0.7); font-size: 0.92rem; line-height: 1.65; margin: 0; font-weight: 300; }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cascada-alojamiento-card { display: block; text-decoration: none; border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s, transform 0.3s; }
+  .cascada-alojamiento-card:hover { border-color: rgba(0,229,212,0.4); transform: translateY(-4px); }
+  .cascada-alojamiento-card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .cascada-alojamiento-card__badge { display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; }
+  .cascada-alojamiento-card__price { color: #00e5d4; font-size: 0.85rem; font-weight: 500; }
+  .cascada-alojamiento-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem; text-transform: uppercase; }
+  .cascada-alojamiento-card__text { color: rgba(244,239,230,0.55); font-size: 0.9rem; line-height: 1.6; margin: 0; font-weight: 300; }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 0.75rem; }
+  .cascada-galeria__big { grid-row: 1 / 3; border-radius: 4px; overflow: hidden; }
+  .cascada-galeria__small { border-radius: 4px; overflow: hidden; }
+  .cascada-galeria__big img, .cascada-galeria__small img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+  .cascada-faq__question { font-family: 'Archivo Black', sans-serif; font-size: 1.05rem; color: #091d2b; padding: 1.25rem 0; cursor: pointer; text-transform: uppercase; list-style: none; }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after { content: '+'; float: right; color: #00e5d4; font-size: 1.4rem; font-weight: 400; transition: transform 0.2s; }
+  details[open] .cascada-faq__question::after { content: '−'; }
+  .cascada-faq__answer { color: rgba(9,29,43,0.75); font-size: 1rem; line-height: 1.75; margin: 0; padding: 0 0 1.5rem; font-weight: 300; }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .cascada-cercana-card { display: block; text-decoration: none; border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s; }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .cascada-cercana-card__badge { display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; }
+  .cascada-cercana-card__badge--tipo { background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5); }
+  .cascada-cercana-card__badge--semantic { background: rgba(0,180,160,0.15); color: #00b4a0; }
+  .cascada-cercana-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem; text-transform: uppercase; }
+  .cascada-cercana-card__meta { color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300; }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta { background: #00e5d4; padding: 6rem 2.5rem; text-align: center; }
+  .cascada-cta__title { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 5vw, 5rem); color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95; text-transform: uppercase; }
+  .cascada-cta__text { color: #091d2b; font-size: 1.05rem; max-width: 500px; margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75; }
+  .cascada-cta__button { display: inline-flex; align-items: center; gap: 0.75rem; color: #00e5d4; background: #091d2b; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px; }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-galeria { grid-template-columns: 1fr 1fr; grid-template-rows: 250px 200px 200px; }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>
