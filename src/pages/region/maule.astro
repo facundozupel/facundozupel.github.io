@@ -3,15 +3,15 @@ import Layout from '../../layouts/Layout.astro';
 
 // ─── DATOS DE LA REGIÓN ───────────────────────────────────────────────────────
 const region = {
-  nombre: "O'Higgins & Maule",
+  nombre: 'Maule',
   slug: 'maule',
   zona: 'Zona Central Sur',
-  subtitulo: 'Siete Tazas, Geoparque del Maule y precordillera · 24 cascadas catalogadas',
-  totalCascadas: 24,
+  subtitulo: 'Siete Tazas, Geoparque del Maule y precordillera · 19 cascadas catalogadas',
+  totalCascadas: 19,
   imagen: '/assets/cascadas/salto-la-leona/hero.webp',
   imagenAlt: 'Salto La Leona, cascada de 25 metros sobre roca basáltica en el Parque Nacional Radal Siete Tazas, Región del Maule',
   stats: [
-    { label: 'Cascadas', value: '24' },
+    { label: 'Cascadas', value: '19' },
     { label: 'Parques nacionales', value: '1' },
     { label: 'Altura máx.', value: '75 m' },
     { label: 'Mejor época', value: 'Sep–Abr' },
@@ -20,10 +20,9 @@ const region = {
     { nombre: 'Radal Siete Tazas', cascadas: 8, descripcion: 'Parque Nacional con Salto La Leona y las famosas Siete Tazas. Pozones escalonados de roca basáltica sobre el Río Claro.' },
     { nombre: 'Geoparque Saltos del Maule', cascadas: 6, descripcion: 'Cascada Invertida, Salto del Maule y Monjes Blancos. Fenómenos geológicos únicos en la ruta al Paso Pehuenche.' },
     { nombre: 'Precordillera del Maule', cascadas: 5, descripcion: 'Salto La Placeta y cascadas estacionales en quebradas de la precordillera de San Clemente y Colbún.' },
-    { nombre: 'Ñuble', cascadas: 5, descripcion: 'Salto del Itata de 75 metros en San Fabián de Alico. La cascada más alta de la zona central-sur de Chile.' },
   ],
-  descripcion: `Las regiones de O'Higgins y Maule albergan un corredor de cascadas que se extiende desde los viñedos de la zona central hasta la alta cordillera andina. El Parque Nacional Radal Siete Tazas —con su icónico Salto La Leona de 25 metros sobre roca basáltica— y el Geoparque Saltos del Maule —donde la Cascada Invertida desafía la gravedad con sus vientos del oeste— son los dos polos de atracción de una región con más de 24 cascadas catalogadas.`,
-  descripcion2: `El Salto del Itata, en la vecina Región de Ñuble, es la cascada más alta de la zona con 75 metros de caída libre sobre el río Itata. La combinación de paisaje volcánico, bosque esclerófilo y tradición vitivinícola hacen de esta región una experiencia única para quienes buscan cascadas fuera del circuito patagónico.`,
+  descripcion: `La Región del Maule alberga un corredor de cascadas que se extiende desde los viñedos del valle central hasta la alta cordillera andina. El Parque Nacional Radal Siete Tazas —con su icónico Salto La Leona de 25 metros sobre roca basáltica— y el Geoparque Saltos del Maule —donde la Cascada Invertida desafía la gravedad con sus vientos del oeste— son los dos polos de atracción de una región con 19 cascadas catalogadas.`,
+  descripcion2: `La combinación de paisaje volcánico, bosque esclerófilo y tradición vitivinícola hacen del Maule una experiencia única para quienes buscan cascadas fuera del circuito patagónico. Desde la cercana <a href="/region/ohiggins" class="cascada-inline-link" style="color:#00b4a0; text-decoration:underline; text-underline-offset:3px;">Región de O'Higgins</a> es fácil continuar hacia el sur para explorar las cascadas del Maule.`,
   cascadasDestacadas: [
     {
       nombre: 'Salto del Itata',
@@ -123,9 +122,9 @@ const region = {
     { pregunta: '¿Cuál es la mejor época para visitar cascadas en el Maule?', respuesta: 'La mejor época es de septiembre a abril. En primavera las cascadas tienen máximo caudal por el deshielo. En verano se pueden disfrutar las pozas de Siete Tazas y el clima es ideal para trekking.' },
   ],
   regionesAdyacentes: [
-    { nombre: 'Metropolitana', slug: 'zona-central', cascadas: 31 },
+    { nombre: "O'Higgins", slug: 'ohiggins', cascadas: 10 },
+    { nombre: 'Ñuble', slug: 'nuble', cascadas: 15 },
     { nombre: 'Biobío', slug: 'biobio', cascadas: 42 },
-    { nombre: 'La Araucanía', slug: 'araucania', cascadas: 48 },
   ],
 };
 
@@ -142,7 +141,7 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `Cascadas en la Región de ${region.nombre}`,
-    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de las regiones de O'Higgins y Maule, Chile.`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región del Maule, Chile.`,
     numberOfItems: region.cascadasDestacadas.length,
     itemListElement: region.cascadasDestacadas.map((c, i) => ({
       '@type': 'ListItem',
@@ -173,8 +172,8 @@ const structuredData = [
 ---
 
 <Layout
-  title={`Cascadas en O'Higgins & Maule — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
-  description={`Descubre las ${region.totalCascadas} cascadas de las regiones de O'Higgins y Maule. Guía completa con mapa, alturas, dificultad y cómo llegar a cada salto de agua.`}
+  title={`Cascadas en Maule — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de la Región del Maule. Guía completa con mapa, alturas, dificultad y cómo llegar a Radal Siete Tazas, Cascada Invertida y más.`}
   ogImage={`https://cascadaschile.com${region.imagen}`}
   structuredData={structuredData}
 >
@@ -215,7 +214,7 @@ const structuredData = [
         color:#f4efe6; margin:0; line-height:0.88;
         text-transform:uppercase; letter-spacing:-0.02em;
       ">
-        Región de<br/>O'Higgins<br/>& Maule
+        Región<br/>del Maule
       </h1>
     </div>
   </section>
@@ -253,7 +252,7 @@ const structuredData = [
         color:#f4efe6; margin:0; line-height:0.9;
         text-transform:uppercase;
       ">
-        Cascadas en<br/>O'Higgins & Maule
+        Cascadas<br/>en Maule
       </h2>
       <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
         Mostrando 6 de {region.totalCascadas}
@@ -376,7 +375,7 @@ const structuredData = [
       font-size:clamp(2.5rem, 5vw, 5rem);
       color:#f4efe6; margin:0 0 3rem; line-height:0.9;
       text-transform:uppercase;
-    ">Mapa de Cascadas<br/>en O'Higgins & Maule</h2>
+    ">Mapa de Cascadas<br/>en Maule</h2>
 
     <div style="border-radius:8px; overflow:hidden; aspect-ratio:16/9;">
       <iframe
@@ -404,7 +403,7 @@ const structuredData = [
           color:#091d2b; margin:0 0 2rem; line-height:0.9;
           text-transform:uppercase;
         ">
-          Viñedos,<br/>Volcanes<br/>y Cascadas
+          Siete Tazas,<br/>Geoparque<br/>y Cascadas
         </h2>
         <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin-bottom:1.5rem;">{region.descripcion}</p>
         <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px;">{region.descripcion2}</p>
@@ -572,7 +571,7 @@ const structuredData = [
       text-transform:uppercase;
     ">Explora el<br/>Mapa Completo</h2>
     <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; font-weight:300; max-width:520px; margin:0 auto 3rem; line-height:1.6;">
-      Descubre las {region.totalCascadas} cascadas de O'Higgins y Maule en nuestro mapa interactivo con rutas, dificultad y coordenadas.
+      Descubre las {region.totalCascadas} cascadas del Maule en nuestro mapa interactivo con rutas, dificultad y coordenadas.
     </p>
     <a href="/mapa" style="
       display:inline-flex; align-items:center; gap:0.75rem;

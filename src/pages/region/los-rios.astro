@@ -3,126 +3,127 @@ import Layout from '../../layouts/Layout.astro';
 
 // ─── DATOS DE LA REGION ───────────────────────────────────────────────────────
 const region = {
-  nombre: 'Atacama & Coquimbo',
-  slug: 'atacama-coquimbo',
-  zona: 'Norte Chico',
-  subtitulo: 'Ríos cordilleranos, valles transversales y desierto florido · 12 cascadas catalogadas',
-  totalCascadas: 12,
-  imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
-  imagenAlt: 'Paisaje cordillerano del Norte Chico de Chile con ríos que bajan hacia los valles transversales',
+  nombre: 'Los Ríos',
+  slug: 'los-rios',
+  zona: 'Zona Sur',
+  subtitulo: 'Bosque valdiviano, Huilo-Huilo y volcanes nevados · 62 cascadas catalogadas',
+  totalCascadas: 62,
+  imagen: '/assets/cascadas/salto-del-buey/hero.webp',
+  imagenAlt: 'Salto del Buey, cascada de 90 metros alimentada por el glaciar Pichillancahue en Coñaripe, Región de Los Ríos',
   stats: [
-    { label: 'Cascadas', value: '12' },
-    { label: 'Valles transversales', value: '4' },
-    { label: 'Altura máx.', value: '60 m' },
-    { label: 'Mejor época', value: 'Sep–Dic' },
+    { label: 'Cascadas', value: '62' },
+    { label: 'Reservas naturales', value: '3' },
+    { label: 'Altura máx.', value: '90 m' },
+    { label: 'Mejor época', value: 'Nov–Mar' },
   ],
   zonas: [
-    { nombre: 'Valle del Huasco & Cordillera de Atacama', cascadas: 4, descripcion: 'Cascadas alimentadas por los ríos Huasco y Copiapó que bajan de los Andes. Quebradas de roca rojiza entre los 2.000 y 4.000 m de altitud.' },
-    { nombre: 'Valle del Elqui & Río Turbio', cascadas: 4, descripcion: 'Saltos de agua en los ríos Elqui, Turbio y Claro. Cascadas entre viñedos pisqueros y observatorios astronómicos, bajo los cielos más limpios del mundo.' },
-    { nombre: 'Valle del Limarí & Choapa', cascadas: 4, descripcion: 'Caídas de agua en los valles del Limarí y Choapa. Zona de transición entre el semidesierto y el Chile central, con cactus y bosque esclerófilo.' },
+    { nombre: 'Panguipulli & Huilo-Huilo', cascadas: 22, descripcion: 'La Reserva Biológica Huilo-Huilo, declarada Reserva de la Biósfera por la UNESCO, concentra las cascadas más espectaculares. Salto del Buey (90 m), Salto Huilo-Huilo y Cascada del Puma entre bosque valdiviano.' },
+    { nombre: 'Lago Ranco & Futrono', cascadas: 15, descripcion: 'Cascadas en los afluentes del Lago Ranco. Salto de Riñinahue en bosque valdiviano, cascadas del Río Bueno y saltos entre coihue y ulmo centenarios.' },
+    { nombre: 'Corral & Costa Valdiviana', cascadas: 10, descripcion: 'Cascadas costeras en la desembocadura del Río Valdivia. Bosque siempreverde, helechos gigantes y la pluviosidad más alta de la región.' },
+    { nombre: 'Volcán Mocho-Choshuenco', cascadas: 15, descripcion: 'Cascadas glaciares en las laderas del volcán. Deshielos alimentan saltos de agua entre araucarias y bosque de lenga sobre los 1.200 m de altitud.' },
   ],
-  descripcion: `Atacama y Coquimbo forman el Norte Chico, una región de transición entre el desierto absoluto y el Chile central verde. Sus 12 cascadas catalogadas se esconden en los valles transversales —Huasco, Elqui, Limarí y Choapa— donde ríos cordilleranos cruzan la aridez para llegar al Pacífico.`,
-  descripcion2: `El Valle del Elqui, famoso por el pisco y la astronomía, alberga cascadas estacionales que cobran fuerza durante los deshielos de primavera. En la Cordillera de Atacama, los ríos Huasco y Copiapó forman saltos entre formaciones de roca rojiza a miles de metros de altitud. Cada ciertos años, el fenómeno del desierto florido transforma el paisaje circundante, creando un contraste extraordinario entre las cascadas y los campos de flores silvestres.`,
+  descripcion: `La Región de Los Ríos es un territorio de ríos caudalosos, bosque valdiviano milenario y volcanes nevados que alimentan más de 62 cascadas catalogadas. Creada en 2007, la región concentra su riqueza hídrica en la cuenca del Río Valdivia y los lagos Ranco, Panguipulli y Calafquén. Es la región con mayor pluviosidad del centro-sur de Chile, lo que garantiza cascadas con caudal durante todo el año.`,
+  descripcion2: `El Salto del Buey —con 90 metros de caída libre alimentados por el glaciar Pichillancahue del volcán Villarrica— es la cascada más alta de la región. La <a href="/cascadas" class="cascada-inline-link" style="color:#00b4a0; text-decoration:underline; text-underline-offset:3px;">Reserva Biológica Huilo-Huilo</a>, declarada Reserva de la Biósfera por la UNESCO, es el epicentro de la exploración de cascadas con más de 20 saltos de agua en un radio de 30 kilómetros. El bosque valdiviano, con sus alerces, coihues y helechos gigantes, crea un escenario único para cada cascada.`,
   cascadasDestacadas: [
     {
-      nombre: 'Cascada del Huasco',
-      slug: 'cascada-del-huasco',
-      altura: 60,
-      zona: 'Alto del Carmen',
-      dificultad: 'Moderado',
-      imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
-      imagenAlt: 'Cascada del río Huasco en la cordillera de la Región de Atacama',
-      destacado: 'La más alta del Norte Chico',
-      tienepagina: false,
+      nombre: 'Salto del Buey',
+      slug: 'salto-del-buey',
+      altura: 90,
+      zona: 'Coñaripe',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-del-buey/hero.webp',
+      imagenAlt: 'Salto del Buey, cascada de 90 metros alimentada por el glaciar Pichillancahue en Coñaripe',
+      destacado: 'La más alta de la región',
+      tienepagina: true,
     },
     {
-      nombre: 'Salto del Elqui',
-      slug: 'salto-del-elqui',
-      altura: 35,
-      zona: 'Paihuano',
+      nombre: 'Salto de Riñinahue',
+      slug: 'salto-de-rininahue',
+      altura: 27,
+      zona: 'Lago Ranco',
       dificultad: 'Fácil a moderado',
-      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-2.webp',
-      imagenAlt: 'Salto del río Elqui en el Valle del Elqui, Región de Coquimbo',
-      destacado: 'Valle del Elqui',
-      tienepagina: false,
+      imagen: '/assets/cascadas/salto-de-rininahue/hero.webp',
+      imagenAlt: 'Salto de Riñinahue en bosque valdiviano junto al Lago Ranco',
+      destacado: 'Bosque valdiviano puro',
+      tienepagina: true,
     },
     {
-      nombre: 'Cascada Río Turbio',
-      slug: 'cascada-rio-turbio',
-      altura: 25,
-      zona: 'Vicuña',
+      nombre: 'Salto Huilo-Huilo',
+      slug: 'salto-huilo-huilo',
+      altura: 37,
+      zona: 'Reserva Huilo-Huilo',
       dificultad: 'Fácil',
-      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-3.webp',
-      imagenAlt: 'Cascada del Río Turbio cerca de Vicuña en el Valle del Elqui',
-      destacado: 'Cerca de Vicuña',
+      imagen: '/assets/cascadas/salto-del-buey/galeria-1.webp',
+      imagenAlt: 'Salto Huilo-Huilo en la Reserva Biológica Huilo-Huilo, bosque valdiviano',
+      destacado: 'Reserva de la Biósfera UNESCO',
       tienepagina: false,
     },
     {
-      nombre: 'Salto del Copiapó',
-      slug: 'salto-del-copiapo',
-      altura: 40,
-      zona: 'Tierra Amarilla',
-      dificultad: 'Difícil',
-      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-4.webp',
-      imagenAlt: 'Salto del río Copiapó en la cordillera de la Región de Atacama',
-      destacado: 'Cordillera de Atacama',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Cascada del Limarí',
-      slug: 'cascada-del-limari',
-      altura: 20,
-      zona: 'Monte Patria',
-      dificultad: 'Fácil',
-      imagen: '/assets/cascadas/cascada-las-melosas/hero.webp',
-      imagenAlt: 'Cascada en el Valle del Limarí, Región de Coquimbo',
-      destacado: 'Valle del Limarí',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Salto del Choapa',
-      slug: 'salto-del-choapa',
+      nombre: 'Cascada del Puma',
+      slug: 'cascada-del-puma',
       altura: 30,
-      zona: 'Salamanca',
+      zona: 'Reserva Huilo-Huilo',
       dificultad: 'Moderado',
-      imagen: '/assets/cascadas/cascada-del-lanza/hero.webp',
-      imagenAlt: 'Salto del río Choapa en la precordillera de Coquimbo',
-      destacado: 'Valle del Choapa',
+      imagen: '/assets/cascadas/salto-del-buey/galeria-2.webp',
+      imagenAlt: 'Cascada del Puma entre bosque valdiviano en la Reserva Huilo-Huilo',
+      destacado: 'Sendero escénico de 2 km',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada La Leona',
+      slug: 'cascada-la-leona-los-rios',
+      altura: 20,
+      zona: 'Futrono',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-de-rininahue/galeria-1.webp',
+      imagenAlt: 'Cascada La Leona en los bosques de Futrono, junto al Lago Ranco',
+      destacado: 'Junto al Lago Ranco',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto del Mocho',
+      slug: 'salto-del-mocho',
+      altura: 45,
+      zona: 'Volcán Mocho-Choshuenco',
+      dificultad: 'Difícil',
+      imagen: '/assets/cascadas/salto-de-rininahue/galeria-2.webp',
+      imagenAlt: 'Cascada glaciar en las laderas del volcán Mocho-Choshuenco',
+      destacado: 'Cascada glaciar de montaña',
       tienepagina: false,
     },
   ],
   tablaCascadas: [
-    { nombre: 'Cascada del Huasco', slug: '', altura: '60 m', dificultad: 'Moderado', acceso: 'Alto del Carmen, camino rural', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Salto del Copiapó', slug: '', altura: '40 m', dificultad: 'Difícil', acceso: 'Tierra Amarilla, 4x4', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Salto del Elqui', slug: '', altura: '35 m', dificultad: 'Fácil a moderado', acceso: 'Paihuano, sendero', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Salto del Choapa', slug: '', altura: '30 m', dificultad: 'Moderado', acceso: 'Salamanca, camino rural', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Cascada Río Turbio', slug: '', altura: '25 m', dificultad: 'Fácil', acceso: 'Vicuña, ruta asfaltada', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Cascada del Limarí', slug: '', altura: '20 m', dificultad: 'Fácil', acceso: 'Monte Patria, camino rural', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto del Buey', slug: 'salto-del-buey', altura: '90 m', dificultad: 'Fácil', acceso: 'Coñaripe, sendero 3 km', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Salto del Mocho', slug: '', altura: '45 m', dificultad: 'Difícil', acceso: 'Volcán Mocho-Choshuenco', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto Huilo-Huilo', slug: '', altura: '37 m', dificultad: 'Fácil', acceso: 'Reserva Huilo-Huilo, Neltume', entrada: 'Pagada', tienepagina: false },
+    { nombre: 'Cascada del Puma', slug: '', altura: '30 m', dificultad: 'Moderado', acceso: 'Reserva Huilo-Huilo', entrada: 'Pagada', tienepagina: false },
+    { nombre: 'Salto de Riñinahue', slug: 'salto-de-rininahue', altura: '27 m', dificultad: 'Fácil a moderado', acceso: 'Lago Ranco, camino rural', entrada: 'Gratuita', tienepagina: true },
+    { nombre: 'Cascada La Leona', slug: '', altura: '20 m', dificultad: 'Fácil', acceso: 'Futrono, Lago Ranco', entrada: 'Gratuita', tienepagina: false },
   ],
-  mapCenter: { lat: -29.5, lng: -70.5 },
-  mapZoom: 7,
-  comoLlegar: `Desde Santiago a La Serena (470 km, 5-6 horas en auto): Ruta 5 Norte o Ruta del Elqui. La Serena es la mejor base para cascadas del Valle del Elqui y Limarí. Desde Santiago a Copiapó (800 km, 8-9 horas): Ruta 5 Norte, base para cascadas de la Cordillera de Atacama.`,
-  comoLlegar2: `Desde La Serena y Copiapó: Ambas ciudades tienen aeropuerto con vuelos diarios desde Santiago (1-1,5 hrs, LATAM, Sky, JetSmart). Alquiler de vehículos disponible. Para cascadas de cordillera se recomienda 4x4. El Valle del Elqui está a 60 km de La Serena por ruta asfaltada.`,
-  comoLlegar3: `Transporte público: Vuelos diarios Santiago-La Serena (1 hr) y Santiago-Copiapó (1,5 hrs). Buses Santiago-La Serena (6 hrs, Tur Bus, Pullman) y Santiago-Copiapó (9 hrs). Buses locales a Vicuña, Paihuano y Alto del Carmen. Para cascadas de montaña se necesita vehículo propio o tour.`,
+  mapCenter: { lat: -39.8, lng: -72.2 },
+  mapZoom: 8,
+  comoLlegar: `Desde Santiago (850 km, 9-10 horas en auto): Ruta 5 Sur hasta Valdivia o Panguipulli. Para la Reserva Huilo-Huilo, desvío en Lanco hacia el este por Ruta 203. Para Lago Ranco, desvío en Los Lagos hacia Futrono.`,
+  comoLlegar2: `Desde Valdivia (capital regional): Base ideal para explorar la región. Aeropuerto Pichoy (ZAL) con vuelos diarios desde Santiago. Terminal de buses con conexiones directas desde Santiago, Temuco y Puerto Montt.`,
+  comoLlegar3: `Transporte público: Buses interurbanos Santiago-Valdivia (10-11 horas, Tur Bus, Pullman). Buses locales a Panguipulli y Futrono. Para Huilo-Huilo, buses desde Panguipulli a Neltume. Cascadas de montaña requieren vehículo propio.`,
   clima: {
-    tipo: 'Semiárido (BSk) con influencia costera',
-    tempVerano: '22-30°C (valle) / 10-20°C (cordillera)',
-    tempInvierno: '8-18°C (valle) / -5 a 10°C (cordillera)',
-    precipitaciones: '80-150 mm anuales',
-    mejorEpoca: 'Septiembre a Diciembre',
-    descripcion: 'Clima semiárido con cielos despejados más de 300 días al año. Las cascadas tienen mayor caudal en primavera (septiembre-diciembre) con los deshielos cordilleranos. En años de El Niño las lluvias aumentan significativamente y pueden activar el desierto florido. Veranos cálidos en los valles, noches frías en la cordillera. El Valle del Elqui tiene uno de los climas más estables de Chile.',
+    tipo: 'Oceánico templado (Cfb)',
+    tempVerano: '18-26°C',
+    tempInvierno: '4-10°C',
+    precipitaciones: '2.100 mm anuales',
+    mejorEpoca: 'Noviembre a Marzo',
+    descripcion: 'Clima oceánico con lluvias frecuentes todo el año. Los veranos son suaves con días largos; los inviernos fríos y muy lluviosos. La cordillera recibe más de 3.000 mm anuales. Las cascadas tienen buen caudal todo el año, pero el acceso a senderos de montaña se limita a noviembre-marzo. El bosque valdiviano siempreverde luce espectacular en cualquier estación.',
   },
   faq: [
-    { pregunta: '¿Hay cascadas en la Región de Atacama y Coquimbo?', respuesta: 'Sí, existen 12 cascadas catalogadas en el Norte Chico. Se encuentran principalmente en los valles transversales del Huasco, Elqui, Limarí y Choapa, alimentadas por ríos que bajan de la Cordillera de los Andes.' },
-    { pregunta: '¿Cuál es la mejor época para visitar cascadas en el Norte Chico?', respuesta: 'De septiembre a diciembre, durante los deshielos de primavera. Es cuando los ríos cordilleranos tienen mayor caudal. En años de El Niño, las lluvias invernales también pueden aumentar el caudal.' },
-    { pregunta: '¿Se pueden combinar las cascadas con visitas al Valle del Elqui?', respuesta: 'Sí, el Valle del Elqui es la zona más accesible. Se puede combinar la visita a cascadas con degustación de pisco, observación astronómica y trekking. Vicuña y Paihuano son buenas bases.' },
-    { pregunta: '¿Qué es el desierto florido y cuándo ocurre?', respuesta: 'El desierto florido es un fenómeno natural que ocurre en años lluviosos (generalmente por El Niño), cuando más de 200 especies de flores silvestres cubren el desierto entre agosto y noviembre. Coincide con la mejor época para cascadas.' },
-    { pregunta: '¿Necesito vehículo especial para llegar a las cascadas?', respuesta: 'Depende. Las cascadas del Valle del Elqui son accesibles con vehículo normal. Para cascadas de la Cordillera de Atacama (Huasco, Copiapó) se recomienda 4x4 y experiencia en conducción de montaña. Siempre consultar condiciones del camino antes de salir.' },
+    { pregunta: '¿Cuántas cascadas hay en la Región de Los Ríos?', respuesta: 'La Región de Los Ríos cuenta con más de 62 cascadas catalogadas, desde el Salto del Buey de 90 metros en Coñaripe hasta decenas de saltos menores en la Reserva Biológica Huilo-Huilo y el entorno del Lago Ranco.' },
+    { pregunta: '¿Cuál es la cascada más alta de Los Ríos?', respuesta: 'El Salto del Buey en Coñaripe, con 90 metros de caída libre alimentados por el deshielo del glaciar Pichillancahue del volcán Villarrica. Es una de las cascadas más altas del sur de Chile.' },
+    { pregunta: '¿Cómo llegar a la Reserva Huilo-Huilo?', respuesta: 'Desde Valdivia se toma la Ruta 5 Sur hasta Lanco, luego la Ruta 203 hasta Panguipulli y Neltume (170 km, 2.5 horas). Desde Santiago, la ruta total es de aproximadamente 850 km por Ruta 5 Sur.' },
+    { pregunta: '¿Se puede visitar cascadas en Los Ríos en invierno?', respuesta: 'Sí, las cascadas de baja altitud como Salto de Riñinahue y Salto Huilo-Huilo son accesibles todo el año con buen caudal. Las cascadas de montaña del volcán Mocho-Choshuenco solo son accesibles de noviembre a marzo.' },
+    { pregunta: '¿Cuál es la mejor época para ver cascadas en Los Ríos?', respuesta: 'De noviembre a marzo es la mejor época. El clima es más estable, los senderos están abiertos y el deshielo de primavera (noviembre-diciembre) garantiza máximo caudal en las cascadas volcánicas.' },
   ],
   regionesAdyacentes: [
-    { nombre: 'Tarapacá & Antofagasta', slug: 'tarapaca-antofagasta', cascadas: 8 },
-    { nombre: 'Metropolitana & Valparaíso', slug: 'zona-central', cascadas: 31 },
-    { nombre: "O'Higgins", slug: 'ohiggins', cascadas: 10 },
+    { nombre: 'Los Lagos', slug: 'los-lagos', cascadas: 95 },
+    { nombre: 'La Araucanía', slug: 'araucania', cascadas: 48 },
+    { nombre: 'Biobío', slug: 'biobio', cascadas: 42 },
   ],
 };
 
@@ -139,8 +140,8 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Cascadas en ${region.nombre}`,
-    description: `Las ${region.totalCascadas} cascadas y saltos de agua en las regiones de Atacama y Coquimbo, Norte Chico de Chile.`,
+    name: `Cascadas en la Región de ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región de ${region.nombre}, Chile.`,
     numberOfItems: region.cascadasDestacadas.length,
     itemListElement: region.cascadasDestacadas.map((c, i) => ({
       '@type': 'ListItem',
@@ -171,8 +172,8 @@ const structuredData = [
 ---
 
 <Layout
-  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas en el Norte Chico | Cascadas de Chile`}
-  description={`Descubre las ${region.totalCascadas} cascadas del Norte Chico de Chile. Guía con mapa, alturas y cómo llegar a cascadas del Valle del Elqui, Cordillera de Atacama y más.`}
+  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de la Región de Los Ríos. Guía completa con mapa, alturas, dificultad y cómo llegar al Salto del Buey, Huilo-Huilo y más.`}
   ogImage={`https://cascadaschile.com${region.imagen}`}
   structuredData={structuredData}
 >
@@ -210,7 +211,7 @@ const structuredData = [
         color:#f4efe6; margin:0; line-height:0.88;
         text-transform:uppercase; letter-spacing:-0.02em;
       ">
-        Norte<br/>Chico
+        Región<br/>de {region.nombre}
       </h1>
     </div>
   </section>
@@ -248,7 +249,7 @@ const structuredData = [
         color:#f4efe6; margin:0; line-height:0.9;
         text-transform:uppercase;
       ">
-        Cascadas<br/>del Norte Chico
+        Cascadas<br/>en {region.nombre}
       </h2>
       <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
         Mostrando 6 de {region.totalCascadas}
@@ -324,7 +325,7 @@ const structuredData = [
       text-transform:uppercase;
     ">Comparativa de Cascadas</h2>
     <p style="color:rgba(9,29,43,0.5); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300;">
-      Datos clave para planificar tu visita a las cascadas del Norte Chico.
+      Datos clave para planificar tu visita a las cascadas de Los Ríos.
     </p>
 
     <div style="overflow-x:auto;">
@@ -378,16 +379,16 @@ const structuredData = [
       font-size:clamp(2rem, 5vw, 5rem);
       color:#f4efe6; margin:0 0 1rem; line-height:0.9;
       text-transform:uppercase;
-    ">Mapa de Cascadas<br/>del Norte Chico</h2>
+    ">Mapa de Cascadas<br/>en {region.nombre}</h2>
     <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300; max-width:560px;">
-      Las cascadas del Norte Chico se distribuyen a lo largo de los valles transversales, desde el Valle del Huasco en Atacama hasta el Valle del Choapa en el sur de Coquimbo.
+      Explora la ubicación de las principales cascadas de la región. Se distribuyen desde Valdivia en el oeste hasta la Reserva Huilo-Huilo y el volcán Mocho-Choshuenco en la cordillera.
     </p>
     <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(0,229,212,0.15);">
       <iframe
-        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 2}%2C${region.mapCenter.lat - 2}%2C${region.mapCenter.lng + 2}%2C${region.mapCenter.lat + 2}&layer=mapnik`}
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 1.5}%2C${region.mapCenter.lat - 1}%2C${region.mapCenter.lng + 1.5}%2C${region.mapCenter.lat + 1}&layer=mapnik`}
         style="width:100%; height:450px; border:0;"
         loading="lazy"
-        title={`Mapa de cascadas en ${region.nombre}`}
+        title={`Mapa de cascadas en la Región de ${region.nombre}`}
       ></iframe>
     </div>
   </section>
@@ -403,10 +404,10 @@ const structuredData = [
           color:#091d2b; margin:0 0 2rem; line-height:0.9;
           text-transform:uppercase;
         ">
-          Valles,<br/>Estrellas<br/>y Cascadas
+          Bosque<br/>Valdiviano<br/>y Volcanes
         </h2>
         <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0 0 1.5rem;">{region.descripcion}</p>
-        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;">{region.descripcion2}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;" set:html={region.descripcion2}></p>
       </div>
 
       <div class="reveal">
@@ -447,7 +448,7 @@ const structuredData = [
             <p style="color:#f4efe6; font-size:0.95rem; margin:0; font-weight:300;">{region.clima.tipo}</p>
           </div>
           <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
-            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor epoca</p>
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor época</p>
             <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.mejorEpoca}</p>
           </div>
           <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
@@ -481,7 +482,7 @@ const structuredData = [
       font-size:clamp(2rem, 4vw, 4rem);
       color:#091d2b; margin:0 0 3rem; line-height:0.9;
       text-transform:uppercase;
-    ">Cómo Llegar<br/>al Norte Chico</h2>
+    ">Cómo Llegar<br/>a {region.nombre}</h2>
 
     <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2.5rem;">
       <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
@@ -495,7 +496,7 @@ const structuredData = [
       <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
         <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
           <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#9992;</span>
-          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde La Serena y Copiapó</p>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde Valdivia</p>
         </div>
         <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar2}</p>
       </div>
@@ -503,7 +504,7 @@ const structuredData = [
       <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
         <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
           <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128652;</span>
-          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte publico</p>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte público</p>
         </div>
         <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar3}</p>
       </div>
@@ -588,7 +589,7 @@ const structuredData = [
       text-transform:uppercase;
     ">Explora las Cascadas<br/>en el Mapa</h2>
     <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300;">
-      Usa el mapa interactivo para planificar tu viaje por las cascadas del Norte Chico, entre el desierto y los valles transversales.
+      Usa el mapa interactivo para planificar tu ruta por las cascadas de Los Ríos y el sur de Chile.
     </p>
     <a href="/mapa" style="
       display:inline-flex; align-items:center; gap:0.75rem;

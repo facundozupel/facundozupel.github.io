@@ -3,126 +3,126 @@ import Layout from '../../layouts/Layout.astro';
 
 // ─── DATOS DE LA REGION ───────────────────────────────────────────────────────
 const region = {
-  nombre: 'Atacama & Coquimbo',
-  slug: 'atacama-coquimbo',
-  zona: 'Norte Chico',
-  subtitulo: 'Ríos cordilleranos, valles transversales y desierto florido · 12 cascadas catalogadas',
-  totalCascadas: 12,
-  imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
-  imagenAlt: 'Paisaje cordillerano del Norte Chico de Chile con ríos que bajan hacia los valles transversales',
+  nombre: "O'Higgins",
+  slug: 'ohiggins',
+  zona: 'Zona Central',
+  subtitulo: 'Cajón del Cachapoal, Río de los Cipreses y precordillera andina · 10 cascadas catalogadas',
+  totalCascadas: 10,
+  imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80',
+  imagenAlt: 'Paisaje cordillerano del Cajón del Cachapoal en la Región de O\'Higgins, Chile',
   stats: [
-    { label: 'Cascadas', value: '12' },
-    { label: 'Valles transversales', value: '4' },
-    { label: 'Altura máx.', value: '60 m' },
-    { label: 'Mejor época', value: 'Sep–Dic' },
+    { label: 'Cascadas', value: '10' },
+    { label: 'Reservas nacionales', value: '2' },
+    { label: 'Altura máx.', value: '40 m' },
+    { label: 'Mejor época', value: 'Sep–Abr' },
   ],
   zonas: [
-    { nombre: 'Valle del Huasco & Cordillera de Atacama', cascadas: 4, descripcion: 'Cascadas alimentadas por los ríos Huasco y Copiapó que bajan de los Andes. Quebradas de roca rojiza entre los 2.000 y 4.000 m de altitud.' },
-    { nombre: 'Valle del Elqui & Río Turbio', cascadas: 4, descripcion: 'Saltos de agua en los ríos Elqui, Turbio y Claro. Cascadas entre viñedos pisqueros y observatorios astronómicos, bajo los cielos más limpios del mundo.' },
-    { nombre: 'Valle del Limarí & Choapa', cascadas: 4, descripcion: 'Caídas de agua en los valles del Limarí y Choapa. Zona de transición entre el semidesierto y el Chile central, con cactus y bosque esclerófilo.' },
+    { nombre: 'Cajón del Cachapoal', cascadas: 4, descripcion: 'Cascadas de cordillera en el acceso a las Termas de Cauquenes. Saltos alimentados por el deshielo andino del río Cachapoal, entre paredes de roca volcánica.' },
+    { nombre: 'Reserva Río de los Cipreses', cascadas: 3, descripcion: 'Cascadas dentro de la reserva nacional protegida. Bosques de ciprés de la cordillera, avistamiento de guanacos y cóndores entre saltos de agua.' },
+    { nombre: 'Valle del Tinguiririca', cascadas: 3, descripcion: 'Cascadas en la ruta a las Termas del Flaco. Caídas de agua estacionales alimentadas por nieve andina y aguas termales.' },
   ],
-  descripcion: `Atacama y Coquimbo forman el Norte Chico, una región de transición entre el desierto absoluto y el Chile central verde. Sus 12 cascadas catalogadas se esconden en los valles transversales —Huasco, Elqui, Limarí y Choapa— donde ríos cordilleranos cruzan la aridez para llegar al Pacífico.`,
-  descripcion2: `El Valle del Elqui, famoso por el pisco y la astronomía, alberga cascadas estacionales que cobran fuerza durante los deshielos de primavera. En la Cordillera de Atacama, los ríos Huasco y Copiapó forman saltos entre formaciones de roca rojiza a miles de metros de altitud. Cada ciertos años, el fenómeno del desierto florido transforma el paisaje circundante, creando un contraste extraordinario entre las cascadas y los campos de flores silvestres.`,
+  descripcion: `La Región de O'Higgins esconde cascadas en los cajones andinos del Cachapoal y el Tinguiririca, donde ríos de deshielo forman saltos de agua entre bosques de ciprés de la cordillera y estepa altoandina. Con 10 cascadas catalogadas, es una región discreta pero con alto potencial para quienes buscan naturaleza a menos de dos horas de Santiago.`,
+  descripcion2: `La <a href="/cascadas" class="cascada-inline-link" style="color:#00b4a0; text-decoration:underline; text-underline-offset:3px;">Reserva Nacional Río de los Cipreses</a> —el área protegida más importante de la región— ofrece senderos con cascadas entre cipreses centenarios, avistamiento de guanacos y paredes de roca volcánica. El Cajón del Cachapoal, accesible desde Rancagua, conecta con las históricas Termas de Cauquenes y saltos de agua alimentados por glaciares andinos.`,
   cascadasDestacadas: [
     {
-      nombre: 'Cascada del Huasco',
-      slug: 'cascada-del-huasco',
-      altura: 60,
-      zona: 'Alto del Carmen',
-      dificultad: 'Moderado',
-      imagen: '/assets/cascadas/cascada-de-las-animas/hero.webp',
-      imagenAlt: 'Cascada del río Huasco en la cordillera de la Región de Atacama',
-      destacado: 'La más alta del Norte Chico',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Salto del Elqui',
-      slug: 'salto-del-elqui',
-      altura: 35,
-      zona: 'Paihuano',
-      dificultad: 'Fácil a moderado',
-      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-2.webp',
-      imagenAlt: 'Salto del río Elqui en el Valle del Elqui, Región de Coquimbo',
-      destacado: 'Valle del Elqui',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Cascada Río Turbio',
-      slug: 'cascada-rio-turbio',
-      altura: 25,
-      zona: 'Vicuña',
-      dificultad: 'Fácil',
-      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-3.webp',
-      imagenAlt: 'Cascada del Río Turbio cerca de Vicuña en el Valle del Elqui',
-      destacado: 'Cerca de Vicuña',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Salto del Copiapó',
-      slug: 'salto-del-copiapo',
+      nombre: 'Salto del Cachapoal',
+      slug: 'salto-del-cachapoal',
       altura: 40,
-      zona: 'Tierra Amarilla',
-      dificultad: 'Difícil',
-      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-4.webp',
-      imagenAlt: 'Salto del río Copiapó en la cordillera de la Región de Atacama',
-      destacado: 'Cordillera de Atacama',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Cascada del Limarí',
-      slug: 'cascada-del-limari',
-      altura: 20,
-      zona: 'Monte Patria',
-      dificultad: 'Fácil',
-      imagen: '/assets/cascadas/cascada-las-melosas/hero.webp',
-      imagenAlt: 'Cascada en el Valle del Limarí, Región de Coquimbo',
-      destacado: 'Valle del Limarí',
-      tienepagina: false,
-    },
-    {
-      nombre: 'Salto del Choapa',
-      slug: 'salto-del-choapa',
-      altura: 30,
-      zona: 'Salamanca',
+      zona: 'Cajón del Cachapoal',
       dificultad: 'Moderado',
-      imagen: '/assets/cascadas/cascada-del-lanza/hero.webp',
-      imagenAlt: 'Salto del río Choapa en la precordillera de Coquimbo',
-      destacado: 'Valle del Choapa',
+      imagen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80',
+      imagenAlt: 'Salto del Cachapoal en el cajón andino del río Cachapoal, O\'Higgins',
+      destacado: 'Ruta a Termas de Cauquenes',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada Cipreses',
+      slug: 'cascada-cipreses',
+      altura: 35,
+      zona: 'Reserva Río Cipreses',
+      dificultad: 'Moderado',
+      imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+      imagenAlt: 'Cascada en la Reserva Nacional Río de los Cipreses',
+      destacado: 'Dentro de área protegida',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto Pangal',
+      slug: 'salto-pangal-ohiggins',
+      altura: 30,
+      zona: 'Cajón del Cachapoal',
+      dificultad: 'Moderado',
+      imagen: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80',
+      imagenAlt: 'Salto en quebrada del Pangal, Cajón del Cachapoal',
+      destacado: 'Acceso desde Coya',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Salto Cortaderal',
+      slug: 'salto-cortaderal',
+      altura: 25,
+      zona: 'Reserva Río Cipreses',
+      dificultad: 'Fácil a moderado',
+      imagen: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80',
+      imagenAlt: 'Salto Cortaderal entre cipreses de la cordillera en la Reserva Nacional',
+      destacado: 'Sendero de 5 km',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada Termas del Flaco',
+      slug: 'cascada-termas-del-flaco',
+      altura: 20,
+      zona: 'Valle del Tinguiririca',
+      dificultad: 'Fácil',
+      imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+      imagenAlt: 'Cascada en la ruta a las Termas del Flaco, valle del Tinguiririca',
+      destacado: 'Aguas termales cercanas',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascada Cauquenes',
+      slug: 'cascada-cauquenes',
+      altura: 15,
+      zona: 'Cajón del Cachapoal',
+      dificultad: 'Fácil',
+      imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+      imagenAlt: 'Cascada junto a las históricas Termas de Cauquenes, Cajón del Cachapoal',
+      destacado: 'Historia desde 1891',
       tienepagina: false,
     },
   ],
   tablaCascadas: [
-    { nombre: 'Cascada del Huasco', slug: '', altura: '60 m', dificultad: 'Moderado', acceso: 'Alto del Carmen, camino rural', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Salto del Copiapó', slug: '', altura: '40 m', dificultad: 'Difícil', acceso: 'Tierra Amarilla, 4x4', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Salto del Elqui', slug: '', altura: '35 m', dificultad: 'Fácil a moderado', acceso: 'Paihuano, sendero', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Salto del Choapa', slug: '', altura: '30 m', dificultad: 'Moderado', acceso: 'Salamanca, camino rural', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Cascada Río Turbio', slug: '', altura: '25 m', dificultad: 'Fácil', acceso: 'Vicuña, ruta asfaltada', entrada: 'Gratuita', tienepagina: false },
-    { nombre: 'Cascada del Limarí', slug: '', altura: '20 m', dificultad: 'Fácil', acceso: 'Monte Patria, camino rural', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto del Cachapoal', slug: '', altura: '40 m', dificultad: 'Moderado', acceso: 'Cajón del Cachapoal', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada Cipreses', slug: '', altura: '35 m', dificultad: 'Moderado', acceso: 'Reserva Río Cipreses', entrada: '$4.000 CLP', tienepagina: false },
+    { nombre: 'Salto Pangal', slug: '', altura: '30 m', dificultad: 'Moderado', acceso: 'Coya, Cajón del Cachapoal', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Salto Cortaderal', slug: '', altura: '25 m', dificultad: 'Fácil a moderado', acceso: 'Reserva Río Cipreses', entrada: '$4.000 CLP', tienepagina: false },
+    { nombre: 'Cascada Termas del Flaco', slug: '', altura: '20 m', dificultad: 'Fácil', acceso: 'Valle del Tinguiririca', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada Cauquenes', slug: '', altura: '15 m', dificultad: 'Fácil', acceso: 'Termas de Cauquenes', entrada: 'Gratuita', tienepagina: false },
   ],
-  mapCenter: { lat: -29.5, lng: -70.5 },
-  mapZoom: 7,
-  comoLlegar: `Desde Santiago a La Serena (470 km, 5-6 horas en auto): Ruta 5 Norte o Ruta del Elqui. La Serena es la mejor base para cascadas del Valle del Elqui y Limarí. Desde Santiago a Copiapó (800 km, 8-9 horas): Ruta 5 Norte, base para cascadas de la Cordillera de Atacama.`,
-  comoLlegar2: `Desde La Serena y Copiapó: Ambas ciudades tienen aeropuerto con vuelos diarios desde Santiago (1-1,5 hrs, LATAM, Sky, JetSmart). Alquiler de vehículos disponible. Para cascadas de cordillera se recomienda 4x4. El Valle del Elqui está a 60 km de La Serena por ruta asfaltada.`,
-  comoLlegar3: `Transporte público: Vuelos diarios Santiago-La Serena (1 hr) y Santiago-Copiapó (1,5 hrs). Buses Santiago-La Serena (6 hrs, Tur Bus, Pullman) y Santiago-Copiapó (9 hrs). Buses locales a Vicuña, Paihuano y Alto del Carmen. Para cascadas de montaña se necesita vehículo propio o tour.`,
+  mapCenter: { lat: -34.17, lng: -70.74 },
+  mapZoom: 8,
+  comoLlegar: `Desde Santiago (90-180 km, 1-2.5 horas): Ruta 5 Sur hasta Rancagua, luego rutas interiores al Cajón del Cachapoal o la Reserva Río de los Cipreses. Para las Termas del Flaco, tomar la ruta hacia San Fernando y luego al este.`,
+  comoLlegar2: `Desde Rancagua (capital regional): Base ideal para explorar. Terminal de buses Rodoviario con conexiones cada 20 minutos desde Santiago. Estación de tren EFE con Metrotren desde Estación Central (80 min). Acceso directo al Cajón del Cachapoal por Ruta H-25.`,
+  comoLlegar3: `Transporte público: Metrotren Santiago-Rancagua (1 hora 20 min, alta frecuencia). Buses locales a Machalí, Coya y San Fernando. Para cascadas de montaña se recomienda vehículo propio ya que el transporte público no llega a los senderos.`,
   clima: {
-    tipo: 'Semiárido (BSk) con influencia costera',
-    tempVerano: '22-30°C (valle) / 10-20°C (cordillera)',
-    tempInvierno: '8-18°C (valle) / -5 a 10°C (cordillera)',
-    precipitaciones: '80-150 mm anuales',
-    mejorEpoca: 'Septiembre a Diciembre',
-    descripcion: 'Clima semiárido con cielos despejados más de 300 días al año. Las cascadas tienen mayor caudal en primavera (septiembre-diciembre) con los deshielos cordilleranos. En años de El Niño las lluvias aumentan significativamente y pueden activar el desierto florido. Veranos cálidos en los valles, noches frías en la cordillera. El Valle del Elqui tiene uno de los climas más estables de Chile.',
+    tipo: 'Mediterráneo templado (Csb)',
+    tempVerano: '28-34°C',
+    tempInvierno: '3-14°C',
+    precipitaciones: '400-600 mm anuales',
+    mejorEpoca: 'Septiembre a Abril',
+    descripcion: 'Clima mediterráneo con veranos cálidos y secos e inviernos moderados con lluvias concentradas. En la cordillera las temperaturas son más bajas y hay nieve sobre los 2.000 m de junio a septiembre. Las cascadas tienen máximo caudal en primavera (septiembre-noviembre) por el deshielo andino. En verano el acceso es óptimo pero el caudal disminuye.',
   },
   faq: [
-    { pregunta: '¿Hay cascadas en la Región de Atacama y Coquimbo?', respuesta: 'Sí, existen 12 cascadas catalogadas en el Norte Chico. Se encuentran principalmente en los valles transversales del Huasco, Elqui, Limarí y Choapa, alimentadas por ríos que bajan de la Cordillera de los Andes.' },
-    { pregunta: '¿Cuál es la mejor época para visitar cascadas en el Norte Chico?', respuesta: 'De septiembre a diciembre, durante los deshielos de primavera. Es cuando los ríos cordilleranos tienen mayor caudal. En años de El Niño, las lluvias invernales también pueden aumentar el caudal.' },
-    { pregunta: '¿Se pueden combinar las cascadas con visitas al Valle del Elqui?', respuesta: 'Sí, el Valle del Elqui es la zona más accesible. Se puede combinar la visita a cascadas con degustación de pisco, observación astronómica y trekking. Vicuña y Paihuano son buenas bases.' },
-    { pregunta: '¿Qué es el desierto florido y cuándo ocurre?', respuesta: 'El desierto florido es un fenómeno natural que ocurre en años lluviosos (generalmente por El Niño), cuando más de 200 especies de flores silvestres cubren el desierto entre agosto y noviembre. Coincide con la mejor época para cascadas.' },
-    { pregunta: '¿Necesito vehículo especial para llegar a las cascadas?', respuesta: 'Depende. Las cascadas del Valle del Elqui son accesibles con vehículo normal. Para cascadas de la Cordillera de Atacama (Huasco, Copiapó) se recomienda 4x4 y experiencia en conducción de montaña. Siempre consultar condiciones del camino antes de salir.' },
+    { pregunta: '¿Cuántas cascadas hay en la Región de O\'Higgins?', respuesta: 'La Región de O\'Higgins cuenta con al menos 10 cascadas catalogadas, concentradas en el Cajón del Cachapoal, la Reserva Nacional Río de los Cipreses y el Valle del Tinguiririca.' },
+    { pregunta: '¿Cuál es la cascada más alta de O\'Higgins?', respuesta: 'El Salto del Cachapoal en el Cajón del Cachapoal, con aproximadamente 40 metros de altura, alimentado por el deshielo de glaciares andinos.' },
+    { pregunta: '¿Se necesita entrada para la Reserva Río de los Cipreses?', respuesta: 'Sí, la Reserva Nacional Río de los Cipreses cobra una entrada de aproximadamente $4.000 CLP por persona. Se recomienda comprar en pasesparques.cl con anticipación.' },
+    { pregunta: '¿Cómo llegar al Cajón del Cachapoal desde Santiago?', respuesta: 'Desde Santiago, tomar la Ruta 5 Sur hasta Rancagua (90 km, 1 hora), luego seguir hacia Machalí y Coya por la Ruta H-25 hasta el Cajón del Cachapoal. Total: 130-180 km según el destino final.' },
+    { pregunta: '¿Cuándo es mejor visitar cascadas en O\'Higgins?', respuesta: 'La mejor época es de septiembre a noviembre (primavera), cuando el deshielo andino garantiza máximo caudal. De diciembre a abril el acceso es óptimo pero las cascadas tienen menos agua. En invierno algunas rutas de montaña se cierran por nieve.' },
   ],
   regionesAdyacentes: [
-    { nombre: 'Tarapacá & Antofagasta', slug: 'tarapaca-antofagasta', cascadas: 8 },
-    { nombre: 'Metropolitana & Valparaíso', slug: 'zona-central', cascadas: 31 },
-    { nombre: "O'Higgins", slug: 'ohiggins', cascadas: 10 },
+    { nombre: 'Metropolitana', slug: 'zona-central', cascadas: 31 },
+    { nombre: 'Maule', slug: 'maule', cascadas: 19 },
+    { nombre: 'Ñuble', slug: 'nuble', cascadas: 15 },
   ],
 };
 
@@ -139,8 +139,8 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Cascadas en ${region.nombre}`,
-    description: `Las ${region.totalCascadas} cascadas y saltos de agua en las regiones de Atacama y Coquimbo, Norte Chico de Chile.`,
+    name: `Cascadas en la Región de ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región de ${region.nombre}, Chile.`,
     numberOfItems: region.cascadasDestacadas.length,
     itemListElement: region.cascadasDestacadas.map((c, i) => ({
       '@type': 'ListItem',
@@ -171,9 +171,9 @@ const structuredData = [
 ---
 
 <Layout
-  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas en el Norte Chico | Cascadas de Chile`}
-  description={`Descubre las ${region.totalCascadas} cascadas del Norte Chico de Chile. Guía con mapa, alturas y cómo llegar a cascadas del Valle del Elqui, Cordillera de Atacama y más.`}
-  ogImage={`https://cascadaschile.com${region.imagen}`}
+  title={`Cascadas en O'Higgins — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de la Región de O'Higgins. Guía completa con mapa, alturas, dificultad y cómo llegar al Cajón del Cachapoal, Reserva Río Cipreses y más.`}
+  ogImage={region.imagen}
   structuredData={structuredData}
 >
 
@@ -206,11 +206,11 @@ const structuredData = [
       <p style="color:#00e5d4; font-size:0.82rem; letter-spacing:0.15em; text-transform:uppercase; margin:0 0 0.75rem;">{region.subtitulo}</p>
       <h1 style="
         font-family:'Archivo Black',sans-serif;
-        font-size:clamp(4rem, 10vw, 12rem);
+        font-size:clamp(3.5rem, 9vw, 11rem);
         color:#f4efe6; margin:0; line-height:0.88;
         text-transform:uppercase; letter-spacing:-0.02em;
       ">
-        Norte<br/>Chico
+        Región de<br/>O'Higgins
       </h1>
     </div>
   </section>
@@ -248,7 +248,7 @@ const structuredData = [
         color:#f4efe6; margin:0; line-height:0.9;
         text-transform:uppercase;
       ">
-        Cascadas<br/>del Norte Chico
+        Cascadas en<br/>O'Higgins
       </h2>
       <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
         Mostrando 6 de {region.totalCascadas}
@@ -324,7 +324,7 @@ const structuredData = [
       text-transform:uppercase;
     ">Comparativa de Cascadas</h2>
     <p style="color:rgba(9,29,43,0.5); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300;">
-      Datos clave para planificar tu visita a las cascadas del Norte Chico.
+      Datos clave para planificar tu visita a las cascadas de O'Higgins.
     </p>
 
     <div style="overflow-x:auto;">
@@ -378,16 +378,16 @@ const structuredData = [
       font-size:clamp(2rem, 5vw, 5rem);
       color:#f4efe6; margin:0 0 1rem; line-height:0.9;
       text-transform:uppercase;
-    ">Mapa de Cascadas<br/>del Norte Chico</h2>
+    ">Mapa de Cascadas<br/>en O'Higgins</h2>
     <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300; max-width:560px;">
-      Las cascadas del Norte Chico se distribuyen a lo largo de los valles transversales, desde el Valle del Huasco en Atacama hasta el Valle del Choapa en el sur de Coquimbo.
+      Explora la ubicación de las principales cascadas de la región. Se concentran en el Cajón del Cachapoal al este de Rancagua y en el Valle del Tinguiririca hacia San Fernando.
     </p>
     <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(0,229,212,0.15);">
       <iframe
-        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 2}%2C${region.mapCenter.lat - 2}%2C${region.mapCenter.lng + 2}%2C${region.mapCenter.lat + 2}&layer=mapnik`}
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 1.5}%2C${region.mapCenter.lat - 1}%2C${region.mapCenter.lng + 1.5}%2C${region.mapCenter.lat + 1}&layer=mapnik`}
         style="width:100%; height:450px; border:0;"
         loading="lazy"
-        title={`Mapa de cascadas en ${region.nombre}`}
+        title={`Mapa de cascadas en la Región de ${region.nombre}`}
       ></iframe>
     </div>
   </section>
@@ -403,10 +403,10 @@ const structuredData = [
           color:#091d2b; margin:0 0 2rem; line-height:0.9;
           text-transform:uppercase;
         ">
-          Valles,<br/>Estrellas<br/>y Cascadas
+          Cordillera,<br/>Cipreses<br/>y Termas
         </h2>
         <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0 0 1.5rem;">{region.descripcion}</p>
-        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;">{region.descripcion2}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;" set:html={region.descripcion2}></p>
       </div>
 
       <div class="reveal">
@@ -447,7 +447,7 @@ const structuredData = [
             <p style="color:#f4efe6; font-size:0.95rem; margin:0; font-weight:300;">{region.clima.tipo}</p>
           </div>
           <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
-            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor epoca</p>
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor época</p>
             <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.mejorEpoca}</p>
           </div>
           <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
@@ -481,7 +481,7 @@ const structuredData = [
       font-size:clamp(2rem, 4vw, 4rem);
       color:#091d2b; margin:0 0 3rem; line-height:0.9;
       text-transform:uppercase;
-    ">Cómo Llegar<br/>al Norte Chico</h2>
+    ">Cómo Llegar<br/>a O'Higgins</h2>
 
     <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2.5rem;">
       <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
@@ -494,8 +494,8 @@ const structuredData = [
 
       <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
         <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#9992;</span>
-          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde La Serena y Copiapó</p>
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128646;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde Rancagua</p>
         </div>
         <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar2}</p>
       </div>
@@ -503,7 +503,7 @@ const structuredData = [
       <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
         <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
           <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128652;</span>
-          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte publico</p>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte público</p>
         </div>
         <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar3}</p>
       </div>
@@ -588,7 +588,7 @@ const structuredData = [
       text-transform:uppercase;
     ">Explora las Cascadas<br/>en el Mapa</h2>
     <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300;">
-      Usa el mapa interactivo para planificar tu viaje por las cascadas del Norte Chico, entre el desierto y los valles transversales.
+      Usa el mapa interactivo para planificar tu ruta por las cascadas de O'Higgins y la zona central de Chile.
     </p>
     <a href="/mapa" style="
       display:inline-flex; align-items:center; gap:0.75rem;
