@@ -1,0 +1,669 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por chile-waterfalls-researcher: huilohuilo.com, sernatur.cl, wikiexplora.com, mar 2026
+const cascada = {
+  // --- Identificación ---
+  nombre: 'Salto del Huilo-Huilo',
+  slug: 'salto-del-huilo-huilo',
+  region: 'Los Ríos',
+  zona: 'Neltume, Panguipulli',
+  altura: 37,
+  caudal: 'Régimen pluvio-nival. Caudal elevado todo el año gracias a las precipitaciones de la selva valdiviana; máximo en primavera (octubre-noviembre) por deshielo del volcán Mocho-Choshuenco',
+  dificultad: 'Fácil',
+  acceso: 'Ruta Internacional CH-203 (Panguipulli–Puerto Fuy), acceso señalizado a 500 m del portal Huilo-Huilo',
+  coordenadas: '39°51\'S 71°57\'W',
+  mejorEpoca: 'Octubre — Abril',
+  entrada: 'CLP 6.000 adulto / CLP 3.000 niño (incluye acceso a la Reserva Biológica Huilo-Huilo)',
+  horario: '9:00 a 19:00 en verano; 10:00 a 17:00 en invierno',
+  descripcion: `El Salto del Huilo-Huilo es una de las cascadas más espectaculares del sur de Chile. Con una caída de 37 metros encajonada entre paredes de roca volcánica cubiertas de musgo y helechos, esta cascada es la puerta de entrada natural a la <a href="/region/los-rios" class="cascada-inline-link">Región de Los Ríos</a> y su Reserva Biológica Huilo-Huilo, un área protegida de más de 100.000 hectáreas de bosque valdiviano primario. El Río Fuy, alimentado por las lluvias persistentes de la selva templada y el deshielo del volcán Mocho-Choshuenco, se precipita con fuerza a través de un cañón angosto de basalto volcánico, generando una cortina de espray que mantiene el entorno en un estado de humedad perpetua.
+
+  El nombre "Huilo-Huilo" proviene del mapudungún y significa "grieta" o "fisura", una referencia directa al cañón profundo por donde el río se abre paso. Esta etimología describe con precisión la formación geológica: una fractura en la meseta basáltica creada por la actividad volcánica de la cadena Mocho-Choshuenco, que el río ha ensanchado durante miles de años. El resultado es un anfiteatro natural donde la cascada cae entre paredes tapizadas de vegetación, un escenario que parece sacado de una película de fantasía.
+
+  La Reserva Biológica Huilo-Huilo es un proyecto de conservación privado reconocido por UNESCO como Reserva de la Biósfera de los Bosques Templados Lluviosos de los Andes Australes. La cascada es el atractivo más emblemático de la reserva y funciona como punto de inicio para explorar una red de senderos que atraviesan bosques milenarios de coigüe, lenga y araucaria. Para quienes buscan otras <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a> en la zona, el <a href="/cascadas/salto-del-buey" class="cascada-inline-link">Salto del Buey</a> (90 m) y el <a href="/cascadas/salto-de-rininahue" class="cascada-inline-link">Salto de Riñinahue</a> (27 m) se encuentran en la misma región.`,
+  comoLlegar: `Desde Santiago (900 km, ~10 horas en auto): Tomar Ruta 5 Sur hasta Lanco, luego Ruta 209 hacia Panguipulli. Desde Panguipulli, continuar por la Ruta Internacional CH-203 (camino a Puerto Fuy y paso Hua Hum hacia Argentina) durante 56 km hasta el acceso señalizado a la Reserva Biológica Huilo-Huilo. El camino está pavimentado hasta Neltume y luego es ripio en buen estado.
+
+  Desde Valdivia (170 km, 2,5 horas): Ruta T-205 hacia Panguipulli, luego CH-203 hasta Huilo-Huilo. Ruta completamente pavimentada hasta Panguipulli.
+
+  Desde Panguipulli (56 km, 1 hora): Ruta CH-203 directo. El acceso a la cascada está señalizado en el km 56, junto al portal de la Reserva Biológica.
+
+  En transporte público: Buses JAC y Buses Panguipulli operan frecuencias diarias desde Valdivia y Panguipulli hasta Neltume y Puerto Fuy, con parada en el cruce de la reserva. Desde ahí, 500 metros a pie hasta el mirador de la cascada.`,
+  imagen: '/assets/cascadas/salto-del-huilo-huilo/hero.webp',
+  imagenAlt: 'Salto del Huilo-Huilo, cascada de 37 metros encajonada entre paredes de roca volcánica cubiertas de musgo en la Reserva Biológica Huilo-Huilo',
+  galeria: [
+    { src: '/assets/cascadas/salto-del-huilo-huilo/galeria-1.webp', alt: 'Vegetación valdiviana y vista panorámica del entorno del Salto del Huilo-Huilo' },
+    { src: '/assets/cascadas/salto-del-huilo-huilo/galeria-2.webp', alt: 'Salto de la Leona, cascada secundaria en la Reserva Biológica Huilo-Huilo' },
+    { src: '/assets/cascadas/salto-del-huilo-huilo/galeria-3.webp', alt: 'Vista superior del Salto de la Leona entre el bosque valdiviano de Huilo-Huilo' },
+    { src: '/assets/cascadas/salto-del-huilo-huilo/galeria-4.webp', alt: 'Salto del Puma sobre el Río Fuy en la Reserva Biológica Huilo-Huilo' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Dominsjudd', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Huilo_Huilo.jpg' },
+    { autor: 'Dominsjudd', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Plants_and_vue_from_the_Salto_del_Huilo_Huilo.jpg' },
+    { autor: 'Dominsjudd', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_de_la_Leona_Huilo_Huilo.jpg' },
+    { autor: 'Dominsjudd', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Arriba_del_Salto_de_la_Leona_Huilo_Huilo.jpg' },
+    { autor: 'Elias Rovielo', licencia: 'CC BY-SA 2.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Puma_r%C3%ADo_Fuy.JPG' },
+  ],
+  // 3 por cercanía geográfica (Los Ríos / regiones adyacentes)
+  cascadasCercanas: [
+    { nombre: 'Salto de Riñinahue', slug: 'salto-de-rininahue', region: 'Los Ríos', altura: 27, tipo: 'cercania' },
+    { nombre: 'Salto del Buey', slug: 'salto-del-buey', region: 'Los Ríos', altura: 90, tipo: 'cercania' },
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (reservas naturales, cascadas en bosque valdiviano)
+  cascadasRelacionadas: [
+    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 70, tipo: 'relacionada' },
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', region: 'La Araucanía', altura: 20, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados ---
+  lat: -39.8522,
+  lng: -71.9582,
+  rio: 'Río Fuy',
+  tipoFormacion: 'Caída encajonada en fractura de basalto volcánico',
+  numeroBrazos: 1,
+  distanciaSantiago: 900,
+
+  historia: `La historia del Salto del Huilo-Huilo está íntimamente ligada al pueblo mapuche y a la colonización del territorio de Panguipulli. El nombre "Huilo-Huilo" proviene del mapudungún y se traduce como "grieta" o "fisura profunda", describiendo la fractura geológica por donde el Río Fuy se precipita. Para las comunidades mapuche-huilliche de la zona, el salto y su entorno de bosque valdiviano constituían un espacio sagrado vinculado al ngen-ko (espíritu protector de las aguas).
+
+  Durante el siglo XIX y principios del XX, la zona de Neltume y Huilo-Huilo fue explotada intensamente por la industria maderera. La Sociedad Agrícola y Maderera Neltume (actual SAMANEG) operó aserraderos que transformaron grandes extensiones de bosque nativo en madera comercial. Los trabajadores forestales conocían la cascada como referencia geográfica en sus rutas de extracción. La historia forestal de Neltume incluye episodios de organización sindical y conflicto social que marcaron la región.
+
+  El giro hacia la conservación llegó en la década de 2000, cuando el empresario Víctor Petermann adquirió 100.000 hectáreas de bosque nativo y fundó la Reserva Biológica Huilo-Huilo, transformando una zona de explotación maderera en un proyecto de ecoturismo y conservación. En 2007, UNESCO incorporó la reserva como parte de la Reserva de la Biósfera de los Bosques Templados Lluviosos de los Andes Australes. La <a href="/region/los-rios" class="cascada-inline-link">Región de Los Ríos</a> concentra hoy algunos de los proyectos de conservación más ambiciosos de Sudamérica, con la cascada como ícono turístico del territorio.`,
+
+  queHacer: [
+    { actividad: 'Mirador del Salto del Huilo-Huilo', descripcion: 'Plataforma de observación a 500 metros del acceso principal, con vista frontal a la cascada de 37 metros. Sendero habilitado, accesible para familias. El espray de la cascada alcanza el mirador en días de alto caudal.' },
+    { actividad: 'Sendero Nocturno El Volcán', descripcion: 'Caminata guiada nocturna por el bosque valdiviano con iluminación artística. Se recorre un sendero de 1,2 km entre árboles centenarios con luces que recrean la bioluminiscencia del bosque. Incluye paso cercano a la cascada. Reserva previa en los hoteles de la reserva.' },
+    { actividad: 'Trekking Bosque Valdiviano', descripcion: 'Red de senderos de 5 a 18 km que atraviesan bosque nativo de coigüe, lenga y araucaria. Los senderos principales incluyen la Ruta de los Volcanes (12 km) y el Sendero Los Ojos del Caburgua (8 km). Guías disponibles en la reserva.' },
+    { actividad: 'Canopy y tirolesa sobre el bosque', descripcion: 'Circuito de canopy con 6 plataformas suspendidas entre copas de coigües centenarios. Altura máxima de 40 metros sobre el suelo del bosque. Duración: 2 horas. Apto para mayores de 10 años.' },
+    { actividad: 'Termas naturales', descripcion: 'Las Termas de Huilo-Huilo ofrecen piscinas de aguas termales (38-42°C) rodeadas de bosque nativo. Ubicadas a 5 km de la cascada. Instalaciones con vestuarios, cafetería y acceso habilitado. Precio: CLP 20.000 aprox.' },
+    { actividad: 'Observación de fauna nativa', descripcion: 'La reserva es hábitat del huemul (Hippocamelus bisulcus), el pudú (Pudu puda), el monito del monte (Dromiciops gliroides) y el carpintero negro (Campephilus magellanicus). Tours guiados con avistamiento de fauna disponibles en la reserva.' },
+  ],
+
+  flora: `El entorno del Salto del Huilo-Huilo es un exponente excepcional de la selva valdiviana, uno de los ecosistemas de bosque templado lluvioso más prístinos del planeta. El dosel del bosque está dominado por el coigüe (Nothofagus dombeyi), árbol siempreverde que alcanza los 40 metros de altura y cuyo tronco puede superar los 2 metros de diámetro. Junto al coigüe, la lenga (Nothofagus pumilio) y el raulí (Nothofagus alpina) forman el estrato arbóreo principal en las zonas de mayor altitud.
+
+  El sotobosque es extraordinariamente denso y diverso. Helechos arborescentes como la palmilla (Lophosoria quadripinnata) y el helecho película (Hymenophyllum spp.) tapizan el suelo y las rocas junto a la cascada. Las nalcas (Gunnera tinctoria), con sus hojas de hasta 2 metros de diámetro, bordean el curso del Río Fuy. La murta (Ugni molinae), el calafate (Berberis buxifolia) y la fuchsia silvestre (Fuchsia magellanica) aportan color en primavera y verano. La araucaria (Araucaria araucana), declarada Monumento Natural, aparece en las zonas altas de la reserva sobre los 1.000 m.s.n.m., conectando este bosque con los bosques de <a href="/cascadas/salto-truful-truful" class="cascada-inline-link">Conguillío</a> más al norte.`,
+
+  fauna: `La Reserva Biológica Huilo-Huilo es uno de los últimos refugios del huemul (Hippocamelus bisulcus), ciervo nativo de Chile declarado en peligro de extinción y símbolo del escudo nacional. La reserva mantiene un programa activo de conservación del huemul con monitoreo satelital de poblaciones. El pudú (Pudu puda), el ciervo más pequeño del mundo (35 cm de altura), habita en el sotobosque denso y puede ser avistado al amanecer en los senderos cercanos a la cascada.
+
+  El monito del monte (Dromiciops gliroides), un marsupial de solo 25 gramos considerado "fósil viviente" por ser el último representante del orden Microbiotheria, es endémico de los bosques valdivianos y ha sido registrado en la reserva. Entre las aves, el carpintero negro (Campephilus magellanicus) —el carpintero más grande de Sudamérica— es residente habitual de los coigües centenarios. El chucao (Scelorchilus rubecula), ave terrestre cuyo canto penetrante resuena en el sotobosque, es presencia constante en los senderos. El martín pescador (Megaceryle torquata) y el pato cortacorrientes (Merganetta armata) frecuentan el Río Fuy cerca de la cascada.`,
+
+  clima: {
+    tipo: 'Templado lluvioso (Cfb)',
+    tempPromedio: '7°C',
+    tempVerano: '14-22°C',
+    tempInvierno: '-2-8°C',
+    precipitaciones: '2.912 mm anuales',
+    descripcion: 'Clima templado oceánico con precipitaciones distribuidas durante todo el año, aunque concentradas entre mayo y septiembre. Las nevadas son frecuentes en invierno sobre los 600 m.s.n.m. La humedad relativa es alta todo el año (80-95%), lo que mantiene el bosque valdiviano en estado de verde permanente. La mejor época para visitar es de octubre a abril, cuando las temperaturas son más agradables y los senderos están en mejores condiciones. En invierno (junio-agosto), la cascada presenta su mayor caudal y el paisaje se cubre de nieve, pero algunos senderos pueden estar cerrados.',
+  },
+
+  seguridad: [
+    'Respetar los senderos señalizados: el bosque valdiviano es extremadamente denso y desorientarse fuera de los caminos es un riesgo real',
+    'Llevar ropa impermeable: las lluvias son frecuentes e impredecibles durante todo el año',
+    'No acercarse al borde de la cascada: las rocas son resbaladizas por el musgo y el espray constante',
+    'En invierno, verificar estado de los caminos antes de salir: la nieve y el hielo pueden cerrar la ruta CH-203',
+    'No alimentar a la fauna nativa: el pudú y otras especies son sensibles a la interacción humana',
+    'Llevar repelente de insectos: los tábanos (Tabanus spp.) son abundantes en verano, especialmente cerca del agua',
+    'Respetar los horarios de la reserva: el acceso se cierra al atardecer por seguridad',
+  ],
+
+  recomendaciones: [
+    'Ropa impermeable y cortavientos (imprescindible en cualquier época)',
+    'Calzado de trekking resistente al agua',
+    'Capas térmicas en invierno (temperaturas bajo 0°C)',
+    'Repelente de insectos para los meses de verano',
+    'Cámara fotográfica con funda impermeable',
+    'Binoculares para observación de fauna',
+    'Mínimo 1,5 litros de agua y snacks',
+    'Efectivo para la entrada (no siempre hay terminal de pago en la boletería)',
+  ],
+
+  gastronomia: [
+    { plato: 'Trucha del Río Fuy', descripcion: 'La trucha arcoíris y la trucha marrón del Río Fuy son protagonistas de la cocina local. Se preparan a la parrilla, al horno con hierbas del bosque o en ceviche frío. Los restaurantes de la reserva y Neltume la ofrecen como especialidad.' },
+    { plato: 'Curanto en hoyo', descripcion: 'Preparación ancestral mapuche: mariscos, carnes, papas y chapaleles (masa de papa) cocinados bajo tierra con piedras calientes y hojas de nalca. Los lodges de Huilo-Huilo organizan curantos grupales como experiencia gastronómica.' },
+    { plato: 'Mermeladas de frutos del bosque', descripcion: 'La murta, el calafate, la rosa mosqueta y el maqui se transforman en mermeladas artesanales que se encuentran en las ferias de Panguipulli y en las tiendas de la reserva. El maqui (Aristotelia chilensis) es un superfruto antioxidante endémico.' },
+    { plato: 'Cerveza artesanal Huilo-Huilo', descripcion: 'La cervecería de la reserva elabora cervezas artesanales con agua del Río Fuy y ingredientes locales. Variedades que incluyen amber ale, stout con calafate y pilsener. Disponible en los restaurantes de los hoteles de la reserva.' },
+    { plato: 'Asado al palo con merkén', descripcion: 'Cordero o cerdo asado lentamente al palo junto a brasas de leña de coigüe, sazonado con merkén (ají ahumado mapuche). Plato tradicional de las celebraciones y fiestas costumbristas de la zona de Panguipulli.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Hotel Nothofagus', tipo: 'Hotel boutique de montaña', precioDesde: 'Desde $180.000 CLP/noche', url: 'https://www.huilohuilo.com', descripcion: 'Hotel construido alrededor de un coigüe centenario dentro de la reserva. 55 habitaciones con vista al bosque, spa, restaurante gourmet y acceso directo a senderos. A 2 km de la cascada.' },
+    { nombre: 'Montaña Mágica Lodge', tipo: 'Lodge temático', precioDesde: 'Desde $200.000 CLP/noche', url: 'https://www.huilohuilo.com', descripcion: 'Lodge con forma de volcán del que brota una cascada artificial desde su cima. 13 habitaciones con decoración rústica. Ícono arquitectónico de la reserva y uno de los hoteles más fotografiados de Chile.' },
+    { nombre: 'Cabañas en Neltume', tipo: 'Cabañas familiares', precioDesde: 'Desde $50.000 CLP/noche', url: '#', descripcion: 'Variedad de cabañas equipadas en el pueblo de Neltume, a 15 km de la cascada. Opción más económica con cocina, estacionamiento y ambiente rural. Reservar por Booking o Airbnb.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto cuesta la entrada al Salto del Huilo-Huilo?', respuesta: 'La entrada cuesta CLP 6.000 para adultos y CLP 3.000 para niños. Este valor incluye el acceso al mirador de la cascada y los senderos cercanos dentro de la Reserva Biológica Huilo-Huilo. Los precios pueden variar según temporada.' },
+    { pregunta: '¿Cómo llegar al Salto del Huilo-Huilo desde Santiago?', respuesta: 'Desde Santiago son aproximadamente 900 km (10 horas en auto). Se toma la Ruta 5 Sur hasta Lanco, luego Ruta 209 a Panguipulli y finalmente la Ruta CH-203 hacia Puerto Fuy. El acceso está señalizado en el km 56. También hay buses desde Valdivia y Panguipulli.' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Salto del Huilo-Huilo?', respuesta: 'De octubre a abril es la mejor época, con temperaturas más agradables (14-22°C) y senderos en buen estado. En invierno la cascada tiene mayor caudal y el paisaje nevado es espectacular, pero algunos senderos pueden estar cerrados y las temperaturas bajan a -2°C.' },
+    { pregunta: '¿Se puede visitar el Salto del Huilo-Huilo con niños?', respuesta: 'Sí, el sendero al mirador de la cascada es apto para familias con niños. Son solo 500 metros desde el acceso principal por un camino habilitado. La reserva también ofrece actividades familiares como el sendero nocturno y las termas.' },
+    { pregunta: '¿Qué otros atractivos tiene la Reserva Biológica Huilo-Huilo?', respuesta: 'Además de la cascada, la reserva ofrece senderos de trekking por bosque valdiviano (5-18 km), termas naturales, canopy, sendero nocturno con iluminación artística, y observación de fauna nativa (huemul, pudú, monito del monte). Los hoteles Nothofagus y Montaña Mágica son atractivos en sí mismos.' },
+    { pregunta: '¿Hay alojamiento cerca del Salto del Huilo-Huilo?', respuesta: 'Sí, dentro de la reserva están el Hotel Nothofagus y el Montaña Mágica Lodge (desde CLP 180.000/noche). En Neltume (15 km) hay cabañas más económicas desde CLP 50.000/noche. En Panguipulli (56 km) hay mayor variedad de hospedaje.' },
+    { pregunta: '¿Cuánto mide el Salto del Huilo-Huilo?', respuesta: 'El Salto del Huilo-Huilo tiene una caída de 37 metros. El agua del Río Fuy se precipita por un cañón angosto de roca basáltica volcánica cubierta de vegetación valdiviana, creando un espectáculo visual y sonoro impresionante.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada de ${cascada.altura} metros en la Reserva Biológica Huilo-Huilo, Región de Los Ríos, Chile. Bosque valdiviano, senderos, termas y fauna nativa en 100.000 hectáreas protegidas.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: false,
+    touristType: ['Naturaleza', 'Ecoturismo', 'Trekking', 'Fotografía'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en la Reserva Biológica Huilo-Huilo, Región de Los Ríos. Bosque valdiviano, senderos, termas y fauna nativa. Entrada, cómo llegar y toda la información.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazo` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        {cascada.descripcion.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación del ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Senderos por bosque valdiviano, termas naturales, canopy sobre coigües centenarios y observación de fauna nativa en una de las reservas más espectaculares de Chile.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body" set:html={p.trim()} />
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Alojamiento dentro de la Reserva Biológica Huilo-Huilo y en el pueblo de Neltume.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos.length > 0 && (
+        <p style="color:rgba(244,239,230,0.3); font-size:0.72rem; margin-top:1rem; line-height:1.6;">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <span>
+              <a href={c.url} target="_blank" rel="noopener noreferrer" style="color:rgba(244,239,230,0.4); text-decoration:underline;">{c.autor}</a>
+              {' '}({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ' · ' : ''}
+            </span>
+          ))}
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas en la Región de Los Ríos y zonas adyacentes del sur de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas en reservas naturales y parques nacionales de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero { position: relative; height: 90vh; min-height: 600px; padding-top: 64px; overflow: hidden; }
+  .cascada-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .cascada-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%); }
+  .cascada-hero__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem 2.5rem; }
+  .cascada-hero__bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cascada-hero__title { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 9vw, 10rem); color: #f4efe6; margin: 0; line-height: 0.9; text-transform: uppercase; letter-spacing: -0.02em; }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 6vw, 6rem); color: #00e5d4; margin: 0; line-height: 1; }
+  .cascada-hero__stat-label { color: rgba(244,239,230,0.55); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0; }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .cascada-breadcrumb a { color: rgba(244,239,230,0.6); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current { color: #00e5d4; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge { display: inline-block; background: #00e5d4; color: #091d2b; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1rem; }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link { color: #00b4a0; text-decoration: underline; text-decoration-color: rgba(0,180,160,0.3); text-underline-offset: 2px; transition: text-decoration-color 0.2s; }
+  .cascada-inline-link:hover { text-decoration-color: #00b4a0; color: #00e5d4; }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: #091d2b; margin: 0 0 1.5rem; text-transform: uppercase; }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+  .cascada-body { color: #091d2b; font-size: 1.05rem; line-height: 1.75; margin: 0 0 1.25rem; font-weight: 300; }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+  .cascada-list { list-style: none; padding: 0; margin: 0; }
+  .cascada-list li { color: #091d2b; font-size: 1rem; line-height: 1.75; padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-weight: 300; }
+  .cascada-list li::before { content: ''; position: absolute; left: 0; top: 1rem; width: 6px; height: 6px; border-radius: 50%; background: #00e5d4; }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(9,29,43,0.12); }
+  .cascada-ficha__item { padding: 1.5rem 1.25rem; border-right: 1px solid rgba(9,29,43,0.12); border-bottom: 1px solid rgba(9,29,43,0.12); }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem; }
+  .cascada-ficha__value { font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500; }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; max-width: 1200px; }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map { border-radius: 4px; border: 0; margin-top: 2rem; }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cascada-card { border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 2rem; transition: border-color 0.2s; }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: #00e5d4; line-height: 1; display: block; margin-bottom: 1rem; }
+  .cascada-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem; text-transform: uppercase; }
+  .cascada-card__text { color: rgba(244,239,230,0.6); font-size: 0.92rem; line-height: 1.65; margin: 0; font-weight: 300; }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid rgba(244,239,230,0.1); border-radius: 4px; overflow: hidden; }
+  .cascada-clima__stat { padding: 1.5rem 1.25rem; border-right: 1px solid rgba(244,239,230,0.1); }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem; }
+  .cascada-clima__value { font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400; }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 1000px; }
+  .cascada-gastro-card { border: 1px solid rgba(9,29,43,0.1); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s; }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem; text-transform: uppercase; }
+  .cascada-gastro-card__text { color: rgba(9,29,43,0.7); font-size: 0.92rem; line-height: 1.65; margin: 0; font-weight: 300; }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cascada-alojamiento-card { display: block; text-decoration: none; border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s, transform 0.3s; }
+  .cascada-alojamiento-card:hover { border-color: rgba(0,229,212,0.4); transform: translateY(-4px); }
+  .cascada-alojamiento-card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .cascada-alojamiento-card__badge { display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; }
+  .cascada-alojamiento-card__price { color: #00e5d4; font-size: 0.85rem; font-weight: 500; }
+  .cascada-alojamiento-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem; text-transform: uppercase; }
+  .cascada-alojamiento-card__text { color: rgba(244,239,230,0.55); font-size: 0.9rem; line-height: 1.6; margin: 0; font-weight: 300; }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 0.75rem; }
+  .cascada-galeria__big { grid-row: 1 / 3; border-radius: 4px; overflow: hidden; }
+  .cascada-galeria__small { border-radius: 4px; overflow: hidden; }
+  .cascada-galeria__big img, .cascada-galeria__small img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+  .cascada-faq__question { font-family: 'Archivo Black', sans-serif; font-size: 1.05rem; color: #091d2b; padding: 1.25rem 0; cursor: pointer; text-transform: uppercase; list-style: none; }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after { content: '+'; float: right; color: #00e5d4; font-size: 1.4rem; font-weight: 400; transition: transform 0.2s; }
+  details[open] .cascada-faq__question::after { content: '−'; }
+  .cascada-faq__answer { color: rgba(9,29,43,0.75); font-size: 1rem; line-height: 1.75; margin: 0; padding: 0 0 1.5rem; font-weight: 300; }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .cascada-cercana-card { display: block; text-decoration: none; border: 1px solid rgba(244,239,230,0.08); border-radius: 4px; padding: 1.75rem; transition: border-color 0.2s; }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .cascada-cercana-card__badge { display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; }
+  .cascada-cercana-card__badge--tipo { background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5); }
+  .cascada-cercana-card__badge--semantic { background: rgba(0,180,160,0.15); color: #00b4a0; }
+  .cascada-cercana-card__title { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem; text-transform: uppercase; }
+  .cascada-cercana-card__meta { color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300; }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta { background: #00e5d4; padding: 6rem 2.5rem; text-align: center; }
+  .cascada-cta__title { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 5vw, 5rem); color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95; text-transform: uppercase; }
+  .cascada-cta__text { color: #091d2b; font-size: 1.05rem; max-width: 500px; margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75; }
+  .cascada-cta__button { display: inline-flex; align-items: center; gap: 0.75rem; color: #00e5d4; background: #091d2b; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px; }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-galeria { grid-template-columns: 1fr 1fr; grid-template-rows: 250px 200px 200px; }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+</style>
