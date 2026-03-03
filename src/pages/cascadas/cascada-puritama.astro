@@ -1,0 +1,922 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Verificado por chile-waterfalls-researcher, marzo 2026
+const cascada = {
+  nombre: 'Cascada Puritama',
+  slug: 'cascada-puritama',
+  region: 'Antofagasta',
+  zona: 'San Pedro de Atacama',
+  altura: 15,
+  caudal: 'Variable estacional (mayor en invierno altiplánico, dic–mar)',
+  dificultad: 'Fácil',
+  acceso: 'Ruta B-245 km 28 desde San Pedro de Atacama (ripio)',
+  coordenadas: '22°43\'S 68°02\'W',
+  mejorEpoca: 'Mayo — Noviembre',
+  entrada: 'CLP 20.000–25.000 (solo online)',
+  horario: 'Sesiones: 09:30–13:30 / 14:30–18:00',
+  descripcion: `La Cascada Puritama es parte de un sistema de saltos de agua y pozones termales formados por el Río Puritama en un cañón de paredes riolíticas de hasta 50 metros de altura, a 3.475 metros sobre el nivel del mar en la precordillera de Antofagasta. El río nace de manantiales geotermales en la Reserva de Conservación Puritama y desciende formando cascadas escalonadas entre 8 pozones de agua termal con temperaturas entre 28 y 33,5 °C.
+
+  El nombre Puritama proviene de la lengua kunza del pueblo Lickan Antai (atacameño): «Puri» (agua) y «Tama» (caliente). Las aguas, ricas en calcio, magnesio, sodio y boro, han sido utilizadas con fines medicinales y ceremoniales por las comunidades atacameñas desde hace miles de años. La reserva que protege este ecosistema abarca 7.000 hectáreas y alberga 83 especies de plantas nativas y más de 170 especies de flora y fauna.
+
+  A diferencia de otras <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a>, Puritama combina la experiencia de cascadas naturales con pozones de agua termal en pleno desierto de Atacama, creando un oasis de vida en una de las zonas más áridas del planeta. El trekking por la Quebrada de Guatín hasta los pozones recorre un cañón espectacular entre cactus cardones centenarios de hasta 6 metros de altura, convirtiéndolo en una experiencia única dentro de la <a href="/region/tarapaca-antofagasta" class="cascada-inline-link">Región de Antofagasta</a>.`,
+  comoLlegar: `Desde San Pedro de Atacama (28 km, 35 min en auto): Tomar la Ruta B-245 hacia el norte (camino a Machuca/Géiseres del Tatio). El desvío a las termas está señalizado. Camino de ripio accesible para todo tipo de vehículos. No existe transporte público hasta Puritama — se requiere vehículo propio o tour organizado.
+
+  Desde Calama (130 km, 2 horas): Tomar Ruta 23 hasta San Pedro de Atacama, luego Ruta B-245 hacia el norte.
+
+  Desde Santiago (1.629 km): Vuelo Santiago (SCL) a Calama (CJC), 1 hora 30 minutos. Desde el aeropuerto El Loa de Calama, transfer o bus a San Pedro de Atacama (100 km, 1 hora 10 min). Desde San Pedro, 35 minutos hasta Puritama. También hay buses nocturnos Santiago–Calama (Pullman Bus, Tur-Bus, 20-22 horas).`,
+  imagen: '/assets/cascadas/cascada-puritama/hero.webp',
+  imagenAlt: 'Río Puritama fluyendo por la quebrada entre formaciones rocosas del desierto de Atacama, Región de Antofagasta',
+  galeria: [
+    { src: '/assets/cascadas/cascada-puritama/galeria-1.webp', alt: 'Pozones termales de Puritama con pasarelas de madera sobre el agua termal' },
+    { src: '/assets/cascadas/cascada-puritama/galeria-2.webp', alt: 'Vista de las Termas de Puritama encajonadas en el cañón del desierto de Atacama' },
+    { src: '/assets/cascadas/cascada-puritama/galeria-3.webp', alt: 'Confluencia de los ríos Puritama y Turipite en la Quebrada de Guatín' },
+    { src: '/assets/cascadas/cascada-puritama/galeria-4.webp', alt: 'Cactus cardón en flor junto a las Termas de Puritama, flora nativa del desierto' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Noel Portugal', licencia: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Puritama_(16468280347).jpg' },
+    { autor: 'Negrorodrigo', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Termas-puritama-rgj-01.jpg' },
+    { autor: 'Luciajimena1990', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Termas_de_Puritama,_Desierto_de_Atacama._Chile.jpg' },
+    { autor: 'WeHaKa', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Ruta_B-223_km_001-468_Guat%C3%ADn-Confluencia_Puritama_y_Turipite.jpg' },
+    { autor: 'LBM1948', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Cactus_en_flor_1.jpg' },
+  ],
+  // 3 por cercanía geográfica (no hay otras cascadas publicadas en la región)
+  cascadasCercanas: [
+    { nombre: 'Cascada de los Vientos', slug: 'cascada-de-los-vientos', region: 'Metropolitana', altura: 30, tipo: 'cercania' },
+    { nombre: 'Cascada El Yeso', slug: 'cascada-el-yeso', region: 'Metropolitana', altura: 15, tipo: 'cercania' },
+    { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (fácil acceso, entorno natural único, experiencia turística)
+  cascadasRelacionadas: [
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+    { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', region: 'Metropolitana', altura: 15, tipo: 'relacionada' },
+    { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, tipo: 'relacionada' },
+  ],
+
+  lat: -22.7208,
+  lng: -68.0447,
+  rio: 'Río Puritama',
+  tipoFormacion: 'Cañón fluvial en meseta riolítica — geotermia volcánica',
+  numeroBrazos: 8,
+  distanciaSantiago: 1629,
+
+  historia: `El área de la Quebrada de Puritama ha sido habitada o transitada desde hace aproximadamente 12.000 años, con evidencia de grupos nómadas cazadores-recolectores desde hace 6.000 años. Los pueblos atacameños Lickan Antai utilizaron estas aguas termales con fines medicinales y ceremoniales desde tiempos prehispánicos. El nombre «Puritama» proviene de la lengua kunza: «Puri» (agua) y «Tama» (caliente), revelando la importancia ancestral de este recurso hídrico en pleno desierto.
+
+  La zona evidencia influencias culturales de Tiwanaku y el Imperio Inca. La reserva contiene restos arqueológicos y petroglifos de guanacos y vicuñas que documentan la vida humana en la quebrada durante milenios. Las comunidades atacameñas consideran el agua un recurso sagrado, y Puritama tiene un significado espiritual profundo dentro de su cosmovisión.
+
+  Geológicamente, los pozones se encuentran en un cañón tallado en la meseta riolítica andina. La fuente geotermal está asociada al volcanismo del altiplano, y se reportan depósitos de travertino (carbonato de calcio precipitado por las aguas termales). En tiempos modernos, la empresa Explora creó y administra la Reserva de Conservación Puritama con énfasis en la conservación del gato andino y la educación ambiental, abarcando 7.000 hectáreas de ecosistema protegido.`,
+
+  queHacer: [
+    { actividad: 'Baño en pozones termales', descripcion: 'La actividad principal: 8 pozones de agua termal con temperaturas entre 28 y 33,5 °C, conectados por pasarelas de madera. Solo se permiten productos de cuidado personal naturales. Se requiere reserva online previa en termasdepuritama.cl.' },
+    { actividad: 'Trekking Quebrada de Guatín', descripcion: 'Sendero de 10 km (ida) desde el km 21 de la Ruta B-245 hasta los pozones. El recorrido bordea el río entre cactus cardones centenarios y paredes de cañón de hasta 50 metros. Duración: 3 a 4 horas (ida). Nivel moderado por altitud (3.475 msnm).' },
+    { actividad: 'Fotografía y observación de naturaleza', descripcion: 'El cañón riolítico, los cardones de hasta 6 metros, la fauna (vicuñas, vizcachas, aves andinas) y los depósitos de travertino ofrecen excelentes oportunidades fotográficas durante todo el año.' },
+    { actividad: 'Picnic en áreas habilitadas', descripcion: 'El complejo cuenta con áreas de picnic junto a los pozones. No se permite alcohol ni envases de vidrio. Llevar comida propia — no hay servicio de restaurante en el lugar.' },
+  ],
+
+  flora: `La Reserva de Conservación Puritama alberga 83 especies de plantas nativas y 39 tipos de formaciones vegetales. El entorno combina la aridez extrema del desierto atacameño con la humedad del Río Puritama, creando una zona de transición única en la precordillera andina.
+
+  La especie más emblemática es el cardón (Echinopsis atacamensis), cactus columnar que puede alcanzar 6 metros de altura. Los ejemplares del cañón de Puritama son centenarios y constituyen uno de los principales atractivos del trekking por la Quebrada de Guatín. La llareta (Azorella compacta), planta en forma de almohada compacta de color verde intenso, crece pocos milímetros por año y tiene uso medicinal para los pueblos andinos. Completan el paisaje la tola (Parastrephia quadrangularis), arbusto de puna; la paja brava (Festuca orthophylla), gramínea de las praderas andinas; y la queñoa (Polylepis sp.), árbol de altura que forma pequeños bosquecillos en quebradas protegidas entre 3.800 y 4.300 msnm.`,
+
+  fauna: `La reserva ha registrado más de 170 especies de flora y fauna nativa, incluyendo 32 especies de aves, 21 de mamíferos y 38 de invertebrados, cuatro de ellas nuevas para la ciencia. El gato andino (Leopardus jacobita) es la especie emblema del programa de conservación: es el felino más amenazado de América del Sur, con apenas 1.400 ejemplares a nivel mundial. Explora mantiene 27 cámaras trampa desde 2010 para monitorear su población.
+
+  La vicuña (Vicugna vicugna), camélido salvaje andino, es de avistamiento probable durante la visita. El guanaco (Lama guanicoe), cuya presencia milenaria está documentada en petroglifos de la reserva, también habita la zona. El zorro culpeo (Lycalopex culpaeus) es el canido más frecuente, mientras que el puma (Puma concolor) está presente pero es raramente avistado. La vizcacha (Lagidium viscacia), roedor rupícola, habita en los afloramientos rocosos. Entre las aves destacan tres especies de flamencos (chileno, andino y de James), frecuentes en las lagunas altiplánicas cercanas, además de 32 especies registradas incluyendo tráupidos y furnáridos andinos.`,
+
+  clima: {
+    tipo: 'Desértico de altura (BWk) — Puna atacameña',
+    tempPromedio: '10–15°C',
+    tempVerano: '22–28°C (día) / 2–8°C (noche)',
+    tempInvierno: '12–18°C (día) / bajo 0°C (noche)',
+    precipitaciones: 'Menos de 50 mm anuales',
+    descripcion: 'El clima de Puritama es desértico de altura extremo a 3.475 msnm. Las amplitudes térmicas diarias alcanzan 15 a 20°C. El 90% de los días son despejados. La radiación UV es extrema durante todo el año — el desierto de Atacama es la zona con mayor radiación solar del planeta. De diciembre a marzo se producen lluvias del invierno altiplánico que pueden generar crecidas del río. La mejor época es mayo a noviembre: temporada seca, cielos despejados, sin riesgo de crecidas.',
+  },
+
+  seguridad: [
+    'Mal de altura (soroche): Puritama está a 3.475 msnm. Aclimatarse al menos 1 día en San Pedro (2.400 msnm) antes de visitar. No hacer ejercicio intenso las primeras 24 horas en altitud.',
+    'Hidratación: la altitud y ambiente seco aceleran la deshidratación. Beber mínimo 2 litros de agua por día.',
+    'Protección solar: radiación UV extrema durante todo el año. Usar SPF 50+ obligatorio. Solo se permiten protectores solares de origen natural en los pozones.',
+    'Invierno altiplánico (dic–mar): riesgo de crecidas del Río Puritama por lluvias. Verificar condiciones con la administración antes de visitar en esta época.',
+    'Calzado acuático con suela antideslizante es indispensable para circular entre pozones.',
+    'Reservar con anticipación online en termasdepuritama.cl — no se garantiza entrada sin reserva previa.',
+    'No se permite fumar, alcohol ni envases de vidrio. No se permiten mascotas.',
+    'Hospital más cercano: Centro de Salud de San Pedro de Atacama (30 km). Hospital de referencia en Calama (130 km).',
+  ],
+
+  recomendaciones: [
+    'Traje de baño y toalla',
+    'Calzado de agua antideslizante (imprescindible)',
+    'Protector solar SPF 50+ de origen natural (productos químicos prohibidos en pozones)',
+    'Agua: mínimo 2 litros por persona',
+    'Snacks o almuerzo (áreas de picnic, no hay restaurante)',
+    'Ropa abrigada de muda — las temperaturas bajan fuerte al salir del agua',
+    'Gafas de sol con protección UV',
+    'Té de coca (disponible en San Pedro, remedio tradicional para la puna)',
+    'Cámara fotográfica para el cañón y los cardones',
+  ],
+
+  gastronomia: [
+    { plato: 'Patasca atacameña', descripcion: 'Guiso ceremonial Lickan Antai preparado con maíz seco cocido lentamente, carne de vacuno, cordero y cerdo, sofrito con ajo, cebolla y paprika. Plato ancestral de las comunidades del Salar de Atacama.' },
+    { plato: 'Charquicán atacameño', descripcion: 'Estofado de carne seca (charqui), papas, maíz y verduras. Herencia directa de las técnicas de conservación de alimentos del altiplano andino.' },
+    { plato: 'Quinoa en múltiples preparaciones', descripcion: 'Grano ancestral andino, base de sopas, ensaladas y guarniciones. Fundamental en la dieta andina desde hace miles de años. Se cultiva en los oasis del desierto.' },
+    { plato: 'Guanaco a la cazuela', descripcion: 'Carne de guanaco de textura suave similar al cordero, en cazuela tradicional con papas y verduras. Disponible en restaurantes especializados de San Pedro de Atacama.' },
+    { plato: 'Pisco sour de rica rica', descripcion: 'Variante atacameña del clásico pisco sour aromatizado con rica rica, hierba autóctona del desierto de Atacama. Especialidad de los bares de San Pedro.' },
+    { plato: 'Locro de trigo', descripcion: 'Guiso tradicional andino de trigo con carne y verduras. Alimento reconfortante de la cocina de altura, ideal para recuperar energías después de la visita.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Explora San Pedro de Atacama', tipo: 'Hotel de lujo', precioDesde: 'Consultar precio', url: 'https://www.explora.com', descripcion: 'El hotel que administra la Reserva de Puritama. Ofrece acceso exclusivo a la reserva para sus huéspedes. Lodge de alta gama con excursiones incluidas en el desierto de Atacama.' },
+    { nombre: 'Nayara Alto Atacama', tipo: 'Hotel boutique', precioDesde: 'Consultar precio', url: '#', descripcion: 'Hotel boutique de lujo 5 estrellas en San Pedro de Atacama, calificación 9.3/10. Piscina, spa y excursiones guiadas al desierto.' },
+    { nombre: 'Hotel Cumbres San Pedro', tipo: 'Hotel', precioDesde: 'Consultar precio', url: '#', descripcion: 'Hotel de categoría media-alta en San Pedro de Atacama. Piscina temperada, restaurante con cocina local y excursiones organizadas.' },
+    { nombre: 'Hotel Diego de Almagro', tipo: 'Hotel de cadena', precioDesde: 'Consultar precio', url: '#', descripcion: 'Cadena hotelera chilena con presencia en San Pedro. Opción confiable de categoría media con desayuno incluido.' },
+    { nombre: 'Hostales en San Pedro', tipo: 'Hostal', precioDesde: 'Desde ~CLP 15.000/noche', url: '#', descripcion: 'San Pedro cuenta con amplia oferta de hostales y residenciales. Opciones para todos los presupuestos, desde dormitorios compartidos hasta habitaciones privadas con baño.' },
+  ],
+
+  faq: [
+    { pregunta: '¿La Cascada Puritama tiene pozones termales?', respuesta: 'Sí. El Río Puritama forma cascadas y saltos de agua que alimentan 8 pozones de agua termal con temperaturas entre 28 y 33,5 °C. Las aguas son ricas en calcio, magnesio, sodio y boro. Los pozones están conectados por pasarelas de madera dentro de un cañón de 50 metros de altura.' },
+    { pregunta: '¿Cuánto cuesta entrar a las Termas de Puritama?', respuesta: 'La entrada para adultos cuesta entre CLP 20.000 y CLP 25.000 (verificar precio exacto en termasdepuritama.cl). Adultos mayores y niños hasta 12 años pagan la mitad. Personas con certificación de indígena pagan CLP 2.000. Las entradas se compran exclusivamente online con reserva previa.' },
+    { pregunta: '¿Cómo llegar a la Cascada Puritama desde San Pedro de Atacama?', respuesta: 'Se llega por la Ruta B-245 hacia el norte, recorriendo 28 km desde San Pedro (35 minutos en vehículo). El camino es de ripio accesible para todo tipo de autos. No existe transporte público — se necesita vehículo propio o contratar un tour con traslado desde San Pedro.' },
+    { pregunta: '¿Se puede visitar en verano (diciembre a marzo)?', respuesta: 'Sí, pero con precaución. Entre diciembre y marzo se produce el invierno altiplánico con lluvias que pueden generar crecidas del Río Puritama y afectar el acceso. Se recomienda verificar condiciones con la administración antes de la visita en esta época.' },
+    { pregunta: '¿Puede afectar el mal de altura?', respuesta: 'Sí. Puritama está a 3.475 msnm, significativamente más alto que San Pedro de Atacama (2.400 msnm). Se recomienda aclimatarse al menos 1 día en San Pedro antes de visitar, hidratarse bien, evitar actividad física intensa y considerar té de coca como remedio tradicional.' },
+    { pregunta: '¿Se puede ir sin reserva?', respuesta: 'No. Las entradas son de venta exclusivamente online en termasdepuritama.cl. Sin reserva previa no se garantiza el ingreso. Se recomienda reservar con anticipación, especialmente en temporada alta.' },
+    { pregunta: '¿Es apto para familias con niños?', respuesta: 'Sí, con precauciones. Los niños hasta 12 años pagan precio reducido y los menores de 3 años no cuentan en el aforo. Los pozones tienen temperaturas suaves (28-33 °C). Considerar el efecto de la altitud en niños pequeños. El acceso requiere bajar escaleras y pasarelas (10 minutos desde el estacionamiento).' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascadas y pozones termales del Río Puritama a 3.475 msnm en San Pedro de Atacama, Región de Antofagasta, Chile. 8 pozones de agua termal entre 28 y 33,5 °C en un cañón de 50 metros de altura.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: false,
+    openingHours: 'Mo-Su 09:30-18:00',
+    touristType: ['Naturaleza', 'Termas', 'Trekking', 'Fotografía'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: 'Tarapacá y Antofagasta', item: 'https://cascadaschile.com/region/tarapaca-antofagasta' },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascadas y termas a ${cascada.altura} m en ${cascada.zona}, ${cascada.region}. Cómo llegar, pozones termales, trekking, clima y toda la información para tu visita.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas">Cascadas</a>
+        <span>›</span>
+        <a href="/region/tarapaca-antofagasta">Antofagasta</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Pozones', value: `${cascada.numeroBrazos} pozones termales` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre la {cascada.nombre}</h2>
+        <p class="cascada-body">La Cascada Puritama es parte de un sistema de saltos de agua y pozones termales formados por el Río Puritama en un cañón de paredes riolíticas de hasta 50 metros de altura, a 3.475 metros sobre el nivel del mar en la precordillera de Antofagasta. El río nace de manantiales geotermales en la Reserva de Conservación Puritama y desciende formando cascadas escalonadas entre 8 pozones de agua termal con temperaturas entre 28 y 33,5 °C.</p>
+        <p class="cascada-body">El nombre Puritama proviene de la lengua kunza del pueblo Lickan Antai (atacameño): «Puri» (agua) y «Tama» (caliente). Las aguas, ricas en calcio, magnesio, sodio y boro, han sido utilizadas con fines medicinales y ceremoniales por las comunidades atacameñas desde hace miles de años. La reserva que protege este ecosistema abarca 7.000 hectáreas y alberga 83 especies de plantas nativas y más de 170 especies de flora y fauna.</p>
+        <p class="cascada-body">A diferencia de otras <a href="/cascadas" class="cascada-inline-link">cascadas de Chile</a>, Puritama combina la experiencia de cascadas naturales con pozones de agua termal en pleno desierto de Atacama, creando un oasis de vida en una de las zonas más áridas del planeta. El trekking por la Quebrada de Guatín hasta los pozones recorre un cañón espectacular entre cactus cardones centenarios de hasta 6 metros de altura, convirtiéndolo en una experiencia única dentro de la <a href="/region/tarapaca-antofagasta" class="cascada-inline-link">Región de Antofagasta</a>.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar a la {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación de la ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.05},${cascada.lat-0.03},${cascada.lng+0.05},${cascada.lat+0.03}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde baños termales en pozones naturales hasta trekking por quebradas con cactus centenarios, Puritama ofrece una experiencia única en el desierto de Atacama.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora de la {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna de la {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura de la {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body">{p.trim()}</p>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca de la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Todo el alojamiento se encuentra en San Pedro de Atacama, a 30 km de Puritama. Opciones desde hostales económicos hasta lodges de lujo.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre la {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a la {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        No hay otras cascadas publicadas en la Región de Antofagasta aún. Estas son las más cercanas del catálogo.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas con experiencia similar: naturaleza única, fácil acceso y entorno protegido.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora el mapa interactivo con todas las cascadas de Chile catalogadas.</p>
+    <a href="/mapa" class="cascada-cta__button">Abrir mapa →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:last-child { border-bottom: none; }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+
+  @media (max-width: 480px) {
+    .cascada-hero { min-height: 500px; height: 80vh; }
+    .cascada-hero__stat-number { font-size: 2.5rem; }
+    .cascada-galeria {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 200px);
+    }
+    .cascada-galeria__big { grid-column: 1; grid-row: 1; }
+  }
+</style>

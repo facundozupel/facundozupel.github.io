@@ -1,0 +1,510 @@
+{
+  "cascada": {
+    "id": "salto-caillin",
+    "nombre_oficial": "Salto Caillín",
+    "nombres_alternativos": [
+      "Cascadas del Caillín",
+      "Salto Caillin",
+      "Salto del Caillín"
+    ],
+    "nota_nombre": "El nombre 'Caillín' probablemente deriva del mapudungun. El IGM registra tanto 'Río Callín' como 'Estero Callín' en la cartografía de la zona de Collipulli (Biblioteca Nacional Digital de Chile). El topónimo podría relacionarse con la raíz mapuche asociada a color o tierras de colores, aunque no se encontró una etimología verificada de forma concluyente. [NO VERIFICADO — requiere consulta con lingüistas mapuche o el IGM]",
+    "coordenadas": {
+      "latitud": -37.884482,
+      "longitud": -72.414676,
+      "precision": "alta",
+      "fuente_coordenadas": "Wikimapia (ID: 34910145, coordenadas: -37.8844818, -72.414676) cruzado con Wikiloc trail 'Salto Caillin' (punto final: -37.885176, -72.413646). Ambas fuentes convergen en el mismo punto geográfico con diferencia menor a 100 metros.",
+      "nota": "Las coordenadas corresponden a la ubicación de la cascada propiamente tal, dentro del Fundo Pan Grande, a ~7,5 km al norte de Collipulli. Las coordenadas del punto de inicio del camino (Reconoce Chile listing) son: -37.920836, -72.428019.",
+      "coordenadas_estacionamiento": {
+        "latitud": -37.920836,
+        "longitud": -72.428019,
+        "fuente": "Reconoce Chile listing (dirección: 'Collipulli Mininco Por La Mortandad')",
+        "nota": "Punto de inicio del camino rural desde Collipulli hacia el norte"
+      }
+    },
+    "ubicacion": {
+      "region": "La Araucanía",
+      "provincia": "Malleco",
+      "comuna": "Collipulli",
+      "altitud_msnm": 270,
+      "nota_altitud": "Estimada a partir del perfil de elevación del trail Wikiloc (elevación máxima 270 m s.n.m. en el recorrido). [NO VERIFICADO con medición directa]",
+      "cuenca": "Cuenca del río Vergara / subcuenca del río Callín",
+      "rio_origen": "Río Callín (también documentado como Estero Callín)",
+      "fuente_rio": "Cartografía IGM registrada en Biblioteca Nacional Digital de Chile (mapa de Collipulli). El río Callín drena hacia el río Renaico, afluente del río Vergara.",
+      "referencia_geografica": "Interior del Fundo Pan Grande, sector Niza, a 7,5 km al norte de Collipulli. El acceso parte por la carretera Collipulli–Mininco (camino hacia Pailahueque)."
+    },
+    "caracteristicas_fisicas": {
+      "altura_metros": 20,
+      "nota_altura": "INCONSISTENCIA DETECTADA entre fuentes: VisitarChile.com indica 'aproximada de 20 metros' y Reconoce Chile no especifica altura. Sin embargo, la noticia de Radio Viaducto (01/01/2019) sobre un accidente fatal en el lugar menciona 'una altura de 40 metros'. La diferencia podría deberse a que el salto tiene múltiples caídas (la caída principal de ~20 m más tramos adicionales sumando ~40 m), o a imprecisión periodística. [REQUIERE VERIFICACIÓN EN TERRENO — se reporta 20 m en fuentes turísticas, 40 m en nota policial]",
+      "altura_total_estimada": "20–40 metros (rango según fuentes; no verificado con medición técnica)",
+      "numero_saltos": null,
+      "nota_saltos": "Las fuentes mencionan 'cascadas' en plural en algunos contextos (ej: 'sector Salto Caillin' y 'Cascadas del Caillín'), lo que sugiere posibles caídas múltiples o escalonadas. [NO VERIFICADO]",
+      "tipo_cascada": "Plunge / velo (caída libre sobre ladera de roca)",
+      "nota_tipo": "[NO VERIFICADO — inferido de fotografías disponibles en fuentes secundarias]",
+      "geologia": "La zona de Collipulli y Malleco corresponde a suelos del Pleistoceno con presencia de depósitos volcánicos y sedimentos fluviales. La Cordillera de Nahuelbuta al oeste condiciona el drenaje hacia el este. [NO VERIFICADO — requiere consulta SERNAGEOMIN]",
+      "temporada_optima": "Diciembre a marzo (verano). El camino de tierra puede resultar difícil o intransitable en invierno por lluvias. El caudal máximo se registra en primavera (septiembre–noviembre) con el deshielo y lluvias previas.",
+      "caudal": "No disponible — varía estacionalmente. Mayor caudal en primavera; disminuye notablemente en verano (enero–febrero). [NO VERIFICADO]"
+    },
+    "actividades": [
+      {
+        "nombre": "Fotografía de naturaleza",
+        "descripcion": "La cascada y el entorno boscoso nativo ofrecen escenarios fotográficos de alta calidad. Especialmente recomendada en horas de la mañana cuando la luz penetra entre la vegetación.",
+        "dificultad": "Sin dificultad",
+        "permitida": true
+      },
+      {
+        "nombre": "Baño y refrescarse en las pozas",
+        "descripcion": "Las aguas claras del Salto Caillín permiten bañarse en la poza inferior durante el verano. Actividad popular entre visitantes locales.",
+        "dificultad": "Sin dificultad",
+        "permitida": true,
+        "advertencia": "PRECAUCIÓN: Un accidente fatal ocurrió el 1 de enero de 2019 cuando un visitante cayó desde la parte alta de la cascada al intentar tomarse una selfie. Se recomienda extrema precaución cerca de los bordes y zonas elevadas."
+      },
+      {
+        "nombre": "Senderismo / trekking",
+        "descripcion": "El acceso desde Collipulli implica recorrer ~7,5 km por camino rural de tierra, apto para vehículo o para recorrer en bicicleta de montaña (registrado en Wikiloc con 8,74 km de recorrido, moderado). No se identificó un sendero peatonal oficial señalizado.",
+        "dificultad": "Fácil a moderado",
+        "distancia_km": 7.5,
+        "duracion_estimada": "2–3 horas ida y vuelta caminando; 45–60 minutos en vehículo o bicicleta"
+      },
+      {
+        "nombre": "Picnic",
+        "descripcion": "El área entorno a la cascada es apta para picnic familiar. No se registran instalaciones formales (mesas, quinchos).",
+        "dificultad": "Sin dificultad",
+        "permitida": true
+      },
+      {
+        "nombre": "Ciclismo de montaña / mountain bike",
+        "descripcion": "El camino rural de tierra hasta la cascada es frecuentado por ciclistas. Registrado en Wikiloc como trail de MTB de dificultad moderada (8,74 km, desnivel mínimo).",
+        "dificultad": "Moderado",
+        "permitida": true
+      },
+      {
+        "nombre": "Contemplación y meditación",
+        "descripcion": "La tranquilidad del entorno y el sonido del agua lo convierten en un destino para descanso y conexión con la naturaleza, especialmente en días de semana fuera de temporada alta.",
+        "dificultad": "Sin dificultad",
+        "permitida": true
+      }
+    ],
+    "actividades_no_encontradas": [
+      "Barranquismo / canyoning — no hay registros de operadores ni rutas documentadas [NO VERIFICADO]",
+      "Rappel — no hay registros de actividad organizada [NO VERIFICADO]",
+      "Pesca deportiva — no se encontró información sobre regulaciones o práctica en el Río Callín a esta altura [NO VERIFICADO]",
+      "Camping — no se documentaron sitios de camping en el lugar. El camping más cercano con servicios formales es el Camping Cascada Chancagua, a ~30 km al noreste"
+    ],
+    "aptitudes": {
+      "familias": true,
+      "ninos": true,
+      "movilidad_reducida": false,
+      "nota_movilidad": "El acceso por camino rural de tierra no es apto para sillas de ruedas. Una vez en el área de la cascada, el terreno es irregular.",
+      "nivel_dificultad": "fácil",
+      "nota_dificultad": "El acceso principal requiere vehículo (o bicicleta). La visita a la cascada en sí es de dificultad fácil. Se clasifica como 'moderado' el recorrido completo en bicicleta de montaña."
+    },
+    "area_protegida": {
+      "es_area_protegida": false,
+      "nota": "El Salto Caillín se ubica dentro del Fundo Pan Grande, un predio privado, y no está dentro de ninguna área silvestre protegida del SNASPE (CONAF). La Reserva Nacional Malleco (16.625 ha) está ubicada en la misma comuna de Collipulli pero se accede por caminos distintos (vía Jauja-Luján, a ~75 km del centro de Collipulli). El Parque Nacional Tolhuaca (6.474 ha) está en las comunas de Collipulli y Curacautín, pero el acceso principal es desde Curacautín.",
+      "nombre_area": null,
+      "administrador": "Privado (Fundo Pan Grande)",
+      "horarios": "Sin horarios establecidos — acceso libre durante el día en temporada de verano",
+      "tarifa_entrada": "Sin costo registrado en ninguna fuente consultada"
+    },
+    "empresas_servicios": [
+      {
+        "nombre": "Turismo Collipulli (municipalidad)",
+        "tipo": "Información turística oficial",
+        "contacto": "turismocollipulli.cl",
+        "nota": "Portal turístico municipal de Collipulli. [VERIFICAR VIGENCIA — web activa al momento de investigación 2026]"
+      },
+      {
+        "nombre": "Araucanía Viva",
+        "tipo": "Portal de turismo regional",
+        "contacto": "araucaniaviva.cl / contacto@araucaniaviva.cl",
+        "nota": "Lista alojamientos y atractivos en la provincia de Malleco y Cautín. [VERIFICAR VIGENCIA]"
+      }
+    ],
+    "nota_empresas": "No se encontraron operadores turísticos ni guías certificados que ofrezcan excursiones específicas al Salto Caillín. El lugar se visita de forma autónoma, sin infraestructura turística formal ni empresas de aventura registradas en el sitio. [NO VERIFICADO — recomendable consultar con SERNATUR La Araucanía]",
+    "hospedaje_cercano": [
+      {
+        "nombre": "Hotel Savoy Collipulli",
+        "tipo": "Hotel",
+        "distancia_cascada_km": 8,
+        "ubicacion": "Collipulli (ciudad)",
+        "precio_aproximado": "No disponible",
+        "url": "https://www.tripadvisor.com/Hotel_Review-g4212584-d12212660-Reviews-Hotel_Savoy-Collipulli_Araucania_Region.html",
+        "fuente": "Tripadvisor + Araucanía Viva",
+        "nota": "[VERIFICAR VIGENCIA — listado activo en Tripadvisor 2025]"
+      },
+      {
+        "nombre": "Residencial Los Puentes",
+        "tipo": "Residencial / hospedaje",
+        "distancia_cascada_km": 8,
+        "ubicacion": "Collipulli (ciudad)",
+        "precio_aproximado": "No disponible",
+        "url": "http://araucaniaviva.cl/p/alojamiento-en-collipulli/residencial-los-puentes/",
+        "fuente": "Araucanía Viva",
+        "nota": "[VERIFICAR VIGENCIA]"
+      },
+      {
+        "nombre": "Cabañas Surco y Semilla",
+        "tipo": "Cabañas",
+        "distancia_cascada_km": 26,
+        "ubicacion": "A 18 km de Collipulli en parcela rural",
+        "precio_aproximado": "No disponible (verificar en Booking.com)",
+        "descripcion": "Propiedad de 4 hectáreas con dos cabañas equipadas, tinaja caliente, kayak y senderos propios",
+        "url": "https://www.booking.com/hotel/cl/cabanas-surco-y-semilla.html",
+        "fuente": "Booking.com (WAF bloqueó acceso directo — datos desde resultados de búsqueda)",
+        "nota": "[VERIFICAR VIGENCIA Y PRECIO — estimado 2025]"
+      },
+      {
+        "nombre": "Camping Cascada Chancagua",
+        "tipo": "Camping",
+        "distancia_cascada_km": 30,
+        "ubicacion": "30 km al noreste de Collipulli, junto al Salto Chancagua",
+        "precio_aproximado": "No disponible",
+        "descripcion": "Camping bien equipado junto al Salto de Chancagua (70 m de altura), con servicios de atención para familias",
+        "fuente": "VisitarChile.com",
+        "nota": "[VERIFICAR VIGENCIA — no se encontró contacto ni web propia]"
+      },
+      {
+        "nombre": "Hoteles en Angol",
+        "tipo": "Ciudad alternativa de referencia",
+        "distancia_cascada_km": 40,
+        "ubicacion": "Angol, capital de la Provincia de Malleco",
+        "descripcion": "Angol ofrece mayor variedad de alojamiento, restaurantes y servicios. Es la ciudad de servicios más completa de la provincia, a ~40 km al suroeste de Collipulli.",
+        "nota": "Consultar Booking.com o Tripadvisor para opciones actualizadas en Angol"
+      }
+    ],
+    "como_llegar": {
+      "descripcion_desde_santiago": "Desde Santiago se recorren aproximadamente 579 km por la Ruta 5 Sur (Autopista del Sur), con un tiempo estimado de viaje de 5 horas y 30 minutos en automóvil sin detenciones. La ruta pasa por San Fernando, Curicó, Talca, Linares, Chillán, Los Ángeles y el Salto del Laja. Se llega a Collipulli tomando el desvío correspondiente desde la Ruta 5 Sur. Desde Collipulli se toman 7,5 km adicionales hacia el norte por camino rural de tierra en dirección al sector Niza / Fundo Pan Grande.",
+      "descripcion_desde_ciudad_cercana": "Desde el centro de Collipulli: tomar el camino rural hacia el norte en dirección a Mininco / La Mortandad (ruta señalizada parcialmente). El camino es de tierra, apto para todo tipo de vehículos en temporada seca (diciembre–marzo). En invierno puede requerir vehículo con tracción doble. Distancia total: 7,5 km desde el centro de Collipulli.",
+      "descripcion_desde_temuco": "Desde Temuco (capital regional): recorrer ~120 km hacia el norte por la Ruta 5 Sur hasta el desvío a Collipulli (comuna a ~17 km al norte de Victoria). Tiempo estimado: 1 hora 30 minutos.",
+      "descripcion_desde_los_angeles": "Desde Los Ángeles (ciudad de servicios Biobío): ~76 km hacia el sur por Ruta 5 Sur. Tiempo estimado: 50–60 minutos en automóvil.",
+      "coordenadas_inicio_camino": {
+        "latitud": -37.920836,
+        "longitud": -72.428019,
+        "descripcion": "Punto de inicio del camino rural desde Collipulli (Reconoce Chile)"
+      },
+      "coordenadas_cascada": {
+        "latitud": -37.884482,
+        "longitud": -72.414676
+      },
+      "distancia_santiago_km": 579,
+      "tiempo_santiago_horas": 5.5,
+      "distancia_collipulli_km": 7.5,
+      "transporte_publico": "Existen buses desde Santiago a Collipulli (aprox. 7–8 horas). Empresas como Tur Bus, Pullman Bus y Flota Erbuc operan en el corredor Ruta 5 Sur con parada en Collipulli o en ciudades intermedias (Los Ángeles, Victoria). Desde Collipulli, no existe transporte público formal hacia el Salto Caillín — se recomienda taxi local o vehículo particular.",
+      "estado_camino_2026": "Camino rural de tierra (ripio) de ~7,5 km. Accesible en verano para todo tipo de vehículos. En invierno (junio–agosto) puede presentar barro y dificultades. [VERIFICAR VIGENCIA — estado del camino puede variar]"
+    },
+    "flora": {
+      "descripcion": "La zona de Collipulli y el Fundo Pan Grande se caracteriza por vegetación del tipo bosque esclerófilo y bosque templado lluvioso en transición. La especie más mencionada en el entorno del Salto Caillín es el Quillay (Quillaja saponaria), árbol nativo endémico de Chile que habita desde Coquimbo hasta Malleco, presente en laderas del valle. La Reserva Nacional Malleco, ubicada en la misma comuna, registra: ciprés de la cordillera, lingue, ñirre, raulí, coihue, mañío, roble y olivillo. En primavera florecen taique, fucsia, quinchamalí, copihue y orquídeas.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Quillay",
+          "nombre_cientifico": "Quillaja saponaria",
+          "descripcion": "Árbol nativo endémico, especie dominante en el entorno del salto según fuentes turísticas"
+        },
+        {
+          "nombre_comun": "Coihue",
+          "nombre_cientifico": "Nothofagus dombeyi",
+          "descripcion": "Presente en bosques nativos de la provincia de Malleco"
+        },
+        {
+          "nombre_comun": "Roble",
+          "nombre_cientifico": "Nothofagus obliqua",
+          "descripcion": "Especie de Nothofagus común en la zona"
+        },
+        {
+          "nombre_comun": "Copihue",
+          "nombre_cientifico": "Lapageria rosea",
+          "descripcion": "Flor nacional de Chile, presente en los bosques húmedos de Malleco. Floración en otoño-invierno."
+        }
+      ],
+      "fuente": "VisitarChile.com + Reserva Nacional Malleco (CONAF) + datos regionales BCN",
+      "nota": "El listado de flora específica del Salto Caillín es limitado. Solo el quillay fue mencionado explícitamente en fuentes sobre el sitio. Las demás especies corresponden al contexto regional de la Reserva Nacional Malleco. [VERIFICAR EN TERRENO]"
+    },
+    "fauna": {
+      "descripcion": "La fauna del entorno de Collipulli incluye especies propias de los bosques templados del sur de Chile. La Reserva Nacional Malleco (misma comuna) registra mamíferos como pudú, guiña, puma, zorros (culpeo y gris) y aves como el carpintero negro (Campephilus magellanicus), torcaza (Patagioenas araucana), halcón peregrino (Falco peregrinus) y cóndor (Vultur gryphus). En los cursos de agua de la zona se pueden encontrar coypu (coipo) y potencialmente trucha en el Río Callín.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Pudú",
+          "nombre_cientifico": "Pudu puda",
+          "descripcion": "Pequeño cérvido nativo en peligro de extinción, presente en bosques de Malleco"
+        },
+        {
+          "nombre_comun": "Carpintero negro",
+          "nombre_cientifico": "Campephilus magellanicus",
+          "descripcion": "El pájaro carpintero más grande del hemisferio sur, habita bosques nativos"
+        },
+        {
+          "nombre_comun": "Cóndor andino",
+          "nombre_cientifico": "Vultur gryphus",
+          "descripcion": "Registrado en la Reserva Nacional Malleco; puede avistarse en las alturas de la zona"
+        },
+        {
+          "nombre_comun": "Güiña",
+          "nombre_cientifico": "Leopardus guigna",
+          "descripcion": "Felino nativo más pequeño de América, raro y tímido, con presencia en Malleco"
+        }
+      ],
+      "fuente": "Reserva Nacional Malleco (CONAF/VisitarChile) + datos regionales",
+      "nota": "No se encontró registro específico de fauna avistada en el Salto Caillín propiamente tal. Las especies listadas corresponden al contexto regional y de la Reserva Nacional Malleco. [VERIFICAR EN TERRENO]"
+    },
+    "clima": {
+      "tipo": "Templado oceánico lluvioso con influencia mediterránea (Malleco norte)",
+      "descripcion": "Collipulli presenta un clima templado mesotermal con máximo de precipitaciones en invierno y una sequía relativa en verano, influenciado por su posición en la zona norte de La Araucanía y la proximidad a la Cordillera de Nahuelbuta. La temperatura promedio anual es de 10,3°C.",
+      "temp_promedio_anual_c": 10.3,
+      "temp_verano_max_c": 28,
+      "temp_verano_min_c": 12,
+      "temp_invierno_max_c": 10,
+      "temp_invierno_min_c": 2,
+      "precipitaciones_anuales_mm": "800–1.200 (zona de Malleco norte, menor que la zona andina)",
+      "meses_lluviosos": "Mayo a agosto (invierno). Junio y julio son los meses más lluviosos.",
+      "meses_secos": "Diciembre a marzo (verano). Enero y febrero son los más secos.",
+      "mejor_epoca_visita": "Diciembre a marzo. Enero y febrero son los meses más populares. Primavera (septiembre–noviembre) ofrece mayor caudal y vegetación exuberante, aunque con mayor posibilidad de lluvias.",
+      "fuente": "BCN SIIT Región La Araucanía + AccuWeather Collipulli"
+    },
+    "informacion_cultural": {
+      "contexto_mapuche": "La zona de Collipulli y Malleco fue territorio ancestral del pueblo mapuche, específicamente del sector Nagche (mapuche de tierras llanas). La 'Pacificación de la Araucanía' (segunda mitad del siglo XIX) implicó la conquista militar de estos territorios por el Estado chileno. El nombre 'Collipulli' en mapudungun significa 'tierras de colores' o 'tierra colorada' (colli = colorado/rojo, pulli = tierra/suelo). El topónimo 'Caillín' puede estar relacionado con esta misma familia lingüística mapuche.",
+      "historia_collipulli": "Collipulli fue fundada como fuerte militar el 22 de noviembre de 1867 durante la Ocupación de la Araucanía. El elemento más destacado de su patrimonio histórico es el Viaducto del Malleco, puente ferroviario de acero inaugurado el 26 de octubre de 1890 por el Presidente José Manuel Balmaceda. Con 102 metros de altura y 345 metros de largo, fue en su tiempo uno de los puentes ferroviarios más altos del mundo. Fue construido en Francia y transportado a Chile. Declarado Monumento Nacional en 1990 y candidato a Patrimonio Mundial UNESCO (proceso activo en 2025).",
+      "significado_cultural_cascada": "No se encontró documentación específica sobre significado cultural o espiritual del Salto Caillín para comunidades mapuche locales. [NO VERIFICADO — se recomienda consultar con comunidades Nagche del sector]",
+      "leyendas": [],
+      "nota_leyendas": "No se encontraron leyendas documentadas asociadas al Salto Caillín en ninguna fuente consultada. [NO VERIFICADO]",
+      "menciones_medios": [
+        "Radio Viaducto Collipulli (01/01/2019) — Noticia sobre accidente fatal en el lugar",
+        "SoyChile Temuco (01/01/2019) — Noticia sobre accidente fatal",
+        "Clave9.cl (02/01/2019) — Noticia sobre accidente fatal",
+        "TikTok @luisrogeliog (2023) — Video drone del Salto Caillín con hashtags turísticos"
+      ]
+    },
+    "seguridad": {
+      "advertencias_criticas": [
+        "ACCIDENTE FATAL (01/01/2019): Un joven de ~26 años murió al caer desde la parte alta de la cascada mientras intentaba tomarse una selfie. Fuentes: Radio Viaducto, SoyChile. No acercarse a los bordes superiores.",
+        "El camino de tierra puede ser peligroso o intransitable en época de lluvias (mayo–agosto). Se recomienda visitar solo en temporada seca.",
+        "No hay infraestructura de seguridad formal (barandas, señalética de peligro, guardaparques) registrada en el lugar.",
+        "No hay servicios de rescate inmediatos en el Fundo Pan Grande — la señal de celular en zonas rurales de Collipulli puede ser limitada."
+      ],
+      "recomendaciones_generales": [
+        "Visitar en grupos, nunca solo",
+        "Informar a alguien del itinerario antes de partir",
+        "Llevar agua potable suficiente (no se documentan fuentes de agua segura en el lugar)",
+        "Llevar calzado con buen agarre para terreno húmedo y resbaladizo",
+        "No tomar selfies en bordes de precipicios o zonas elevadas cerca de la cascada",
+        "Llevar botiquín de primeros auxilios básico",
+        "Respetar el predio privado (Fundo Pan Grande) y sus eventuales indicaciones",
+        "Sacar toda la basura del lugar — no hay servicio de recolección"
+      ]
+    },
+    "gastronomia_regional": {
+      "descripcion": "La gastronomía de La Araucanía y la Provincia de Malleco tiene fuerte influencia mapuche. En Collipulli y ciudades cercanas como Angol y Victoria se pueden encontrar platos tradicionales.",
+      "platos_tipicos": [
+        {
+          "plato": "Cazuela mapuche con locro",
+          "descripcion": "Guiso sustancioso con trigo ahumado triturado (locro), carne y verduras. Plato emblemático de la cultura mapuche, ampliamente disponible en la región."
+        },
+        {
+          "plato": "Tortilla de rescoldo",
+          "descripcion": "Pan elaborado en cenizas calientes bajo la tierra. Textura característica y sabor ahumado. Presente en negocios y ferias campesinas de la zona."
+        },
+        {
+          "plato": "Catuto / Multrung",
+          "descripcion": "Preparación mapuche de trigo cocido moldeado en pequeños cilindros. Se consume como acompañamiento o en preparaciones dulces."
+        },
+        {
+          "plato": "Asado de cordero",
+          "descripcion": "Tradición campesina de la zona rural de Malleco. Se encuentra en restaurantes de campo y fondas."
+        },
+        {
+          "plato": "Milcao",
+          "descripcion": "Preparación de papa rallada y cocida, típica del sur de Chile. Disponible en restaurantes de la región."
+        },
+        {
+          "plato": "Miel de ulmo",
+          "descripcion": "La miel producida con las flores del ulmo (Eucryphia cordifolia) es un producto artesanal propio de los bosques templados del sur. Se vende en ferias y mercados de Collipulli y Angol."
+        }
+      ],
+      "donde_comer": "No se encontraron restaurantes específicos en el sector del Salto Caillín. La oferta gastronómica formal se concentra en Collipulli (ciudad) y, con mayor variedad, en Angol (~40 km). Consultar con la Municipalidad de Collipulli o en turismocollipulli.cl para restaurantes actualizados.",
+      "fuente": "Fuentes gastronómicas regionales: BioBioChile.cl, comidasyplatostipicos.com, araucaniainfinita.cl"
+    },
+    "faq": [
+      {
+        "pregunta": "¿Dónde queda el Salto Caillín?",
+        "respuesta": "El Salto Caillín se ubica en la comuna de Collipulli, provincia de Malleco, Región de La Araucanía, Chile. Se encuentra en el interior del Fundo Pan Grande, a 7,5 km al norte de la ciudad de Collipulli, en el sector denominado Niza."
+      },
+      {
+        "pregunta": "¿Cuánto mide el Salto Caillín?",
+        "respuesta": "Las fuentes turísticas disponibles indican una altura aproximada de 20 metros. Sin embargo, fuentes periodísticas (2019) hacen referencia a una caída de 40 metros en el lugar. No existe medición técnica oficial publicada. La discrepancia podría explicarse por caídas escalonadas que suman esa altura total."
+      },
+      {
+        "pregunta": "¿Cómo llegar al Salto Caillín desde Collipulli?",
+        "respuesta": "Desde el centro de Collipulli se toma el camino rural hacia el norte en dirección al sector Niza / La Mortandad (camino a Mininco). El trayecto es de aproximadamente 7,5 km por camino de tierra, accesible para todo tipo de vehículos en verano. En invierno puede requerir vehículo con tracción doble."
+      },
+      {
+        "pregunta": "¿Cuál es la mejor época para visitar el Salto Caillín?",
+        "respuesta": "La temporada ideal es el verano, entre diciembre y marzo, cuando el camino de tierra está en mejores condiciones. Para mayor caudal de agua, la primavera (septiembre–noviembre) es óptima, aunque el camino puede presentar barro."
+      },
+      {
+        "pregunta": "¿Tiene costo de entrada el Salto Caillín?",
+        "respuesta": "Según las fuentes consultadas, no existe cobro de entrada registrado. El lugar es de acceso libre, aunque se ubica dentro de un fundo privado (Fundo Pan Grande). Se recomienda verificar con la Municipalidad de Collipulli antes de visitar."
+      },
+      {
+        "pregunta": "¿Se puede bañar en el Salto Caillín?",
+        "respuesta": "Sí, el baño en la poza inferior es una actividad popular entre los visitantes en verano. Sin embargo, se recomienda extrema precaución: en enero de 2019, un joven falleció al caer desde la parte superior de la cascada. No acercarse a los bordes elevados."
+      },
+      {
+        "pregunta": "¿Qué cascadas hay cerca del Salto Caillín?",
+        "respuesta": "Las cascadas más cercanas son el Salto de Chancagua (70 m de altura, a ~30 km al noreste de Collipulli) y el Salto del Malleco (49 m, en el Parque Nacional Tolhuaca, accesible principalmente desde Curacautín). El Salto Rehúen está en Mulchén, Biobío, a ~60 km al noroeste."
+      },
+      {
+        "pregunta": "¿Hay alojamiento cerca del Salto Caillín?",
+        "respuesta": "En Collipulli (a 8 km) hay opciones básicas como el Hotel Savoy y la Residencial Los Puentes. Las Cabañas Surco y Semilla están a 18 km de Collipulli en zona rural. La mayor oferta de alojamiento se encuentra en Angol (~40 km al suroeste) y en la ciudad de Victoria (~17 km al sur)."
+      }
+    ],
+    "cascadas_cercanas": [
+      {
+        "nombre": "Salto de Chancagua",
+        "distancia_km": 30,
+        "distancia_descripcion": "30 km al noreste de Collipulli",
+        "region": "La Araucanía",
+        "provincia": "Malleco",
+        "comuna": "Collipulli",
+        "altura_metros": 70,
+        "descripcion": "Cascada de 70 metros de altura rodeada de bosque nativo con olivillo, pitra y quila. Cuenta con camping propio (Camping Cascada Chancagua).",
+        "tipo_relacion": "cercanía geográfica"
+      },
+      {
+        "nombre": "Salto del Malleco",
+        "distancia_km": 80,
+        "distancia_descripcion": "~80 km desde Collipulli vía camino a Curacautín",
+        "region": "La Araucanía",
+        "provincia": "Malleco",
+        "comuna": "Curacautín",
+        "altura_metros": 49,
+        "descripcion": "Cascada de 49 metros dentro del Parque Nacional Tolhuaca. Sendero de 2 km ida y vuelta por bosque nativo de coigüe.",
+        "tipo_relacion": "cercanía geográfica"
+      },
+      {
+        "nombre": "Salto Rehúen",
+        "distancia_km": 60,
+        "distancia_descripcion": "~60 km al noroeste de Collipulli, cerca de Mulchén (Biobío)",
+        "region": "Biobío",
+        "provincia": "Biobío",
+        "comuna": "Mulchén",
+        "altura_metros": 70,
+        "descripcion": "Cascada de 70 metros a 5 km al sur de Mulchén, con caída vertical sobre roca volcánica.",
+        "tipo_relacion": "cercanía geográfica"
+      },
+      {
+        "nombre": "Saltos del Laja",
+        "distancia_km": 100,
+        "distancia_descripcion": "~100 km al norte de Collipulli por Ruta 5 Sur",
+        "region": "Biobío",
+        "provincia": "Biobío",
+        "comuna": "Cabrero",
+        "altura_metros": 35,
+        "descripcion": "Las cascadas más famosas de Chile central, con cuatro brazos de agua y 35 metros de altura junto a la Ruta 5 Sur.",
+        "tipo_relacion": "relación semántica (cascadas conocidas de la zona centro-sur)"
+      }
+    ],
+    "estado_datos": {
+      "fecha_investigacion": "2026-03-02",
+      "confiabilidad_general": "media",
+      "nota_confiabilidad": "Los datos de ubicación y acceso son de confiabilidad alta (verificados en múltiples fuentes). Los datos físicos (altura exacta de la cascada, geología, flora/fauna específica del sitio) son de confiabilidad baja a media por falta de fuentes técnicas oficiales. La ausencia de presencia formal de CONAF o SERNATUR en el lugar limita la verificación de datos de servicios e infraestructura.",
+      "datos_no_verificados": [
+        "Altura exacta de la cascada (discrepancia entre 20 m y 40 m entre fuentes)",
+        "Número exacto de saltos o caídas",
+        "Tipo de formación geológica específica",
+        "Caudal estimado del Río Callín a la altura de la cascada",
+        "Nombre del propietario actual del Fundo Pan Grande",
+        "Disponibilidad de señal celular en el lugar",
+        "Existencia de señalética o sendero demarcado",
+        "Significado etimológico exacto de 'Caillín' en mapudungun",
+        "Significado cultural del lugar para comunidades mapuche locales",
+        "Estado del camino de tierra en 2026 (puede haber cambiado)",
+        "Vigencia del Hotel Savoy, Residencial Los Puentes y Cabañas Surco y Semilla"
+      ],
+      "fuentes_consultadas": [
+        {
+          "nombre": "VisitarChile.com — Salto Caillín",
+          "url": "https://www.visitarchile.com/araucania/collipulli/caida-de-agua-45/salto-caillin/",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Ubicación, altura (20 m), flora, actividades, acceso"
+        },
+        {
+          "nombre": "Reconoce Chile — Salto Caillín Collipulli",
+          "url": "https://reconocechile.com/listing/salto-caillin-collipulli/",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Coordenadas de acceso (-37.920836, -72.428019), dirección, descripción"
+        },
+        {
+          "nombre": "Wikimapia — Salto Caillin (ID: 34910145)",
+          "url": "http://wikimapia.org/34910145/es/Salto-Caillin",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Coordenadas de la cascada (-37.8844818, -72.414676)"
+        },
+        {
+          "nombre": "Wikiloc — Salto Caillin Trail (mountain biking)",
+          "url": "https://www.wikiloc.com/mountain-biking-trails/salto-caillin-12002934",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Coordenadas del punto final (-37.885176, -72.413646), distancia 8,74 km, elevación máx 270 m"
+        },
+        {
+          "nombre": "Wikiloc — Ruta Salto Caillin Collipulli (vehículo)",
+          "url": "https://es.wikiloc.com/rutas-coche/salto-caillin-collipulli-60396409",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Ruta en vehículo, 31,52 km totales desde zona de partida distante, elevación máx 358 m"
+        },
+        {
+          "nombre": "Radio Viaducto Collipulli — Noticia accidente 2019",
+          "url": "https://radioviaducto.cl/2019/01/01/joven-fallece-al-caer-de-una-altura-de-40-metros-en-sector-salto-caillin/",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Mención de altura de 40 metros (en titular periodístico), accidente fatal 01/01/2019"
+        },
+        {
+          "nombre": "SoyChile Temuco — Noticia accidente 2019",
+          "url": "https://www.soychile.cl/Temuco/Policial/2019/01/01/575042/Hombre-fallecio-tras-caer-mientras-se-tomaba-una-selfie-en-Collipulli.aspx",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Confirmación del accidente, circunstancias"
+        },
+        {
+          "nombre": "Reserva Nacional Malleco — CONAF",
+          "url": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malleco/",
+          "confiabilidad": "alta",
+          "datos_obtenidos": "Flora, fauna, horarios (martes a viernes 8:30–18:00), email: reserva.malleco@conaf.cl, no tiene senderos ni servicios de pernocte"
+        },
+        {
+          "nombre": "BCN SIIT — Clima Región de La Araucanía",
+          "url": "https://www.bcn.cl/siit/nuestropais/region9/clima.htm",
+          "confiabilidad": "alta",
+          "datos_obtenidos": "Tipo de clima, temperaturas, precipitaciones"
+        },
+        {
+          "nombre": "Biblioteca Nacional Digital de Chile — Cartografía IGM Collipulli",
+          "url": "https://www.bibliotecanacionaldigital.gob.cl/bnd/635/w3-article-352765.html",
+          "confiabilidad": "alta",
+          "datos_obtenidos": "Confirmación de existencia de Río Callín y Estero Callín en la cartografía oficial"
+        },
+        {
+          "nombre": "Araucanía Viva — Alojamiento Collipulli",
+          "url": "http://araucaniaviva.cl/a/alojamiento-en-collipulli/",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Hotel Savoy y Residencial Los Puentes como opciones de alojamiento"
+        },
+        {
+          "nombre": "Historia Collipulli — Viaducto del Malleco",
+          "url": "https://araucanianoticias.cl/2025/el-viaducto-del-malleco-gigante-de-acero-y-memoria-viva-de-collipulli-y-sus-135-aos-de-servicio-al-transporte-ferroviario/1022291936",
+          "confiabilidad": "alta",
+          "datos_obtenidos": "Historia de Collipulli, Viaducto del Malleco"
+        },
+        {
+          "nombre": "VisitarChile.com — Salto de Chancagua",
+          "url": "https://www.visitarchile.com/araucania/collipulli/caida-de-agua-45/salto-de-chancagua/",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Altura (70 m), acceso, flora, Camping Cascada Chancagua"
+        },
+        {
+          "nombre": "VisitarChile.com — Salto del Malleco",
+          "url": "https://www.visitarchile.com/araucania/curacautin/caida-de-agua-51/salto-del-malleco/",
+          "confiabilidad": "media",
+          "datos_obtenidos": "Altura (49 m), Parque Nacional Tolhuaca, acceso desde Curacautín"
+        }
+      ]
+    }
+  }
+}
