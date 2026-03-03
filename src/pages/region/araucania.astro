@@ -70,35 +70,36 @@ const region = {
       tienepagina: false,
     },
     {
-      nombre: 'Cascadas del Huerquehue',
-      slug: 'cascadas-huerquehue',
-      altura: 25,
-      zona: 'Pucón',
-      dificultad: 'Moderada',
-      imagen: '/assets/cascadas/salto-truful-truful/galeria-4.webp',
-      imagenAlt: 'Bosque de araucarias con el Volcán Llaima de fondo en Conguillío',
-      destacado: 'Sendero Los Lagos',
-      tienepagina: false,
-    },
-    {
       nombre: 'Salto de la Princesa',
       slug: 'salto-de-la-princesa',
-      altura: 40,
+      altura: 25,
       zona: 'Curacautín',
-      dificultad: 'Fácil a moderado',
-      imagen: '/assets/cascadas/salto-chancagua/galeria-1.webp',
-      imagenAlt: 'Cascada en bosque nativo de La Araucanía',
-      destacado: 'Mawida Nativo park',
-      tienepagina: false,
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-de-la-princesa/hero.webp',
+      imagenAlt: 'Salto de la Princesa, cascada de 25 metros sobre basaltos columnares en Curacautín',
+      destacado: 'Geoparque Kütralkura UNESCO',
+      tienepagina: true,
+    },
+    {
+      nombre: 'Salto Donguil',
+      slug: 'salto-donguil',
+      altura: 6,
+      zona: 'Gorbea',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/salto-donguil/hero.webp',
+      imagenAlt: 'Salto Donguil, cascada de dos brazos sobre el Río Donguil en Gorbea',
+      destacado: 'Dos brazos paralelos',
+      tienepagina: true,
     },
   ],
   tablaCascadas: [
     { nombre: 'Salto Chancagua', slug: 'salto-chancagua', altura: '70 m', dificultad: 'Fácil', acceso: 'Ruta 5 cruce Mininco + 16 km', entrada: 'Gratuita', tienepagina: true },
-    { nombre: 'Salto de la Princesa', slug: '', altura: '40 m', dificultad: 'Fácil a moderado', acceso: 'Curacautín, Mawida Nativo', entrada: 'Pagada', tienepagina: false },
+    { nombre: 'Salto de la Princesa', slug: 'salto-de-la-princesa', altura: '25 m', dificultad: 'Fácil', acceso: 'Curacautín, Mawida Nativo', entrada: '$3.000 CLP', tienepagina: true },
+    { nombre: 'Salto Donguil', slug: 'salto-donguil', altura: '6 m', dificultad: 'Fácil', acceso: 'Gorbea, camino rural', entrada: 'Gratuita', tienepagina: true },
     { nombre: 'Salto Quino', slug: 'salto-quino', altura: '30 m', dificultad: 'Moderado', acceso: 'Traiguén, camino rural', entrada: 'Gratuita', tienepagina: true },
     { nombre: 'Cascadas del Huerquehue', slug: '', altura: '25 m', dificultad: 'Moderada', acceso: 'PN Huerquehue', entrada: '$5.000 CLP', tienepagina: false },
-    { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', altura: '20 m', dificultad: 'Fácil', acceso: 'PN Conguillío entrada sur', entrada: '$6.300 CLP', tienepagina: true },
     { nombre: 'Ojos del Caburgua', slug: '', altura: '15 m', dificultad: 'Fácil', acceso: 'Camino Pucón-Caburgua', entrada: '$3.000 CLP', tienepagina: false },
+    { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', altura: '20 m', dificultad: 'Fácil', acceso: 'PN Conguillío entrada sur', entrada: '$6.300 CLP', tienepagina: true },
   ],
   mapCenter: { lat: -38.5, lng: -72.0 },
   mapZoom: 8,
@@ -255,7 +256,7 @@ const structuredData = [
         Cascadas<br/>en {region.nombre}
       </h2>
       <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
-        Mostrando 6 de {region.totalCascadas}
+        Mostrando 7 de {region.totalCascadas}
       </p>
     </div>
 

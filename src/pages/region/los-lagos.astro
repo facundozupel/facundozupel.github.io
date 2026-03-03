@@ -1,14 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-// ─── DATOS DE LA REGIÓN ───────────────────────────────────────────────────────
+// ─── DATOS DE LA REGION ───────────────────────────────────────────────────────
 const region = {
   nombre: 'Los Lagos',
   slug: 'los-lagos',
-  descripcion: `La Región de Los Lagos es uno de los territorios más ricos en cascadas de Chile. Enclavada entre la Patagonia y el Lago Llanquihue, concentra decenas de saltos de agua alimentados por la intensa pluviosidad de la zona sur y por el deshielo de volcanes como el Osorno y el Calbuco.`,
-  subtitulo: 'Patagonia Norte · 95 cascadas catalogadas',
+  zona: 'Patagonia Norte',
+  subtitulo: 'Volcanes, fiordos y bosque siempreverde · 95 cascadas catalogadas',
   totalCascadas: 95,
-  imagen: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=80',
+  imagen: '/assets/cascadas/saltos-del-petrohue/hero.webp',
+  imagenAlt: 'Saltos del Petrohué con el Volcán Osorno de fondo, Región de Los Lagos, Chile',
   stats: [
     { label: 'Cascadas', value: '95' },
     { label: 'Parques nacionales', value: '4' },
@@ -16,35 +17,37 @@ const region = {
     { label: 'Mejor época', value: 'Nov–Mar' },
   ],
   zonas: [
-    { nombre: 'Parque Vicente Pérez Rosales', cascadas: 12, descripcion: 'El parque nacional más antiguo de Chile. Alberga los Saltos del Petrohué y la Cascada de los Cántaros.' },
-    { nombre: 'Puerto Octay', cascadas: 8, descripcion: 'Cascadas escondidas entre bosques de coihue y mirtáceas. Destino poco masificado con senderos cortos.' },
-    { nombre: 'Cochamó', cascadas: 15, descripcion: 'El Yosemite patagónico. Cascadas verticales sobre paredes de granito en un valle de trekking de clase mundial.' },
-    { nombre: 'Lago Llanquihue', cascadas: 11, descripcion: 'Entorno volcánico con el Osorno y el Calbuco. Cascadas accesibles a orillas del lago más grande de Chile.' },
+    { nombre: 'Parque Vicente Pérez Rosales', cascadas: 12, descripcion: 'El parque nacional más antiguo de Chile (1926). Saltos del Petrohué sobre lava volcánica, Cascada de los Cántaros y senderos entre bosque siempreverde con vistas al Osorno y Tronador.' },
+    { nombre: 'Cochamó', cascadas: 15, descripcion: 'El Yosemite patagónico. Cascadas verticales sobre paredes de granito de 1.000 metros en un valle de trekking de clase mundial. Acceso a pie o a caballo.' },
+    { nombre: 'Lago Llanquihue & Volcanes', cascadas: 11, descripcion: 'Entorno volcánico con el Osorno y el Calbuco. Cascadas de deshielo accesibles desde Puerto Varas, Frutillar y Puerto Octay a orillas del segundo lago más grande de Chile.' },
+    { nombre: 'Parque Alerce Andino', cascadas: 14, descripcion: 'Bosque milenario de alerces de hasta 3.000 años. Cascadas en senderos de trekking entre helechos gigantes y lagunas glaciares.' },
+    { nombre: 'Hualaihué & Estuario de Reloncaví', cascadas: 18, descripcion: 'Fiordos y cascadas costeras en la transición a la Patagonia. Termas naturales, bosque valdiviano y saltos de agua que caen directamente al mar.' },
+    { nombre: 'Chiloé & Palena', cascadas: 25, descripcion: 'Cascadas en bosque lluvioso de la Cordillera de la Costa de Chiloé y el remoto valle del río Palena. Paisaje de turberas y nalcas gigantes.' },
   ],
+  descripcion: `Los Lagos es la región con mayor concentración de cascadas de Chile. Con 95 saltos de agua catalogados, el territorio se extiende desde el Lago Llanquihue y los volcanes Osorno y Calbuco hasta los fiordos del Estuario de Reloncaví y las paredes de granito de Cochamó.`,
+  descripcion2: `Los <a href="/cascadas/saltos-del-petrohue" class="cascada-inline-link" style="color:#00b4a0; text-decoration:underline; text-underline-offset:3px;">Saltos del Petrohué</a> —formados sobre coladas de lava del volcán Osorno— son el ícono de la región y uno de los atractivos más visitados del sur de Chile. En el otro extremo, el valle de Cochamó ofrece cascadas verticales sobre granito en un paisaje comparable a Yosemite. El Parque Nacional Vicente Pérez Rosales, creado en 1926, fue el primero de Chile y protege bosques siempreverdes donde nacen decenas de cascadas.`,
   cascadasDestacadas: [
+    {
+      nombre: 'Saltos del Petrohué',
+      slug: 'saltos-del-petrohue',
+      altura: 20,
+      zona: 'Puerto Varas',
+      dificultad: 'Fácil',
+      imagen: '/assets/cascadas/saltos-del-petrohue/hero.webp',
+      imagenAlt: 'Saltos del Petrohué, rápidos turquesa sobre lava volcánica con el Volcán Osorno de fondo',
+      destacado: 'Volcán Osorno de telón',
+      tienepagina: true,
+    },
     {
       nombre: 'Cascada de los Cántaros',
       slug: 'cascada-de-los-cantaros',
       altura: 50,
       zona: 'Parque V. Pérez Rosales',
       dificultad: 'Fácil',
-      imagen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80',
-    },
-    {
-      nombre: 'Saltos del Petrohué',
-      slug: 'saltos-del-petro­hue',
-      altura: 15,
-      zona: 'Puerto Varas',
-      dificultad: 'Fácil',
-      imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
-    },
-    {
-      nombre: 'Cascadas de Puerto Octay',
-      slug: 'cascadas-puerto-octay',
-      altura: 30,
-      zona: 'Puerto Octay',
-      dificultad: 'Moderada',
-      imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+      imagen: '/assets/cascadas/saltos-del-petrohue/galeria-1.webp',
+      imagenAlt: 'Cascada de los Cántaros en el Parque Nacional Vicente Pérez Rosales',
+      destacado: 'Parque nacional más antiguo',
+      tienepagina: false,
     },
     {
       nombre: 'Cascada La Sirena',
@@ -52,15 +55,10 @@ const region = {
       altura: 40,
       zona: 'Cochamó',
       dificultad: 'Difícil',
-      imagen: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80',
-    },
-    {
-      nombre: 'Salto del Osorno',
-      slug: 'salto-del-osorno',
-      altura: 25,
-      zona: 'Lago Llanquihue',
-      dificultad: 'Fácil',
-      imagen: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80',
+      imagen: '/assets/cascadas/saltos-del-petrohue/galeria-2.webp',
+      imagenAlt: 'Cascada La Sirena sobre paredes de granito en el Valle de Cochamó',
+      destacado: 'Trekking Cochamó',
+      tienepagina: false,
     },
     {
       nombre: 'Cascada Esperanza',
@@ -68,8 +66,61 @@ const region = {
       altura: 85,
       zona: 'Cochamó',
       dificultad: 'Difícil',
-      imagen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80',
+      imagen: '/assets/cascadas/saltos-del-petrohue/galeria-3.webp',
+      imagenAlt: 'Cascada Esperanza, la más alta de Los Lagos con 85 metros en el valle de Cochamó',
+      destacado: 'La más alta de la región',
+      tienepagina: false,
     },
+    {
+      nombre: 'Cascadas del Alerce Andino',
+      slug: 'cascadas-alerce-andino',
+      altura: 30,
+      zona: 'Parque Alerce Andino',
+      dificultad: 'Moderada',
+      imagen: '/assets/cascadas/saltos-del-petrohue/galeria-4.webp',
+      imagenAlt: 'Cascada entre alerces milenarios en el Parque Nacional Alerce Andino',
+      destacado: 'Alerces de 3.000 años',
+      tienepagina: false,
+    },
+    {
+      nombre: 'Cascadas de Puerto Octay',
+      slug: 'cascadas-puerto-octay',
+      altura: 30,
+      zona: 'Puerto Octay',
+      dificultad: 'Moderada',
+      imagen: '/assets/cascadas/saltos-del-petrohue/galeria-1.webp',
+      imagenAlt: 'Cascadas entre bosque de coihue en Puerto Octay, Lago Llanquihue',
+      destacado: 'Destino poco masificado',
+      tienepagina: false,
+    },
+  ],
+  tablaCascadas: [
+    { nombre: 'Cascada Esperanza', slug: '', altura: '85 m', dificultad: 'Difícil', acceso: 'Cochamó, trekking 8 hrs', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascada de los Cántaros', slug: '', altura: '50 m', dificultad: 'Fácil', acceso: 'PN V. Pérez Rosales', entrada: '$6.300 CLP', tienepagina: false },
+    { nombre: 'Cascada La Sirena', slug: '', altura: '40 m', dificultad: 'Difícil', acceso: 'Cochamó, trekking 5 hrs', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Cascadas del Alerce Andino', slug: '', altura: '30 m', dificultad: 'Moderada', acceso: 'PN Alerce Andino', entrada: '$4.000 CLP', tienepagina: false },
+    { nombre: 'Cascadas de Puerto Octay', slug: '', altura: '30 m', dificultad: 'Moderada', acceso: 'Puerto Octay, sendero rural', entrada: 'Gratuita', tienepagina: false },
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', altura: '20 m', dificultad: 'Fácil', acceso: 'Ruta 225, km 60', entrada: '$5.000 CLP', tienepagina: true },
+  ],
+  mapCenter: { lat: -41.3, lng: -72.0 },
+  mapZoom: 8,
+  comoLlegar: `Desde Santiago (1.020 km, 11-12 horas en auto): Ruta 5 Sur hasta Puerto Montt (capital regional). Para los Saltos del Petrohué, continuar por Ruta 225 hacia Ensenada (60 km desde Puerto Varas). Cochamó se accede por Ruta 7 (Carretera Austral) desde Puerto Montt.`,
+  comoLlegar2: `Desde Puerto Montt: Capital regional y mejor base. Aeropuerto El Tepual (PMC) con vuelos directos desde Santiago (1h 45min, LATAM y JetSMART). Puerto Varas a 20 km, Petrohué a 75 km, Cochamó a 115 km. Terminal de buses con conexiones a todas las comunas.`,
+  comoLlegar3: `Transporte público: Vuelos Santiago–Puerto Montt (1h 45min). Buses desde Santiago a Puerto Montt (11-12 hrs, Tur Bus, Pullman). Buses locales Puerto Varas–Petrohué en verano. Para Cochamó, buses desde Puerto Montt a Río Puelo. Parques nacionales requieren vehículo propio o tour local.`,
+  clima: {
+    tipo: 'Templado oceánico lluvioso (Cfb)',
+    tempVerano: '18-24°C',
+    tempInvierno: '4-10°C',
+    precipitaciones: '1.800-3.000 mm anuales',
+    mejorEpoca: 'Noviembre a Marzo',
+    descripcion: 'Clima templado lluvioso con lluvias todo el año, especialmente intensas de mayo a agosto. Los veranos son moderados con días largos (amanece a las 6:30, oscurece a las 21:30). La zona de Cochamó recibe hasta 3.000 mm anuales. Las cascadas tienen buen caudal todo el año pero el acceso es óptimo en verano. En invierno, las rutas de montaña pueden cerrarse por nieve y lluvia.',
+  },
+  faq: [
+    { pregunta: '¿Cuántas cascadas hay en la Región de Los Lagos?', respuesta: 'La Región de Los Lagos cuenta con más de 95 cascadas catalogadas, la mayor concentración de Chile. Se distribuyen entre el Parque Nacional Vicente Pérez Rosales, Cochamó, el Parque Alerce Andino, el entorno del Lago Llanquihue y los fiordos del Estuario de Reloncaví.' },
+    { pregunta: '¿Cuál es la cascada más alta de Los Lagos?', respuesta: 'La Cascada Esperanza en el valle de Cochamó, con 85 metros de caída sobre paredes de granito. Se accede tras un trekking de 8 horas desde La Junta de Cochamó.' },
+    { pregunta: '¿Cuánto cuesta la entrada a los Saltos del Petrohué?', respuesta: 'La entrada a los Saltos del Petrohué cuesta $5.000 CLP para adultos nacionales. Se accede por Ruta 225, a 60 km de Puerto Varas. Abierto todo el año de 9:00 a 18:00 (horario extendido en verano).' },
+    { pregunta: '¿Cómo llegar a Cochamó para ver cascadas?', respuesta: 'Desde Puerto Montt, tomar la Ruta 7 (Carretera Austral) hasta La Junta de Cochamó (115 km, 2 horas en auto). Desde ahí, las cascadas se acceden por senderos de trekking de 5 a 8 horas. También se puede llegar a caballo con arriero local.' },
+    { pregunta: '¿Cuál es la mejor época para visitar cascadas en Los Lagos?', respuesta: 'De noviembre a marzo (primavera-verano). Las cascadas tienen buen caudal todo el año por las lluvias constantes, pero en verano el clima es más estable y los senderos están en mejores condiciones. Enero y febrero son los meses más secos.' },
   ],
   regionesAdyacentes: [
     { nombre: 'Los Ríos', slug: 'los-rios', cascadas: 62 },
@@ -80,18 +131,56 @@ const region = {
 
 const dificultadColor: Record<string, string> = {
   'Fácil': '#00e5d4',
+  'Moderado': '#b8e8e4',
   'Moderada': '#b8e8e4',
+  'Fácil a moderado': '#b8e8e4',
   'Difícil': '#f4efe6',
 };
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Cascadas en la Región de ${region.nombre}`,
+    description: `Las ${region.totalCascadas} mejores cascadas y saltos de agua de la Región de ${region.nombre}, Chile.`,
+    numberOfItems: region.cascadasDestacadas.length,
+    itemListElement: region.cascadasDestacadas.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.nombre,
+      ...(c.tienepagina ? { url: `https://cascadaschile.com/cascadas/${c.slug}` } : {}),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: region.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Regiones', item: 'https://cascadaschile.com/region' },
+      { '@type': 'ListItem', position: 3, name: region.nombre },
+    ],
+  },
+];
 ---
 
 <Layout
-  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas catalogadas`}
-  description={`Descubre las ${region.totalCascadas} cascadas de la Región de ${region.nombre}. Guía completa con acceso, dificultad y cómo llegar a cada salto de agua.`}
-  ogImage={region.imagen}
+  title={`Cascadas en ${region.nombre} — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
+  description={`Descubre las ${region.totalCascadas} cascadas de Los Lagos. Guía completa con mapa, alturas, dificultad y cómo llegar a Petrohué, Cochamó, Alerce Andino y más.`}
+  ogImage={`https://cascadaschile.com${region.imagen}`}
+  structuredData={structuredData}
 >
 
-  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────────── -->
   <section style="
     position:relative;
     min-height:80vh;
@@ -99,12 +188,14 @@ const dificultadColor: Record<string, string> = {
     overflow:hidden;
     display:flex; flex-direction:column; justify-content:flex-end;
   ">
-    <!-- Foto fondo -->
-    <div style={`
-      position:absolute; inset:0;
-      background-image:url('${region.imagen}');
-      background-size:cover; background-position:center;
-    `}></div>
+    <!-- Foto fondo con <img> para indexación en Google Images -->
+    <img
+      src={region.imagen}
+      alt={region.imagenAlt}
+      fetchpriority="high"
+      decoding="async"
+      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+    />
     <!-- Overlay -->
     <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(9,29,43,0.2) 0%, rgba(9,29,43,0.9) 100%);"></div>
 
@@ -131,7 +222,7 @@ const dificultadColor: Record<string, string> = {
   </section>
 
 
-  <!-- ─── STATS ────────────────────────────────────────────────────────────── -->
+  <!-- ─── 2. STATS ────────────────────────────────────────────────────────────── -->
   <section style="background:#091d2b; padding:0;">
     <div style="
       display:grid; grid-template-columns:repeat(4,1fr);
@@ -154,9 +245,165 @@ const dificultadColor: Record<string, string> = {
   </section>
 
 
-  <!-- ─── INTRO ────────────────────────────────────────────────────────────── -->
+  <!-- ─── 3. GRID DE CASCADAS ──────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:7rem 2.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="reveal" style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(3rem, 7vw, 8rem);
+        color:#f4efe6; margin:0; line-height:0.9;
+        text-transform:uppercase;
+      ">
+        Cascadas<br/>en {region.nombre}
+      </h2>
+      <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
+        Mostrando 6 de {region.totalCascadas}
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
+      {region.cascadasDestacadas.map(c => {
+        const inner = (
+          <>
+            {/* Imagen */}
+            <div style="height:280px; border-radius:4px; margin-bottom:1.25rem; position:relative; overflow:hidden;">
+              <img
+                src={c.imagen}
+                alt={c.imagenAlt}
+                loading="lazy"
+                decoding="async"
+                style="width:100%; height:100%; object-fit:cover;"
+              />
+              <span style={`
+                position:absolute; top:1rem; left:1rem;
+                background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
+                text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
+              `}>{c.dificultad}</span>
+              <span style="
+                position:absolute; bottom:1rem; right:1rem;
+                background:rgba(9,29,43,0.8);
+                color:#f4efe6; font-family:'Archivo Black',sans-serif;
+                font-size:1.1rem; padding:0.35rem 0.75rem; border-radius:4px;
+              ">{c.altura}m</span>
+            </div>
+            <h3 style="
+              font-family:'Archivo Black',sans-serif;
+              font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
+              text-transform:uppercase;
+            ">{c.nombre}</h3>
+            <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0 0 0.2rem; font-weight:300;">{c.zona}</p>
+            <p style="color:#00b4a0; font-size:0.78rem; margin:0; font-weight:500;">{c.destacado}</p>
+          </>
+        );
+
+        return c.tienepagina ? (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none; cursor:pointer;">
+            {inner}
+          </a>
+        ) : (
+          <div class="cascade-card" style="display:block;">
+            {inner}
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- CTA ver todas -->
+    <div style="margin-top:4rem; text-align:center;">
+      <a href="/cascadas" style="
+        display:inline-flex; align-items:center; gap:0.75rem;
+        color:#091d2b; background:#00e5d4; text-decoration:none;
+        font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+        text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+      ">
+        Ver todas las cascadas de Chile
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── 4. TABLA COMPARATIVA ─────────────────────────────────────────────────── -->
   <section style="background:#f4efe6; padding:6rem 2.5rem;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 1rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Comparativa de Cascadas</h2>
+    <p style="color:rgba(9,29,43,0.5); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300;">
+      Datos clave para planificar tu visita a las cascadas de Los Lagos.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.92rem;">
+        <thead>
+          <tr style="border-bottom:2px solid #091d2b;">
+            <th style="text-align:left; padding:1rem 1rem 1rem 0; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Nombre</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Altura</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Dificultad</th>
+            <th style="text-align:left; padding:1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Acceso</th>
+            <th style="text-align:left; padding:1rem 0 1rem 1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0;">Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {region.tablaCascadas.map((c, i) => (
+            <tr style={`border-bottom:1px solid rgba(9,29,43,0.1); ${i % 2 === 1 ? 'background:rgba(0,180,160,0.04);' : ''}`}>
+              <td style="padding:1rem 1rem 1rem 0; font-weight:500; color:#091d2b;">
+                {c.tienepagina ? (
+                  <a href={`/cascadas/${c.slug}`} style="color:#091d2b; text-decoration:none; border-bottom:1px solid #00b4a0; transition:color 0.2s;">
+                    {c.nombre}
+                  </a>
+                ) : (
+                  <span>{c.nombre}</span>
+                )}
+              </td>
+              <td style="padding:1rem; color:#091d2b;">
+                <span style="font-family:'Archivo Black',sans-serif; color:#00b4a0;">{c.altura}</span>
+              </td>
+              <td style="padding:1rem; color:#091d2b;">
+                <span style={`
+                  display:inline-block;
+                  font-size:0.72rem; font-weight:700; letter-spacing:0.08em;
+                  text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:999px;
+                  background:${dificultadColor[c.dificultad] || '#b8e8e4'}; color:#091d2b;
+                `}>{c.dificultad}</span>
+              </td>
+              <td style="padding:1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.acceso}</td>
+              <td style="padding:1rem 0 1rem 1rem; color:rgba(9,29,43,0.7); font-weight:300; font-size:0.88rem;">{c.entrada}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. MAPA ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mapa de Cascadas<br/>en {region.nombre}</h2>
+    <p style="color:rgba(244,239,230,0.45); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300; max-width:560px;">
+      Las cascadas se concentran en 3 ejes desde Puerto Montt: norte (Lago Llanquihue), este (Petrohué y Vicente Pérez Rosales) y sur (Cochamó y Carretera Austral).
+    </p>
+    <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(0,229,212,0.15);">
+      <iframe
+        src={`https://www.openstreetmap.org/export/embed.html?bbox=${region.mapCenter.lng - 1.5}%2C${region.mapCenter.lat - 1}%2C${region.mapCenter.lng + 1.5}%2C${region.mapCenter.lat + 1}&layer=mapnik`}
+        style="width:100%; height:450px; border:0;"
+        loading="lazy"
+        title={`Mapa de cascadas en la Región de ${region.nombre}`}
+      ></iframe>
+    </div>
+  </section>
+
+
+  <!-- ─── 6+7. ZONAS + DESCRIPCION REGIONAL ───────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:6rem 2.5rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start;">
       <div class="reveal">
         <h2 style="
           font-family:'Archivo Black',sans-serif;
@@ -166,10 +413,11 @@ const dificultadColor: Record<string, string> = {
         ">
           El Sur<br/>Más Salvaje
         </h2>
-        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px;">{region.descripcion}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0 0 1.5rem;">{region.descripcion}</p>
+        <p style="color:#091d2b; font-size:1.05rem; line-height:1.75; font-weight:300; max-width:480px; margin:0;" set:html={region.descripcion2}></p>
       </div>
 
-      <!-- Zonas de la región -->
+      <!-- Zonas de la region -->
       <div class="reveal">
         <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:#00b4a0; margin:0 0 1.5rem;">Zonas principales</p>
         <div style="display:flex; flex-direction:column;">
@@ -191,78 +439,138 @@ const dificultadColor: Record<string, string> = {
   </section>
 
 
-  <!-- ─── GRID DE CASCADAS ──────────────────────────────────────────────────── -->
-  <section style="background:#091d2b; padding:7rem 2.5rem;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
-      <h2 class="reveal" style="
-        font-family:'Archivo Black',sans-serif;
-        font-size:clamp(3rem, 7vw, 8rem);
-        color:#f4efe6; margin:0; line-height:0.9;
-        text-transform:uppercase;
-      ">
-        Cascadas<br/>en {region.nombre}
-      </h2>
-      <p style="color:rgba(244,239,230,0.4); font-size:0.85rem; align-self:center;">
-        Mostrando 6 de {region.totalCascadas}
-      </p>
-    </div>
+  <!-- ─── 8. CLIMA / MEJOR EPOCA ───────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#f4efe6; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Mejor Época<br/>para Visitar</h2>
 
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;">
-      {region.cascadasDestacadas.map(c => (
-        <a href={`/cascadas/${c.slug}`} class="cascade-card" style="display:block; text-decoration:none; cursor:pointer;">
-          <!-- Imagen -->
-          <div style={`
-            height:280px;
-            background-image:url('${c.imagen}');
-            background-size:cover; background-position:center;
-            border-radius:4px; margin-bottom:1.25rem;
-            position:relative; overflow:hidden;
-          `}>
-            <span style={`
-              position:absolute; top:1rem; left:1rem;
-              background:${dificultadColor[c.dificultad]}; color:#091d2b;
-              font-size:0.7rem; font-weight:700; letter-spacing:0.1em;
-              text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px;
-            `}>{c.dificultad}</span>
-            <span style="
-              position:absolute; bottom:1rem; right:1rem;
-              background:rgba(9,29,43,0.8);
-              color:#f4efe6; font-family:'Archivo Black',sans-serif;
-              font-size:1.1rem; padding:0.35rem 0.75rem; border-radius:4px;
-            ">{c.altura}m</span>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <!-- Datos del clima -->
+      <div class="reveal">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Tipo de clima</p>
+            <p style="color:#f4efe6; font-size:0.95rem; margin:0; font-weight:300;">{region.clima.tipo}</p>
           </div>
-          <h3 style="
-            font-family:'Archivo Black',sans-serif;
-            font-size:1.4rem; color:#f4efe6; margin:0 0 0.3rem;
-            text-transform:uppercase;
-          ">{c.nombre}</h3>
-          <p style="color:rgba(244,239,230,0.45); font-size:0.88rem; margin:0; font-weight:300;">{c.zona}</p>
-        </a>
-      ))}
-    </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Mejor epoca</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.mejorEpoca}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Verano</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.tempVerano}</p>
+          </div>
+          <div style="padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Invierno</p>
+            <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.tempInvierno}</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1.5rem; border:1px solid rgba(0,229,212,0.15); border-radius:8px;">
+          <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0 0 0.5rem;">Precipitaciones</p>
+          <p style="font-family:'Archivo Black',sans-serif; color:#00e5d4; font-size:1.3rem; margin:0;">{region.clima.precipitaciones}</p>
+        </div>
+      </div>
 
-    <!-- CTA ver todas -->
-    <div style="margin-top:4rem; text-align:center;">
-      <a href={`/region/${region.slug}/todas`} style="
-        display:inline-flex; align-items:center; gap:0.75rem;
-        color:#091d2b; background:#00e5d4; text-decoration:none;
-        font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
-        text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
-      ">
-        Ver las {region.totalCascadas} cascadas de {region.nombre} →
-      </a>
+      <!-- Descripcion del clima -->
+      <div class="reveal">
+        <p style="color:rgba(244,239,230,0.75); font-size:1.05rem; line-height:1.75; font-weight:300; margin:0;">
+          {region.clima.descripcion}
+        </p>
+      </div>
     </div>
   </section>
 
 
-  <!-- ─── REGIONES ADYACENTES ──────────────────────────────────────────────── -->
+  <!-- ─── 9. COMO LLEGAR ───────────────────────────────────────────────────────── -->
   <section style="background:#f4efe6; padding:6rem 2.5rem;">
     <h2 class="reveal" style="
       font-family:'Archivo Black',sans-serif;
       font-size:clamp(2rem, 4vw, 4rem);
       color:#091d2b; margin:0 0 3rem; line-height:0.9;
       text-transform:uppercase;
-    ">Otras Regiones</h2>
+    ">Cómo Llegar<br/>a {region.nombre}</h2>
+
+    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2.5rem;">
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128663;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">En auto desde Santiago</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar}</p>
+      </div>
+
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#9992;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Desde Puerto Montt</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar2}</p>
+      </div>
+
+      <div style="padding:2rem; border:1px solid rgba(9,29,43,0.1); border-radius:8px; background:white;">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#00e5d4; border-radius:50%; font-size:1rem;">&#128652;</span>
+          <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#00b4a0; margin:0;">Transporte publico</p>
+        </div>
+        <p style="color:rgba(9,29,43,0.7); font-size:0.92rem; line-height:1.65; font-weight:300; margin:0;">{region.comoLlegar3}</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. FAQ ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 2.5rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Preguntas Frecuentes</h2>
+
+    <div class="reveal" style="max-width:800px;">
+      {region.faq.map((f, i) => (
+        <details style={`
+          border-top:${i === 0 ? '1px solid rgba(9,29,43,0.12)' : 'none'};
+          border-bottom:1px solid rgba(9,29,43,0.12);
+        `}>
+          <summary style="
+            padding:1.5rem 0;
+            cursor:pointer;
+            font-family:'Archivo Black',sans-serif;
+            font-size:1.05rem;
+            color:#091d2b;
+            text-transform:uppercase;
+            list-style:none;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+          ">
+            {f.pregunta}
+            <span style="color:#00b4a0; font-size:1.5rem; font-family:'DM Sans',sans-serif; font-weight:300; margin-left:1rem; flex-shrink:0;">+</span>
+          </summary>
+          <div style="padding:0 0 1.5rem;">
+            <p style="color:rgba(9,29,43,0.7); font-size:0.95rem; line-height:1.7; font-weight:300; margin:0;">
+              {f.respuesta}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. REGIONES ADYACENTES ──────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:0 2.5rem 6rem;">
+    <h2 class="reveal" style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 4vw, 4rem);
+      color:#091d2b; margin:0 0 3rem; line-height:0.9;
+      text-transform:uppercase;
+    ">Regiones Cercanas</h2>
 
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid rgba(9,29,43,0.12);">
       {region.regionesAdyacentes.map((r, i) => (
@@ -275,10 +583,30 @@ const dificultadColor: Record<string, string> = {
         onmouseenter="this.style.background='rgba(0,229,212,0.08)'"
         onmouseleave="this.style.background='transparent'">
           <p style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem, 3vw, 2.5rem); margin:0 0 0.5rem; text-transform:uppercase;">{r.nombre}</p>
-          <p style="font-size:0.88rem; color:#00b4a0; margin:0; font-weight:500;">{r.cascadas} cascadas →</p>
+          <p style="font-size:0.88rem; color:#00b4a0; margin:0; font-weight:500;">{r.cascadas} cascadas</p>
         </a>
       ))}
     </div>
+  </section>
+
+
+  <!-- ─── 12. CTA MAPA ────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:6rem 2.5rem; text-align:center;">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(2rem, 5vw, 5rem);
+      color:#f4efe6; margin:0 0 1.5rem; line-height:0.95;
+      text-transform:uppercase;
+    ">Explora las Cascadas<br/>en el Mapa</h2>
+    <p style="color:rgba(244,239,230,0.5); font-size:1.05rem; max-width:480px; margin:0 auto 2.5rem; font-weight:300;">
+      Usa el mapa interactivo para planificar tu ruta por las cascadas de Los Lagos y la Patagonia Norte.
+    </p>
+    <a href="/mapa" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#091d2b; background:#00e5d4; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">Abrir mapa</a>
   </section>
 
 </Layout>

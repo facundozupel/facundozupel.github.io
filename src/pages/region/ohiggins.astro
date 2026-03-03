@@ -8,7 +8,7 @@ const region = {
   zona: 'Zona Central',
   subtitulo: 'Cajón del Cachapoal, Río de los Cipreses y precordillera andina · 10 cascadas catalogadas',
   totalCascadas: 10,
-  imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80',
+  imagen: '/assets/cascadas/cascada-el-yeso/hero.webp',
   imagenAlt: 'Paisaje cordillerano del Cajón del Cachapoal en la Región de O\'Higgins, Chile',
   stats: [
     { label: 'Cascadas', value: '10' },
@@ -30,7 +30,7 @@ const region = {
       altura: 40,
       zona: 'Cajón del Cachapoal',
       dificultad: 'Moderado',
-      imagen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80',
+      imagen: '/assets/cascadas/cascada-el-yeso/galeria-1.webp',
       imagenAlt: 'Salto del Cachapoal en el cajón andino del río Cachapoal, O\'Higgins',
       destacado: 'Ruta a Termas de Cauquenes',
       tienepagina: false,
@@ -41,7 +41,7 @@ const region = {
       altura: 35,
       zona: 'Reserva Río Cipreses',
       dificultad: 'Moderado',
-      imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+      imagen: '/assets/cascadas/cascada-el-yeso/galeria-2.webp',
       imagenAlt: 'Cascada en la Reserva Nacional Río de los Cipreses',
       destacado: 'Dentro de área protegida',
       tienepagina: false,
@@ -52,7 +52,7 @@ const region = {
       altura: 30,
       zona: 'Cajón del Cachapoal',
       dificultad: 'Moderado',
-      imagen: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80',
+      imagen: '/assets/cascadas/cascada-el-yeso/galeria-3.webp',
       imagenAlt: 'Salto en quebrada del Pangal, Cajón del Cachapoal',
       destacado: 'Acceso desde Coya',
       tienepagina: false,
@@ -63,7 +63,7 @@ const region = {
       altura: 25,
       zona: 'Reserva Río Cipreses',
       dificultad: 'Fácil a moderado',
-      imagen: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80',
+      imagen: '/assets/cascadas/cascada-el-yeso/galeria-4.webp',
       imagenAlt: 'Salto Cortaderal entre cipreses de la cordillera en la Reserva Nacional',
       destacado: 'Sendero de 5 km',
       tienepagina: false,
@@ -74,7 +74,7 @@ const region = {
       altura: 20,
       zona: 'Valle del Tinguiririca',
       dificultad: 'Fácil',
-      imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-1.webp',
       imagenAlt: 'Cascada en la ruta a las Termas del Flaco, valle del Tinguiririca',
       destacado: 'Aguas termales cercanas',
       tienepagina: false,
@@ -85,7 +85,7 @@ const region = {
       altura: 15,
       zona: 'Cajón del Cachapoal',
       dificultad: 'Fácil',
-      imagen: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+      imagen: '/assets/cascadas/cascada-de-las-animas/galeria-2.webp',
       imagenAlt: 'Cascada junto a las históricas Termas de Cauquenes, Cajón del Cachapoal',
       destacado: 'Historia desde 1891',
       tienepagina: false,
@@ -173,7 +173,7 @@ const structuredData = [
 <Layout
   title={`Cascadas en O'Higgins — ${region.totalCascadas} cascadas y saltos de agua | Cascadas de Chile`}
   description={`Descubre las ${region.totalCascadas} cascadas de la Región de O'Higgins. Guía completa con mapa, alturas, dificultad y cómo llegar al Cajón del Cachapoal, Reserva Río Cipreses y más.`}
-  ogImage={region.imagen}
+  ogImage={`https://cascadaschile.com${region.imagen}`}
   structuredData={structuredData}
 >
 
