@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 
 const cascadasDestacadas = [
   { nombre: 'Salto del Laja', region: 'Biobío', info: 'Biobío · 35 m', badge: '#00e5d4', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', slug: 'salto-del-laja' },
-  { nombre: 'Cascada de los Cántaros', region: 'Los Lagos', info: 'Llanquihue · 50 m', badge: '#b8e8e4', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80', slug: 'cascada-de-los-cantaros' },
-  { nombre: 'Salto Río Ibáñez', region: 'Aysén', info: 'General Carrera · 80 m', badge: '#cceae6', img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', slug: 'salto-rio-ibanez' },
+  { nombre: 'Saltos del Petrohué', region: 'Los Lagos', info: 'Puerto Varas · 20 m', badge: '#b8e8e4', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80', slug: 'saltos-del-petrohue' },
   { nombre: 'Salto del Huilo-Huilo', region: 'Los Ríos', info: 'Panguipulli · 37 m', badge: '#00e5d4', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', slug: 'salto-del-huilo-huilo' },
-  { nombre: 'Cascada Velo de la Novia', region: 'Araucanía', info: 'Pucón · 40 m', badge: '#b8e8e4', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80', slug: 'cascada-velo-de-la-novia' },
-  { nombre: 'Salto Grande Torres del Paine', region: 'Magallanes', info: 'Torres del Paine · 18 m', badge: '#cceae6', img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80', slug: 'salto-grande-torres-del-paine' },
+  { nombre: 'Cascada de las Ánimas', region: 'Metropolitana', info: 'Cajón del Maipo · 60 m', badge: '#cceae6', img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', slug: 'cascada-de-las-animas' },
+  { nombre: 'Salto Truful-Truful', region: 'Araucanía', info: 'Melipeuco · 20 m', badge: '#b8e8e4', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80', slug: 'salto-truful-truful' },
+  { nombre: 'Salto del Itata', region: 'Ñuble', info: 'Yungay · 75 m', badge: '#cceae6', img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80', slug: 'salto-del-itata' },
 ];
 
 const regionesDestacadas = [
@@ -20,8 +20,7 @@ const regionesDestacadas = [
 
 const todasRegiones = [
   { name: 'Atacama & Coquimbo', zona: 'Norte', count: '12', slug: 'atacama-coquimbo', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80' },
-  { name: 'Valparaíso', zona: 'Centro', count: '18', slug: 'valparaiso', img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80' },
-  { name: 'Región Metropolitana', zona: 'Centro', count: '22', slug: 'metropolitana', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&q=80' },
+  { name: 'Zona Central', zona: 'Centro', count: '40', slug: 'zona-central', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&q=80' },
   { name: "O'Higgins", zona: 'Centro-Sur', count: '10', slug: 'ohiggins', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80' },
   { name: 'Maule', zona: 'Centro-Sur', count: '19', slug: 'maule', img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=400&q=80' },
   { name: 'Biobío', zona: 'Sur', count: '32', slug: 'biobio', img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&q=80' },
@@ -434,7 +433,7 @@ const articulosRecientes = [
       margin: 0 0 2rem;
       text-transform: uppercase;
     ">Explora el mapa interactivo</h2>
-    <a href="/mapa" style="
+    <a href="/cascadas" style="
       display: inline-flex; align-items: center; gap: 0.75rem;
       background: #091d2b; color: #f4efe6;
       text-decoration: none; font-size: 0.85rem;

@@ -699,6 +699,39 @@ const structuredData = [
 
 ---
 
+## Páginas Pendientes de Crear (ex-404s eliminados)
+
+Las siguientes páginas fueron referenciadas como enlaces internos y generaban 404. Los enlaces fueron removidos (2026-03-04) pero las páginas deben crearse en el futuro para completar el topical map:
+
+### Página `/mapa` (Mapa Interactivo)
+- **Prioridad**: ALTA — era el CTA principal del nav y de todas las páginas
+- **Acción tomada**: Nav CTA redirigido a `/cascadas`, CTAs de sección redirigidos a `/cascadas`
+- **Pendiente**: Crear `src/pages/mapa.astro` con mapa interactivo OpenStreetMap con todas las cascadas, y restaurar el enlace en nav
+
+### Cascadas sin página (referenciadas en cascadasCercanas/index)
+| Cascada | Región | Origen del enlace roto | Prioridad |
+|---------|--------|------------------------|-----------|
+| Cascada de los Cántaros | Los Lagos | `saltos-del-petrohue` cercanas, `los-lagos` región, `index` home | ALTA |
+| Salto Río Ibáñez | Aysén | `saltos-del-petrohue` relacionadas, `aysen` región, `index` home | ALTA |
+| Salto La Princesa (Anticura) | Los Lagos | `saltos-del-petrohue` cercanas | MEDIA |
+| Salto del Indio | Los Lagos | `saltos-del-petrohue` cercanas | MEDIA |
+| Cascadas P.N. Laguna del Laja | Biobío | `salto-del-itata` cercanas | MEDIA |
+| Cascada Velo de la Novia | Araucanía | `index` home destacadas | MEDIA |
+| Salto Grande Torres del Paine | Magallanes | `index` home destacadas | MEDIA |
+
+### Regiones sin página
+| Región | Slug roto | Acción tomada |
+|--------|-----------|---------------|
+| Valparaíso | `/region/valparaiso` | Fusionada en `/region/zona-central` en index home |
+| Metropolitana | `/region/metropolitana` | Enlaces corregidos a `/region/zona-central` |
+| La Araucanía (slug) | `/region/la-araucania` | Corregido a `/region/araucania` (página existe) |
+
+### Regla para evitar futuros 404
+- **NUNCA** agregar un `slug` en `cascadasCercanas`, `cascadasRelacionadas` o `cascadasDestacadas` que apunte a una página que no existe, a menos que tenga `tienepagina: false`
+- Al crear una nueva cascada, verificar si su slug estaba en esta tabla y restaurar los enlaces correspondientes
+
+---
+
 ## Reglas Generales
 
 ### Antes de Crear Contenido
