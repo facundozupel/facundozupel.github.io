@@ -1,0 +1,527 @@
+{
+  "cascada": {
+    "id": "salto-rio-ibanez",
+    "nombre_oficial": "Salto del Río Ibáñez",
+    "nombres_alternativos": [
+      "Saltos del Río Ibáñez",
+      "Salto Río Ibáñez",
+      "Saltos de Puerto Ibáñez"
+    ],
+    "coordenadas": {
+      "latitud": -46.25525,
+      "longitud": -71.99667,
+      "precision": "alta",
+      "fuente_coordenadas": "GeoNames (ID: 6355190) vía Mapcarta — cruzado con Google Maps (-46.2567067, -71.9954166). Diferencia mínima entre fuentes (~150 m), consistente con un área de varios saltos. Se usan las coordenadas GeoNames por ser la fuente geográfica más estandarizada."
+    },
+    "ubicacion": {
+      "region": "Aysén del General Carlos Ibáñez del Campo",
+      "provincia": "General Carrera",
+      "comuna": "Río Ibáñez",
+      "localidad_referencia": "Puerto Ingeniero Ibáñez",
+      "altitud_msnm": 260,
+      "cuenca": "Cuenca del Lago General Carrera — tributario del Río Baker",
+      "rio_origen": "Río Ibáñez",
+      "fuente_altitud": "Mapcarta / GeoNames"
+    },
+    "caracteristicas_fisicas": {
+      "altura_metros": 25,
+      "altura_fuente": "Fuentes turísticas múltiples mencionan 'unos 25 metros'. Dato no verificado con fuente oficial de ingeniería hidráulica. [NO VERIFICADO con precisión de ±5 m]",
+      "numero_saltos": 2,
+      "numero_saltos_fuente": "Algunas fuentes mencionan 'saltos' en plural y tours que incluyen varios puntos del río. [NO VERIFICADO con exactitud]",
+      "tipo_cascada": "Plunge / Cascada de caída libre sobre cañón basáltico",
+      "geologia": "Rocas de más de 150 millones de años (Jurásico). El salto se formó tras la última erupción del Volcán Hudson. Geosito candidato del Proyecto Geoparque Chelenko (iniciativa en proceso de reconocimiento UNESCO, lanzada diciembre 2023). La cuenca contiene uno de los mayores conjuntos de geositios reconocidos por la Sociedad Geológica de Chile.",
+      "origen_hidrologico": "El Río Ibáñez nace en un glaciar desprendido del sector SE del Volcán Hudson (1.905 m s.n.m., caldera activa de 500 m de diámetro). Recorre 88 km en dirección SE-E antes de desembocar en el Lago General Carrera.",
+      "temporada_optima": "Octubre a marzo (primavera-verano). El caudal es máximo durante el deshielo primaveral (octubre-noviembre). El verano ofrece mejor clima y acceso más estable.",
+      "caudal": "Variable estacional. Mayor en primavera por deshielo del Volcán Hudson; menor en invierno. Sin dato oficial de m³/s documentado. [NO VERIFICADO con datos DGA]",
+      "longitud_rio_km": 88
+    },
+    "actividades": [
+      {
+        "actividad": "Fotografía panorámica",
+        "descripcion": "El salto es visible desde un puente sobre la ruta hacia la Península Levicán. Existen miradores naturales que permiten capturar el salto desde distintos ángulos. La luz de la mañana es óptima para fotografía.",
+        "dificultad": "fácil",
+        "duracion": "1-2 horas"
+      },
+      {
+        "actividad": "Senderismo / Trekking",
+        "descripcion": "Sendero corto desde el área de estacionamiento hasta los miradores del salto. En la zona también está el sendero 'Las Ardillas' que conecta Puerto Ibáñez con Villa Cerro Castillo (trekking de mayor exigencia).",
+        "dificultad": "fácil a moderado",
+        "duracion": "1-3 horas"
+      },
+      {
+        "actividad": "Kayak en Río Ibáñez",
+        "descripcion": "Navegación en kayak por el Río Ibáñez aguas abajo del salto. El lago General Carrera (a 6 km) también es apto para kayak y navegación.",
+        "dificultad": "moderado",
+        "duracion": "Medio día a día completo",
+        "nota": "[VERIFICAR VIGENCIA] Actividad mencionada en fuentes turísticas. Confirmar operadores activos en 2026."
+      },
+      {
+        "actividad": "Pesca deportiva",
+        "descripcion": "Pesca de trucha y salmón en el Río Ibáñez y en las orillas del Lago General Carrera. Requiere licencia de pesca vigente del SAG.",
+        "dificultad": "fácil a moderado",
+        "regulaciones": "Requiere licencia de pesca vigente (SAG). Verificar temporada habilitada."
+      },
+      {
+        "actividad": "Avistamiento de fauna",
+        "descripcion": "En el humedal Vientos del Chelenko (Puerto Ibáñez) se observan cisnes de cuello negro, flamencos y otras aves. En el entorno del río: cóndores, aguiluchos y aves riparias.",
+        "dificultad": "fácil"
+      },
+      {
+        "actividad": "Escalada en roca",
+        "descripcion": "En el sector El Maitenal de Puerto Ibáñez hay 34 rutas de escalada equipadas. No directamente en el salto pero en el mismo acceso al área.",
+        "dificultad": "moderado a experto"
+      },
+      {
+        "actividad": "Visita a pinturas rupestres",
+        "descripcion": "El Paredón de las Manos, en el Valle del Río Ibáñez, contiene pinturas rupestres Tehuelche (manos en negativo) de aproximadamente 5.000 a 10.000 años de antigüedad.",
+        "dificultad": "fácil a moderado",
+        "duracion": "Medio día"
+      },
+      {
+        "actividad": "Tour combinado Salto + Pinturas Rupestres + Cerro Castillo",
+        "descripcion": "Tour de día completo que incluye visita al Salto del Río Ibáñez, pinturas rupestres, museo de Cerro Castillo y almuerzo. Operado por Servitur Offi ($70.000 CLP por persona, mínimo 4 personas).",
+        "dificultad": "fácil",
+        "duracion": "10:00 a 20:00 horas"
+      }
+    ],
+    "aptitudes": {
+      "familias": true,
+      "ninos": true,
+      "movilidad_reducida": false,
+      "movilidad_reducida_nota": "El camino de tierra hasta el salto y los miradores naturales no tienen infraestructura accesible documentada.",
+      "nivel_dificultad": "fácil",
+      "bano_natacion": false,
+      "bano_nota": "No se documenta zona de baño habilitada en el salto. El río tiene corrientes fuertes asociadas a la caída.",
+      "camping_en_sitio": false,
+      "camping_nota": "No hay camping directamente en el salto. Las opciones de camping más cercanas están en Puerto Ibáñez (6 km)."
+    },
+    "area_protegida": {
+      "es_area_protegida": false,
+      "conaf_presente": false,
+      "nota": "El salto no se encuentra dentro de los límites de ningún área protegida SNASPE. El Parque Nacional Cerro Castillo está en la misma comuna pero no incluye el salto. Es un geosito candidato del Proyecto Geoparque Chelenko (postulación UNESCO en proceso).",
+      "proyecto_geoparque": {
+        "nombre": "Geoparque Chelenko",
+        "estado": "En proceso de postulación UNESCO (iniciado diciembre 2023, plazo estimado 4 años)",
+        "organismo_gestor": "CORFO + Servicio del Patrimonio Cultural"
+      },
+      "horarios": null,
+      "tarifa_entrada": "Gratis (acceso libre)"
+    },
+    "empresas_servicios": [
+      {
+        "nombre": "Servitur Offi",
+        "tipo": "Operador turístico",
+        "servicios": ["Tour día completo Saltos del Río Ibáñez + pinturas rupestres + Cerro Castillo", "Tours multi-día por Patagonia"],
+        "precio": "$70.000 CLP por persona (descuento desde $78.000 CLP original)",
+        "minimo_personas": 4,
+        "maximo_personas": 16,
+        "duracion": "10:00 a 20:00 hrs (día completo)",
+        "incluye": ["Guía certificado", "Almuerzo", "Visita cerámica y artesanía local"],
+        "url": "https://www.servituroffi.com/producto/saltos-de-puerto-ibanez/",
+        "vigencia": "[VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Oficina de Información Turística — Municipalidad de Río Ibáñez",
+        "tipo": "Información turística municipal",
+        "telefono": "+56 9 4470 7380",
+        "redes": "@municipalidadderioibanez",
+        "url": "https://turismo.rioibanez.cl/",
+        "vigencia": "Activo (portal turismo.rioibanez.cl verificado 2025-2026)"
+      },
+      {
+        "nombre": "Turismo Río Ibáñez — Portal servicios",
+        "tipo": "Directorio de operadores y servicios",
+        "url": "https://turismo.rioibanez.cl/servicios/",
+        "nota": "Portal municipalidad donde se puede filtrar operadores por localidad y categoría."
+      }
+    ],
+    "hospedaje_cercano": [
+      {
+        "nombre": "Hostal y Cabañas Vientos del Sur",
+        "tipo": "Hostal + Cabañas",
+        "direccion": "Avenida Padre Antonio Ronchi 282, Puerto Ingeniero Ibáñez",
+        "distancia_salto_km": 6,
+        "precio_desde_clp": 49000,
+        "precio_nota": "Precio promedio aproximado en USD $49/noche según fuentes. Verificar al momento de reservar.",
+        "servicios": ["Jardín", "Restaurante (cocina latinoamericana)", "Desayuno continental", "Estacionamiento privado"],
+        "pago": "Solo efectivo",
+        "url_booking": "https://www.booking.com/hotel/cl/avenida-padre-antonio-ronchi-282.html",
+        "url_tripadvisor": "https://www.tripadvisor.com/Hotel_Review-g1409463-d19450268-Reviews-Hostal_y_Cabanas_Vientos_del_Sur-Puerto_Ingeniero_Ibanez_Aisen_Region.html",
+        "vigencia": "[VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Camping Refugio Casa Piedra",
+        "tipo": "Camping",
+        "ubicacion": "Puerto Ingeniero Ibáñez",
+        "distancia_salto_km": 6,
+        "servicios": ["Estacionamiento privado gratuito", "Terraza", "Jardín"],
+        "vigencia": "[VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Glamping Ruta Lapparent",
+        "tipo": "Glamping",
+        "ubicacion": "Puerto Ingeniero Ibáñez",
+        "distancia_salto_km": 6,
+        "servicios": ["Zona de estar", "Desayuno a la carta o continental"],
+        "vigencia": "[VERIFICAR VIGENCIA 2026]"
+      },
+      {
+        "nombre": "Opciones Airbnb",
+        "tipo": "Arriendo vacacional",
+        "precio_desde_usd": 20,
+        "url": "https://www.airbnb.com/puerto-ingeniero-ibanez-chile/stays",
+        "nota": "Amplia disponibilidad de arriendo de casas y habitaciones. Confirmar disponibilidad y precios en plataforma."
+      },
+      {
+        "nombre": "Alojamientos Villa Cerro Castillo",
+        "tipo": "Varios (hostales, camping, cabañas)",
+        "ubicacion": "Villa Cerro Castillo (a ~70 km de Puerto Ibáñez por ruta interior, o ~95 km desde Coyhaique)",
+        "nota": "Opción alternativa si se visita el área del Cerro Castillo en combinación con el salto."
+      }
+    ],
+    "como_llegar": {
+      "descripcion_general": "El Salto del Río Ibáñez se ubica a 6 km al sur de Puerto Ingeniero Ibáñez, sobre la ruta que lleva hacia la Península Levicán. El salto es visible desde un puente en el camino.",
+      "desde_coyhaique": {
+        "distancia_km": 122,
+        "tiempo_estimado": "2 horas 30 minutos a 3 horas en automóvil",
+        "ruta": "Desde Coyhaique tomar la Ruta X-65 (camino a Puerto Ibáñez) en dirección sur. Recorrer 116 km hasta Puerto Ingeniero Ibáñez. Desde el pueblo continuar 6 km por la ruta hacia la Península Levicán hasta el puente sobre el Río Ibáñez donde se ubican los saltos. El camino X-65 es de ripio en tramos, transitable con vehículo estándar pero se recomienda doble tracción en invierno."
+      },
+      "desde_santiago": {
+        "distancia_km": 1750,
+        "tiempo_vuelo": "Vuelo a Balmaceda (BBA) desde Santiago: 2 horas 30 minutos",
+        "tiempo_total": "Vuelo + traslado: 1 día",
+        "ruta": "Opción 1 (aéreo + terrestre): Vuelo desde Santiago (SCL) al Aeropuerto de Balmaceda (BBA) — el aeropuerto más cercano a Coyhaique. Desde Balmaceda son 55 km a Coyhaique (40 min) y desde ahí 116 km a Puerto Ibáñez (2 h 30 min). Opción 2 (terrestre): La Carretera Austral (Ruta 7) conecta desde Puerto Montt hacia el sur, pero requiere múltiples transbordos en ferry y varios días de viaje."
+      },
+      "transporte_publico": "Hay buses de Coyhaique a Puerto Ibáñez (varias compañías, tiempo aprox. 1h 45 min a 2h). Desde Puerto Ibáñez se puede contratar taxi local o van compartida para llegar al salto (6 km). Confirmar horarios de bus en terminales de Coyhaique.",
+      "desde_chile_chico": {
+        "descripcion": "Desde Chile Chico (orilla sur del Lago General Carrera) existe ferry hacia Puerto Ibáñez operado por Ferry Patagonia. Tiempo de navegación: aproximadamente 2 horas.",
+        "url_ferry": "https://www.ferrypatagonia.com/destinos/puerto-ibanez"
+      },
+      "coordenadas_estacionamiento": {
+        "latitud": -46.257,
+        "longitud": -71.996,
+        "precision": "media",
+        "nota": "Área aproximada del puente sobre el Río Ibáñez. Confirmar en Google Maps con 'Salto del Río Ibáñez'."
+      },
+      "estado_camino_2026": "Ruta de ripio. Generalmente transitable en vehículo estándar en verano. Se recomienda doble tracción o vehículo de mayor despeje en invierno y épocas lluviosas. El Ministerio de Obras Públicas mantiene la ruta pero las condiciones pueden variar. [VERIFICAR VIGENCIA 2026]"
+    },
+    "informacion_cultural": {
+      "significado_cultural": "El área del Río Ibáñez es territorio ancestral del pueblo Aonikenk (Tehuelche). El lago General Carrera es llamado 'Chelenko' en lengua tehuelche, que significa 'aguas revueltas' o 'laguna de los vientos'. La cuenca del Río Ibáñez contiene pinturas rupestres Tehuelche (manos en negativo) de hasta 10.000 años de antigüedad en el Paredón de las Manos, clasificadas como sitio arqueológico.",
+      "historia": "El nombre del río y del puerto proviene de Cornelio Ibáñez, agrimensor chileno del siglo XIX a quien los locales llamaban 'el ingeniero', de ahí el nombre 'Puerto Ingeniero Ibáñez'. El salto fue formado geológicamente tras la última gran erupción del Volcán Hudson (la más reciente fue en 1991). Las rocas del salto tienen más de 150 millones de años (período Jurásico), siendo uno de los geositios más antiguos documentados de la provincia. Villa Cerro Castillo, próxima al área, fue fundada oficialmente en 1966. La historia del área incluye la llegada de familias colonas a principios del siglo XX.",
+      "eventos_relevantes": [
+        "Erupción del Volcán Hudson en 1991 (la más reciente y geológicamente relevante para el salto)",
+        "Lanzamiento del Proyecto Geoparque Chelenko en abril 2024, que incluye al Salto del Río Ibáñez como geosito candidato",
+        "Reconocimiento geológico oficial de los saltos por SERNAGEOMIN (documento en repositorio institucional)"
+      ],
+      "leyendas": [],
+      "menciones_academicas": [
+        "Documento SERNAGEOMIN: 'Reconocimiento geológico de los saltos del río Ibáñez, provincia de Aisén' (disponible en repositorio.sernageomin.cl)",
+        "Documento SERNAGEOMIN: 'Geología del Área Puerto Ingeniero Ibáñez-Villa Cerro Castillo, escala 1:100.000' (2010)"
+      ]
+    },
+    "flora": {
+      "descripcion": "El entorno del Río Ibáñez presenta una vegetación de transición entre el bosque templado húmedo de la vertiente andina y la estepa patagónica. La zona del salto se ubica en el sector oriental de la cordillera, con precipitaciones moderadas (entre 800 y 1.385 mm anuales en Coyhaique). El bosque nativo incluye predominantemente lenga (Nothofagus pumilio) y ñire (Nothofagus antarctica) en las laderas andinas, con coigüe de Magallanes (Nothofagus betuloides) en los sectores más húmedos.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Lenga",
+          "nombre_cientifico": "Nothofagus pumilio",
+          "descripcion": "Árbol caducifolio dominante en laderas andinas. Alcanza hasta 30 m de altura. Sus hojas rojizas en otoño (marzo-abril) son icónicas del paisaje patagónico."
+        },
+        {
+          "nombre_comun": "Ñire",
+          "nombre_cientifico": "Nothofagus antarctica",
+          "descripcion": "Árbol caducifolio de menor porte que la lenga. Presente en sectores más húmedos y suelos turbosos."
+        },
+        {
+          "nombre_comun": "Coigüe de Magallanes",
+          "nombre_cientifico": "Nothofagus betuloides",
+          "descripcion": "Árbol perennifolio presente en la vertiente húmeda. Bosque denso en quebradas."
+        },
+        {
+          "nombre_comun": "Calafate",
+          "nombre_cientifico": "Berberis microphylla",
+          "descripcion": "Arbusto espinoso de frutos negros comestibles. Muy frecuente en la estepa y orillas de caminos."
+        },
+        {
+          "nombre_comun": "Notro / Ciruelillo",
+          "nombre_cientifico": "Embothrium coccineum",
+          "descripcion": "Árbol de flores tubulares rojas. Florece en primavera (octubre-noviembre)."
+        },
+        {
+          "nombre_comun": "Chaura",
+          "nombre_cientifico": "Gaultheria mucronata",
+          "descripcion": "Arbusto bajo de frutos blancos o rosados. Frecuente en el sotobosque."
+        }
+      ]
+    },
+    "fauna": {
+      "descripcion": "La cuenca del Río Ibáñez y el entorno del Lago General Carrera albergan fauna típica de la Patagonia andina y de la estepa. El huemul (Hippocamelus bisulcus), símbolo de Chile, tiene poblaciones en esta región. El Lago General Carrera es un hábitat relevante para aves acuáticas migratorias y residentes.",
+      "especies_destacadas": [
+        {
+          "nombre_comun": "Huemul",
+          "nombre_cientifico": "Hippocamelus bisulcus",
+          "descripcion": "Ciervo endémico en peligro de extinción. Símbolo nacional de Chile. Presente en los bosques andinos del área del Cerro Castillo y sectores del Río Ibáñez.",
+          "estado_conservacion": "En peligro (IUCN)"
+        },
+        {
+          "nombre_comun": "Cóndor andino",
+          "nombre_cientifico": "Vultur gryphus",
+          "descripcion": "Ave carroñera de gran envergadura (hasta 3,2 m de ala). Se observa planeando sobre los farellones del río y las cumbres del Cerro Castillo.",
+          "estado_conservacion": "Vulnerable (IUCN)"
+        },
+        {
+          "nombre_comun": "Puma",
+          "nombre_cientifico": "Puma concolor",
+          "descripcion": "Felino mayor de la Patagonia. Presente en la zona aunque raramente avistado por visitantes.",
+          "estado_conservacion": "Preocupación menor (IUCN)"
+        },
+        {
+          "nombre_comun": "Guanaco",
+          "nombre_cientifico": "Lama guanicoe",
+          "descripcion": "Camélido sudamericano. Se observa en grupos en la estepa patagónica y bordes de bosque del área.",
+          "estado_conservacion": "Preocupación menor (IUCN)"
+        },
+        {
+          "nombre_comun": "Cisne de cuello negro",
+          "nombre_cientifico": "Cygnus melancoryphus",
+          "descripcion": "Ave acuática de gran tamaño. Se observa en el humedal Vientos del Chelenko en Puerto Ibáñez y en las orillas del Lago General Carrera.",
+          "estado_conservacion": "Preocupación menor (IUCN)"
+        },
+        {
+          "nombre_comun": "Flamenco austral",
+          "nombre_cientifico": "Phoenicopterus chilensis",
+          "descripcion": "Presente en el humedal de Puerto Ibáñez, cerca de la desembocadura del Río Ibáñez.",
+          "estado_conservacion": "Preocupación menor (IUCN)"
+        },
+        {
+          "nombre_comun": "Martín pescador",
+          "nombre_cientifico": "Megaceryle torquata",
+          "descripcion": "Ave pescadora de colores llamativos. Frecuente en orillas del Río Ibáñez.",
+          "estado_conservacion": "Preocupación menor"
+        },
+        {
+          "nombre_comun": "Aguilucho andino",
+          "nombre_cientifico": "Geranoaetus melanoleucus",
+          "descripcion": "Rapaz diurna. Se observa sobrevolando el valle del río.",
+          "estado_conservacion": "Preocupación menor"
+        },
+        {
+          "nombre_comun": "Trucha arcoíris",
+          "nombre_cientifico": "Oncorhynchus mykiss",
+          "descripcion": "Especie introducida. Abundante en el Río Ibáñez y en el Lago General Carrera. Objetivo principal de la pesca deportiva en el área.",
+          "estado_conservacion": "Especie introducida"
+        },
+        {
+          "nombre_comun": "Chucao",
+          "nombre_cientifico": "Scelorchilus rubecula",
+          "descripcion": "Pájaro secretivo del bosque austral. Su canto es inconfundible en el sotobosque húmedo.",
+          "estado_conservacion": "Preocupación menor"
+        }
+      ]
+    },
+    "clima": {
+      "tipo": "Mediterráneo frío de montaña con influencia estépica. La zona de Puerto Ibáñez está en el sector 'de sombra' de la cordillera, con precipitaciones notablemente menores que la vertiente occidental.",
+      "temperatura_promedio_anual_c": 9,
+      "temperatura_verano_c": "15-20°C (enero-febrero)",
+      "temperatura_invierno_c": "0-6°C (junio-agosto)",
+      "precipitaciones_mm_anuales": "800-1.000 mm anuales aprox. en el área de Puerto Ibáñez (sector oriental de la cordillera). Coyhaique registra 1.385 mm anuales. La vertiente occidental de Aysén supera los 3.000 mm.",
+      "viento": "Vientos del oeste (zonal) frecuentes e intensos, especialmente en verano. Los vientos patagónicos son característicos del área y pueden ser fuertes en cualquier época del año.",
+      "descripcion": "El clima de Puerto Ibáñez y el área del Salto del Río Ibáñez es frío oceánico a frío estépico. Los veranos son frescos (15-20°C) con períodos soleados interrumpidos por frentes oceánicos. Los inviernos son fríos con nevadas en alturas superiores a los 500 m. Las lluvias son más frecuentes en otoño-invierno. El viento es el factor climático más relevante: puede ser intenso en cualquier época y cambiar las condiciones rápidamente. Se recomienda siempre llevar ropa de abrigo e impermeable.",
+      "mejor_epoca_visita": "Octubre a marzo. El pico de visitantes es en enero-febrero. La primavera (octubre-noviembre) ofrece el mayor caudal por deshielo y paisajes con nieve en cumbres. El verano (diciembre-febrero) ofrece días más largos y temperaturas más cálidas."
+    },
+    "seguridad": [
+      "Nunca acercarse al borde del salto sin barandas de seguridad — el suelo puede estar mojado y resbaladizo por la humedad y el spray del agua.",
+      "El viento patagónico puede ser intenso y repentino. Asegurar siempre equipamiento fotográfico y prendas de vestir.",
+      "El Río Ibáñez tiene corrientes fuertes aguas abajo del salto. Bañarse en el cauce del río es peligroso y no está habilitado.",
+      "Llevar siempre ropa de abrigo e impermeable, incluso en días soleados de verano. El tiempo puede cambiar rápidamente.",
+      "Informar a alguien (hospedaje, oficina de turismo) sobre el itinerario antes de salir a visitar el salto, especialmente si se combina con senderismo.",
+      "La ruta de ripio puede tener tramos difíciles con lluvia reciente. Verificar el estado del camino antes de partir.",
+      "No hay servicios de emergencia en el salto. El hospital más cercano está en Coyhaique (116 km). Llevar botiquín básico y número de emergencias: SAMU 131, Bomberos 132.",
+      "En caso de visitar el Paredón de las Manos u otras zonas arqueológicas, no tocar ni fotografiar con flash las pinturas rupestres."
+    ],
+    "recomendaciones": [
+      "Calzado de trekking o zapatillas con suela antideslizante — el sendero hasta los miradores puede estar húmedo.",
+      "Ropa en capas: base térmica, polar o forro polar, cortaviento impermeable. Incluso en verano el viento hace bajar la sensación térmica.",
+      "Protector solar y gafas de sol — la radiación UV es intensa en la Patagonia, especialmente con cielo despejado.",
+      "Agua y snacks para la excursión — no hay kioscos ni servicios en el salto.",
+      "Cámara fotográfica con paño para limpiar el lente (el spray del salto puede mojarla).",
+      "Repelente de insectos en primavera-verano (mosquitos y tábanos son frecuentes en zonas húmedas).",
+      "Cargar el automóvil con combustible en Coyhaique o Puerto Ibáñez. No hay estaciones en el camino al salto.",
+      "Descargar mapas offline (Google Maps, Maps.me) antes de salir — la cobertura celular en el camino al salto es limitada."
+    ],
+    "gastronomia": [
+      {
+        "plato": "Cordero patagónico al palo",
+        "descripcion": "Ícono culinario de la Patagonia chilena. Cordero criado en praderas australes, cocinado lentamente a fuego de leña en un asador ('palo'). Carne magra, jugosa y con sabor intenso. Se sirve en ferias y asados tradicionales."
+      },
+      {
+        "plato": "Trucha a las brasas",
+        "descripcion": "Trucha arcoíris del Río Ibáñez o del Lago General Carrera, cocinada a las brasas con hierbas locales. El Lago General Carrera es famoso por la abundancia y calidad de su trucha."
+      },
+      {
+        "plato": "Cazuela de cordero",
+        "descripcion": "Guiso tradicional patagónico de carne de cordero con papas, zanahorias, zapallo y arroz, sazonado con hierbas aromáticas. Plato reconfortante para los días fríos."
+      },
+      {
+        "plato": "Mermeladas y jaleas artesanales",
+        "descripcion": "Elaboradas con frutos silvestres de la Patagonia: calafate, frutilla silvestre, rosa mosqueta. Se consiguen en las chacras y talleres artesanales de Puerto Ibáñez y Villa Cerro Castillo."
+      },
+      {
+        "plato": "Empanadas de cordero y queso de campo",
+        "descripcion": "Empanadas caseras con relleno de carne de cordero o queso artesanal elaborado en chacras locales de la zona de Río Ibáñez."
+      }
+    ],
+    "faq": [
+      {
+        "pregunta": "¿Cómo se llega al Salto del Río Ibáñez desde Coyhaique?",
+        "respuesta": "Desde Coyhaique hay que recorrer 116 km en dirección sur por la ruta X-65 hasta Puerto Ingeniero Ibáñez (aproximadamente 2 horas y 30 minutos). Desde Puerto Ibáñez se continúan 6 km hacia el sur por la ruta a la Península Levicán, donde el salto es visible desde el puente sobre el río. El camino es de ripio en tramos. También hay buses desde Coyhaique a Puerto Ibáñez."
+      },
+      {
+        "pregunta": "¿Se puede nadar o bañarse en el Salto del Río Ibáñez?",
+        "respuesta": "No se recomienda ni está habilitado el baño en el área del salto. El río tiene corrientes fuertes y la caída genera turbulencia y agua muy fría (proveniente del deshielo del Volcán Hudson). Para actividades acuáticas, el kayak en el Lago General Carrera (6 km) es una opción más segura."
+      },
+      {
+        "pregunta": "¿Cuánto cuesta entrar al Salto del Río Ibáñez?",
+        "respuesta": "El acceso al Salto del Río Ibáñez es gratuito. El área no tiene cobro de entrada. Si se hace un tour organizado (como los de Servitur Offi), el precio del tour incluye guía y traslado ($70.000 CLP por persona aprox. en 2025)."
+      },
+      {
+        "pregunta": "¿Cuál es la mejor época para visitar el Salto del Río Ibáñez?",
+        "respuesta": "La mejor época es de octubre a marzo (primavera y verano austral). En primavera (octubre-noviembre) el caudal es máximo por el deshielo del Volcán Hudson, haciendo el salto más impresionante. El verano (diciembre-febrero) ofrece mejor clima y días más largos. En invierno (junio-agosto) el acceso puede ser difícil por nevadas y el camino de ripio."
+      },
+      {
+        "pregunta": "¿Qué es el Geoparque Chelenko y qué relación tiene con el salto?",
+        "respuesta": "El Proyecto Geoparque Chelenko es una iniciativa financiada por CORFO y gestionada por el Servicio del Patrimonio Cultural de Chile, lanzada en abril de 2024, que busca obtener el reconocimiento de UNESCO para la provincia de General Carrera. El Salto del Río Ibáñez es uno de los geositios candidatos del geoparque, valorado por sus rocas de más de 150 millones de años (período Jurásico) y por su origen vinculado a la actividad del Volcán Hudson."
+      },
+      {
+        "pregunta": "¿Qué otras atracciones hay cerca del Salto del Río Ibáñez?",
+        "respuesta": "En la misma área de Puerto Ibáñez están: el Humedal Vientos del Chelenko (avistamiento de aves), el Paredón de las Manos (pinturas rupestres Tehuelche de hasta 10.000 años), el Cerro Pirámide (1.743 m, vistas panorámicas), rutas de escalada en El Maitenal, trekking en Las Ardillas. A mayor distancia: el Parque Nacional Cerro Castillo (95 km desde Coyhaique) y las Capillas de Mármol en Puerto Río Tranquilo (aprox. 130 km en dirección sur)."
+      },
+      {
+        "pregunta": "¿Cuánto dura la visita al Salto del Río Ibáñez?",
+        "respuesta": "La visita al salto en sí toma entre 1 y 2 horas, incluyendo el tiempo para fotografiar y recorrer los miradores. Si se combina con el tour completo (pinturas rupestres, Cerro Castillo, artesanía), la excursión dura todo el día (10:00 a 20:00 horas)."
+      }
+    ],
+    "cascadas_cercanas": [
+      {
+        "nombre": "Cascada La Virgen",
+        "descripcion": "Cascada en la Reserva Nacional Río Simpson, accesible desde la ruta Coyhaique-Puerto Aysén. Entorno de bosque nativo húmedo con vegetación exuberante.",
+        "distancia_desde_salto_km": 120,
+        "region": "Aysén",
+        "tipo": "cercania",
+        "tiene_pagina": false
+      },
+      {
+        "nombre": "Cascada La Nutria",
+        "descripcion": "Cascada de aproximadamente 80 metros de altura en el camino a Bahía Exploradores, cerca de Puerto Río Tranquilo. Vista desde mirador.",
+        "distancia_desde_salto_km": 130,
+        "region": "Aysén",
+        "tipo": "cercania",
+        "tiene_pagina": false
+      },
+      {
+        "nombre": "Saltos del Petrohué",
+        "descripcion": "Saltos en la Región de Los Lagos sobre el Río Petrohué, en el Parque Nacional Vicente Pérez Rosales. Cascadas de origen volcánico similares al Salto del Río Ibáñez.",
+        "region": "Los Lagos",
+        "tipo": "relacionada",
+        "tiene_pagina": true,
+        "slug": "saltos-del-petrohue"
+      },
+      {
+        "nombre": "Cascada El León",
+        "descripcion": "Doble cascada en el Río Pangal, accesible desde Puerto Aysén. Aguas heladas en entorno de vegetación patagónica densa.",
+        "distancia_desde_salto_km": 180,
+        "region": "Aysén",
+        "tipo": "cercania",
+        "tiene_pagina": false
+      }
+    ],
+    "estado_datos": {
+      "fecha_investigacion": "2026-03-05",
+      "confiabilidad_general": "media-alta",
+      "notas_generales": "Los datos de coordenadas, ubicación y características generales están verificados en múltiples fuentes consistentes. La altura de 25 metros es mencionada por fuentes turísticas pero no ha podido verificarse con documentación técnica de ingeniería o hidrología (el documento SERNAGEOMIN no pudo accederse directamente). Los datos de empresas y alojamientos están marcados [VERIFICAR VIGENCIA 2026] ya que fueron publicados en 2024-2025.",
+      "datos_no_verificados": [
+        "Altura exacta del salto en metros (dato de ~25 m proviene de fuentes turísticas, no de documentación técnica)",
+        "Número exacto de saltos (fuentes mencionan 'saltos' en plural sin especificar cantidad exacta)",
+        "Caudal en m³/s (no hay datos DGA disponibles en fuentes públicas consultadas)",
+        "Operatividad en 2026 de Servitur Offi y precios actualizados",
+        "Operatividad en 2026 de Hostal Vientos del Sur y otros alojamientos",
+        "Horarios de buses Coyhaique-Puerto Ibáñez vigentes en 2026"
+      ],
+      "fuentes_consultadas": [
+        {
+          "fuente": "Mapcarta / GeoNames (ID: 6355190)",
+          "tipo": "Geodatos",
+          "datos": "Coordenadas (lat -46.25525, lng -71.99667), altitud 260 m s.n.m.",
+          "url": "https://mapcarta.com/25056058"
+        },
+        {
+          "fuente": "Google Maps",
+          "tipo": "Cartografía",
+          "datos": "Coordenadas (-46.2567067, -71.9954166), confirmación ubicación",
+          "url": "https://www.google.com/maps/place/Salto+del+R%C3%ADo+Ib%C3%A1%C3%B1ez"
+        },
+        {
+          "fuente": "Museo Regional de Aysén — Geoparque Chelenko",
+          "tipo": "Fuente oficial",
+          "datos": "Geología: rocas de +150 millones de años, origen vinculado a erupción Volcán Hudson",
+          "url": "https://www.museoregionalaysen.gob.cl/geoparque-chelenko/multimedia/secretos-geologicos-del-salto-del-rio-ibanez"
+        },
+        {
+          "fuente": "Turismo Río Ibáñez (municipalidad)",
+          "tipo": "Fuente oficial municipal",
+          "datos": "Descripción del salto, atracciones de Puerto Ibáñez, contacto oficina turismo (+56 9 4470 7380)",
+          "url": "https://turismo.rioibanez.cl/"
+        },
+        {
+          "fuente": "Ruta de los Parques — Puerto Ingeniero Ibáñez",
+          "tipo": "Portal turístico validado",
+          "datos": "Descripción del salto, fauna avistada (cisnes, flamencos), actividades en el área",
+          "url": "https://www.rutadelosparques.org/puerto-ingeniero-ibanez/"
+        },
+        {
+          "fuente": "Servitur Offi",
+          "tipo": "Operador turístico",
+          "datos": "Tour día completo: precio $70.000 CLP, duración, servicios incluidos",
+          "url": "https://www.servituroffi.com/producto/saltos-de-puerto-ibanez/"
+        },
+        {
+          "fuente": "Aysen Patagonia — Puerto Ibáñez",
+          "tipo": "Portal turístico regional",
+          "datos": "Historia del nombre, arte rupestre (+10.000 años), actividades, acceso",
+          "url": "https://aysenpatagonia.cl/localidades/puerto-ibanez"
+        },
+        {
+          "fuente": "Biblioteca Congreso Nacional — Clima Región de Aysén",
+          "tipo": "Fuente oficial estatal",
+          "datos": "Clasificación climática, rangos de temperatura, precipitaciones por sector",
+          "url": "https://www.bcn.cl/siit/nuestropais/region11/clima.htm"
+        },
+        {
+          "fuente": "Wikipedia — Río Ibáñez",
+          "tipo": "Referencia enciclopédica",
+          "datos": "Longitud del río (88 km), origen en glaciar del Volcán Hudson",
+          "url": "https://es.wikipedia.org/wiki/R%C3%ADo_Ib%C3%A1%C3%B1ez"
+        },
+        {
+          "fuente": "SERNAGEOMIN — Repositorio digital",
+          "tipo": "Fuente científica oficial",
+          "datos": "Existencia de documento 'Reconocimiento geológico de los saltos del río Ibáñez'. No pudo accederse al contenido por error de certificado SSL.",
+          "url": "https://repositorio.sernageomin.cl/items/c9222689-1af4-405a-a9ae-ad55bd8c38e9",
+          "estado": "PENDIENTE DE REVISIÓN"
+        },
+        {
+          "fuente": "Tripadvisor — Salto Río Ibáñez",
+          "tipo": "Plataforma de reseñas",
+          "datos": "Confirmación como atractivo turístico verificado",
+          "url": "https://www.tripadvisor.com/Attraction_Review-g1409463-d15598506-Reviews-Salto_Rio_Ibanez-Puerto_Ingeniero_Ibanez_Aisen_Region.html"
+        },
+        {
+          "fuente": "Parque Nacional Cerro Castillo — Flora y Fauna",
+          "tipo": "Portal de parque nacional",
+          "datos": "Especies de flora (lenga, ñire, coigüe, notro, calafate) y fauna (huemul, cóndor, puma, guanaco) del área",
+          "url": "https://parquenacionalcerrocastillo.cl/flora-fauna-parque-nacional-cerro-castillo/"
+        }
+      ]
+    }
+  }
+}

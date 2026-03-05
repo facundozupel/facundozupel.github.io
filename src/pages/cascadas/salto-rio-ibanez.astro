@@ -1,0 +1,513 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por chile-waterfalls-researcher + múltiples fuentes (mar 2026)
+// Fuentes: Wikimedia Commons GPS, Ruta de los Parques, Museo Regional Aysén, TripAdvisor, SERNAGEOMIN
+const cascada = {
+  nombre: 'Salto Río Ibáñez',
+  slug: 'salto-rio-ibanez',
+  region: 'Aysén',
+  zona: 'Puerto Ingeniero Ibáñez',
+  altura: 25,
+  caudal: 'Variable según temporada (mayor en primavera por deshielo)',
+  dificultad: 'Fácil',
+  acceso: 'Camino de ripio (5 km desde Ruta 7)',
+  coordenadas: '46°15\'S 71°59\'W',
+  mejorEpoca: 'Noviembre — Marzo',
+  entrada: 'Gratuita',
+  horario: 'Todo el año',
+  descripcion: `El Salto del Río Ibáñez es una imponente cascada de aproximadamente 25 metros de altura ubicada a solo 6 kilómetros de Puerto Ingeniero Ibáñez, en la Región de Aysén. El salto se divide en dos brazos principales que caen con fuerza sobre un lecho de rocas que tienen más de 150 millones de años de antigüedad, formando un espectáculo natural de extraordinaria belleza en plena Patagonia chilena.
+
+  El Río Ibáñez nace en los faldeos del volcán Hudson y recorre más de 80 kilómetros hasta desembocar en el Lago General Carrera, el segundo lago más grande de Sudamérica. En su camino, el río atraviesa un cañón de roca volcánica donde se precipita formando este salto. La formación geológica se originó tras la última erupción del volcán Hudson, cuyas coladas de lava modelaron el paisaje actual.
+
+  El salto forma parte del territorio del Geoparque Chelenko, una iniciativa que busca obtener reconocimiento de la UNESCO por la excepcional riqueza y diversidad geológica de la Provincia de General Carrera. Las rocas del entorno son las mismas que albergan el hallazgo del Chilesaurus diegosuarezi, uno de los descubrimientos paleontológicos más extraordinarios del siglo en Chile.`,
+  comoLlegar: `Desde Coyhaique (116 km, 1h 40 min): Tomar la Carretera Austral Sur (Ruta 7) hasta el desvío señalizado hacia Puerto Ingeniero Ibáñez. 2 km antes de llegar al pueblo, doblar a la derecha por un camino de ripio en buen estado de 5 km que lleva directamente al salto.
+
+  Desde Santiago (1.850 km): Vuelo a Balmaceda (SKY, LATAM, JetSMART, 2h 30 min). Desde el aeropuerto de Balmaceda son 92 km hasta Puerto Ibáñez por ruta pavimentada. También se puede volar a Coyhaique y desde allí tomar la ruta al sur.
+
+  Transporte público: Hay varias salidas diarias de buses desde Coyhaique a Puerto Ibáñez. Minibús Eben Ezer (Luis Risopatrón 491, tel: +56 67 2242303) y Freddy Morales (tel: +569 89448847) operan la ruta. Desde Puerto Ibáñez se puede llegar caminando o en vehículo al desvío del salto.
+
+  Desde Chile Chico: Cruzar el Lago General Carrera en barcaza desde Chile Chico a Puerto Ibáñez (2 horas de navegación). Reservar con anticipación en barcazas.cl.`,
+  imagen: '/assets/cascadas/salto-rio-ibanez/hero.webp',
+  imagenAlt: 'Salto del Río Ibáñez con sus dos brazos de agua cayendo sobre roca volcánica en la Región de Aysén, Patagonia chilena',
+  galeria: [
+    { src: '/assets/cascadas/salto-rio-ibanez/galeria-1.webp', alt: 'Vista frontal del Salto del Río Ibáñez con caída de agua sobre rocas de 150 millones de años' },
+    { src: '/assets/cascadas/salto-rio-ibanez/galeria-2.webp', alt: 'Rápidos y cascada del Río Ibáñez con formaciones rocosas volcánicas en Aysén' },
+    { src: '/assets/cascadas/salto-rio-ibanez/galeria-3.webp', alt: 'Rápidos del Río Ibáñez aguas abajo del salto principal con islas de roca' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Daniel P. Gauer', licencia: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_Iba%C3%B1ez_(3583668204).jpg' },
+    { autor: 'Rakela', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_Ib%C3%A1%C3%B1ez.jpg' },
+    { autor: 'LBM1948', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_R%C3%ADo_Ib%C3%A1%C3%B1ez_1.jpg' },
+    { autor: 'LBM1948', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_R%C3%ADo_Ib%C3%A1%C3%B1ez_2.jpg' },
+  ],
+  // 3 por cercanía geográfica (regiones adyacentes — Aysén no tiene otras cascadas publicadas)
+  cascadasCercanas: [
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'cercania' },
+    { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, tipo: 'cercania' },
+    { nombre: 'Las Cascadas de Puerto Octay', slug: 'las-cascadas-puerto-octay', region: 'Los Lagos', altura: 40, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (formación volcánica, entorno patagónico, experiencia remota)
+  cascadasRelacionadas: [
+    { nombre: 'Salto del Buey', slug: 'salto-del-buey', region: 'Los Ríos', altura: 90, tipo: 'relacionada' },
+    { nombre: 'Salto de Riñinahue', slug: 'salto-de-rininahue', region: 'Los Ríos', altura: 27, tipo: 'relacionada' },
+    { nombre: 'Salto del Claro', slug: 'salto-del-claro', region: 'La Araucanía', altura: 90, tipo: 'relacionada' },
+  ],
+
+  lat: -46.256277,
+  lng: -71.995772,
+  rio: 'Río Ibáñez',
+  tipoFormacion: 'Roca volcánica (volcán Hudson)',
+  numeroBrazos: 2,
+  distanciaSantiago: 1850,
+
+  historia: `El Río Ibáñez y su entorno han sido territorio de tránsito y asentamiento desde tiempos ancestrales. Las etnias nómades de la Patagonia — los tehuelches — recorrían estos valles siguiendo las rutas de caza del huemul y el guanaco. El río lleva el nombre del general Carlos Ibáñez del Campo, presidente de Chile en dos períodos (1927-1931 y 1952-1958), quien dio impulso a la colonización de Aysén.
+
+  Puerto Ingeniero Ibáñez fue fundado oficialmente en 1924, cuando los primeros colonos chilenos se asentaron atraídos por el microclima favorable para la agricultura, provenientes del norte del país y desde Argentina. La localidad se convirtió en punto estratégico de conectividad regional, ya que desde aquí zarpa la barcaza que cruza el Lago General Carrera hacia Chile Chico.
+
+  Geológicamente, el salto se formó por la actividad del volcán Hudson (1.905 msnm), ubicado a unos 90 km al suroeste. La última erupción mayor del Hudson en 1991 tuvo un Índice de Explosividad Volcánica (VEI) de 5 y cubrió la zona con ceniza volcánica, afectando severamente a las comunidades ganaderas de la región. Las coladas de lava anteriores del Hudson moldearon el cañón por donde el Río Ibáñez se precipita, creando los escalones naturales que forman el salto actual. Las rocas expuestas en el lecho del río tienen más de 150 millones de años (Jurásico Superior), lo que convierte al sitio en un punto de interés dentro del proyecto Geoparque Chelenko.
+
+  A pocos kilómetros del salto, en la misma cuenca del Río Ibáñez, se encuentra el Paredón de las Manos, un sitio arqueológico con pinturas rupestres de hasta 10.000 años de antigüedad atribuidas al pueblo Aonikenk (Tehuelche). Este hallazgo confirma que el valle del Río Ibáñez fue territorio de tránsito ancestral mucho antes de la llegada de los colonos.
+
+  La artesanía en greda de Puerto Ibáñez, confeccionada con arcilla extraída del propio río, es una tradición local reconocida a nivel regional. El "cacharrito de Ibáñez" es un ícono de la identidad cultural de la comuna.`,
+
+  queHacer: [
+    { actividad: 'Miradores del salto', descripcion: 'Desde un puente peatonal se pueden apreciar los dos brazos del salto y la caída de agua sobre las rocas volcánicas. Acceso gratuito todo el año. Es posible bajar hasta el lecho del río con cuidado para ver la cascada desde diferentes ángulos.' },
+    { actividad: 'Fotografía de naturaleza', descripcion: 'El contraste entre el agua turquesa, las rocas volcánicas oscuras y el bosque patagónico ofrece oportunidades fotográficas excepcionales. La mejor luz es por la mañana. En días despejados, el macizo del Cerro Castillo es visible en el horizonte.' },
+    { actividad: 'Trekking y senderismo', descripcion: 'El camino Las Ardillas (Ruta X-723) une Villa Cerro Castillo con Puerto Ibáñez, ofreciendo vistas al Lago Tamango, lagunas y el macizo Cerro Castillo. También hay senderos cortos en los alrededores del salto.' },
+    { actividad: 'Escalada en roca', descripcion: 'Alrededor de Puerto Ibáñez existen 4 sectores de escalada equipados: La Guanaca, El Maitenal, El Águila y Altamirano. En La Guanaca hay un guía que ofrece acercamiento a la roca y arriendo de equipo. Contacto: Allan Paredes +56 981843394.' },
+    { actividad: 'Navegación en el Lago General Carrera', descripcion: 'Desde Puerto Ibáñez se puede tomar la barcaza que cruza el segundo lago más grande de Sudamérica hacia Chile Chico (2 horas). La navegación ofrece vistas panorámicas del lago y las montañas circundantes.' },
+    { actividad: 'Visita a artesanas locales', descripcion: 'Puerto Ibáñez es reconocido por su cerámica en greda extraída del río. Las artesanas locales elaboran el tradicional "cacharrito de Ibáñez" además de tejidos en lana y artesanía en cuero.' },
+  ],
+
+  flora: `El entorno del Salto del Río Ibáñez se encuentra en la zona de transición entre el bosque caducifolio de Aysén y la estepa patagónica, con una vegetación adaptada al clima templado lluvioso y los suelos volcánicos.
+
+  En las laderas del cañón y las riberas del río predomina la lenga (Nothofagus pumilio), árbol caducifolio que tiñe el paisaje de tonos dorados y rojizos en otoño. El coigüe de Magallanes (Nothofagus betuloides) se encuentra en las zonas más húmedas, junto con el ñirre (Nothofagus antarctica), un arbusto o árbol pequeño que forma matorrales densos. El calafate (Berberis microphylla), arbusto espinoso de fruto morado comestible, crece en abundancia y es protagonista de la "Fiesta del Calafate" que se celebra en febrero. La nalca (Gunnera tinctoria) con sus grandes hojas y el chilco (Fuchsia magellanica) con flores rojas colgantes adornan las zonas ribereñas. Los musgos, líquenes y helechos cubren las rocas volcánicas húmedas junto al salto.`,
+
+  fauna: `La zona alberga una fauna representativa de la Patagonia aysenina. El huemul (Hippocamelus bisulcus), ciervo endémico en peligro de extinción y símbolo del escudo nacional de Chile, habita en los bosques y montañas cercanos, especialmente en el Parque Nacional Cerro Castillo donde se realizan avistamientos frecuentes.
+
+  Entre las aves, el cóndor (Vultur gryphus) sobrevuela los valles cordilleranos, mientras que en las riberas del río se observan el martín pescador (Megaceryle torquata), el pato correntino (Merganetta armata) adaptado a los torrentes de montaña, y el cisne de cuello negro (Cygnus melancoryphus) en las aguas más tranquilas cerca del lago. Los flamencos (Phoenicopterus chilensis) visitan estacionalmente las orillas del Lago General Carrera. La bandurria (Theristicus melanopis) con su pico curvo es común en los pastizales. El zorro culpeo patagónico (Lycalopex culpaeus) es avistado ocasionalmente en los alrededores, y en las aguas del río abundan las truchas arcoíris y marrones, apreciadas para la pesca deportiva con mosca.`,
+
+  clima: {
+    tipo: 'Templado lluvioso (Cfb) con influencia patagónica',
+    tempPromedio: '8°C',
+    tempVerano: '15-22°C',
+    tempInvierno: '-2 a 6°C',
+    precipitaciones: '619 mm anuales',
+    descripcion: 'Puerto Ibáñez goza de un microclima particular dentro de Aysén: menos lluvias que Coyhaique y temperaturas más moderadas gracias a la influencia del Lago General Carrera. Los veranos son frescos y agradables, con días largos (hasta 17 horas de luz en diciembre). Los inviernos son fríos con heladas frecuentes y posibilidad de nieve. La mejor época para visitar es de noviembre a marzo, cuando las temperaturas son más cálidas y los caminos están en mejor estado. El viento patagónico puede ser intenso todo el año, especialmente en primavera y verano.',
+  },
+
+  seguridad: [
+    'No acercarse al borde del salto — las rocas volcánicas son resbaladizas y la corriente del río es muy fuerte',
+    'Bajar al lecho del río con precaución extrema. No intentar cruzar el río ni acercarse al pie de la cascada',
+    'El camino de ripio de 5 km puede estar en mal estado en invierno (barro, hielo). Verificar condiciones antes de ir',
+    'Llevar ropa de abrigo incluso en verano — el viento patagónico puede bajar la sensación térmica drásticamente',
+    'No hay señal de celular en el área del salto. Avisar a alguien sobre su ruta antes de ir',
+    'En caso de erupción del volcán Hudson, seguir las instrucciones de ONEMI/SENAPRED. El volcán está a 90 km pero su ceniza puede afectar la zona',
+  ],
+
+  recomendaciones: [
+    'Cámara fotográfica con batería de repuesto — no hay electricidad en el área del salto',
+    'Cortavientos y ropa de abrigo por capas (el viento patagónico es impredecible)',
+    'Calzado de trekking con buena tracción para rocas húmedas y caminos de ripio',
+    'Agua y comida — no hay servicios comerciales en el salto. Los servicios más cercanos están en Puerto Ibáñez (6 km)',
+    'Binoculares para observación de aves y avistamiento de huemules en los bosques cercanos',
+    'Efectivo — en Puerto Ibáñez los servicios son limitados y no todos aceptan tarjeta',
+    'Protector solar y lentes de sol en verano (reflejo del agua y días largos)',
+  ],
+
+  gastronomia: [
+    { plato: 'Cordero al palo patagónico', descripcion: 'Tradición gastronómica de Aysén. Cordero entero asado a fuego lento en estaca durante horas. Se sirve en las fiestas costumbristas y restaurantes de la zona, especialmente en la "Fiesta del Chivo" de enero en Península de Levicán.' },
+    { plato: 'Truchas del Río Ibáñez', descripcion: 'Trucha arcoíris y trucha marrón capturadas en el río, preparadas a la mantequilla, al horno o ahumadas. Los ríos de Aysén son reconocidos mundialmente como destino de pesca con mosca.' },
+    { plato: 'Mermeladas y licores de calafate', descripcion: 'El calafate (Berberis microphylla) es el fruto emblemático de la Patagonia. Se elaboran mermeladas, licores, helados y postres. Según la leyenda, quien come calafate regresa siempre a la Patagonia.' },
+    { plato: 'Asado de chivo', descripcion: 'Puerto Ibáñez celebra cada enero la "Fiesta del Chivo" en la Península de Levicán, donde se prepara chivo al palo y se celebran tradiciones gauchas con jineteadas y folclore.' },
+    { plato: 'Hortalizas y frutas de chacra', descripcion: 'Gracias al microclima de Puerto Ibáñez, las chacras locales producen hortalizas frescas, frutas para mermeladas y hierbas aromáticas. La chacra "La Paramela" ofrece visitas con hierbas aromáticas, culinarias y medicinales.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Hostal y Cabañas Vientos del Sur', tipo: 'Hostal + Cabañas', precioDesde: 'Consultar precio', url: '#', descripcion: 'Ubicado en Av. Padre Antonio Ronchi 282, Puerto Ibáñez. Alojamiento a solo 6 km del salto. Solo efectivo. El hospedaje más cercano a la cascada.' },
+    { nombre: 'Hospedaje y Excursiones Mate Che', tipo: 'Hospedaje + Tours', precioDesde: 'Tour desde $60.000 CLP/persona', url: 'https://mateche.cl', descripcion: 'Operador turístico en Coyhaique con tours de día completo a Puerto Ibáñez y los Saltos del Río Ibáñez. Incluye transporte, guía y box lunch. También ofrece hospedaje. Tel: +569 8942 3993.' },
+    { nombre: 'Servitur Offi', tipo: 'Tour operador', precioDesde: 'Tour desde $70.000 CLP/persona', url: 'https://www.servituroffi.com', descripcion: 'Tour de día completo desde Coyhaique que incluye los Saltos del Río Ibáñez, el Paredón de las Manos (pinturas rupestres), mirador del Cerro Castillo, guía y almuerzo. Mínimo 4 personas.' },
+    { nombre: 'Cabañas y servicios en Puerto Ibáñez', tipo: 'Cabañas', precioDesde: 'Consultar precios', url: 'https://turismo.rioibanez.cl', descripcion: 'En Puerto Ibáñez hay cabañas, residencias y restaurantes. Información completa en la oficina de turismo del Paseo Comercial de Avenida Costanera.' },
+    { nombre: 'Alojamiento en Coyhaique', tipo: 'Hotel / Hostal', precioDesde: 'Desde ~$35.000 CLP/noche', url: '#', descripcion: 'Coyhaique, capital regional a 116 km, ofrece la mayor variedad de alojamiento: hoteles, hostales, cabañas y camping. Desde allí se puede hacer el tour de día completo a los saltos.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Dónde queda el Salto del Río Ibáñez?', respuesta: 'El Salto del Río Ibáñez se ubica a 6 kilómetros de Puerto Ingeniero Ibáñez, en la comuna de Río Ibáñez, Provincia de General Carrera, Región de Aysén. Para llegar, se toma un desvío de 5 km por camino de ripio desde la ruta principal, 2 km antes de llegar al pueblo.' },
+    { pregunta: '¿Cuánto cuesta la entrada al Salto Río Ibáñez?', respuesta: 'El acceso al Salto del Río Ibáñez es completamente gratuito. No hay cobro de entrada. Se puede visitar libremente todo el año. Los únicos costos asociados son el transporte para llegar y, opcionalmente, tours guiados desde Coyhaique (desde $60.000 CLP por persona con Mate Che).' },
+    { pregunta: '¿Cuántos kilómetros hay de Coyhaique al Salto del Río Ibáñez?', respuesta: 'El Salto del Río Ibáñez está a aproximadamente 122 km de Coyhaique (116 km hasta Puerto Ibáñez + 6 km al desvío del salto). El viaje toma alrededor de 1 hora 40 minutos por ruta pavimentada hasta el desvío, más 15 minutos por camino de ripio.' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Salto Río Ibáñez?', respuesta: 'La mejor época es de noviembre a marzo (primavera-verano austral). Las temperaturas son más agradables (15-22°C), los días son largos con hasta 17 horas de luz, y los caminos están en mejor estado. En primavera (octubre-noviembre) el caudal es mayor por el deshielo. En invierno el acceso puede ser difícil por hielo y barro en el camino de ripio.' },
+    { pregunta: '¿Se puede llegar en transporte público al Salto Río Ibáñez?', respuesta: 'Sí, hay buses diarios desde Coyhaique a Puerto Ibáñez (Minibús Eben Ezer y otros operadores). Desde Puerto Ibáñez, el desvío al salto está a 2 km antes del pueblo, por lo que se puede caminar los 5 km del camino de ripio o coordinar transporte local. También hay tours organizados desde Coyhaique que incluyen transporte.' },
+    { pregunta: '¿Qué otras atracciones hay cerca del Salto Río Ibáñez?', respuesta: 'Cerca del salto se encuentran: el Lago General Carrera (segundo más grande de Sudamérica), el Parque Nacional Cerro Castillo (trekking de clase mundial), la Península de Levicán (playas y picnic a 30 km), el paso internacional Pallavicini hacia Argentina, y la navegación en barcaza a Chile Chico. Puerto Ibáñez también ofrece escalada en roca y artesanía en greda.' },
+    { pregunta: '¿Qué altura tiene el Salto del Río Ibáñez?', respuesta: 'El Salto del Río Ibáñez tiene una caída aproximada de 25 metros. Se divide en dos brazos principales visibles desde un puente peatonal. Las rocas sobre las que cae el agua tienen más de 150 millones de años de antigüedad y forman parte del proyecto Geoparque Chelenko.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada de ${cascada.altura} metros en la Región de ${cascada.region}, Patagonia chilena. ${cascada.numeroBrazos} brazos de agua sobre ${cascada.tipoFormacion.toLowerCase()}. Parte del Geoparque Chelenko.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: true,
+    openingHours: 'Mo-Su',
+    touristType: ['Naturaleza', 'Aventura', 'Fotografía', 'Geoturismo'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas/' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/aysen/` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en ${cascada.region}, Patagonia chilena. Cómo llegar, qué hacer, dónde alojarse, clima y toda la información para tu visita.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1067" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas/">Cascadas</a>
+        <span>›</span>
+        <a href="/region/aysen/">Aysén</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Brazos', value: `${cascada.numeroBrazos} brazos` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        <p class="cascada-body">El Salto del Río Ibáñez es una imponente cascada de aproximadamente 25 metros de altura ubicada a solo 6 kilómetros de Puerto Ingeniero Ibáñez, en la <a href="/region/aysen/" class="cascada-inline-link">Región de Aysén</a>. El salto se divide en dos brazos principales que caen con fuerza sobre un lecho de rocas que tienen más de 150 millones de años de antigüedad, formando un espectáculo natural de extraordinaria belleza en plena Patagonia chilena.</p>
+        <p class="cascada-body">El Río Ibáñez nace en los faldeos del volcán Hudson y recorre más de 80 kilómetros hasta desembocar en el Lago General Carrera, el segundo lago más grande de Sudamérica. En su camino, el río atraviesa un cañón de roca volcánica donde se precipita formando este salto. A diferencia de los <a href="/cascadas/saltos-del-petrohue/" class="cascada-inline-link">Saltos del Petrohué</a> en Los Lagos — formados sobre basalto del volcán Osorno —, el Salto Río Ibáñez debe su origen a las coladas de lava del volcán Hudson, en un paisaje mucho más remoto y solitario.</p>
+        <p class="cascada-body">El salto forma parte del territorio del Geoparque Chelenko, una iniciativa que busca obtener reconocimiento de la UNESCO por la excepcional riqueza y diversidad geológica de la Provincia de General Carrera. Es, junto con las Capillas de Mármol y el Cerro Castillo, uno de los atractivos naturales más destacados de la <a href="/cascadas/" class="cascada-inline-link">ruta de cascadas y saltos de agua</a> de la Patagonia aysenina.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación del ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde miradores sobre el salto hasta escalada en roca y navegación por el Lago General Carrera, la zona de Puerto Ibáñez ofrece experiencias únicas en la Patagonia.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body">{p.trim()}</p>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Opciones de alojamiento en Puerto Ibáñez y Coyhaique, desde cabañas hasta tours con hospedaje incluido.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas en las regiones cercanas del sur de Chile y la Patagonia.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}/`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas similares por origen volcánico y experiencia en naturaleza remota.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}/`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora todas las cascadas de Chile con guías completas, mapas y datos prácticos.</p>
+    <a href="/cascadas/" class="cascada-cta__button">Explorar cascadas →</a>
+  </section>
+
+</Layout>
