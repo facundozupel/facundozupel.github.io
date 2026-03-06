@@ -1,0 +1,547 @@
+{
+  "cascada": {
+    "id": "salto-la-princesa-anticura",
+    "nombre_oficial": "Salto La Princesa",
+    "nombres_alternativos": ["Salto de la Princesa", "Mirador Salto de la Princesa"],
+    "coordenadas": {
+      "latitud": null,
+      "longitud": null,
+      "precision": "baja",
+      "fuente_coordenadas": "No se encontraron coordenadas GPS verificadas en dos fuentes independientes. El sector Anticura se ubica en el km 91 de la Ruta Internacional CH-215. Se requiere verificación en terreno o consulta directa a CONAF para obtener coordenadas exactas de la cascada.",
+      "nota": "Las coordenadas aproximadas del trailhead del Centro Turístico Anticura son aproximadamente -40.73, -72.18 según OpenStreetMap y registros de senderistas en Wikiloc, pero no han sido verificadas en dos fuentes independientes para la cascada específica y por ello se omiten.",
+      "coordenadas_trailhead_aproximadas": {
+        "latitud": -40.73,
+        "longitud": -72.18,
+        "estado": "[NO VERIFICADO — coordenadas aproximadas del sector Anticura, no de la cascada específica]"
+      }
+    },
+    "ubicacion": {
+      "region": "Región de Los Lagos",
+      "provincia": "Osorno",
+      "comuna": "Puyehue",
+      "altitud_msnm": null,
+      "nota_altitud": "[NO VERIFICADO — no se encontró dato de altitud de la cascada en fuentes consultadas]",
+      "cuenca": "Cuenca del río Gol-Gol (afluente del lago Puyehue)",
+      "rio_origen": "Tributario del río Gol-Gol (afluente estacional del sector Anticura)",
+      "area_referencia": "Sector Anticura, Parque Nacional Puyehue, km 91 de la Ruta Internacional CH-215",
+      "distancia_frontera_argentina": "4 km del Paso Cardenal Samoré (frontera con Argentina)"
+    },
+    "caracteristicas_fisicas": {
+      "altura_metros": null,
+      "nota_altura": "[NO VERIFICADO — ninguna fuente consultada entrega la altura exacta en metros del Salto La Princesa en Anticura. Se requiere medición en terreno o consulta a CONAF/administrador del parque]",
+      "numero_saltos": 1,
+      "tipo_cascada": "Cascada estacional (mirador tipo velo); generalmente seca o con bajo caudal en verano (diciembre-febrero)",
+      "temporada_optima": "Otoño e invierno (marzo a agosto) para mayor caudal. En verano la cascada puede estar seca o con caudal muy reducido.",
+      "caudal": "Estacional. Fuerte en invierno y otoño; mínimo o nulo en verano según múltiples fuentes.",
+      "estacionalidad_confirmada": true,
+      "fuente_estacionalidad": "AllTrails (44 reseñas), puyehue.cl, parquenacionalpuyehue.cl — todas coinciden en que la cascada 'generalmente está seca durante el verano'"
+    },
+    "sendero": {
+      "nombre_oficial_sendero": "Sendero Recreativo Salto de la Princesa",
+      "distancia_metros": 850,
+      "distancia_metros_fuente_alternativa": 710,
+      "nota_distancia": "Dos fuentes citan distancias ligeramente distintas: parquenacionalpuyehue.cl indica 0,85 km; otras fuentes citan 710 metros (2.329 pies). Ambas son coherentes y provienen de fuentes confiables. Se usa 850 m como valor principal.",
+      "duracion_estimada_minutos": 30,
+      "dificultad": "Baja / Fácil",
+      "tipo_ruta": "Ida y vuelta (no es circuito cerrado por sí solo; forma parte del circuito Anticura Catrué)",
+      "circuito_completo": {
+        "nombre": "Saltos de Anticura Catrué",
+        "distancia_km": 4.0,
+        "duracion_horas": "1 a 1,5 horas",
+        "dificultad": "Fácil",
+        "desnivel_metros": 63,
+        "tipo": "Circuito / loop",
+        "incluye": ["Salto La Princesa", "Salto del Indio", "Salto Repucura"],
+        "fuente": "AllTrails (44 reseñas), parquenacionalpuyehue.cl"
+      },
+      "condiciones_sendero": "El sendero no presenta grandes dificultades técnicas. Puede haber barro y raíces; no apto para sillas de ruedas. Marcación clara.",
+      "accesibilidad_movilidad_reducida": false,
+      "apto_ninos": true,
+      "apto_familias": true
+    },
+    "actividades": [
+      {
+        "actividad": "Senderismo / trekking",
+        "descripcion": "Sendero recreativo de baja dificultad de 0,85 km, 30 minutos de ida y vuelta. Parte del circuito de los Saltos de Anticura Catrué (4 km, 1-1,5 horas).",
+        "nivel": "Fácil"
+      },
+      {
+        "actividad": "Fotografía de naturaleza",
+        "descripcion": "Excelente para fotografía de bosque valdiviano, cascadas y aves nativas. Las vistas del volcán Puyehue son accesibles desde senderos del sector.",
+        "nivel": "Todos los niveles"
+      },
+      {
+        "actividad": "Avistamiento de fauna",
+        "descripcion": "El bosque húmedo del sector alberga aves como el carpintero negro, el huet-huet, el pato cortacorrientes y el cóndor. Mamíferos como el pudú y el monito del monte.",
+        "nivel": "Todos los niveles"
+      },
+      {
+        "actividad": "Trekking de travesía (sector amplio)",
+        "descripcion": "Desde Anticura existe la ruta de 2 días hacia Antillanca por Pampa Frutilla (ruta roja), para trekkers experimentados.",
+        "nivel": "Difícil / experto"
+      },
+      {
+        "actividad": "Observación de bosque valdiviano",
+        "descripcion": "El sendero atraviesa selva valdiviana prístina con coihues, ulmos, olivillos, tepas y mañíos centenarios.",
+        "nivel": "Todos los niveles"
+      },
+      {
+        "actividad": "Cabalgatas",
+        "descripcion": "El Centro Turístico Anticura ofrece cabalgatas como actividad complementaria.",
+        "nivel": "Todos los niveles"
+      }
+    ],
+    "aptitudes": {
+      "familias": true,
+      "ninos": true,
+      "movilidad_reducida": false,
+      "nivel_dificultad": "fácil",
+      "observacion": "El sendero presenta barro y raíces en época lluviosa; no es apto para coches de bebé ni sillas de ruedas. Ideal para familias con niños mayores de 5 años."
+    },
+    "area_protegida": {
+      "es_area_protegida": true,
+      "nombre_area": "Parque Nacional Puyehue",
+      "superficie_ha": 107000,
+      "administrador": "CONAF (Corporación Nacional Forestal)",
+      "horarios": "Lunes a domingo, 9:00 a 18:30 hrs (horario del sector Anticura). El horario de cierre puede ser 17:30 en invierno — verificar con CONAF.",
+      "tarifa_entrada": "Acceso gratuito al sector Anticura. Los senderos El Indio, Repucura y La Princesa pueden tener cobro por concesión (el operador es Altúe/Centro Turístico Anticura). Verificar tarifa vigente directamente con el centro.",
+      "nota_tarifa": "El parque tiene dos concesiones: Termas Aguas Calientes y Altúe (Anticura). La CONAF indica que algunos senderos son 'de concesión'. En 2024 se registró acceso sin costo en senderos básicos, pero se recomienda consultar directamente.",
+      "patrimonio": "Integrante de la Reserva de la Biosfera de los Bosques Templados de Los Andes (UNESCO)",
+      "reserva_biosfera": true,
+      "contacto_conaf": {
+        "administrador_parque": "Ricardo Cárdenas",
+        "telefono_administrador": "+56 9 93266653",
+        "telefono_conaf_osorno": "(56) 64 2 221304",
+        "telefono_informacion": "(56) 65 2 486115",
+        "email": "parque.puyehue@conaf.cl",
+        "email_administrador": "ricardo.cardenas@conaf.cl"
+      },
+      "fundacion_parque": "1941 (ampliado en 1950 y 1981)"
+    },
+    "empresas_servicios": [
+      {
+        "nombre": "Centro Turístico Anticura (operado por Altúe / Patagonia Expeditions)",
+        "tipo": "Centro turístico con alojamiento, restaurante y senderos",
+        "servicios": ["Cabañas de montaña alpinas", "Camping", "Dorms", "Restaurante (3 comidas diarias)", "WiFi", "Bar", "Jardín", "Terraza", "Acceso a senderos", "Cabalgatas", "Granja educativa", "Talleres de huerto"],
+        "ubicacion": "Ruta 215, km 90, Parque Nacional Puyehue",
+        "url": "https://www.anticura.com/",
+        "telefono": "+56 9 4977 3485",
+        "estado": "[VERIFICAR VIGENCIA — información de 2024-2025, confirmar operación actual]"
+      },
+      {
+        "nombre": "Andes Sur Expediciones",
+        "tipo": "Empresa de turismo aventura y expediciones",
+        "servicios": ["Excursiones guiadas al sector Anticura", "Salto La Princesa"],
+        "url": "https://www.andessurexpediciones.cl/",
+        "estado": "[VERIFICAR VIGENCIA — mencionada en publicación de Facebook con video del Salto La Princesa en Anticura]"
+      }
+    ],
+    "hospedaje_cercano": [
+      {
+        "nombre": "Centro Turístico Anticura (cabañas)",
+        "tipo": "Cabañas de montaña",
+        "descripcion": "Cabañas alpinas con living, cocina, chimenea y panel convector. Insertas en la selva valdiviana. Capacidad hasta 6 personas.",
+        "distancia_cascada_km": 0.3,
+        "precio_aproximado": "Desde USD 109 / noche (dato 2024-2025)",
+        "url": "https://www.anticura.com/",
+        "booking_url": "https://www.booking.com/hotel/cl/centro-turistico-anticura.html",
+        "puntuacion_booking": "8.2 (462 reseñas)",
+        "estado": "[VERIFICAR VIGENCIA — precios sujetos a cambio]"
+      },
+      {
+        "nombre": "Centro Turístico Anticura (camping)",
+        "tipo": "Camping",
+        "descripcion": "15 sitios de camping con mesas de picnic, electricidad y baños con agua caliente.",
+        "distancia_cascada_km": 0.3,
+        "precio_aproximado": "18.000 CLP por noche (dato de diciembre 2024)",
+        "url": "https://www.anticura.com/",
+        "estado": "[VERIFICAR VIGENCIA — precio registrado en diciembre 2024]"
+      },
+      {
+        "nombre": "Centro Turístico Anticura (dorms)",
+        "tipo": "Dormitorio compartido",
+        "descripcion": "Dos cabañas habilitadas como dormitorios compartidos.",
+        "distancia_cascada_km": 0.3,
+        "precio_aproximado": "[NO VERIFICADO]",
+        "url": "https://www.anticura.com/"
+      },
+      {
+        "nombre": "Hostería Entre Lagos",
+        "tipo": "Hostería 2 estrellas",
+        "descripcion": "Hostería con habitaciones privadas con baño, balcón y vistas al lago o montaña. Incluye desayuno continental. Wi-Fi y estacionamiento gratuito.",
+        "distancia_cascada_km": 55,
+        "localidad": "Entre Lagos",
+        "precio_aproximado": "Desde USD 80 / noche (dato 2025)",
+        "url": "https://www.booking.com/hotel/cl/hosteria-entre-lagos-puyehue1.html",
+        "estado": "[VERIFICAR VIGENCIA]"
+      },
+      {
+        "nombre": "Termas de Aguas Calientes",
+        "tipo": "Hotel / Lodge con termas",
+        "descripcion": "Complejo turístico frente al río Chanleufú con piscinas termales, restaurante y bungalows equipados. A 17 km de Anticura.",
+        "distancia_cascada_km": 17,
+        "precio_aproximado": "Desde USD 66 / noche (dato 2025, Booking.com)",
+        "url": "https://termasaguascalientes.cl/",
+        "estado": "[VERIFICAR VIGENCIA]"
+      },
+      {
+        "nombre": "Hotel Termas de Puyehue (Wellness & Spa Resort)",
+        "tipo": "Hotel resort 5 estrellas",
+        "descripcion": "Resort de bosque con aguas termales, spa, piscinas indoor/outdoor, restaurantes y actividades. Referente de la zona.",
+        "distancia_cascada_km": 31,
+        "precio_aproximado": "[NO VERIFICADO — tarifa de temporada alta]",
+        "url": "https://puyehue.cl/",
+        "estado": "[VERIFICAR VIGENCIA]"
+      }
+    ],
+    "como_llegar": {
+      "descripcion": "El Salto La Princesa se encuentra en el Centro Turístico Anticura, dentro del Parque Nacional Puyehue, en el km 91 de la Ruta Internacional CH-215 (Osorno-Argentina). Desde el estacionamiento del centro turístico, el sendero al Salto La Princesa es de 850 metros.",
+      "desde_osorno": {
+        "distancia_km": 91,
+        "tiempo_estimado": "1 hora 15 minutos a 1 hora 30 minutos",
+        "ruta": "Desde Osorno tomar la Ruta CH-215 (también llamada Ruta Osorno-Puyehue) en dirección este hacia Argentina. Al km 91 se encuentra la señalización del Centro Turístico Anticura, dentro del Parque Nacional Puyehue.",
+        "pavimento": "Ruta completamente pavimentada"
+      },
+      "desde_santiago": {
+        "distancia_km": 1025,
+        "tiempo_estimado": "11 a 12 horas en auto",
+        "ruta": "Ruta 5 Sur hasta Osorno (aproximadamente 950 km desde Santiago). En Osorno tomar la Ruta CH-215 hacia el este por 91 km hasta el sector Anticura."
+      },
+      "desde_entre_lagos": {
+        "distancia_km": 55,
+        "tiempo_estimado": "45 a 60 minutos",
+        "ruta": "Desde Entre Lagos seguir la Ruta CH-215 hacia el este."
+      },
+      "transporte_publico": {
+        "disponible": true,
+        "empresa": "Expreso Lago Puyehue (ELP)",
+        "descripcion": "Bus interurbano desde Osorno. Parte del Terminal Mercado de Osorno. Cubre el trayecto hasta el Parque Nacional Puyehue (sector Aguas Calientes y Anticura).",
+        "frecuencia": "4 servicios diarios aproximadamente (horarios entre 7:00 y 19:15 hrs)",
+        "duracion_viaje": "Aproximadamente 1 hora 50 minutos desde Osorno hasta Anticura",
+        "precio_aproximado": "USD 2-3 por trayecto (dato referencial)",
+        "nota": "[VERIFICAR VIGENCIA — horarios y precios pueden variar en 2026. Confirmar con operadora o en Terminal Mercado Osorno]"
+      },
+      "coordenadas_estacionamiento": {
+        "lat": -40.73,
+        "lng": -72.18,
+        "estado": "[NO VERIFICADO — coordenadas aproximadas del sector Anticura. Verificar en terreno]"
+      },
+      "distancia_ciudad_principal": "91 km de Osorno (ciudad más cercana con servicios completos)"
+    },
+    "clima": {
+      "tipo": "Templado lluvioso / oceánico con influencia andina",
+      "temp_promedio_anual": "11-14°C",
+      "temp_verano": "15-25°C (enero). Días soleados moderados por la influencia del bosque y los lagos.",
+      "temp_invierno": "4-10°C en promedio. Mínimas pueden llegar a -18°C en cotas altas. Nevadas frecuentes en sectores elevados.",
+      "precipitaciones_anuales_mm": "2.500 a 3.000 mm",
+      "descripcion_clima": "El clima es oceánico y lluvioso con precipitaciones abundantes y constantes, incluso en verano. Es uno de los sectores más lluviosos de Chile. En invierno hay nieve frecuente en las partes altas del parque. Los meses de enero y febrero son los más secos pero igualmente con posibilidad de lluvia.",
+      "fuente": "parquenacionalpuyehue.cl/clima/, CONAF, Biblioteca Congreso Nacional"
+    },
+    "mejor_epoca": {
+      "para_ver_cascada_con_caudal": "Otoño (marzo-mayo) e invierno (junio-agosto). La cascada puede estar seca en verano.",
+      "para_trekking_confort": "Verano (diciembre-febrero) para mejores condiciones climáticas de senderismo, aunque la cascada puede estar seca.",
+      "recomendacion_general": "Octubre a diciembre para equilibrio entre caudal de la cascada y condiciones climáticas aceptables para caminar."
+    },
+    "contexto_natural": {
+      "ecosistema": "Bosque húmedo siempreverde / Selva Valdiviana",
+      "flora": {
+        "descripcion": "El sendero atraviesa una de las expresiones más prístinas de la Selva Valdiviana de Chile. El dosel está dominado por coihue (Nothofagus dombeyi) y ulmo (Eucryphia cordifolia). En el sotobosque destacan el olivillo (Aextoxicon punctatum), el tineo (Weinmannia trichosperma), la tepa (Laureliopsis philippiana) y el mañío (Podocarpus nubigena). En cotas más altas aparece el coigüe de Magallanes (Nothofagus betuloides) y la lenga. El suelo está tapizado de helechos, musgos y líquenes. También se encuentran quilas y coligüe (bambú nativo).",
+        "especies_principales": [
+          "Coihue (Nothofagus dombeyi)",
+          "Coigüe de Magallanes (Nothofagus betuloides)",
+          "Ulmo (Eucryphia cordifolia)",
+          "Olivillo (Aextoxicon punctatum)",
+          "Tineo (Weinmannia trichosperma)",
+          "Tepa (Laureliopsis philippiana)",
+          "Mañío (Podocarpus nubigena)",
+          "Lenga (Nothofagus pumilio)",
+          "Helechos (múltiples especies)",
+          "Musgos y líquenes",
+          "Quila (Chusquea quila)",
+          "Coligüe (Chusquea coleu)"
+        ]
+      },
+      "fauna": {
+        "descripcion": "El parque alberga más de 130 especies de aves y una rica fauna de mamíferos. El puma es el principal depredador, aunque raramente avistado. El pudú (el ciervo más pequeño del mundo) habita los matorrales y hay un sendero dedicado a él. El monito del monte (Dromiciops gliroides), pequeño marsupial relicto, habita en el bosque valdiviano. También se registra la presencia del huemul en zonas altas.",
+        "mamiferos": [
+          "Puma (Puma concolor)",
+          "Pudú (Pudu puda)",
+          "Huemul (Hippocamelus bisulcus) — zona alta",
+          "Zorro culpeo (Lycalopex culpaeus)",
+          "Monito del monte (Dromiciops gliroides)",
+          "Coipo (Myocastor coypus)",
+          "Viscicha (Lagidium viscacia)",
+          "Chingue (Conepatus chinga)"
+        ],
+        "aves_destacadas": [
+          "Carpintero negro (Campephilus magellanicus)",
+          "Pato cortacorrientes / Torrent duck (Merganetta armata)",
+          "Cóndor andino (Vultur gryphus)",
+          "Cóndor (en zona andina)",
+          "Huet-huet (Pteroptochos tarnii)",
+          "Choroy (Enicognathus leptorhynchus)",
+          "Perdiz del monte (Nothoprocta perdicaria)",
+          "Picaflor (Sephanoides sephaniodes)"
+        ],
+        "anfibios": [
+          "Rana de Darwin / Sapito de Darwin (Rhinoderma darwinii)"
+        ]
+      },
+      "impacto_ambiental": "El sector fue afectado por la erupción del complejo volcánico Puyehue-Cordón Caulle en 2011, que cubrió la zona con ceniza volcánica. El ecosistema se ha recuperado notablemente. La erupción también afectó poblaciones de anfibios (rana de Darwin) que debieron ser rescatados.",
+      "estado_conservacion": "Bueno. Área protegida bajo administración CONAF, parte de la Reserva de la Biosfera de los Bosques Templados Valdiviano-Patagónicos (UNESCO)."
+    },
+    "informacion_cultural": {
+      "significado_nombre_anticura": "Anticura proviene del mapudungun: 'anti' (sol / luz) + 'kura' (piedra) = 'Piedra del Sol'. El nombre refleja la presencia mapuche-huilliche histórica en el territorio.",
+      "pueblos_originarios": "El territorio fue habitado por el pueblo mapuche-huilliche, la rama más austral del pueblo mapuche. Los huilliche son la fuente de las leyendas y cosmovisión que dan nombre a los lugares del parque.",
+      "leyenda_cascada": {
+        "descripcion": "La denominación 'Salto de la Princesa' está precedida de una leyenda indígena local. Una versión señala que una princesa indígena fue sumergida en estas aguas cristalinas y fue encontrada por los españoles a su llegada, dando nombre al lugar. Sin embargo, esta leyenda no ha sido verificada en fuentes académicas o CONAF para la cascada específica de Anticura.",
+        "estado": "[NO VERIFICADO EN FUENTES PRIMARIAS — la leyenda es mencionada en sitios turísticos pero no documentada académicamente para esta cascada específica]"
+      },
+      "leyenda_salto_del_indio": "El Salto del Indio cercano lleva su nombre porque, según la tradición local, durante la época colonial un grupo de indígenas huilliche se escondió en la zona de Anticura para escapar del asedio de los españoles, usando las cascadas y el bosque como refugio natural.",
+      "historia_parque": "El Parque Nacional Puyehue fue creado en 1941 por decreto supremo del Ministerio de Tierras y Colonización, ampliado en 1950 y con sus límites actuales establecidos en 1981. Abarca 107.000 ha (según CONAF; otras fuentes citan 112.755 ha). Es parte de la Reserva de la Biosfera de los Bosques Templados de Los Andes, declarada por UNESCO.",
+      "erupciones_volcanicas": "La erupción del complejo volcánico Puyehue-Cordón Caulle el 4 de junio de 2011 afectó severamente el parque con ceniza volcánica. El sector Anticura fue uno de los más impactados. El paisaje ha recuperado gran parte de su vegetación desde entonces.",
+      "ruta_internacional": "El sector Anticura está en la Ruta Internacional CH-215 (Osorno-Argentina vía Paso Cardenal Samoré), lo que le da relevancia como punto de tránsito turístico hacia la Patagonia argentina (Bariloche, Villa La Angostura)."
+    },
+    "seguridad_recomendaciones": {
+      "tips_seguridad": [
+        "Registrarse en el puesto de guardaparques de CONAF en Anticura antes de iniciar cualquier sendero",
+        "Llevar agua suficiente — el río Gol-Gol tiene agua disponible en el trayecto pero debe potabilizarse",
+        "El sendero puede tener barro abundante en época lluviosa; usar calzado de trekking impermeable",
+        "No abandonar el sendero marcado — el bosque valdiviano es denso y puede desorientar",
+        "La cascada puede estar seca en verano; consultar condiciones actuales antes de visitar",
+        "En invierno, revisar condiciones de la ruta CH-215 (puede haber nieve o hielo)",
+        "Llevar ropa de abrigo e impermeable todo el año — el clima cambia rápidamente",
+        "No alimentar fauna silvestre — pumas y zorros pueden estar presentes en el sector"
+      ],
+      "recomendaciones_equipo": [
+        "Calzado impermeable con buen agarre (sendero con barro y raíces)",
+        "Ropa en capas (base térmica + polar + cortaviento impermeable)",
+        "Repelente de insectos (especialmente en verano)",
+        "Botiquín básico de primeros auxilios",
+        "Agua y snacks (el restaurante del centro turístico está disponible antes y después)",
+        "Cámara fotográfica para aves y bosque valdiviano",
+        "Protector solar (días de verano)",
+        "Bastones de trekking (útiles en zonas con barro)"
+      ]
+    },
+    "gastronomia_regional": {
+      "descripcion": "La gastronomía de la zona de Puyehue y Los Lagos refleja la herencia alemana de la colonización del siglo XIX, mezclada con productos patagónicos locales. El restaurante del Centro Turístico Anticura ofrece comida casera abundante.",
+      "platos_tipicos": [
+        {
+          "plato": "Trucha y salmón del río y lago Puyehue",
+          "descripcion": "Los ríos y lagos de la zona son abundantes en trucha y salmón. Plato emblemático de la región preparado ahumado, al vapor o a la plancha."
+        },
+        {
+          "plato": "Kuchen de frambuesa y frutas del bosque",
+          "descripcion": "Herencia de la colonización alemana. Los kuchens (tortas alemanas) son un ícono gastronómico de Los Lagos, elaborados con frambuesas, murtas y otras berries silvestres de la región."
+        },
+        {
+          "plato": "Cazuela de vacuno o cordero",
+          "descripcion": "Plato típico chileno de campo con trozos de carne, papas, zapallo y verduras. Presente en los restaurantes y hosterías de la zona."
+        },
+        {
+          "plato": "Pan amasado casero",
+          "descripcion": "El Centro Turístico Anticura ofrece pan amasado artesanal elaborado en el propio centro, una tradición del campo chileno sureño."
+        },
+        {
+          "plato": "Carnes de caza y exóticas (jabalí, ciervo, pato)",
+          "descripcion": "En la zona de Osorno y Entre Lagos es posible encontrar preparaciones con carnes de caza como jabalí, ciervo, pato y conejo en hosterías especializadas."
+        },
+        {
+          "plato": "Mistelas y mermeladas artesanales",
+          "descripcion": "Licores suaves y conservas elaborados con frutos del bosque (murta, calafate, frambuesa silvestre). Se venden en tiendas locales de Entre Lagos y Puyehue."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "pregunta": "¿Cuándo es el mejor momento para visitar el Salto La Princesa en Anticura?",
+        "respuesta": "Para ver la cascada con caudal, lo ideal es visitarla en otoño (marzo a mayo) o invierno (junio a agosto), cuando el caudal es mayor gracias a las lluvias. En verano (diciembre-febrero) la cascada puede estar completamente seca o con muy poco agua. Si el objetivo es el senderismo con buen tiempo, el verano es más cómodo para caminar, pero hay riesgo de no ver agua en la cascada."
+      },
+      {
+        "pregunta": "¿Tiene costo la entrada al sector Anticura del Parque Nacional Puyehue?",
+        "respuesta": "El acceso al sector Anticura es gratuito o con costo mínimo dependiendo de los senderos. El parque tiene una concesión operada por el Centro Turístico Anticura (Altúe/Patagonia Expeditions), que puede cobrar por el acceso a algunos senderos. Se recomienda consultar directamente con CONAF (parque.puyehue@conaf.cl) o con el Centro Turístico Anticura antes de visitar para conocer las tarifas vigentes en 2026."
+      },
+      {
+        "pregunta": "¿Cuánto dura la caminata al Salto La Princesa?",
+        "respuesta": "El sendero al Salto La Princesa tiene aproximadamente 850 metros (ida y vuelta), con una duración estimada de 30 minutos. Forma parte del circuito Anticura Catrué, que en su totalidad mide unos 4 km e incluye el Salto del Indio y el Salto Repucura, con una duración total de 1 a 1,5 horas."
+      },
+      {
+        "pregunta": "¿Se puede acampar en Anticura?",
+        "respuesta": "Sí. El Centro Turístico Anticura cuenta con 15 sitios de camping con mesas de picnic, electricidad y baños con agua caliente. El precio registrado en 2024 era de 18.000 CLP por noche. Además ofrecen cabañas alpinas y dormitorios compartidos (dorms). Reservas en www.anticura.com o por Booking.com."
+      },
+      {
+        "pregunta": "¿Qué fauna puedo esperar ver en los senderos de Anticura?",
+        "respuesta": "El sector es hogar de más de 130 especies de aves. Las más fáciles de avistar son el carpintero negro (Campephilus magellanicus), el huet-huet y el choroy. En los ríos es posible ver el pato cortacorrientes. El pudú, aunque presente, es muy esquivo. El puma habita el parque pero los avistamientos son excepcionales. También habita el monito del monte, un pequeño marsupial endémico del bosque valdiviano."
+      },
+      {
+        "pregunta": "¿Cómo llego a Anticura en transporte público desde Osorno?",
+        "respuesta": "Desde Osorno, la empresa Expreso Lago Puyehue (ELP) opera servicios de bus interurbano desde el Terminal Mercado de Osorno hasta el Parque Nacional Puyehue, con frecuencia de aproximadamente 4 servicios diarios. El viaje dura alrededor de 1 hora 50 minutos. Se recomienda verificar horarios actualizados directamente en el Terminal de Osorno o contactar a la empresa, ya que los horarios varían por temporada."
+      }
+    ],
+    "cascadas_cercanas": [
+      {
+        "nombre": "Salto del Indio",
+        "descripcion": "Cascada del río Gol-Gol en el mismo sector Anticura. Sendero de 1,1 km, dificultad media, 40 minutos. Rodeada de coihues de 800 años.",
+        "distancia_metros": 300,
+        "mismo_circuito": true,
+        "parque": "Parque Nacional Puyehue",
+        "region": "Región de Los Lagos",
+        "slug": "salto-del-indio",
+        "tienepagina": false
+      },
+      {
+        "nombre": "Salto Repucura",
+        "descripcion": "Cascada en el sector Anticura, parte del circuito de saltos. Sendero de 1,75 km, dificultad baja, aproximadamente 40-60 minutos.",
+        "distancia_metros": 500,
+        "mismo_circuito": true,
+        "parque": "Parque Nacional Puyehue",
+        "region": "Región de Los Lagos",
+        "slug": null,
+        "tienepagina": false
+      },
+      {
+        "nombre": "Salto del Pudú",
+        "descripcion": "Cascada en el sector Anticura, accesible por sendero de 3 km de dificultad moderada. Pasa por el puente colgante Arauco.",
+        "distancia_metros": 1500,
+        "mismo_circuito": false,
+        "parque": "Parque Nacional Puyehue",
+        "region": "Región de Los Lagos",
+        "slug": null,
+        "tienepagina": false
+      },
+      {
+        "nombre": "Saltos del Petrohué",
+        "descripcion": "Icónicas cataratas sobre lava basáltica en el Parque Nacional Vicente Pérez Rosales, cerca de Puerto Varas. Contexto volcánico similar.",
+        "distancia_km": 130,
+        "parque": "Parque Nacional Vicente Pérez Rosales",
+        "region": "Región de Los Lagos",
+        "slug": "saltos-del-petrohue",
+        "tienepagina": true
+      }
+    ],
+    "estado_datos": {
+      "fecha_investigacion": "2026-03-06",
+      "confiabilidad_general": "media-alta",
+      "observaciones_generales": "Los datos del sendero, la estacionalidad de la cascada, los servicios del Centro Turístico Anticura y los contactos de CONAF están respaldados por múltiples fuentes coherentes. La altura exacta de la cascada, sus coordenadas GPS precisas y la tarifa de entrada actualizada para 2026 no pudieron ser verificados y requieren consulta directa.",
+      "datos_no_verificados": [
+        "Coordenadas GPS exactas de la cascada (se necesita medición en terreno o dato de CONAF/IGM)",
+        "Altura de la cascada en metros (ninguna fuente la especifica)",
+        "Altitud sobre el nivel del mar de la cascada",
+        "Tarifa de entrada actualizada a 2026 (puede haber costo de concesión)",
+        "Horario exacto de cierre en invierno",
+        "Operación actual de Andes Sur Expediciones en el sector",
+        "Precios actualizados de cabañas del Centro Turístico Anticura para 2026",
+        "Leyenda indígena verificada en fuente primaria (CONAF o académica)",
+        "Río tributario exacto que alimenta la cascada (se indica como afluente del Gol-Gol)"
+      ],
+      "inconsistencias_documentadas": [
+        {
+          "dato": "Distancia del sendero",
+          "valor_1": "850 metros (parquenacionalpuyehue.cl)",
+          "valor_2": "710 metros / 2.329 pies (otras fuentes turísticas)",
+          "resolucion": "Se usa 850 m como valor principal por provenir de la fuente más oficial disponible"
+        },
+        {
+          "dato": "Superficie del parque",
+          "valor_1": "107.000 ha (CONAF, fuente directa)",
+          "valor_2": "112.755 ha (otras fuentes)",
+          "resolucion": "Se usa 107.000 ha por provenir de la página oficial de CONAF"
+        },
+        {
+          "dato": "Tarifa de entrada sector Anticura",
+          "valor_1": "Gratuito (acceso libre al sector)",
+          "valor_2": "Tarifa posible por concesión en senderos específicos (El Indio, Repucura, La Princesa)",
+          "resolucion": "Se recomienda verificar con CONAF y Centro Turístico Anticura — el modelo de concesión implica que el operador puede cobrar por acceso a sus senderos"
+        }
+      ],
+      "fuentes_consultadas": [
+        {
+          "fuente": "CONAF — parque-nacional-puyehue",
+          "url": "https://www.conaf.cl/parque_nacionales/parque-nacional-puyehue/",
+          "tipo": "Primaria / oficial"
+        },
+        {
+          "fuente": "Parque Nacional Puyehue (sitio oficial del parque)",
+          "url": "https://parquenacionalpuyehue.cl/",
+          "tipo": "Primaria"
+        },
+        {
+          "fuente": "Parque Nacional Puyehue — Acceso y Tarifas",
+          "url": "https://parquenacionalpuyehue.cl/acceso-boletos-entradas/",
+          "tipo": "Primaria"
+        },
+        {
+          "fuente": "Parque Nacional Puyehue — Clima",
+          "url": "https://parquenacionalpuyehue.cl/clima/",
+          "tipo": "Primaria"
+        },
+        {
+          "fuente": "Parque Nacional Puyehue — Salto del Indio (referencia sector Anticura)",
+          "url": "https://parquenacionalpuyehue.cl/visitar/salto-del-indio-puyehue/",
+          "tipo": "Primaria"
+        },
+        {
+          "fuente": "Parque Nacional Puyehue — Transporte",
+          "url": "https://parquenacionalpuyehue.cl/transporte/",
+          "tipo": "Primaria"
+        },
+        {
+          "fuente": "AllTrails — Anticura Catrue Waterfalls (44 reseñas)",
+          "url": "https://www.alltrails.com/trail/chile/los-lagos/saltos-de-anticura-catrue",
+          "tipo": "Secundaria / comunidad"
+        },
+        {
+          "fuente": "Wikiloc — Ruta Anticura: Salto del Indio, Salto de la Princesa y Salto Repucura",
+          "url": "https://es.wikiloc.com/rutas-senderismo/anticura-salto-del-indio-salto-de-la-princesa-y-salto-repucura-214581483",
+          "tipo": "Secundaria / comunidad"
+        },
+        {
+          "fuente": "Zapatillas Gastadas — Anticura tres senderos",
+          "url": "https://zapatillasgastadas.home.blog/2021/01/26/anticura-tres-hermosos-senderos-a-descubrir-en-el-parque-nacional-puyehue/",
+          "tipo": "Secundaria / blog"
+        },
+        {
+          "fuente": "Puyehue.cl — Anticura los saltos",
+          "url": "https://puyehue.cl/en/anticura-the-jumps/",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "Ladera Sur — Trekking Anticura a Antillanca",
+          "url": "https://laderasur.com/destino/trekking-de-anticura-a-antillanca-un-recorrido-de-dos-dias-por-la-ruta-roja-del-parque-nacional-puyehue/",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "La Cabaña Chilena — Parque Nacional Puyehue",
+          "url": "https://lacabanachilena.com/parque-nacional-puyehue/",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "VisitarChile — Anticura",
+          "url": "https://www.visitarchile.com/los-lagos/puyehue/area-silvestre-protegida-16/anticura/",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "Chile Travel & News — Puyehue National Park",
+          "url": "https://www.chile-travel-and-news.com/2019/05/puyehue-national-park.html",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "Moovit — Expreso Lago Puyehue (transporte público)",
+          "url": "https://moovitapp.com/index/en/public_transit-line-ELP-Los_Lagos-2963-853419-279350-0",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "Booking.com — Centro Turístico Anticura",
+          "url": "https://www.booking.com/hotel/cl/centro-turistico-anticura.html",
+          "tipo": "Secundaria"
+        },
+        {
+          "fuente": "Facebook — Andes Sur Expediciones (video Salto La Princesa)",
+          "url": "https://www.facebook.com/georgeskiandes2/videos/salto-la-princesa-anticura-parque-nacional-puyehue-andessurexpediciones-wwwandes/1424146707645673/",
+          "tipo": "Secundaria / redes sociales"
+        }
+      ]
+    }
+  }
+}

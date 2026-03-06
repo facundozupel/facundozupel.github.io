@@ -711,7 +711,7 @@ Las siguientes páginas fueron referenciadas como enlaces internos y generaban 4
 ### Cascadas sin página (referenciadas en cascadasCercanas/index)
 | Cascada | Región | Origen del enlace roto | Prioridad |
 |---------|--------|------------------------|-----------|
-| Salto La Princesa (Anticura) | Los Lagos | `saltos-del-petrohue` cercanas | MEDIA |
+| ~~Salto La Princesa (Anticura)~~ | ~~Los Lagos~~ | ~~`saltos-del-petrohue` cercanas~~ | ✅ CREADA |
 | Salto del Indio | Los Lagos | `saltos-del-petrohue` cercanas | MEDIA |
 | Cascadas P.N. Laguna del Laja | Biobío | `salto-del-itata` cercanas | MEDIA |
 | Salto Grande Torres del Paine | Magallanes | `index` home destacadas | MEDIA |
@@ -722,6 +722,7 @@ Las siguientes páginas fueron referenciadas como enlaces internos y generaban 4
 | Salto Río Ibáñez | ✅ Página creada (`salto-rio-ibanez`) | 2026-03-04 |
 | Cascada Velo de la Novia (Peulla) | ✅ Página creada (`cascada-velo-de-la-novia-peulla`) | 2026-03-05 |
 | Cascada de los Cántaros | ❌ Eliminada — NO existe en Chile (es argentina, PN Nahuel Huapi). Reemplazada por Velo de la Novia en `los-lagos.astro` | 2026-03-05 |
+| Salto La Princesa (Anticura) | ✅ Página creada (`salto-la-princesa-anticura`) | 2026-03-06 |
 
 ### Regiones sin página
 | Región | Slug roto | Acción tomada |
