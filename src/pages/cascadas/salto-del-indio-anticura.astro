@@ -4,86 +4,92 @@ import Layout from '../../layouts/Layout.astro';
 // ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
 // Datos verificados por chile-waterfalls-researcher (mar 2026)
 const cascada = {
-  nombre: 'Salto La Princesa (Anticura)',
-  slug: 'salto-la-princesa-anticura',
+  nombre: 'Salto del Indio (Anticura)',
+  slug: 'salto-del-indio-anticura',
   region: 'Los Lagos',
   zona: 'Puyehue',
   altura: 20,
-  caudal: 'Estacional: fuerte en otoño-invierno, mínimo o nulo en verano',
+  caudal: 'Moderado a abundante todo el año (río Gol-Gol, curso permanente)',
   dificultad: 'Fácil',
   acceso: 'Ruta CH-215 km 91 (pavimentada)',
-  coordenadas: '40°44\'S 72°11\'W',
+  coordenadas: '40°40\'S 72°10\'W',
   mejorEpoca: 'Octubre — Diciembre',
-  entrada: 'Gratuita (posible cobro concesión)',
+  entrada: 'CLP 4.000 adultos / CLP 2.000 niños',
   horario: '9:00 — 18:30 hrs',
-  descripcion: `El Salto La Princesa es una cascada estacional ubicada en el sector Anticura del Parque Nacional Puyehue, inmersa en uno de los rincones más prístinos de la selva valdiviana chilena. La cascada se forma por un tributario del río Gol-Gol que se precipita entre coihues centenarios y un manto denso de musgos, helechos y líquenes.
+  descripcion: `El Salto del Indio es una cascada de aproximadamente 20 metros de altura ubicada en el sector Anticura del Parque Nacional Puyehue, inmersa en uno de los rincones más prístinos de la selva valdiviana de la <a href="/region/los-lagos/" class="cascada-inline-link">Región de Los Lagos</a>. La cascada se alimenta del río Gol-Gol, tributario principal del Lago Puyehue, que se precipita entre coihues centenarios y un manto denso de musgos, helechos y líquenes.
 
-  A diferencia de muchas cascadas del sur de Chile, el Salto La Princesa tiene un comportamiento marcadamente estacional: en otoño e invierno el caudal es abundante gracias a las intensas precipitaciones de la zona (2.500-3.000 mm anuales), pero en verano puede reducirse drásticamente o secarse por completo. Este carácter efímero le otorga un atractivo particular para quienes la visitan en época de lluvias.
+  A diferencia del vecino <a href="/cascadas/salto-la-princesa-anticura/" class="cascada-inline-link">Salto La Princesa</a>, el Salto del Indio mantiene un caudal perenne durante todo el año gracias a que se nutre directamente del río Gol-Gol. El mayor caudal se observa en otoño e invierno por las intensas precipitaciones de la zona (2.500-3.000 mm anuales), mientras que en verano el flujo disminuye pero nunca se seca por completo.
 
-  El sendero de acceso de 850 metros atraviesa un bosque valdiviano extraordinariamente conservado, con ejemplares de coihue, ulmo, olivillo y tepa que forman un dosel casi impenetrable. La cascada forma parte del circuito de los Saltos de Anticura Catrué, que incluye también el <a href="/cascadas/salto-del-indio-anticura/" class="cascada-inline-link">Salto del Indio</a> y el Salto Repucura, tres joyas escondidas en el corazón del <a href="/region/los-lagos/" class="cascada-inline-link">Parque Nacional Puyehue</a>.`,
-  comoLlegar: `Desde Osorno (91 km, 1:15-1:30 hrs en auto): Tomar la Ruta CH-215 (ruta internacional hacia Argentina) en dirección este. La ruta está completamente pavimentada. Al km 91 se encuentra la señalización del Centro Turístico Anticura, dentro del Parque Nacional Puyehue. Desde el estacionamiento, el sendero al Salto La Princesa tiene 850 metros.
+  El sendero de acceso de 950 metros atraviesa un bosque valdiviano extraordinariamente conservado y forma parte del circuito de los Saltos de Anticura Catrué, que conecta tres cascadas: el Salto del Indio, el Salto La Princesa y el Salto Repucura. A 130 km se encuentran los <a href="/cascadas/saltos-del-petrohue/" class="cascada-inline-link">Saltos del Petrohué</a>, que comparten el contexto volcánico y boscoso de la región.`,
+  comoLlegar: `Desde Osorno (91 km, 1:15-1:30 hrs en auto): Tomar la Ruta CH-215 (ruta internacional hacia el Paso Cardenal Samoré / Bariloche) en dirección este. La ruta está completamente pavimentada. Al km 91 se encuentra la señalización del Centro Turístico Anticura, dentro del Parque Nacional Puyehue. Estacionamiento gratuito.
 
   Desde Santiago (1.025 km, 11-12 horas en auto): Ruta 5 Sur hasta Osorno (aproximadamente 950 km). En Osorno tomar la Ruta CH-215 hacia el este por 91 km hasta el sector Anticura.
 
-  Desde Entre Lagos (55 km, 45-60 min): Seguir la Ruta CH-215 hacia el este.
+  Desde Entre Lagos (35 km, 30-40 min): Seguir la Ruta CH-215 hacia el este.
+
+  Desde Puerto Varas (140 km, 1:45 hrs): Ruta 5 Sur hasta Osorno, luego Ruta CH-215 hacia el este por 91 km.
 
   Transporte público: Expreso Lago Puyehue (ELP) opera desde el Terminal Mercado de Osorno con aproximadamente 4 frecuencias diarias. El viaje dura 1 hora 50 minutos hasta Anticura.`,
-  imagen: '/assets/cascadas/salto-la-princesa-anticura/hero.webp',
-  imagenAlt: 'Salto La Princesa cayendo entre bosque valdiviano en el sector Anticura del Parque Nacional Puyehue, Los Lagos',
+  imagen: '/assets/cascadas/salto-del-indio-anticura/hero.webp',
+  imagenAlt: 'Salto del Indio cayendo entre bosque valdiviano en el sector Anticura del Parque Nacional Puyehue, Los Lagos',
   galeria: [
-    { src: '/assets/cascadas/salto-la-princesa-anticura/galeria-1.webp', alt: 'Vista cercana del Salto La Princesa con caudal entre rocas y musgos en Anticura' },
-    { src: '/assets/cascadas/salto-la-princesa-anticura/galeria-2.webp', alt: 'Cascada en el sector Anticura del Parque Nacional Puyehue rodeada de selva valdiviana' },
-    { src: '/assets/cascadas/salto-la-princesa-anticura/galeria-3.webp', alt: 'Río Gol-Gol fluyendo entre bosque nativo en el sector Anticura, Parque Nacional Puyehue' },
-    { src: '/assets/cascadas/salto-la-princesa-anticura/galeria-4.webp', alt: 'Salto Repucura, cascada vecina al Salto La Princesa en el circuito de Anticura' },
+    { src: '/assets/cascadas/salto-del-indio-anticura/galeria-1.webp', alt: 'Vista panorámica del Salto del Indio con caudal abundante entre rocas y vegetación en Anticura' },
+    { src: '/assets/cascadas/salto-del-indio-anticura/galeria-2.webp', alt: 'Detalle del Salto del Indio con agua cayendo sobre roca volcánica en el Parque Nacional Puyehue' },
+    { src: '/assets/cascadas/salto-del-indio-anticura/galeria-3.webp', alt: 'Salto del Indio rodeado de selva valdiviana en el sector Anticura del Parque Nacional Puyehue' },
+    { src: '/assets/cascadas/salto-del-indio-anticura/galeria-4.webp', alt: 'Cascada del Indio entre coihues y helechos en el circuito de los Saltos de Anticura Catrué' },
   ],
   galeriaCreditos: [
-    { autor: 'Claudio Elias', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_de_la_Princesa_-_Anticura.jpg' },
-    { autor: 'Natalia Reyes Escobar', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_de_la_Princesa_Parque_Nacional_Puyehue_10.jpg' },
-    { autor: 'Claudio Elias', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_Anticura.jpg' },
-    { autor: 'Claudio Elias', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_Repucura_-_Anticura.jpg' },
+    { autor: 'Natalia Reyes Escobar', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Indio_Parque_Nacional_Puyehue_05.jpg' },
+    { autor: 'Natalia Reyes Escobar', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Indio_Parque_Nacional_Puyehue_08.jpg' },
+    { autor: 'Claudio Elias', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Indio_-_Anticura.jpg' },
+    { autor: 'Natalia Reyes Escobar', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_Indio_Parque_Nacional_Puyehue_06.jpg' },
+    { autor: 'Felipe Del Valle', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Salto_del_indio.jpg' },
   ],
   // 3 por cercanía geográfica (mismo parque / región)
   cascadasCercanas: [
+    { nombre: 'Salto La Princesa (Anticura)', slug: 'salto-la-princesa-anticura', region: 'Los Lagos', altura: 20, tipo: 'cercania' },
     { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'cercania' },
     { nombre: 'Cascada Velo de la Novia', slug: 'cascada-velo-de-la-novia-peulla', region: 'Los Lagos', altura: 35, tipo: 'cercania' },
-    { nombre: 'Las Cascadas de Puerto Octay', slug: 'las-cascadas-puerto-octay', region: 'Los Lagos', altura: 40, tipo: 'cercania' },
   ],
   // 3 por relación semántica (bosque valdiviano, parque nacional, sendero fácil)
   cascadasRelacionadas: [
     { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, tipo: 'relacionada' },
-    { nombre: 'Salto de Riñinahue', slug: 'salto-de-rininahue', region: 'Los Ríos', altura: 27, tipo: 'relacionada' },
-    { nombre: 'Salto del Buey', slug: 'salto-del-buey', region: 'Los Ríos', altura: 90, tipo: 'relacionada' },
+    { nombre: 'Las Cascadas de Puerto Octay', slug: 'las-cascadas-puerto-octay', region: 'Los Lagos', altura: 40, tipo: 'relacionada' },
+    { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', region: 'La Araucanía', altura: 20, tipo: 'relacionada' },
   ],
 
-  lat: -40.6637,
-  lng: -72.1701,
-  rio: 'Tributario del Río Gol-Gol',
-  tipoFormacion: 'Cascada estacional tipo velo en bosque valdiviano',
+  lat: -40.6704,
+  lng: -72.1711,
+  rio: 'Río Gol-Gol',
+  tipoFormacion: 'Cascada tipo plunge en bosque valdiviano sobre suelos volcánicos',
   numeroBrazos: 1,
   distanciaSantiago: 1025,
 
-  historia: `El nombre Anticura proviene del mapudungun: anti (sol, luz) y kura (piedra), que significa "Piedra del Sol". Este territorio fue habitado históricamente por el pueblo mapuche-huilliche, la rama más austral del pueblo mapuche, quienes utilizaban los bosques y ríos de la zona como fuente de alimento y refugio. Los huilliche son la fuente de las leyendas y cosmovisión que dan nombre a los lugares del parque.
+  historia: `El nombre Anticura proviene del mapudungun: anti (sol, luz) y kura (piedra), que significa "Piedra del Sol". Este territorio fue habitado ancestralmente por el pueblo mapuche-huilliche, la rama más austral del pueblo mapuche, quienes utilizaban los bosques y ríos de la zona como fuente de alimento y refugio.
 
-  El Salto del Indio, vecino del Salto La Princesa en el mismo circuito, lleva su nombre porque según la tradición local, durante la época colonial un grupo de indígenas huilliche se escondió en la zona de Anticura para escapar del asedio de los españoles, usando las cascadas y el bosque denso como refugio natural. La denominación "Salto de la Princesa" está precedida por una leyenda indígena que narra cómo una princesa huilliche fue sumergida en estas aguas cristalinas y encontrada por los españoles a su llegada.
+  Según la tradición oral transmitida por los huilliche, durante la época colonial un grupo de indígenas se escondió detrás de la cortina de agua de esta cascada para escapar del asedio de los soldados españoles. La cascada y el bosque denso les sirvieron de escudo natural, y desde entonces el salto lleva el nombre de "Salto del Indio" en memoria de aquel refugio. La leyenda ha sido documentada por el Kumun Williche (fuente: kumunwilliche.cl) y forma parte del patrimonio oral de la comunidad huilliche de Puyehue.
 
-  El Parque Nacional Puyehue fue creado en 1941 por decreto supremo del Ministerio de Tierras y Colonización, ampliado en 1950 y con sus límites actuales establecidos en 1981. Abarca 107.000 hectáreas y es parte de la Reserva de la Biosfera de los Bosques Templados de Los Andes, declarada por UNESCO. El 4 de junio de 2011, la erupción del complejo volcánico Puyehue-Cordón Caulle afectó severamente el parque con ceniza volcánica. El sector Anticura fue uno de los más impactados, pero el ecosistema se ha recuperado notablemente desde entonces.`,
+  El Parque Nacional Puyehue fue creado en 1941 por decreto supremo del Ministerio de Tierras y Colonización, ampliado en 1950 y con sus límites actuales establecidos en 1981. Abarca 107.000 hectáreas y es parte de la Reserva de la Biosfera de los Bosques Templados de Los Andes, declarada por UNESCO. El 4 de junio de 2011, la erupción del Complejo Volcánico Puyehue-Cordón Caulle afectó severamente el parque con ceniza volcánica. El sector Anticura fue uno de los más impactados, pero el ecosistema se ha recuperado notablemente desde entonces.`,
 
   queHacer: [
-    { actividad: 'Sendero Salto La Princesa (850 m)', descripcion: 'Sendero recreativo de baja dificultad que atraviesa selva valdiviana prístina hasta el mirador de la cascada. Ida y vuelta en 30 minutos. Apto para familias con niños mayores de 5 años.' },
-    { actividad: 'Circuito Saltos de Anticura (4 km)', descripcion: 'Circuito completo que conecta el Salto La Princesa, el Salto del Indio y el Salto Repucura. 1 a 1,5 horas, desnivel de 63 m, dificultad fácil. La mejor forma de conocer las tres cascadas del sector.' },
-    { actividad: 'Fotografía de bosque valdiviano', descripcion: 'El sendero atraviesa una de las expresiones más prístinas de selva valdiviana en Chile. Coihues centenarios, ulmos, olivillos y tepas forman un dosel denso ideal para fotografía de naturaleza.' },
-    { actividad: 'Avistamiento de aves', descripcion: 'El parque alberga más de 130 especies de aves. En el sector Anticura destacan el carpintero negro, el huet-huet, el choroy, el pato cortacorrientes y el picaflor chico. Llevar binoculares.' },
-    { actividad: 'Trekking Anticura-Antillanca (2 días)', descripcion: 'Para trekkers experimentados: la ruta roja de 2 días desde Anticura hasta Antillanca por Pampa Frutilla. Requiere registro en CONAF y equipo de travesía completo.' },
-    { actividad: 'Cabalgatas', descripcion: 'El Centro Turístico Anticura ofrece cabalgatas como actividad complementaria para explorar los alrededores del sector.' },
+    { actividad: 'Circuito Anticura Catrué (3.7 km)', descripcion: 'Sendero en circuito que conecta el Salto Repucura, el Salto de la Princesa y el Salto del Indio. 3.7 km, desnivel 64 m, duración 1 a 1.5 horas. Apto para familias. La mejor forma de conocer las tres cascadas del sector.' },
+    { actividad: 'Sendero Salto del Indio (950 m)', descripcion: 'Sendero educativo de 950 metros que conduce directamente al Salto del Indio mostrando aspectos del bosque siempreverde. Ida y vuelta en 40 minutos aproximadamente. Dificultad fácil.' },
+    { actividad: 'Sendero Salto del Pudú (2.6 km)', descripcion: 'Sendero de 2.6 km que atraviesa bosque valdiviano y cruza un puente colgante sobre el estero Arauco hasta una hermosa cascada escondida. Dificultad moderada.' },
+    { actividad: 'Avistamiento de aves', descripcion: 'El sector Anticura es uno de los mejores puntos de avistamiento de carpintero negro, huet-huet, choroy, pato cortacorrientes y picaflor chico en la Región de Los Lagos. Llevar binoculares.' },
+    { actividad: 'Fotografía de bosque valdiviano', descripcion: 'El dosel de coihues centenarios, los musgos y helechos y el entorno húmedo ofrecen condiciones ideales para fotografía de naturaleza. Mejor luz en las primeras horas de la mañana.' },
+    { actividad: 'Arborismo y canopy', descripcion: 'El Centro Turístico Anticura dispone de un circuito de arborismo entre los árboles nativos del parque. Actividad apta para adultos y niños mayores.' },
+    { actividad: 'Trekking Anticura-Antillanca (2 días)', descripcion: 'Para trekkers experimentados: ruta de 2 días desde Anticura hasta el volcán Antillanca por Pampa Frutilla. Requiere registro en CONAF y equipo de travesía completo.' },
+    { actividad: 'Cabalgatas', descripcion: 'El Centro Turístico Anticura ofrece cabalgatas como actividad complementaria para explorar los alrededores del sector. Reservar en contacto@anticura.com.' },
+    { actividad: 'Pesca deportiva en Río Gol-Gol', descripcion: 'El Río Gol-Gol es reconocido para pesca de trucha arcoíris y salmón. Requiere licencia de pesca deportiva vigente (SAG). No se permite pescar dentro del parque sin autorización expresa.' },
   ],
 
-  flora: `El sendero al Salto La Princesa atraviesa una de las expresiones más prístinas de la selva valdiviana de Chile. El dosel está dominado por coihue (Nothofagus dombeyi) y ulmo (Eucryphia cordifolia), árboles que pueden superar los 40 metros de altura y los 800 años de edad. En el sotobosque destacan el olivillo (Aextoxicon punctatum), el tineo (Weinmannia trichosperma), la tepa (Laureliopsis philippiana) y el mañío (Podocarpus nubigena).
+  flora: `El sendero al Salto del Indio atraviesa una de las expresiones más prístinas de la selva valdiviana de Chile. El dosel está dominado por coihue (Nothofagus dombeyi) y ulmo (Eucryphia cordifolia), árboles que pueden superar los 40 metros de altura y los 800 años de edad. En el sotobosque destacan el olivillo (Aextoxicon punctatum), el tineo (Weinmannia trichosperma), la tepa (Laureliopsis philippiana) y el mañío (Podocarpus nubigena).
 
   En cotas más altas aparece el coigüe de Magallanes (Nothofagus betuloides) y la lenga (Nothofagus pumilio). El suelo está tapizado de helechos de múltiples especies, musgos y líquenes que cubren troncos y rocas creando un paisaje casi prehistórico. Las quilas (Chusquea quila) y el coligüe (Chusquea coleu), bambúes nativos, forman densas matas en los claros del bosque. La extraordinaria humedad de la zona (2.500-3.000 mm anuales) mantiene este ecosistema en estado prístino.`,
 
   fauna: `El Parque Nacional Puyehue alberga más de 130 especies de aves y una rica fauna de mamíferos. El puma (Puma concolor) es el principal depredador, aunque raramente avistado. El pudú (Pudu puda), el ciervo más pequeño del mundo, habita los matorrales del sector. El monito del monte (Dromiciops gliroides), pequeño marsupial relicto considerado un fósil viviente, habita en el bosque valdiviano de Anticura.
 
-  Entre las aves más fáciles de observar destacan el carpintero negro (Campephilus magellanicus) con su inconfundible golpeteo, el huet-huet (Pteroptochos tarnii) de canto profundo, el choroy (Enicognathus leptorhynchus) en bandadas ruidosas, y el pato cortacorrientes (Merganetta armata) en las aguas del río Gol-Gol. El cóndor andino (Vultur gryphus) sobrevuela las zonas altas del parque. En zonas elevadas se registra la presencia del huemul (Hippocamelus bisulcus), ciervo en peligro de extinción. También habitan el zorro culpeo, el coipo, el chingue y la güiña.`,
+  Entre las aves más fáciles de observar destacan el carpintero negro (Campephilus magellanicus) con su inconfundible golpeteo, el huet-huet (Pteroptochos tarnii) de canto profundo, el choroy (Enicognathus leptorhynchus) en bandadas ruidosas, y el pato cortacorrientes (Merganetta armata) en las aguas del río Gol-Gol. El cóndor andino (Vultur gryphus) sobrevuela las zonas altas del parque. También habitan el zorro culpeo, el coipo, el chingue y la güiña.`,
 
   clima: {
     tipo: 'Templado lluvioso / oceánico andino',
@@ -91,51 +97,49 @@ const cascada = {
     tempVerano: '15-25°C',
     tempInvierno: '4-10°C',
     precipitaciones: '2.500-3.000 mm anuales',
-    descripcion: 'El clima es oceánico y muy lluvioso, con precipitaciones abundantes incluso en verano. Es uno de los sectores más lluviosos de Chile. En invierno hay nieve frecuente en las partes altas del parque y las mínimas pueden llegar a -18°C en cotas elevadas. Los meses de enero y febrero son los más secos pero igualmente con posibilidad de lluvia. La mejor ventana para equilibrar caudal de la cascada y condiciones de senderismo es octubre a diciembre.',
+    descripcion: 'El clima es oceánico y muy lluvioso, con precipitaciones abundantes incluso en verano. Es uno de los sectores más lluviosos de Chile. En invierno hay nieve frecuente en las partes altas del parque. Los meses de enero y febrero son los más secos pero con posibilidad de lluvia. La mejor ventana para combinar buen caudal con condiciones de sendero es octubre a diciembre.',
   },
 
   seguridad: [
-    'Registrarse en el puesto de guardaparques de CONAF en Anticura antes de iniciar cualquier sendero',
-    'La cascada puede estar seca en verano (diciembre-febrero) — consultar condiciones antes de visitar',
+    'Registrarse en el puesto de CONAF o en la taquilla de entrada del sector Anticura antes de iniciar cualquier sendero',
     'El sendero puede tener barro abundante en época lluviosa — usar calzado impermeable con buen agarre',
     'No abandonar el sendero marcado — el bosque valdiviano es denso y puede desorientar',
     'En invierno, revisar condiciones de la Ruta CH-215 (puede haber nieve o hielo en el camino)',
     'No alimentar fauna silvestre — pumas y zorros pueden estar presentes en el sector',
+    'Llevar ropa impermeable incluso en verano — las precipitaciones son frecuentes todo el año',
   ],
 
   recomendaciones: [
     'Calzado impermeable con buen agarre (sendero con barro y raíces)',
     'Ropa en capas: base térmica + polar + cortaviento impermeable (llueve todo el año)',
     'Repelente de insectos, especialmente en verano',
-    'Cámara fotográfica para aves y bosque valdiviano',
-    'Binoculares para avistamiento del carpintero negro, huet-huet y choroy',
+    'Cámara fotográfica y binoculares para aves (carpintero negro y huet-huet)',
     'Agua y snacks (el restaurante del Centro Turístico está disponible antes y después)',
+    'Comprar ticket de entrada en taquilla presencial del sector (no disponible en pasesparques.cl)',
   ],
 
   gastronomia: [
-    { plato: 'Trucha y salmón del Lago Puyehue', descripcion: 'Los ríos y lagos de la zona son abundantes en trucha y salmón. Plato emblemático de la región preparado ahumado, al vapor o a la plancha en los restaurantes de la zona.' },
-    { plato: 'Kuchen de frambuesa y berries del bosque', descripcion: 'Herencia de la colonización alemana del siglo XIX. Los kuchens son un ícono gastronómico de Los Lagos, elaborados con frambuesas, murtas y berries silvestres de la región.' },
-    { plato: 'Cazuela de vacuno o cordero', descripcion: 'Plato típico chileno de campo con trozos de carne, papas, zapallo y verduras. Presente en hosterías y restaurantes de Entre Lagos y Puyehue.' },
-    { plato: 'Pan amasado casero', descripcion: 'El Centro Turístico Anticura ofrece pan amasado artesanal elaborado en el propio centro. Tradición del campo chileno sureño.' },
-    { plato: 'Carnes de caza (jabalí, ciervo)', descripcion: 'En la zona de Osorno y Entre Lagos es posible encontrar preparaciones con carnes de caza como jabalí y ciervo en hosterías especializadas.' },
-    { plato: 'Mistelas y mermeladas artesanales', descripcion: 'Licores suaves y conservas elaborados con frutos del bosque: murta, calafate y frambuesa silvestre. Se venden en tiendas locales de Entre Lagos y Puyehue.' },
+    { plato: 'Trucha y salmón del Río Gol-Gol', descripcion: 'El Río Gol-Gol es uno de los ríos más ricos en trucha arcoíris y salmón de la Región de Los Lagos. Plato emblemático de la zona, servido ahumado, a la plancha o al vapor en restaurantes de Puyehue y Entre Lagos.' },
+    { plato: 'Kuchen de frambuesa y murta', descripcion: 'Herencia de la colonización alemana del siglo XIX. Los kuchens son el postre emblema de Los Lagos: tortas húmedas con frutas del bosque como frambuesa, murta y arándano. Disponibles en el restaurante del Centro Turístico Anticura.' },
+    { plato: 'Curanto en hoyo', descripcion: 'Preparación tradicional mapuche y de la zona de Los Lagos: mariscos, carnes, papas, milcao y chapalele cocidos en un hoyo en la tierra con piedras calientes. Presente en festividades y restaurantes típicos de Entre Lagos.' },
+    { plato: 'Milcao y chapalele', descripcion: 'Tortas de papa típicas del sur de Chile. El milcao es de papa cruda rallada y papa cocida, el chapalele de papa cocida y harina. Acompañan el curanto y se sirven en todo restaurante tradicional de Los Lagos.' },
+    { plato: 'Pan amasado casero', descripcion: 'Tradición del campo chileno sureño. El Centro Turístico Anticura ofrece pan amasado artesanal elaborado en el propio centro, con mantequilla y mermeladas caseras de murta y frambuesa.' },
   ],
 
   alojamiento: [
-    { nombre: 'Centro Turístico Anticura (Cabañas)', tipo: 'Cabañas de montaña', precioDesde: 'Desde USD 109/noche', url: 'https://www.anticura.com/', descripcion: 'Cabañas alpinas con living, cocina, chimenea y panel convector insertas en la selva valdiviana. Capacidad hasta 6 personas. Restaurante con 3 comidas diarias. Score Booking 8.2 (462 reseñas).' },
-    { nombre: 'Centro Turístico Anticura (Camping)', tipo: 'Camping', precioDesde: 'Desde $18.000 CLP/noche', url: 'https://www.anticura.com/', descripcion: '15 sitios de camping con mesas de picnic, electricidad y baños con agua caliente. A 300 metros de los senderos. WiFi disponible.' },
-    { nombre: 'Termas de Aguas Calientes', tipo: 'Hotel / Lodge termal', precioDesde: 'Desde USD 66/noche', url: 'https://termasaguascalientes.cl/', descripcion: 'Complejo turístico a 17 km de Anticura frente al río Chanleufú. Piscinas termales, restaurante y bungalows equipados. Sector Aguas Calientes del P.N. Puyehue.' },
-    { nombre: 'Hotel Termas de Puyehue', tipo: 'Resort 5 estrellas', precioDesde: 'Consultar precio', url: 'https://puyehue.cl/', descripcion: 'Resort de bosque con aguas termales, spa, piscinas indoor/outdoor y restaurantes. A 31 km de Anticura. Referente de la zona de Puyehue.' },
-    { nombre: 'Hostería Entre Lagos', tipo: 'Hostería', precioDesde: 'Desde USD 80/noche', url: '#', descripcion: 'Habitaciones privadas con baño, balcón y vistas al lago o montaña. Incluye desayuno continental. A 55 km de Anticura, en la localidad de Entre Lagos.' },
+    { nombre: 'Centro Turístico Anticura (Cabañas)', tipo: 'Cabañas en bosque nativo', precioDesde: 'Desde CLP 70.000/noche', url: 'https://www.anticura.com/alojamiento-2/', descripcion: 'Cabañas de madera nativa reciclada con cocina equipada, calefacción a leña y estacionamiento. Capacidad hasta 6 personas. A pasos de los senderos de los saltos.' },
+    { nombre: 'Centro Turístico Anticura (Camping)', tipo: 'Camping con servicios', precioDesde: 'Desde CLP 10.000/noche', url: 'https://www.anticura.com/', descripcion: '8 sitios de camping rústicos en bosque nativo. Mesas, enchufes eléctricos, duchas con agua caliente 24h. Acceso directo a los senderos de los saltos.' },
+    { nombre: 'Termas Aguas Calientes', tipo: 'Cabañas / Glamping / Termas', precioDesde: 'Consultar precio', url: 'https://termasaguascalientes.cl/', descripcion: '25 cabañas con tina termal privada en terraza. 12 domos glamping con cama king y vista al río. Dos piscinas termales compartidas. A 17 km de Anticura.' },
+    { nombre: 'Hotel Termas de Puyehue', tipo: 'Hotel 4 estrellas / Resort termal', precioDesde: 'Consultar precio', url: 'https://puyehue.cl/', descripcion: 'Resort de lujo con piscinas termales 22-41°C, spa, restaurante y excursiones guiadas al Salto del Indio incluidas. A 15 km del sector Anticura.' },
   ],
 
   faq: [
-    { pregunta: '¿Cuándo es mejor visitar el Salto La Princesa en Anticura?', respuesta: 'Para ver la cascada con caudal, lo ideal es visitarla en otoño (marzo a mayo) o invierno (junio a agosto), cuando el caudal es mayor gracias a las lluvias. En verano (diciembre-febrero) la cascada puede estar completamente seca. Si buscas equilibrio entre caudal y buen clima para caminar, octubre a diciembre es la mejor ventana.' },
-    { pregunta: '¿Tiene costo la entrada al sector Anticura?', respuesta: 'El acceso al sector Anticura del Parque Nacional Puyehue es gratuito o con costo mínimo. El parque tiene una concesión operada por el Centro Turístico Anticura que puede cobrar por el acceso a algunos senderos. Se recomienda consultar directamente con CONAF (parque.puyehue@conaf.cl) o llamar al +56 64 2 221304.' },
-    { pregunta: '¿Cuánto dura la caminata al Salto La Princesa?', respuesta: 'El sendero tiene 850 metros (ida y vuelta) y se recorre en aproximadamente 30 minutos. Si quieres hacer el circuito completo Anticura Catrué (Salto La Princesa + Salto del Indio + Salto Repucura), son 4 km en total y toma entre 1 y 1,5 horas.' },
-    { pregunta: '¿Se puede acampar en Anticura?', respuesta: 'Sí. El Centro Turístico Anticura cuenta con 15 sitios de camping con mesas de picnic, electricidad y baños con agua caliente (desde $18.000 CLP/noche). También ofrecen cabañas alpinas y dormitorios compartidos. Reservas en www.anticura.com o por Booking.com.' },
-    { pregunta: '¿Qué fauna puedo ver en los senderos de Anticura?', respuesta: 'El Parque Nacional Puyehue alberga más de 130 especies de aves. Las más fáciles de avistar son el carpintero negro, el huet-huet, el choroy y el pato cortacorrientes. El pudú (el ciervo más pequeño del mundo) habita el sector pero es muy esquivo. También habita el monito del monte, un pequeño marsupial endémico del bosque valdiviano.' },
-    { pregunta: '¿Cómo llego a Anticura en transporte público?', respuesta: 'Desde Osorno, la empresa Expreso Lago Puyehue opera buses desde el Terminal Mercado con aproximadamente 4 frecuencias diarias. El viaje dura 1 hora 50 minutos. Verificar horarios actualizados en el terminal, ya que varían por temporada.' },
+    { pregunta: '¿Dónde está el Salto del Indio de Puyehue?', respuesta: 'El Salto del Indio se encuentra en el sector Anticura del Parque Nacional Puyehue, Región de Los Lagos, a 91 km al este de Osorno por la Ruta CH-215. No confundir con el Salto del Indio de Curacautín, que es una cascada diferente ubicada en la Región de La Araucanía.' },
+    { pregunta: '¿Cuánto cuesta la entrada al Salto del Indio?', respuesta: 'La entrada al sector Anticura del Parque Nacional Puyehue cuesta CLP 4.000 para adultos y CLP 2.000 para niños hasta 10 años. El ticket da acceso a los tres saltos del circuito: Salto del Indio, Salto La Princesa y Salto Repucura. Se compra en la taquilla presencial del sector.' },
+    { pregunta: '¿Cuánto dura la caminata al Salto del Indio?', respuesta: 'El sendero directo al Salto del Indio tiene 950 metros y se recorre en unos 40 minutos. Si prefieres hacer el circuito completo Anticura Catrué (que incluye los tres saltos: Indio, Princesa y Repucura), son 3.7 km y toma entre 1 y 1.5 horas.' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Salto del Indio?', respuesta: 'La mejor ventana es de octubre a diciembre: el caudal del río Gol-Gol está alto tras las lluvias invernales y las condiciones del sendero son más favorables. A diferencia del vecino Salto La Princesa, el Salto del Indio mantiene caudal todo el año.' },
+    { pregunta: '¿Por qué se llama Salto del Indio?', respuesta: 'Según la tradición oral huilliche, durante la época colonial un grupo de indígenas se escondió detrás de la cortina de agua de esta cascada para escapar del asedio de los soldados españoles. La cascada y el bosque denso les sirvieron de refugio natural. La leyenda ha sido documentada por el Kumun Williche.' },
+    { pregunta: '¿Hay alojamiento cerca del Salto del Indio?', respuesta: 'Sí. El Centro Turístico Anticura ofrece cabañas desde CLP 70.000/noche y camping desde CLP 10.000, a pasos del sendero. A 17 km están las Termas Aguas Calientes (cabañas, domos glamping, camping con termas) y a 15 km el Hotel Termas de Puyehue (4 estrellas con excursiones guiadas al salto).' },
   ],
 };
 
@@ -144,8 +148,8 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'TouristAttraction',
-    name: 'Salto La Princesa (Anticura)',
-    description: `Cascada estacional en el sector Anticura del Parque Nacional Puyehue, Región de Los Lagos, Chile. Sendero de 850 m en selva valdiviana prístina.`,
+    name: 'Salto del Indio (Anticura)',
+    description: `Cascada de 20 metros en el sector Anticura del Parque Nacional Puyehue, Región de Los Lagos, Chile. Sendero de 950 m en selva valdiviana prístina.`,
     image: `https://cascadaschile.com${cascada.imagen}`,
     geo: {
       '@type': 'GeoCoordinates',
@@ -158,7 +162,7 @@ const structuredData = [
       addressLocality: cascada.zona,
       addressCountry: 'CL',
     },
-    isAccessibleForFree: true,
+    isAccessibleForFree: false,
     openingHours: 'Mo-Su 09:00-18:30',
     touristType: ['Naturaleza', 'Trekking', 'Fotografía', 'Familiar'],
     url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
@@ -182,13 +186,13 @@ const structuredData = [
       { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
       { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
       { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/los-lagos` },
-      { '@type': 'ListItem', position: 4, name: 'Salto La Princesa (Anticura)' },
+      { '@type': 'ListItem', position: 4, name: 'Salto del Indio (Anticura)' },
     ],
   },
 ];
 
 const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
-const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el Parque Nacional Puyehue, Los Lagos. Sendero de 850 m en selva valdiviana, cómo llegar, fauna y alojamiento.`;
+const pageDescription = `Salto del Indio en Anticura: cascada de 20 m en el Parque Nacional Puyehue, Los Lagos. Sendero de 950 m, leyenda huilliche, circuito de 3 saltos y alojamiento.`;
 ---
 
 <Layout
@@ -210,17 +214,17 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
         <span>›</span>
         <a href="/region/los-lagos/">Los Lagos</a>
         <span>›</span>
-        <span class="cascada-breadcrumb__current">Salto La Princesa</span>
+        <span class="cascada-breadcrumb__current">Salto del Indio</span>
       </nav>
 
       <div class="cascada-hero__bottom">
         <div>
           <span class="cascada-badge">{cascada.region}</span>
-          <h1 class="cascada-hero__title">Salto La<br/>Princesa</h1>
+          <h1 class="cascada-hero__title">Salto del<br/>Indio</h1>
         </div>
         <div class="cascada-hero__stat">
-          <p class="cascada-hero__stat-number">850m</p>
-          <p class="cascada-hero__stat-label">Sendero ida y vuelta</p>
+          <p class="cascada-hero__stat-number">~20m</p>
+          <p class="cascada-hero__stat-label">de altura</p>
         </div>
       </div>
     </div>
@@ -236,7 +240,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
         { label: 'Entrada', value: cascada.entrada },
         { label: 'Mejor época', value: cascada.mejorEpoca },
         { label: 'Río', value: cascada.rio },
-        { label: 'Sendero', value: '850 m, 30 min' },
+        { label: 'Sendero', value: '950 m, 40 min' },
         { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
         { label: 'Coordenadas', value: cascada.coordenadas },
       ].map((stat) => (
@@ -253,15 +257,15 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
   <section class="cascada-section cascada-section--cream">
     <div class="cascada-two-col">
       <div class="reveal">
-        <h2 class="cascada-h2">Sobre el Salto La Princesa</h2>
-        <p class="cascada-body">El Salto La Princesa es una cascada estacional ubicada en el sector Anticura del Parque Nacional Puyehue, inmersa en uno de los rincones más prístinos de la selva valdiviana chilena. La cascada se forma por un tributario del río Gol-Gol que se precipita entre coihues centenarios y un manto denso de musgos, helechos y líquenes.</p>
-        <p class="cascada-body">A diferencia de muchas <a href="/cascadas/" class="cascada-inline-link">cascadas del sur de Chile</a>, el Salto La Princesa tiene un comportamiento marcadamente estacional: en otoño e invierno el caudal es abundante gracias a las intensas precipitaciones de la zona (2.500-3.000 mm anuales), pero en verano puede reducirse drásticamente o secarse por completo. Este carácter efímero le otorga un atractivo particular para quienes la visitan en época de lluvias.</p>
-        <p class="cascada-body">El sendero de acceso de 850 metros atraviesa un bosque valdiviano extraordinariamente conservado, con ejemplares de coihue, ulmo, olivillo y tepa que forman un dosel casi impenetrable. La cascada forma parte del circuito de los Saltos de Anticura Catrué, que incluye también el <a href="/cascadas/salto-del-indio-anticura/" class="cascada-inline-link">Salto del Indio</a> y el Salto Repucura, tres joyas escondidas en el corazón del <a href="/region/los-lagos/" class="cascada-inline-link">Parque Nacional Puyehue</a>. Los <a href="/cascadas/saltos-del-petrohue/" class="cascada-inline-link">Saltos del Petrohué</a>, a 130 km, comparten el contexto volcánico y boscoso de la región.</p>
+        <h2 class="cascada-h2">Sobre el Salto del Indio</h2>
+        <p class="cascada-body">El Salto del Indio es una cascada de aproximadamente 20 metros de altura ubicada en el sector Anticura del Parque Nacional Puyehue, inmersa en uno de los rincones más prístinos de la selva valdiviana de la <a href="/region/los-lagos/" class="cascada-inline-link">Región de Los Lagos</a>. La cascada se alimenta del río Gol-Gol, tributario principal del Lago Puyehue, que se precipita entre coihues centenarios y un manto denso de musgos, helechos y líquenes.</p>
+        <p class="cascada-body">A diferencia del vecino <a href="/cascadas/salto-la-princesa-anticura/" class="cascada-inline-link">Salto La Princesa</a>, el Salto del Indio mantiene un caudal perenne durante todo el año gracias a que se nutre directamente del río Gol-Gol. El mayor caudal se observa en otoño e invierno por las intensas precipitaciones de la zona (2.500-3.000 mm anuales), mientras que en verano el flujo disminuye pero nunca se seca por completo.</p>
+        <p class="cascada-body">El sendero de acceso de 950 metros atraviesa un bosque valdiviano extraordinariamente conservado y forma parte del circuito de los Saltos de Anticura Catrué, que conecta tres cascadas: el Salto del Indio, el Salto La Princesa y el Salto Repucura. A 130 km se encuentran los <a href="/cascadas/saltos-del-petrohue/" class="cascada-inline-link">Saltos del Petrohué</a>, que comparten el contexto volcánico y boscoso de la región.</p>
       </div>
 
       <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
       <div class="reveal">
-        <h2 class="cascada-h2">Cómo llegar al Salto La Princesa</h2>
+        <h2 class="cascada-h2">Cómo llegar al Salto del Indio</h2>
         {cascada.comoLlegar.split('\n\n').map(p => (
           <p class="cascada-body">{p.trim()}</p>
         ))}
@@ -270,7 +274,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
           width="100%"
           height="300"
           loading="lazy"
-          title="Mapa de ubicación del Salto La Princesa en Anticura"
+          title="Mapa de ubicación del Salto del Indio en Anticura, Parque Nacional Puyehue"
           src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
         ></iframe>
       </div>
@@ -283,7 +287,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
     <div class="reveal">
       <h2 class="cascada-h2 cascada-h2--light">Qué hacer en Anticura</h2>
       <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
-        Desde senderos cortos en selva valdiviana hasta travesías de dos días, Anticura ofrece experiencias para todos los niveles.
+        Desde senderos cortos entre cascadas hasta travesías de dos días, pesca deportiva y termas: Anticura ofrece experiencias para todos los niveles.
       </p>
     </div>
     <div class="cascada-activities-grid">
@@ -347,7 +351,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
   <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--cream">
     <div class="reveal" style="max-width:800px;">
-      <h2 class="cascada-h2">Historia y cultura de Anticura</h2>
+      <h2 class="cascada-h2">Historia y leyenda del Salto del Indio</h2>
       {cascada.historia.split('\n\n').map(p => (
         <p class="cascada-body">{p.trim()}</p>
       ))}
@@ -399,7 +403,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
     <div class="reveal">
       <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de Anticura</h2>
       <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
-        Desde cabañas alpinas en la selva valdiviana hasta un resort termal 5 estrellas a 31 km.
+        Desde cabañas en bosque nativo a pasos de los senderos hasta un resort termal 4 estrellas a 15 km.
       </p>
     </div>
     <div class="cascada-alojamiento-grid">
@@ -445,7 +449,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
   <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--cream">
     <div class="reveal" style="max-width:800px;">
-      <h2 class="cascada-h2">Preguntas frecuentes sobre el Salto La Princesa</h2>
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el Salto del Indio</h2>
     </div>
     <div class="cascada-faq">
       {cascada.faq.map(f => (
@@ -461,7 +465,7 @@ const pageDescription = `Salto La Princesa en Anticura: cascada estacional en el
   <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
   <section class="cascada-section cascada-section--navy">
     <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
-      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al Salto La Princesa</h2>
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al Salto del Indio</h2>
       <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
         Cascadas próximas en la Región de Los Lagos y alrededores.
       </p>
