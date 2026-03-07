@@ -1,0 +1,845 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Verificado por chile-waterfalls-researcher, mar 2026
+// Fuentes: TorresDelPaine.com, AllTrails, rutaschile.com, CONAF, world-of-waterfalls.com, Wikipedia
+const cascada = {
+  nombre: 'Salto Grande',
+  slug: 'salto-grande-torres-del-paine',
+  region: 'Magallanes',
+  zona: 'Torres del Paine',
+  altura: 15,
+  caudal: 'Alto y constante (drenaje completo del Lago Nordenskjöld)',
+  dificultad: 'Fácil',
+  acceso: 'Sendero desde Pudeto (1,5 km)',
+  coordenadas: '51°04\'S 73°00\'W',
+  mejorEpoca: 'Octubre — Marzo',
+  entrada: 'CLP 46.000 extranjeros / CLP 37.800 chilenos (desde mayo 2026: CLP 80.000 / CLP 37.800)',
+  horario: 'Todo el año (acceso restringido en invierno)',
+  descripcion: `El Salto Grande es la cascada más imponente del Parque Nacional Torres del Paine, Reserva de la Biosfera UNESCO desde 1978. Con 15 metros de altura, canaliza todo el drenaje del Lago Nordenskjöld hacia el Lago Pehoe a través de un estrecho canal de roca granítica, generando un torrente de agua turquesa glaciar de extraordinaria fuerza visual.
+
+  El color turquesa intenso del agua proviene de la harina glaciar (silt) en suspensión, sedimento finísimo arrastrado desde el Campo de Hielo Patagónico Sur. El Río Paine nace en el Lago Dickson (glaciar) y recorre un sistema de lagos — Paine, Nordenskjöld y Pehoe — antes de desaguar al Río Serrano y finalmente al Océano Pacífico.
+
+  El salto se enmarca en un paisaje de escala monumental: los Cuernos del Paine, el Macizo del Paine y el Lago Pehoe forman el telón de fondo. El parque fue elegido Octava Maravilla del Mundo en 2013 y recibe más de 300.000 visitantes al año, siendo uno de los destinos más icónicos de la Patagonia chilena.`,
+  comoLlegar: `Desde Santiago (2.500 km): Vuelo Santiago (SCL) — Punta Arenas (PUQ), ~3,5 horas (LATAM o Sky Airline). Desde el aeropuerto, bus o transfer a Puerto Natales (~250 km, 3 horas, Buses Pacheco). Desde Puerto Natales, bus o vehículo al sector Pudeto del parque (~130 km, 2-3 horas por Ruta 9 Norte, empresa Bus-Sur). Tiempo total: 10-12 horas con conexiones.
+
+  Desde Puerto Natales (130 km, 2-3 horas): Ruta 9 Norte hasta la entrada principal del parque (Laguna Amarga), luego ruta interior hasta el sector Pudeto. Bus-Sur opera servicio diario en temporada alta (octubre-abril) con parada en Pudeto. Estacionamiento habilitado por CONAF.
+
+  Desde Punta Arenas (380 km, 5-6 horas): Ruta a Puerto Natales (~250 km, 3 horas), luego continuar al parque. Desde el mirador del Salto Grande, el sendero es de solo 1,5 km desde el estacionamiento de Pudeto (5-10 minutos de caminata).`,
+  imagen: '',
+  imagenAlt: 'Salto Grande del Parque Nacional Torres del Paine, cascada turquesa glaciar de 15 metros en Magallanes',
+  galeria: [],
+  galeriaCreditos: [],
+  cascadasCercanas: [
+    { nombre: 'Salto Río Ibáñez', slug: 'salto-rio-ibanez', region: 'Aysén', altura: 25, tipo: 'cercania' },
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'cercania' },
+    { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, tipo: 'cercania' },
+  ],
+  cascadasRelacionadas: [
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'relacionada' },
+    { nombre: 'Cascada Puritama', slug: 'cascada-puritama', region: 'Antofagasta', altura: 15, tipo: 'relacionada' },
+    { nombre: 'Salto de la Princesa', slug: 'salto-de-la-princesa', region: 'La Araucanía', altura: 25, tipo: 'relacionada' },
+  ],
+
+  lat: -51.0671,
+  lng: -73.0077,
+  rio: 'Río Paine',
+  tipoFormacion: 'Granito intrusivo y sedimentos glaciales',
+  numeroBrazos: 1,
+  distanciaSantiago: 2500,
+
+  historia: `El Parque Nacional Torres del Paine fue creado el 13 de mayo de 1959 como "Parque Nacional de Turismo Lago Grey". En 1977, el empresario italiano Guido Monzino donó 12.000 hectáreas al Estado chileno, consolidando los límites definitivos del parque. El 28 de abril de 1978, la UNESCO lo declaró Reserva de la Biosfera, reconociendo su valor ecológico excepcional. En 2013 fue elegido como la Octava Maravilla del Mundo en una votación popular internacional.
+
+  La región de Magallanes fue territorio ancestral de las comunidades originarias Kawésqar (alacalufes), Selknam (onas) y Tehuelches, quienes transitaron el área por milenios antes de la colonización. El Salto Grande es mencionado por los primeros exploradores y topógrafos que cartografiaron la cuenca del Río Paine a fines del siglo XIX y principios del XX. Es una de las <a href="/cascadas/" class="cascada-inline-link">cascadas más fotografiadas de Chile</a> y un hito obligatorio para quienes visitan la Patagonia.
+
+  Geológicamente, las rocas que enmarcan el Salto Grande corresponden a granitos del lacolito Paine, intruido hace ~12,5 millones de años a través de la Falla Río Nutria en sedimentos del Cretácico Superior (~90 millones de años). Las glaciaciones del Pleistoceno (máximo hace ~18.000 años) tallaron los valles, lagos y la morfología actual del parque.`,
+
+  queHacer: [
+    { actividad: 'Senderismo al Mirador Salto Grande', descripcion: 'Sendero corto de 1,5 km ida y vuelta desde el estacionamiento de Pudeto. Dificultad fácil, terreno plano y bien señalizado. Tiempo: 30 minutos a 1 hora. Apto para toda la familia.' },
+    { actividad: 'Mirador Cuernos (extensión)', descripcion: 'Desde el Mirador Salto Grande se continúa 3,5 km hasta el Mirador Cuernos, con vistas panorámicas al Lago Nordenskjöld, Valle Francés y Cordillera del Paine. Recorrido total ida y vuelta: ~8 km. Duración: 2,5 a 4 horas. Dificultad moderada.' },
+    { actividad: 'Fotografía de paisaje', descripcion: 'Uno de los puntos más fotogénicos del parque. La cascada con el Macizo del Paine de fondo, el Lago Pehoe y Los Cuernos. El color turquesa glaciar del agua es especialmente llamativo. Mejor luz: mañana temprano.' },
+    { actividad: 'Avistamiento de fauna silvestre', descripcion: 'En el trayecto es frecuente observar guanacos, zorros grises, cóndores en vuelo, cisnes de cuello negro y ñandúes. El sector Pehoé-Pudeto tiene una de las mayores densidades de guanacos del parque.' },
+    { actividad: 'Catamarán por el Lago Pehoe', descripcion: 'Desde el embarcadero de Pudeto, a metros del Salto Grande, un catamarán cruza el Lago Pehoe hasta Paine Grande (~30 min). Ofrece vistas al Salto Grande desde el agua. Punto de inicio del Circuito W.' },
+    { actividad: 'Kayak en el Lago Pehoe', descripcion: 'Empresas de aventura operan excursiones de kayak en el Lago Pehoe y el Río Serrano, con vistas al macizo y a la cascada. No se hace kayak sobre el Salto Grande por seguridad. Requiere reserva con operador.' },
+  ],
+
+  flora: `El entorno del Salto Grande presenta una transición entre el Bosque Magallánico Caducifolio y la Estepa Patagónica. En las laderas y quebradas del parque predomina la lenga (Nothofagus pumilio), árbol caducifolio del bosque subantártico cuyas hojas adquieren tonos cobrizos en otoño (marzo-abril). El ñire (Nothofagus antarctica), de menor porte, crece en suelos húmedos y orillas de cursos de agua, muy visible cerca del Salto Grande.
+
+  El arbusto emblemático de la zona es el calafate (Berberis microphylla), con bayas azules comestibles. Dice la leyenda local que quien come calafate volverá siempre a la Patagonia. El notro o ciruelillo (Embothrium coccineum) destaca por sus flores rojas llamativas en primavera (octubre-noviembre). En las estepas abiertas domina el coirón (Festuca gracillima), pasto en macollo que forma las praderas patagónicas. Otras especies presentes son la mata negra (Mulguraea tridens) en áreas húmedas, la mata verde (Chiliotrichum diffusum) con flores blancas, y orquídeas nativas (Chloraea spp.) en zonas húmedas y bosques durante el verano.`,
+
+  fauna: `Torres del Paine alberga 118 especies de aves, 25 mamíferos, 6 reptiles, 3 anfibios y 6 peces. El guanaco (Lama guanicoe) es el animal más frecuente y fácil de avistar, formando grandes manadas especialmente en el sector Pudeto y orillas del Lago Nordenskjöld. El cóndor andino (Vultur gryphus), con envergadura de hasta 3,3 metros, planea frecuentemente sobre el Salto Grande y los lagos — Torres del Paine tiene una de las mayores densidades de cóndores del mundo.
+
+  El parque posee posiblemente la mayor densidad de pumas (Puma concolor) del planeta, concentrados en el sector oriental. El zorro gris patagónico (Lycalopex griseus) es muy frecuente en senderos y áreas abiertas. El huemul (Hippocamelus bisulcus), ciervo endémico de los Andes australes y símbolo nacional de Chile, habita cerca del glaciar Grey pero está en peligro de extinción (~2.000 individuos en el mundo). El cisne de cuello negro (Cygnus melancoryphus) se observa fácilmente en el Lago Pehoe, mientras que el ñandú (Rhea pennata) recorre las estepas entre Laguna Amarga y Pudeto. En la Laguna Amarga se avistan flamencos australes (Phoenicopterus chilensis).`,
+
+  clima: {
+    tipo: 'Templado frío oceánico (Cfc)',
+    tempPromedio: '7-8°C',
+    tempVerano: '17-20°C máx / 6-8°C mín',
+    tempInvierno: '2-4°C máx / -3 a 0°C mín',
+    precipitaciones: '1.376 mm anuales (130 cm de nieve)',
+    descripcion: 'El parque es famoso mundialmente por su clima impredecible y sus fuertes vientos, con ráfagas de hasta 110 km/h. Se pueden experimentar las cuatro estaciones en un mismo día. El viento es más fuerte en verano y primavera. Diciembre-febrero ofrece 16+ horas de luz. Marzo-abril tiene colores otoñales y menos turistas. La temporada ideal es de octubre a marzo.',
+  },
+
+  seguridad: [
+    'Registrarse obligatoriamente en los puestos de guardaparques CONAF al ingresar a senderos',
+    'Viento extremo: mantenerse alejado de los bordes del mirador en días de viento intenso — pueden derribar a adultos. Sujetar a niños en todo momento',
+    'Llevar siempre cortavientos impermeable y ropa abrigada, incluso en días soleados — el tiempo cambia en minutos',
+    'No acercarse más allá de las barreras del mirador — spray de agua, terreno resbaladizo y fuerza del viento',
+    'Hidratación: el viento patagónico deshidrata rápidamente. Llevar agua y snacks incluso para excursiones cortas',
+    'No dar de comer a la fauna silvestre: zorros pueden volverse agresivos, cóndores son aves protegidas',
+    'Sin señal móvil ni internet en senderos interiores — informar itinerario a guardaparque antes de partir',
+    'Fuego estrictamente prohibido fuera de lugares habilitados — incendios forestales han devastado el parque (2005, 2011-2012)',
+  ],
+
+  recomendaciones: [
+    'Reservar la entrada al parque con anticipación en pasesparques.cl, especialmente diciembre-febrero (cupos limitados)',
+    'Ropa en capas: base térmica + polar/plumón + cortavientos-impermeable',
+    'Botas de trekking impermeables con buen agarre (barro y rocas húmedas)',
+    'Lentes de sol polarizados y protector solar SPF 50+ (radiación UV alta por adelgazamiento de capa de ozono)',
+    'Binoculares para avistamiento de fauna (cóndores, guanacos, cisnes)',
+    'Cámara con buena sujeción o correa (el viento sacude el equipo). Filtro polarizador para el azul turquesa',
+    'Efectivo en pesos chilenos — dentro del parque los servicios pueden no aceptar tarjetas',
+    'Llegar temprano (mañana): mejor luz fotográfica y menos visitantes',
+  ],
+
+  gastronomia: [
+    { plato: 'Cordero Magallánico al Palo', descripcion: 'El plato emblemático de Magallanes. Cordero criado en estancias patagónicas, cocinado lentamente al aire libre ensartado en un palo rodeado de brasas. Carne excepcionalmente tierna con sabor único. Disponible en restaurantes de Puerto Natales.' },
+    { plato: 'Centolla Magallánica', descripcion: 'Cangrejo gigante del Estrecho de Magallanes, uno de los mariscos más valorados del mundo. Se sirve al vapor, gratinada o en Chupe de Centolla (guiso cremoso gratinado al horno). Restaurantes especializados en Puerto Natales y Punta Arenas.' },
+    { plato: 'Charquicán con carne de guanaco', descripcion: 'Guiso tradicional chileno-patagónico con carne de guanaco (cría legal), papas, zapallo, maíz y verduras. Plato de origen colonial con influencias indígenas que refleja la fauna y paisaje de la Patagonia.' },
+    { plato: 'Calafate sour y postres de calafate', descripcion: 'El calafate (Berberis microphylla) es una fruta silvestre azul-morada icónica de la Patagonia. Se usa para licores, mermeladas, helados y el famoso calafate sour. Dice la leyenda que quien come calafate volverá siempre a la Patagonia.' },
+    { plato: 'Curanto en hoyo', descripcion: 'Preparación ancestral de mariscos, carnes y papas cocidos sobre piedras calientes en un hoyo en la tierra. Tradición culinaria del sur de Chile presente en eventos gastronómicos y restaurantes especializados.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Hostería Pehoé', tipo: 'Hotel boutique', precioDesde: 'Desde USD 180/noche', url: 'https://hosteriapehoe.cl', descripcion: 'Hotel en una isla de 5 hectáreas en el Lago Pehoe, con vistas al Macizo del Paine. 25 habitaciones con baño privado, restaurante y bar panorámico. A ~3 km del Salto Grande.' },
+    { nombre: 'Camping Pehoé', tipo: 'Camping', precioDesde: 'Desde USD 21/persona', url: 'https://campingpehoe.com', descripcion: 'Camping equipado frente al Lago Pehoe. Electricidad 24h, restaurante, duchas calientes. Domos disponibles desde USD 138/doble. A ~3-4 km del Salto Grande.' },
+    { nombre: 'Refugio Paine Grande', tipo: 'Refugio de montaña', precioDesde: 'Desde USD 11/persona camping', url: '#', descripcion: 'Refugio en la orilla del Lago Pehoe, punto de llegada del catamarán desde Pudeto. Camas en refugio y sitios de camping. A ~5 km del Salto Grande (acceso por catamarán).' },
+    { nombre: 'Explora Patagonia', tipo: 'Hotel de lujo todo incluido', precioDesde: 'Desde USD 1.000/noche', url: 'https://explora.com', descripcion: 'Lodge de lujo dentro del parque con paquetes todo incluido: alojamiento, comidas, bebidas, traslados y excursiones guiadas. Mínimo 3 noches. Uno de los alojamientos más exclusivos de la Patagonia.' },
+    { nombre: 'Hoteles y hostales en Puerto Natales', tipo: 'Variado', precioDesde: 'Desde USD 15/persona', url: '#', descripcion: 'Ciudad base más cercana al parque (80 km). Amplia oferta para todos los presupuestos: hostales desde CLP 20.000/noche hasta hoteles boutique. Puerto Natales tiene supermercados, restaurantes y servicios completos.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Cuánto mide el Salto Grande de Torres del Paine?', respuesta: 'El Salto Grande mide aproximadamente 15 metros de altura. Aunque no es una cascada de gran altura, su impacto visual es extraordinario por el enorme volumen de agua turquesa glaciar que canaliza — todo el drenaje del Lago Nordenskjöld — y por su escenario con el Macizo del Paine de fondo.' },
+    { pregunta: '¿Cómo se llega al Salto Grande?', respuesta: 'Desde Puerto Natales se toma la Ruta 9 Norte hasta la entrada principal del parque (Laguna Amarga) y se continúa hasta el sector Pudeto (~129 km, 2-3 horas). Desde el estacionamiento de Pudeto, una caminata de 5-10 minutos (1,5 km) lleva al mirador. Bus-Sur tiene parada en Pudeto durante la temporada alta (octubre-abril).' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Salto Grande?', respuesta: 'La temporada ideal es de octubre a marzo. Diciembre-enero ofrecen 16+ horas de luz. Noviembre tiene flores primaverales. Marzo-abril tiene colores otoñales de los bosques de lenga y menos turistas. El caudal es máximo en primavera por deshielo. El parque opera todo el año pero en invierno el acceso puede estar restringido por nieve.' },
+    { pregunta: '¿Cuánto cuesta la entrada al Parque Nacional Torres del Paine en 2026?', respuesta: 'Hasta mayo de 2026, el precio es CLP 46.000 (USD 50) para extranjeros adultos. Desde mayo 2026 entra el nuevo sistema diferenciado de CONAF: extranjeros CLP 80.000 (USD 87), chilenos CLP 37.800 (USD 41). Las entradas se compran en pasesparques.cl. Comprar con anticipación en temporada alta.' },
+    { pregunta: '¿Se puede hacer la caminata al Salto Grande con niños?', respuesta: 'Sí. El sendero desde Pudeto es corto (1,5 km), plano y bien señalizado. El único aspecto a cuidar es el viento patagónico: sujetar a niños pequeños cerca del mirador y llevar ropa abrigada y cortavientos para todos.' },
+    { pregunta: '¿El Salto Grande está en el Circuito W?', respuesta: 'El sector Pudeto, donde se ubica el Salto Grande, es el punto de inicio/fin occidental del Circuito W. Los trekkers toman el ferry en Pudeto hacia Paine Grande para comenzar el circuito. El mirador del Salto Grande está a 5 minutos del embarcadero, por lo que casi todos los visitantes del parque lo ven.' },
+    { pregunta: '¿Qué fauna se puede ver cerca del Salto Grande?', respuesta: 'La zona es especialmente rica en guanacos (muy fáciles de avistar), cóndores andinos, zorros grises patagónicos, cisnes de cuello negro en el Lago Pehoe y ñandúes en la estepa. Torres del Paine también tiene una alta densidad de pumas, aunque son elusivos y nocturnos.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Cascada de ${cascada.altura} metros de agua turquesa glaciar en el Parque Nacional Torres del Paine, Reserva de la Biosfera UNESCO. Sendero fácil de 1,5 km desde Pudeto.`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: false,
+    touristType: ['Naturaleza', 'Aventura', 'Fotografía', 'Trekking', 'Patagonia'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+    containedInPlace: {
+      '@type': 'NationalPark',
+      name: 'Parque Nacional Torres del Paine',
+      url: 'https://parquetorresdelpaine.cl',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} (Torres del Paine) — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m de agua turquesa glaciar en Torres del Paine, Magallanes. Cómo llegar, entrada, fauna, clima y toda la información para tu visita.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero cascada-hero--no-img">
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas/">Cascadas</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura de caída</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Formación', value: cascada.tipoFormacion },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        <p class="cascada-body">El Salto Grande es la cascada más imponente del Parque Nacional Torres del Paine, Reserva de la Biosfera UNESCO desde 1978. Con 15 metros de altura, canaliza todo el drenaje del Lago Nordenskjöld hacia el Lago Pehoe a través de un estrecho canal de roca granítica, generando un torrente de agua turquesa glaciar de extraordinaria fuerza visual.</p>
+        <p class="cascada-body">El color turquesa intenso del agua proviene de la harina glaciar (silt) en suspensión, sedimento finísimo arrastrado desde el Campo de Hielo Patagónico Sur. El Río Paine nace en el Lago Dickson (glaciar) y recorre un sistema de lagos — Paine, Nordenskjöld y Pehoe — antes de desaguar al Río Serrano y finalmente al Océano Pacífico. Es, junto con los <a href="/cascadas/saltos-del-petrohue/" class="cascada-inline-link">Saltos del Petrohué</a> y el <a href="/cascadas/salto-del-laja/" class="cascada-inline-link">Salto del Laja</a>, una de las <a href="/cascadas/" class="cascada-inline-link">cascadas más visitadas de Chile</a>.</p>
+        <p class="cascada-body">El salto se enmarca en un paisaje de escala monumental: los Cuernos del Paine, el Macizo del Paine y el Lago Pehoe forman el telón de fondo. El parque fue elegido Octava Maravilla del Mundo en 2013 y recibe más de 300.000 visitantes al año, siendo uno de los destinos más icónicos de la Patagonia chilena.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación del ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.05},${cascada.lat-0.04},${cascada.lng+0.05},${cascada.lat+0.04}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde senderismo fácil al mirador hasta travesías por el Circuito W, el Salto Grande es la puerta de entrada a Torres del Paine.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body" set:html={p.trim()} />
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional de Magallanes</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde campings en el corazón del parque hasta lodges de lujo todo incluido. Puerto Natales es la ciudad base principal.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Otras cascadas impresionantes en la Patagonia y el sur de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas similares en dificultad, acceso o tipo de experiencia.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora todas las cascadas de Chile con guías completas, mapas y datos prácticos.</p>
+    <a href="/cascadas/" class="cascada-cta__button">Explorar cascadas →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero--no-img {
+    background: linear-gradient(135deg, #091d2b 0%, #0a2e42 40%, #0d3a52 70%, #091d2b 100%);
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:last-child { border-bottom: none; }
+  }
+
+  @media (max-width: 480px) {
+    .cascada-hero { min-height: 500px; height: 80vh; }
+    .cascada-hero__stat-number { font-size: 2.5rem; }
+  }
+</style>
