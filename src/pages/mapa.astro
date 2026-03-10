@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const cascadas = [
+  { nombre: 'Cascada Puritama', slug: 'cascada-puritama', region: 'Antofagasta', altura: 15, dificultad: 'Fácil', lat: -22.7208, lng: -68.0447 },
+  { nombre: 'Cascada del Lanza', slug: 'cascada-del-lanza', region: 'Metropolitana', altura: 10, dificultad: 'Fácil', lat: -33.355, lng: -70.505 },
+  { nombre: 'Cascada de las Ánimas', slug: 'cascada-de-las-animas', region: 'Metropolitana', altura: 60, dificultad: 'Fácil a moderado', lat: -33.73076, lng: -70.31521 },
+  { nombre: 'Cascada de los Vientos', slug: 'cascada-de-los-vientos', region: 'Metropolitana', altura: 30, dificultad: 'Moderado', lat: -33.726983, lng: -70.291268 },
+  { nombre: 'Cascada Las Melosas', slug: 'cascada-las-melosas', region: 'Metropolitana', altura: 15, dificultad: 'Fácil', lat: -33.82168, lng: -70.22479 },
+  { nombre: 'Cascada El Yeso', slug: 'cascada-el-yeso', region: 'Metropolitana', altura: 15, dificultad: 'Fácil a moderado', lat: -33.67871, lng: -70.10037 },
+  { nombre: 'Salto La Placeta', slug: 'salto-la-placeta', region: 'Maule', altura: 30, dificultad: 'Fácil', lat: -35.419949, lng: -71.14543 },
+  { nombre: 'Salto La Leona', slug: 'salto-la-leona', region: 'Maule', altura: 25, dificultad: 'Fácil', lat: -35.5588, lng: -70.8402 },
+  { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'Maule', altura: 50, dificultad: 'Fácil a moderado', lat: -35.958531, lng: -70.573172 },
+  { nombre: 'Salto del Itata', slug: 'salto-del-itata', region: 'Ñuble', altura: 75, dificultad: 'Fácil a moderado', lat: -37.05168, lng: -72.18197 },
+  { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, dificultad: 'Fácil', lat: -37.2167, lng: -72.3833 },
+  { nombre: 'Cascadas P.N. Laguna del Laja', slug: 'cascadas-parque-nacional-laguna-del-laja', region: 'Biobío', altura: 55, dificultad: 'Fácil a moderado', lat: -37.3833, lng: -71.3667 },
+  { nombre: 'Salto Rehuén', slug: 'salto-rehuen', region: 'Biobío', altura: 70, dificultad: 'Fácil a moderado', lat: -37.769045, lng: -72.251375 },
+  { nombre: 'Salto Caillín', slug: 'salto-caillin', region: 'La Araucanía', altura: 20, dificultad: 'Fácil', lat: -37.884482, lng: -72.414676 },
+  { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 70, dificultad: 'Fácil', lat: -37.916, lng: -72.3012 },
+  { nombre: 'Salto Quino', slug: 'salto-quino', region: 'La Araucanía', altura: 30, dificultad: 'Moderado', lat: -38.35969, lng: -72.519962 },
+  { nombre: 'Salto de la Princesa', slug: 'salto-de-la-princesa', region: 'La Araucanía', altura: 25, dificultad: 'Fácil', lat: -38.474377, lng: -71.673385 },
+  { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', region: 'La Araucanía', altura: 20, dificultad: 'Fácil', lat: -38.775168, lng: -71.633375 },
+  { nombre: 'Salto Donguil', slug: 'salto-donguil', region: 'La Araucanía', altura: 6, dificultad: 'Fácil', lat: -39.184045, lng: -72.665916 },
+  { nombre: 'Salto del Claro', slug: 'salto-del-claro', region: 'La Araucanía', altura: 90, dificultad: 'Moderado', lat: -39.2961, lng: -71.949 },
+  { nombre: 'Salto de Riñinahue', slug: 'salto-de-rininahue', region: 'Los Ríos', altura: 27, dificultad: 'Fácil a moderado', lat: -40.327452, lng: -72.490599 },
+  { nombre: 'Salto del Buey', slug: 'salto-del-buey', region: 'Los Ríos', altura: 90, dificultad: 'Fácil', lat: -39.500941, lng: -71.896289 },
+  { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, dificultad: 'Fácil', lat: -39.8522, lng: -71.9582 },
+  { nombre: 'Salto La Princesa (Anticura)', slug: 'salto-la-princesa-anticura', region: 'Los Lagos', altura: 20, dificultad: 'Fácil', lat: -40.6637, lng: -72.1701 },
+  { nombre: 'Salto del Indio (Anticura)', slug: 'salto-del-indio-anticura', region: 'Los Lagos', altura: 20, dificultad: 'Fácil', lat: -40.6704, lng: -72.1711 },
+  { nombre: 'Cascada Velo de la Novia', slug: 'cascada-velo-de-la-novia-peulla', region: 'Los Lagos', altura: 35, dificultad: 'Fácil', lat: -41.0833, lng: -72.0167 },
+  { nombre: 'Las Cascadas de Puerto Octay', slug: 'las-cascadas-puerto-octay', region: 'Los Lagos', altura: 40, dificultad: 'Fácil a moderado', lat: -41.12, lng: -72.5 },
+  { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, dificultad: 'Fácil', lat: -41.173, lng: -72.4475 },
+  { nombre: 'Salto Río Ibáñez', slug: 'salto-rio-ibanez', region: 'Aysén', altura: 25, dificultad: 'Fácil', lat: -46.256277, lng: -71.995772 },
+  { nombre: 'Salto Grande (Torres del Paine)', slug: 'salto-grande-torres-del-paine', region: 'Magallanes', altura: 15, dificultad: 'Fácil', lat: -51.0671, lng: -73.0077 },
+];
+
+const regiones = [...new Set(cascadas.map(c => c.region))];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Mapa de cascadas de Chile' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Mapa de cascadas de Chile — Encuentra cascadas cerca de ti | Cascadas de Chile"
+  description="Mapa interactivo con las 30 cascadas de Chile geolocalizadas. Filtra por región, altura y dificultad para planificar tu próximo viaje."
+  structuredData={structuredData}
+>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#091d2b;
+    padding: 8rem 2.5rem 2rem;
+    position:relative; overflow:hidden;
+  ">
+    <div style="
+      position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.03%22/></svg>');
+    "></div>
+
+    <div style="position:relative; z-index:1;">
+      <nav style="margin-bottom:2rem;">
+        <a href="/" style="color:rgba(244,239,230,0.5); text-decoration:none; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Inicio</a>
+        <span style="color:rgba(244,239,230,0.25); margin:0 0.5rem;">›</span>
+        <span style="color:#00e5d4; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;">Mapa</span>
+      </nav>
+
+      <h1 style="
+        font-family:'Archivo Black',sans-serif;
+        font-size:clamp(2.5rem, 7vw, 5rem);
+        color:#f4efe6; margin:0 0 1rem; line-height:0.95;
+        text-transform:uppercase; letter-spacing:-0.02em;
+      ">Mapa de cascadas<br/><span style="color:#00e5d4;">de Chile</span></h1>
+      <p style="color:rgba(244,239,230,0.5); font-size:1rem; max-width:520px; margin:0; font-weight:300; line-height:1.6;">
+        Explora {cascadas.length} cascadas geolocalizadas desde Atacama hasta la Patagonia. Haz clic en un marker para ver los detalles.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── FILTROS ───────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 1.5rem;">
+    <div style="
+      border-top:1px solid rgba(244,239,230,0.08);
+      padding-top:1.5rem;
+      display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;
+    ">
+      <span style="color:rgba(244,239,230,0.35); font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; margin-right:0.5rem;">Región:</span>
+      <button class="filter-btn active" data-region="todas" style="
+        background:#00e5d4; color:#091d2b;
+        border:1px solid #00e5d4;
+        font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+        text-transform:uppercase; padding:0.35rem 0.9rem; border-radius:999px;
+        cursor:pointer; font-family:'DM Sans',sans-serif;
+      ">Todas</button>
+      {regiones.map(r => (
+        <button class="filter-btn" data-region={r} style="
+          background:transparent; color:rgba(244,239,230,0.6);
+          border:1px solid rgba(244,239,230,0.15);
+          font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+          text-transform:uppercase; padding:0.35rem 0.9rem; border-radius:999px;
+          cursor:pointer; font-family:'DM Sans',sans-serif;
+        ">{r}</button>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── MAPA ──────────────────────────────────────────────────────────────── -->
+  <section style="background:#091d2b; padding:0 2.5rem 2rem;">
+    <div id="map" style="
+      width:100%; height:70vh; min-height:500px;
+      border-radius:8px; border:1px solid rgba(244,239,230,0.08);
+    "></div>
+  </section>
+
+
+  <!-- ─── LISTADO ───────────────────────────────────────────────────────────── -->
+  <section style="background:#f4efe6; padding:5rem 2.5rem;">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(1.8rem, 4vw, 3rem);
+      color:#091d2b; margin:0 0 0.5rem;
+      text-transform:uppercase;
+    ">Todas las cascadas</h2>
+    <p style="color:rgba(9,29,43,0.5); font-size:0.9rem; margin:0 0 2.5rem; font-weight:300;">
+      {cascadas.length} cascadas con guía completa y coordenadas verificadas
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="
+        width:100%; border-collapse:collapse;
+        font-size:0.88rem;
+      ">
+        <thead>
+          <tr style="border-bottom:2px solid #091d2b;">
+            <th style="text-align:left; padding:0.75rem 1rem; font-family:'Archivo Black',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#091d2b;">Cascada</th>
+            <th style="text-align:left; padding:0.75rem 1rem; font-family:'Archivo Black',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#091d2b;">Región</th>
+            <th style="text-align:center; padding:0.75rem 1rem; font-family:'Archivo Black',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#091d2b;">Altura</th>
+            <th style="text-align:center; padding:0.75rem 1rem; font-family:'Archivo Black',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#091d2b;">Dificultad</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cascadas.map((c, i) => (
+            <tr class="table-row" data-region={c.region} style={`border-bottom:1px solid rgba(9,29,43,0.1); ${i % 2 === 0 ? '' : 'background:rgba(9,29,43,0.03);'}`}>
+              <td style="padding:0.75rem 1rem;">
+                <a href={`/cascadas/${c.slug}`} style="color:#091d2b; text-decoration:none; font-weight:500;" class="table-link">{c.nombre}</a>
+              </td>
+              <td style="padding:0.75rem 1rem; color:rgba(9,29,43,0.6);">{c.region}</td>
+              <td style="padding:0.75rem 1rem; text-align:center; font-family:'Archivo Black',sans-serif; color:#00b4a0;">{c.altura} m</td>
+              <td style="padding:0.75rem 1rem; text-align:center;">
+                <span style={`
+                  display:inline-block;
+                  font-size:0.7rem; font-weight:600; letter-spacing:0.08em;
+                  text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:999px;
+                  background:${c.dificultad === 'Fácil' ? '#00e5d4' : c.dificultad === 'Moderado' ? '#b8e8e4' : '#b8e8e4'};
+                  color:#091d2b;
+                `}>{c.dificultad}</span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+  <section style="
+    background:#00e5d4; padding:5rem 2.5rem; text-align:center;
+  ">
+    <h2 style="
+      font-family:'Archivo Black',sans-serif;
+      font-size:clamp(1.8rem, 4vw, 3.5rem);
+      color:#091d2b; margin:0 0 1rem; line-height:0.95;
+      text-transform:uppercase;
+    ">Explora cada cascada</h2>
+    <p style="color:#091d2b; font-size:1rem; max-width:440px; margin:0 auto 2rem; font-weight:300; opacity:0.7;">
+      Cada cascada tiene guía completa con cómo llegar, actividades, alojamiento y más.
+    </p>
+    <a href="/cascadas/" style="
+      display:inline-flex; align-items:center; gap:0.75rem;
+      color:#00e5d4; background:#091d2b; text-decoration:none;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; padding:1rem 2.5rem; border-radius:999px;
+    ">Ver todas las cascadas</a>
+  </section>
+
+</Layout>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script is:inline define:vars={{ cascadas }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map', {
+      center: [-38, -71.5],
+      zoom: 5,
+      scrollWheelZoom: true,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+    }).addTo(map);
+
+    var cyanIcon = L.divIcon({
+      className: 'custom-marker',
+      html: '<div style="width:14px;height:14px;background:#00e5d4;border:2px solid #091d2b;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);"></div>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10],
+    });
+
+    var markers = [];
+
+    cascadas.forEach(function(c) {
+      var marker = L.marker([c.lat, c.lng], { icon: cyanIcon })
+        .bindPopup(
+          '<div style="font-family:DM Sans,sans-serif;min-width:180px;">' +
+            '<p style="font-family:Archivo Black,sans-serif;font-size:1rem;margin:0 0 0.4rem;text-transform:uppercase;">' + c.nombre + '</p>' +
+            '<p style="font-size:0.82rem;color:#666;margin:0 0 0.3rem;">' + c.region + ' · ' + c.altura + ' m · ' + c.dificultad + '</p>' +
+            '<a href="/cascadas/' + c.slug + '" style="display:inline-block;margin-top:0.4rem;background:#00e5d4;color:#091d2b;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:999px;text-decoration:none;">Ver guía</a>' +
+          '</div>'
+        )
+        .addTo(map);
+      marker._region = c.region;
+      markers.push(marker);
+    });
+
+    // Filtros
+    var btns = document.querySelectorAll('.filter-btn');
+    var tableRows = document.querySelectorAll('.table-row');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var region = btn.getAttribute('data-region');
+
+        btns.forEach(function(b) {
+          b.style.background = 'transparent';
+          b.style.color = 'rgba(244,239,230,0.6)';
+          b.style.borderColor = 'rgba(244,239,230,0.15)';
+          b.classList.remove('active');
+        });
+        btn.style.background = '#00e5d4';
+        btn.style.color = '#091d2b';
+        btn.style.borderColor = '#00e5d4';
+        btn.classList.add('active');
+
+        markers.forEach(function(m) {
+          if (region === 'todas' || m._region === region) {
+            m.addTo(map);
+          } else {
+            map.removeLayer(m);
+          }
+        });
+
+        tableRows.forEach(function(row) {
+          if (region === 'todas' || row.getAttribute('data-region') === region) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        if (region !== 'todas') {
+          var visible = markers.filter(function(m) { return m._region === region; });
+          if (visible.length > 0) {
+            var group = L.featureGroup(visible);
+            map.fitBounds(group.getBounds().pad(0.3));
+          }
+        } else {
+          map.setView([-38, -71.5], 5);
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .table-link:hover {
+    color: #00b4a0 !important;
+  }
+  .table-row:hover {
+    background: rgba(0, 229, 212, 0.06) !important;
+  }
+  @media (max-width: 768px) {
+    #map {
+      height: 50vh !important;
+      min-height: 350px !important;
+    }
+  }
+</style>

@@ -703,10 +703,10 @@ const structuredData = [
 
 Las siguientes páginas fueron referenciadas como enlaces internos y generaban 404. Los enlaces fueron removidos (2026-03-04) pero las páginas deben crearse en el futuro para completar el topical map:
 
-### Página `/mapa` (Mapa Interactivo)
-- **Prioridad**: ALTA — era el CTA principal del nav y de todas las páginas
-- **Acción tomada**: Nav CTA redirigido a `/cascadas`, CTAs de sección redirigidos a `/cascadas`
-- **Pendiente**: Crear `src/pages/mapa.astro` con mapa interactivo OpenStreetMap con todas las cascadas, y restaurar el enlace en nav
+### Página `/mapa` (Mapa Interactivo) — ✅ CREADA (2026-03-09)
+- Mapa interactivo con Leaflet + OpenStreetMap, 30 cascadas geolocalizadas
+- Filtros por región (botones), tabla comparativa, popups con link a guía
+- Nav CTA restaurado a `/mapa`, CTA del index de cascadas apunta a `/mapa`
 
 ### Cascadas sin página (referenciadas en cascadasCercanas/index)
 | Cascada | Región | Origen del enlace roto | Prioridad |
@@ -714,7 +714,7 @@ Las siguientes páginas fueron referenciadas como enlaces internos y generaban 4
 | ~~Salto La Princesa (Anticura)~~ | ~~Los Lagos~~ | ~~`saltos-del-petrohue` cercanas~~ | ✅ CREADA |
 | ~~Salto del Indio~~ | ~~Los Lagos~~ | ~~`saltos-del-petrohue` cercanas~~ | ✅ CREADA |
 | ~~Cascadas P.N. Laguna del Laja~~ | ~~Biobío~~ | ~~`salto-del-itata` cercanas~~ | ✅ CREADA |
-| Salto Grande Torres del Paine | Magallanes | `index` home destacadas | MEDIA |
+| ~~Salto Grande Torres del Paine~~ | ~~Magallanes~~ | ~~`index` home destacadas~~ | ✅ CREADA |
 
 #### Cascadas resueltas
 | Cascada | Estado | Fecha |
@@ -725,6 +725,7 @@ Las siguientes páginas fueron referenciadas como enlaces internos y generaban 4
 | Salto La Princesa (Anticura) | ✅ Página creada (`salto-la-princesa-anticura`) | 2026-03-06 |
 | Salto del Indio (Anticura) | ✅ Página creada (`salto-del-indio-anticura`) | 2026-03-06 |
 | Cascadas P.N. Laguna del Laja | ✅ Página creada (`cascadas-parque-nacional-laguna-del-laja`) | 2026-03-06 |
+| Salto Grande Torres del Paine | ✅ Página creada (`salto-grande-torres-del-paine`) | 2026-03-09 |
 
 ### Regiones sin página
 | Región | Slug roto | Acción tomada |
