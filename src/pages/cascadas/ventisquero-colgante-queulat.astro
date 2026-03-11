@@ -1,0 +1,934 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Datos verificados por chile-waterfalls-researcher, marzo 2026
+// Fuentes: CONAF oficial, pasesparques.cl, GeoNames, puyuhuapilodge.com
+const cascada = {
+  nombre: 'Ventisquero Colgante de Queulat',
+  slug: 'ventisquero-colgante-queulat',
+  region: 'Aysén',
+  zona: 'Puyuhuapi',
+  altura: 200,
+  caudal: 'Variable estacional — mayor en primavera-verano por deshielo glaciar',
+  dificultad: 'Fácil — Moderado',
+  acceso: 'Carretera Austral (Ruta 7), km 165 norte de Coyhaique',
+  coordenadas: '44°26\'S 72°30\'W',
+  mejorEpoca: 'Noviembre — Marzo',
+  entrada: '$3.200 CLP (reserva en pasesparques.cl)',
+  horario: 'Mar-Dom, 09:00–16:30 (cerrado lunes)',
+  descripcion: `El Ventisquero Colgante es un glaciar suspendido entre dos cerros de la Cordillera Patagónica, dentro del Parque Nacional Queulat en la Región de Aysén. A diferencia de los glaciares que descienden hasta valles o fiordos, este ventisquero queda "colgado" en la ladera de la montaña y descarga masas de hielo y agua directamente a la Laguna Témpanos mediante una espectacular caída vertical que supera los 200 metros visibles desde el mirador.
+
+  El glaciar es alimentado por las precipitaciones extremas de la zona, que superan los 4.000 mm anuales, y forma parte del Campo de Hielo Queulat. Los dos lóbulos visibles del ventisquero se desploman sobre una pared de roca de gneis y granito patagónico, generando un espectáculo permanente de desprendimientos de hielo (séracs) que caen a la laguna glaciar en su base.
+
+  Considerado uno de los paisajes más icónicos de la Carretera Austral y de toda la Patagonia chilena, el Ventisquero Colgante atrae a miles de visitantes cada año. El Parque Nacional Queulat, creado en 1983, protege 154.093 hectáreas de bosque siempreverde patagónico, glaciares, ríos y fiordos en una de las zonas más prístinas del sur de Chile.`,
+  comoLlegar: `Desde Coyhaique (165 km, 3-4 horas en auto): Tomar la Carretera Austral (Ruta 7) hacia el norte. El camino es parcialmente de ripio en algunos tramos; se recomienda vehículo con buena distancia al suelo o doble tracción. La entrada al sector del Ventisquero Colgante está señalizada sobre la carretera.
+
+  Desde Puerto Puyuhuapi (22 km, 20-30 minutos): Ruta 7 hacia el norte. Puyuhuapi es la base más conveniente para visitar el parque.
+
+  Desde Chaitén (180 km, 3-4 horas): Carretera Austral hacia el sur.
+
+  Vía aérea: Vuelo a Balmaceda (aeropuerto BBA), luego 165 km por Carretera Austral. Desde Santiago hay vuelos directos a Balmaceda con LATAM y JetSMART (aprox. 2 horas).
+
+  Transporte público: Existen buses entre Coyhaique y Puyuhuapi/La Junta (empresas Bus Don Carlos, Bus Becker), pero no llegan directo al parque. Desde Puyuhuapi se puede contratar traslado privado hasta la entrada.`,
+  imagen: '/assets/cascadas/ventisquero-colgante-queulat/hero.webp',
+  imagenAlt: 'Vista panorámica del Ventisquero Colgante de Queulat con sus dos lóbulos de hielo cayendo entre las montañas hacia la Laguna Témpanos',
+  galeria: [
+    { src: '/assets/cascadas/ventisquero-colgante-queulat/galeria-1.webp', alt: 'Ventisquero Colgante visto desde la Laguna Témpanos con bloques de hielo flotando' },
+    { src: '/assets/cascadas/ventisquero-colgante-queulat/galeria-2.webp', alt: 'Detalle del glaciar del Ventisquero Colgante mostrando las grietas y el hielo azul' },
+    { src: '/assets/cascadas/ventisquero-colgante-queulat/galeria-3.webp', alt: 'Laguna Témpanos con el Ventisquero Colgante al fondo rodeado de bosque siempreverde' },
+    { src: '/assets/cascadas/ventisquero-colgante-queulat/galeria-4.webp', alt: 'Puente colgante sobre el Río Ventisquero en el sendero hacia el glaciar' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Lin linao', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Ventisquero_Queulat_desde_la_laguna_T%C3%A9mpanos.jpg' },
+    { autor: 'Natalia Reyes Escobar', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Ventisquero_Colgante_Detalles_Glaciar.jpg' },
+    { autor: 'Kenov66', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Laguna_y_Ventisquero_colgante.jpg' },
+    { autor: 'Contranton', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:R%C3%ADo_Ventisquero_bridge,_Ventisquero_Colgante_trail,_Queulat_National_Park,_Chile.jpg' },
+    { autor: 'Jdzip', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Panoramica_Glaciar_Ventisquero_Colgante.jpg' },
+  ],
+  // 3 por cercanía geográfica (Aysén y regiones adyacentes)
+  cascadasCercanas: [
+    { nombre: 'Salto Río Ibáñez', slug: 'salto-rio-ibanez', region: 'Aysén', altura: 80, tipo: 'cercania' },
+    { nombre: 'Salto Grande Torres del Paine', slug: 'salto-grande-torres-del-paine', region: 'Magallanes', altura: 12, tipo: 'cercania' },
+    { nombre: 'Cascada Velo de la Novia (Peulla)', slug: 'cascada-velo-de-la-novia-peulla', region: 'Los Lagos', altura: 40, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (experiencia épica, parques nacionales, cascadas icónicas)
+  cascadasRelacionadas: [
+    { nombre: 'Saltos del Petrohué', slug: 'saltos-del-petrohue', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+    { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, tipo: 'relacionada' },
+    { nombre: 'Cascada Invertida', slug: 'cascada-invertida', region: 'Los Lagos', altura: 20, tipo: 'relacionada' },
+  ],
+
+  lat: -44.43456,
+  lng: -72.5017,
+  rio: 'Glaciar Queulat',
+  tipoFormacion: 'Glaciar colgante sobre gneis y granito patagónico',
+  numeroBrazos: 2,
+  distanciaSantiago: 1700,
+
+  historia: `El Parque Nacional Queulat fue creado el 28 de octubre de 1983 mediante el Decreto Supremo N° 19 del Ministerio de Bienes Nacionales, protegiendo 154.093 hectáreas de bosque siempreverde, glaciares, ríos y fiordos en la Cordillera Patagónica. El nombre "Queulat" proviene de la mitología local patagónica y refiere a una criatura fantástica de los bosques y canales de la región.
+
+  El Ventisquero Colgante fue conocido por los viajeros y colonos que transitaban la zona desde fines del siglo XIX, pero su acceso masivo fue posible solo tras la apertura progresiva de la Carretera Austral en la segunda mitad del siglo XX. La Carretera Austral, obra impulsada por el gobierno de Augusto Pinochet desde 1976, conectó por primera vez por vía terrestre las localidades más aisladas de la Patagonia chilena, incluyendo Puerto Puyuhuapi (fundado en 1935 por colonos alemanes de los Sudetes).
+
+  Geológicamente, el glaciar se formó durante el último período glacial y se sostiene gracias a las precipitaciones extremas de la zona (más de 4.000 mm anuales). La roca circundante es gneis y granito del Batolito Patagónico, de edad paleozoica. Como todos los glaciares de la Patagonia, el Ventisquero Queulat ha experimentado un retroceso documentado en las últimas décadas atribuido al cambio climático. La masa de hielo visible hoy es notablemente menor que la registrada en fotografías de décadas anteriores, un recordatorio tangible del impacto del calentamiento global en los ecosistemas patagónicos.`,
+
+  queHacer: [
+    { actividad: 'Sendero La Morrena', descripcion: 'Sendero principal hacia el mirador del Ventisquero Colgante y la Laguna Témpanos. Dificultad fácil-moderada, apto para familias. Se atraviesa bosque siempreverde con coigües, canelos y helechos. Último ingreso: 13:30 hrs.' },
+    { actividad: 'Laguna Témpanos', descripcion: 'Desde el sendero La Morrena se accede a la orilla de la Laguna Témpanos, donde flotan bloques de hielo desprendidos del glaciar. Una de las vistas más impactantes del parque.' },
+    { actividad: 'Sendero Laguna Los Pumas', descripcion: 'Sendero alternativo dentro del parque que conduce a la Laguna Los Pumas. Último ingreso: 12:00 hrs. Ofrece una perspectiva diferente del bosque patagónico.' },
+    { actividad: 'Fotografía de naturaleza', descripcion: 'El Ventisquero Colgante es uno de los paisajes más fotografiados de la Carretera Austral. Mejor luz en las mañanas. Los desprendimientos de hielo ofrecen oportunidades únicas de captura.' },
+    { actividad: 'Avistamiento de fauna', descripcion: 'El parque alberga pudú, cóndor andino, carpintero negro, chucao, huet-huet y nutria de río (huillín). Llevar binoculares para mejor observación.' },
+    { actividad: 'Camping', descripcion: 'Camping habilitado dentro del parque, administrado por Experiencia Austral. $10.000 CLP por persona por noche. Contacto: contacto@experienciaaustral.com.' },
+    { actividad: 'Pesca deportiva', descripcion: 'Permitida en ríos y lagos del parque con licencia de pesca vigente. El Río Queulat y Lago Risopatrón son áreas de pesca de trucha arcoíris y fario.' },
+    { actividad: 'Navegación en Laguna Témpanos', descripcion: 'CONAF incluye la navegación entre las actividades del parque. Verificar disponibilidad con el concesionario Experiencia Austral antes de planificar.' },
+  ],
+
+  flora: `El Parque Nacional Queulat alberga uno de los bosques templados lluviosos mejor conservados de la Patagonia chilena. El ecosistema corresponde al bosque siempreverde patagónico, con una transición hacia la selva valdiviana en las zonas más bajas.
+
+  El dosel del bosque está dominado por el coigüe de Magallanes (Nothofagus betuloides), acompañado por tineo (Weinmannia trichosperma) y lenga (Nothofagus pumilio) en las zonas de mayor altitud. El canelo (Drimys winteri), árbol sagrado mapuche, crece abundantemente con sus flores blancas aromáticas. En los sectores pantanosos se desarrolla el tepú (Tepualia stipularis), mientras que la quila (Chusquea quila), bambú nativo, forma densos matorrales en el sotobosque.
+
+  La humedad extrema de la zona favorece la proliferación de musgos del género Sphagnum, helechos, líquenes y epífitas que cubren cada superficie disponible, dándole al bosque un aspecto primigenio. La fucsia silvestre (Fuchsia magellanica) aporta color con sus flores colgantes rojo-moradas entre el verde omnipresente.`,
+
+  fauna: `El parque alberga fauna característica del bosque templado lluvioso patagónico, con varias especies endémicas y en categoría de conservación. Entre los mamíferos destaca el pudú (Pudu puda), el cérvido más pequeño del mundo y especie vulnerable, que habita el denso sotobosque. El puma (Puma concolor) está presente aunque su avistamiento es poco frecuente, al igual que la güiña o kodkod (Leopardus guigna), el felino más pequeño de América y también clasificado como vulnerable.
+
+  En los ríos y lagos del parque habita la nutria de río o huillín (Lontra provocax), especie en peligro de extinción endémica del sur de Chile y Argentina. El zorro culpeo (Lycalopex culpaeus) se observa en los bordes del bosque.
+
+  La avifauna es especialmente rica: el carpintero negro (Campephilus magellanicus), el más grande de Sudamérica, marca su presencia con su golpeteo distintivo en los troncos. El chucao (Scelorchilus rubecula) y el huet-huet (Pteroptochos tarnii) son aves endémicas del bosque valdiviano cuyo canto acompaña cada paso por los senderos. El cóndor andino (Vultur gryphus) sobrevuela ocasionalmente las cumbres sobre el glaciar, y el martín pescador (Megaceryle torquata) pesca en los ríos cristalinos del parque.`,
+
+  clima: {
+    tipo: 'Oceánico hiperhúmedo (Cfb)',
+    tempPromedio: '8–10°C',
+    tempVerano: '12–18°C',
+    tempInvierno: '2–8°C',
+    precipitaciones: '3.000–4.500 mm anuales',
+    descripcion: 'La zona de Queulat-Puyuhuapi registra una de las precipitaciones más altas de Chile. El clima es frío y húmedo durante todo el año: los veranos son frescos y los inviernos fríos pero sin heladas extremas a nivel del parque. La lluvia es frecuente incluso en verano — se recomienda llevar ropa impermeable en cualquier época. Diciembre y enero ofrecen los días más largos y menor probabilidad de lluvia persistente.',
+  },
+
+  seguridad: [
+    'No acercarse al borde de la Laguna Témpanos: los bloques de hielo que caen del glaciar generan olas súbitas',
+    'No tocar el agua de la laguna — temperatura cercana a 0°C',
+    'Llevar ropa impermeable y capas abrigadas: el clima cambia rápidamente incluso en verano',
+    'Usar calzado de trekking con buen agarre: el terreno está permanentemente húmedo y resbaladizo',
+    'Respetar el último ingreso a senderos: La Morrena 13:30 hrs, Laguna Los Pumas 12:00 hrs',
+    'El puente colgante tiene capacidad para 4 personas simultáneamente — respetar el límite',
+    'Reservar el pase en pasesparques.cl con anticipación: aforo de 550 personas/día',
+    'El parque cierra los lunes — verificar día de visita antes de planificar',
+  ],
+
+  recomendaciones: [
+    'Poncho impermeable o chubasquero de calidad — llueve frecuentemente incluso en verano',
+    'Botas de trekking impermeables con buen agarre',
+    'Ropa en capas térmicas (la temperatura puede bajar a 5°C incluso en enero)',
+    'Alimentos y agua suficientes — no hay servicios de alimentación dentro del parque',
+    'Binoculares para observar el glaciar y la fauna con detalle',
+    'Protector solar y repelente de insectos',
+    'Descargar mapas offline — la señal celular es limitada en el parque',
+    'Llegar antes de las 10:00 hrs para evitar aglomeraciones y aprovechar la mejor luz',
+  ],
+
+  gastronomia: [
+    { plato: 'Cordero al palo', descripcion: 'El plato emblemático de la Patagonia. Cordero asado lentamente en estaca cruzada, con carne de excelente calidad por la cría extensiva en la estepa aysenina. Disponible en restaurantes de Puyuhuapi y La Junta.' },
+    { plato: 'Trucha fresca de los ríos patagónicos', descripcion: 'Los ríos de Queulat son ricos en trucha arcoíris y fario. Se prepara a la plancha, al horno o ahumada artesanalmente. Un clásico de la gastronomía local.' },
+    { plato: 'Merluza austral', descripcion: 'Pescado blanco de los canales patagónicos, preparado frito o al horno. También se ofrece salmón de los canales y centolla según temporada.' },
+    { plato: 'Cazuela de vacuno o cordero', descripcion: 'Sopa contundente con carne, papa, zapallo y choclo. Alimento fundamental en el campo patagónico, ideal para recuperar energías después del trekking.' },
+    { plato: 'Milcao y chapalele', descripcion: 'Preparaciones de papa típicas de la zona de Chiloé y Los Lagos que también se consumen en Aysén por influencia cultural. Se preparan con papa rallada y cocida.' },
+    { plato: 'Cerveza artesanal patagónica', descripcion: 'La producción cervecera artesanal ha crecido en Aysén. En Puyuhuapi y localidades cercanas se encuentran pequeñas cervecerías con estilos locales.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Camping Parque Nacional Queulat', tipo: 'Camping', precioDesde: '$10.000 CLP/persona/noche', url: '#', descripcion: 'Camping dentro del parque, administrado por Experiencia Austral. Contacto: contacto@experienciaaustral.com. Permite pernoctar a pasos del ventisquero.' },
+    { nombre: 'Puyuhuapi Lodge & Spa', tipo: 'Lodge de lujo', precioDesde: 'Desde $308.000 CLP/noche', url: 'https://www.puyuhuapilodge.com', descripcion: 'Lodge boutique con termas naturales, spa y restaurante en Bahía Dorita. Acceso en embarcación desde Puyuhuapi. Excursiones al parque. Rating 9.1/10.' },
+    { nombre: 'Hostales en Puerto Puyuhuapi', tipo: 'Hostal / Cabaña', precioDesde: 'Desde ~$25.000 CLP/persona', url: '#', descripcion: 'Puerto Puyuhuapi (22 km al sur del parque) es la base más conveniente. Cuenta con hostales, cabañas y servicios básicos. Consultar disponibilidad con anticipación en temporada alta.' },
+    { nombre: 'La Junta / Villa Amengual', tipo: 'Hostal', precioDesde: 'Consultar', url: '#', descripcion: 'Alternativa a 70 km al norte del parque si Puyuhuapi no tiene disponibilidad. Poblado con hostales y servicios básicos en la Carretera Austral.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Qué es el Ventisquero Colgante del Parque Queulat?', respuesta: 'El Ventisquero Colgante es un glaciar suspendido entre dos cerros de la Cordillera Patagónica, dentro del Parque Nacional Queulat en la Región de Aysén. A diferencia de los glaciares que descienden hasta el nivel del mar, este ventisquero queda "colgado" en la ladera de la montaña y descarga hielo y agua directamente a la Laguna Témpanos. Es uno de los paisajes más icónicos de la Carretera Austral.' },
+    { pregunta: '¿Cómo llegar al Ventisquero Colgante?', respuesta: 'El acceso es por la Carretera Austral (Ruta 7). Desde Coyhaique se recorren 165 km al norte (3-4 horas en auto). Desde Puerto Puyuhuapi son 22 km al norte (20-30 minutos). No hay transporte público directo al parque. La alternativa más práctica es volar a Balmaceda (BBA) y conducir o contratar tour desde Coyhaique.' },
+    { pregunta: '¿Cuánto cuesta la entrada al Parque Nacional Queulat?', respuesta: 'La entrada cuesta $3.200 CLP por persona. La reserva es obligatoria con anticipación a través de pasesparques.cl. El parque tiene un aforo máximo de 550 personas por día. El camping tiene un costo adicional de $10.000 CLP por persona por noche.' },
+    { pregunta: '¿Cuál es la mejor época para visitar el Ventisquero Colgante?', respuesta: 'La mejor época es entre noviembre y marzo (primavera-verano austral). Diciembre y enero ofrecen los días más largos y menor probabilidad de lluvias persistentes, aunque en la zona de Queulat siempre puede llover. Se recomienda llevar ropa impermeable en cualquier época. En invierno (junio-agosto) las lluvias son extremas y hay poca luz diurna.' },
+    { pregunta: '¿Es difícil el sendero al Ventisquero Colgante?', respuesta: 'No. El sendero principal (La Morrena) tiene dificultad fácil a moderada y es apto para familias con niños. Atraviesa bosque siempreverde hasta el mirador con vista directa al glaciar. El terreno puede ser resbaladizo por la humedad constante, por lo que se recomienda calzado de trekking. No requiere equipo técnico ni guía.' },
+    { pregunta: '¿Cuáles son los senderos del Parque Nacional Queulat?', respuesta: 'Los principales senderos son: Sendero La Morrena (al Ventisquero Colgante y Laguna Témpanos, último ingreso 13:30 hrs) y Sendero Laguna Los Pumas (último ingreso 12:00 hrs). El parque abre de martes a domingo, de 09:00 a 16:30 hrs.' },
+    { pregunta: '¿Dónde alojarse para visitar el Ventisquero Colgante?', respuesta: 'La base más conveniente es Puerto Puyuhuapi, a 22 km al sur del parque, con hostales y cabañas desde ~$25.000 CLP. Dentro del parque hay camping a $10.000 CLP/persona/noche. Para una experiencia premium, el Puyuhuapi Lodge & Spa ofrece termas y spa desde $308.000 CLP/noche.' },
+    { pregunta: '¿Se puede nadar en la Laguna Témpanos?', respuesta: 'No. La temperatura del agua es cercana a 0°C por ser agua de deshielo glaciar, y los bloques de hielo que se desprenden del glaciar pueden generar olas repentinas. Tampoco es recomendable acercarse al borde de la laguna sin precaución.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Glaciar colgante en el Parque Nacional Queulat, Región de Aysén, Chile. Cascada glaciar de más de ${cascada.altura} metros sobre la Laguna Témpanos. Uno de los paisajes más icónicos de la Carretera Austral.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    isAccessibleForFree: false,
+    openingHours: 'Tu-Su 09:00-16:30',
+    touristType: ['Naturaleza', 'Glaciares', 'Trekking', 'Fotografía'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: glaciar colgante de más de ${cascada.altura} m en el Parque Nacional Queulat, ${cascada.region}. Senderos, entrada, clima, alojamiento y toda la información para tu visita.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="900" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas/">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura visible</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Origen', value: cascada.rio },
+        { label: 'Lóbulos', value: `${cascada.numeroBrazos} lóbulos visibles` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km (vuelo + auto)` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        <p class="cascada-body">El Ventisquero Colgante es un glaciar suspendido entre dos cerros de la Cordillera Patagónica, dentro del Parque Nacional Queulat en la <a href="/region/aysen/" class="cascada-inline-link">Región de Aysén</a>. A diferencia de los glaciares que descienden hasta valles o fiordos, este ventisquero queda "colgado" en la ladera de la montaña y descarga masas de hielo y agua directamente a la Laguna Témpanos mediante una espectacular caída vertical que supera los 200 metros visibles desde el mirador.</p>
+        <p class="cascada-body">El glaciar es alimentado por las precipitaciones extremas de la zona, que superan los 4.000 mm anuales, y forma parte del Campo de Hielo Queulat. Los dos lóbulos del ventisquero se desploman sobre una pared de gneis y granito patagónico, generando un espectáculo permanente de desprendimientos de hielo (séracs) que caen a la laguna glaciar. Este fenómeno glaciológico convierte al Ventisquero Colgante en un destino único dentro del circuito de <a href="/cascadas/" class="cascada-inline-link">cascadas de Chile</a>.</p>
+        <p class="cascada-body">Considerado uno de los paisajes más icónicos de la Carretera Austral, el Ventisquero Colgante atrae a miles de visitantes cada año. El Parque Nacional Queulat, creado en 1983, protege 154.093 hectáreas de bosque siempreverde patagónico. En la misma región, el <a href="/cascadas/salto-rio-ibanez/" class="cascada-inline-link">Salto Río Ibáñez</a> (80 m) complementa la oferta de saltos de agua de Aysén, mientras que hacia el norte, la <a href="/cascadas/cascada-velo-de-la-novia-peulla/" class="cascada-inline-link">Cascada Velo de la Novia en Peulla</a> ofrece una experiencia igualmente espectacular en <a href="/region/los-lagos/" class="cascada-inline-link">Los Lagos</a>.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación del ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.05},${cascada.lat-0.03},${cascada.lng+0.05},${cascada.lat+0.03}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde senderos por el bosque siempreverde hasta la contemplación del glaciar y la Laguna Témpanos, el Parque Nacional Queulat ofrece una experiencia patagónica única.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora del Parque Nacional Queulat</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna del Parque Nacional Queulat</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body">{p.trim()}</p>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde camping dentro del parque hasta lodge de lujo con termas. Puerto Puyuhuapi es la base más práctica a solo 22 km.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="533" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="533" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos: {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas próximas en la Patagonia chilena y regiones adyacentes.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas icónicas y experiencias similares en el sur de Chile.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora todas las cascadas de Chile con guías completas, mapas y datos prácticos.</p>
+    <a href="/mapa/" class="cascada-cta__button">Ver mapa interactivo →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2.2rem, 7vw, 7rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2rem, 10vw, 3.5rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:last-child { border-bottom: none; }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+
+  @media (max-width: 480px) {
+    .cascada-hero { min-height: 500px; height: 80vh; }
+    .cascada-hero__stat-number { font-size: 2.5rem; }
+    .cascada-galeria {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 200px);
+    }
+    .cascada-galeria__big { grid-column: 1; grid-row: 1; }
+  }
+</style>
