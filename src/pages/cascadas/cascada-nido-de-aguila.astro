@@ -2,143 +2,149 @@
 import Layout from '../../layouts/Layout.astro';
 
 // ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
-// Datos verificados por chile-waterfalls-researcher: alltrails.com, wikiloc.com, google maps, tripadvisor, mar 2026
+// Datos verificados por chile-waterfalls-researcher: CONAF, OpenStreetMap nodo 1695450914, Wikimedia, mar 2026
 const cascada = {
   // --- Identificación ---
-  nombre: 'Salto del Claro',
-  slug: 'salto-del-claro',
+  nombre: 'Cascada Nido de Águila',
+  slug: 'cascada-nido-de-aguila',
   region: 'La Araucanía',
   zona: 'Pucón',
-  altura: 90,
-  caudal: 'Régimen pluvio-nival. Mayor caudal en primavera (octubre-noviembre) por deshielo del volcán Villarrica; caudal estable en verano gracias a alimentación subterránea',
+  altura: 50,
+  caudal: 'Régimen pluvio-nival. Mayor caudal en primavera (octubre-noviembre) por deshielo; caudal perenne gracias al régimen de lluvias de la zona (1.800-2.500 mm anuales)',
   dificultad: 'Moderado',
-  acceso: 'Ruta Internacional CH-199 (Pucón–Huife), desvío a camino Los Calabozos o acceso privado Parque Salto del Claro',
-  coordenadas: '39°17\'S 71°56\'W',
-  mejorEpoca: 'Octubre — Abril',
-  entrada: 'CLP 3.000 adulto / CLP 2.000 niño (acceso privado Parque Salto del Claro). Acceso gratuito por Los Calabozos',
-  horario: '9:00 a 18:00 (Parque Salto del Claro). Acceso Los Calabozos: sin horario',
-  descripcion: `El Salto del Claro es una de las cascadas más impresionantes de la zona de Pucón, con una caída de aproximadamente 90 metros sobre un anfiteatro de basalto volcánico tallado por las aguas del Río Claro. Ubicada a solo 27 km de Pucón por la ruta que conduce a las Termas de Huife, esta cascada es un destino imperdible para quienes visitan la <a href="/region/araucania/" class="cascada-inline-link">Región de La Araucanía</a>. El Río Claro, alimentado por las aguas de deshielo del volcán Villarrica y por vertientes subterráneas, ha erosionado durante miles de años las capas de roca basáltica creando un cañón profundo que culmina en esta caída vertical espectacular.
+  acceso: 'Sendero Los Lagos, Parque Nacional Huerquehue. Últimos 8 km de ripio desde desvío Paillaco',
+  coordenadas: '39°08\'S 71°42\'W',
+  mejorEpoca: 'Octubre — Marzo',
+  entrada: 'Entrada PN Huerquehue vía pasesparques.cl (~$5.000 CLP adulto nacional)',
+  horario: 'Martes a domingo, 8:30 a 18:00. Último ingreso: 14:00. Cerrado los lunes',
+  descripcion: `La Cascada Nido de Águila es una de las joyas escondidas del Parque Nacional Huerquehue, en la comuna de Pucón, <a href="/region/araucania/" class="cascada-inline-link">Región de La Araucanía</a>. Ubicada a unos 50 metros de altura sobre un anfiteatro de roca volcánica andina, esta cascada se alimenta de un arroyo que drena los lagos interiores del parque — Lago Chico, Lago Toro y Lago Verde — antes de descender hacia el lago Tinquilco. Su nombre evoca la posición elevada y accidentada donde el agua se precipita, como el nido de un águila en una pared rocosa inaccesible.
 
-  La cascada tiene dos accesos. El primero es el Parque Salto del Claro, un predio privado con infraestructura turística que incluye sendero habilitado, miradores, estacionamiento y servicios. El segundo es por el camino de Los Calabozos, una ruta gratuita que llega a la parte superior de la cascada a través de un sendero más rústico. Ambas opciones ofrecen perspectivas diferentes: el parque permite ver la cascada de frente desde abajo, mientras que Los Calabozos da acceso a la vista superior y a pozones naturales aguas arriba.
+  Lo que hace especial a esta cascada es su ubicación dentro de uno de los bosques de araucarias más antiguos y mejor conservados de Chile. El acceso se realiza por el Sendero Los Lagos, un recorrido de 8,8 km que atraviesa bosque templado lluvioso con araucarias milenarias, coihues, lengas y un sotobosque exuberante de helechos y musgos. A solo 240 metros de la Cascada Nido de Águila se encuentra la Cascada Trufulco, formando un par de saltos de agua sobre el mismo curso que ofrece uno de los espectáculos naturales más impresionantes de la zona de Pucón.
 
-  La zona de Pucón es el epicentro del turismo de aventura en Chile, y el Salto del Claro forma parte de un circuito natural que incluye la <a href="/cascadas/cascada-nido-de-aguila/" class="cascada-inline-link">Cascada Nido de Águila</a> en el Parque Nacional Huerquehue, el <a href="/cascadas/salto-truful-truful/" class="cascada-inline-link">Salto Truful-Truful</a> en el Parque Nacional Conguillío y los Ojos del Caburgua. Para quienes buscan explorar más <a href="/" class="cascada-inline-link">cascadas de Chile</a> en La Araucanía, el <a href="/cascadas/salto-de-la-princesa/" class="cascada-inline-link">Salto de la Princesa</a> en Curacautín es otra opción extraordinaria.`,
-  comoLlegar: `Desde Pucón (27 km, 35 min en auto): Tomar la Ruta Internacional CH-199 hacia el este, en dirección a las Termas de Huife. A la altura del km 27, buscar el desvío señalizado al Parque Salto del Claro a mano derecha. El camino es de ripio los últimos 2 km hasta el estacionamiento del parque.
+  El Parque Nacional Huerquehue es parte de la Reserva de la Biosfera Araucarias (UNESCO, 1983) y protege 12.500 hectáreas de bosque nativo andino. Para quienes buscan explorar más <a href="/cascadas/" class="cascada-inline-link">cascadas de Chile</a> en la zona, el <a href="/cascadas/salto-del-claro/" class="cascada-inline-link">Salto del Claro</a> a 27 km de Pucón y el <a href="/cascadas/salto-truful-truful/" class="cascada-inline-link">Salto Truful-Truful</a> en el Parque Nacional Conguillío completan un circuito de cascadas araucanas excepcional.`,
+  comoLlegar: `Desde Pucón (21 km, 35-45 min en auto): Tomar el camino hacia Lago Caburgua (dirección este). En el sector Paillaco, seguir el desvío señalizado hacia el Parque Nacional Huerquehue. Los últimos 8 km son de camino de ripio hasta la zona de administración del parque. Desde ahí, tomar el Sendero Los Lagos (señalizado con color naranja, 8,8 km totales) que lleva a la cascada.
 
-  Acceso por Los Calabozos (gratuito): Desde la misma CH-199, tomar el desvío al camino Los Calabozos (antes del desvío al parque). El camino de ripio conduce a un área donde se puede estacionar. Desde ahí, sendero de 1,5 km hasta la parte superior de la cascada. Ruta sin señalización formal.
+  Desde Temuco (135 km, 2-2,5 horas): Ruta 199 dirección Villarrica (70 km), continuar a Pucón (25 km) y desde ahí seguir las indicaciones hacia Huerquehue.
 
-  Desde Santiago (780 km, ~9 horas en auto): Ruta 5 Sur hasta Freire, luego Ruta 199 hacia Villarrica y Pucón. Desde Pucón seguir indicaciones anteriores.
+  Desde Santiago (850 km, ~9-10 horas en auto): Ruta 5 Sur hasta Temuco (585 km), luego Ruta 199 hacia Villarrica y Pucón, y desde Pucón seguir indicaciones anteriores.
 
-  En transporte público: Buses desde Temuco a Pucón (Buses JAC, 2 horas). Desde Pucón, no hay transporte público directo al salto. Se recomienda taxi, transfer o tour organizado.`,
-  imagen: '/assets/cascadas/salto-del-claro/hero.webp',
-  imagenAlt: 'Salto del Claro, cascada de 90 metros sobre basalto volcánico en Pucón, La Araucanía',
+  En transporte público: Buses desde Temuco a Pucón (Buses JAC, 2 horas). Desde Pucón no hay bus directo al parque. Se recomienda contratar taxi, remise o tour organizado. Algunos operadores de Pucón ofrecen traslados al parque.`,
+  imagen: '/assets/cascadas/cascada-nido-de-aguila/hero.webp',
+  imagenAlt: 'Cascada Nido de Águila en el Parque Nacional Huerquehue, Pucón, La Araucanía',
   galeria: [
-    { src: '/assets/cascadas/salto-del-claro/galeria-1.webp', alt: 'Vista cercana de cascada en la zona de Pucón, La Araucanía' },
-    { src: '/assets/cascadas/salto-del-claro/galeria-2.webp', alt: 'Cascada entre bosque nativo y roca volcánica en la precordillera de Pucón' },
-    { src: '/assets/cascadas/salto-del-claro/galeria-3.webp', alt: 'Ojos del Caburgua, cascadas cercanas al Salto del Claro en Pucón' },
-    { src: '/assets/cascadas/salto-del-claro/galeria-4.webp', alt: 'Cascada y desembocadura en los Ojos del Caburgua, Pucón' },
+    { src: '/assets/cascadas/cascada-nido-de-aguila/galeria-1.webp', alt: 'Cascada Trufulco, salto de agua vecino a la Cascada Nido de Águila en PN Huerquehue' },
+    { src: '/assets/cascadas/cascada-nido-de-aguila/galeria-2.webp', alt: 'Vista de la Cascada Trufulco entre bosque de araucarias en el Parque Nacional Huerquehue' },
+    { src: '/assets/cascadas/cascada-nido-de-aguila/galeria-3.webp', alt: 'Lago Tinquilco con el Volcán Villarrica al fondo, Parque Nacional Huerquehue' },
+    { src: '/assets/cascadas/cascada-nido-de-aguila/galeria-4.webp', alt: 'Interior del bosque nativo de araucarias en el sendero del Parque Nacional Huerquehue' },
   ],
   galeriaCreditos: [
-    { autor: 'Dsjr89', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Puc%C3%B3n_2019_(06)_salto_La_China.jpg' },
-    { autor: 'Dsjr89', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Puc%C3%B3n_2019_(10)_salto_La_China.jpg' },
-    { autor: 'Joselu3', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Ojos_del_Caburgua_(3_cascadas).jpg' },
-    { autor: 'Joselu3', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Ojos_del_Caburgua_(cascada_y_desembocadura).jpg' },
+    { autor: 'Falk2', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:J25_167_Wasserfall_%C2%BBNido_de_Aguila%C2%AB.jpg' },
+    { autor: 'Falk2', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:J25_170_Cascada_Trufulco.jpg' },
+    { autor: 'Falk2', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:J25_174_Cascada_Trufulco.jpg' },
+    { autor: 'Elemaki (José Porras)', licencia: 'CC BY 3.0', url: 'https://commons.wikimedia.org/wiki/File:Parque_Nacional_Huerquehue.jpg' },
+    { autor: 'Marco Antonio Correa Flores', licencia: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Parque_Nacional_Huerquehue_01.jpg' },
   ],
-  // 3 por cercanía geográfica (La Araucanía / Pucón)
+  // 3 por cercanía geográfica (Pucón / Araucanía volcánica)
   cascadasCercanas: [
+    { nombre: 'Salto del Claro', slug: 'salto-del-claro', region: 'La Araucanía', altura: 90, tipo: 'cercania' },
     { nombre: 'Salto Truful-Truful', slug: 'salto-truful-truful', region: 'La Araucanía', altura: 20, tipo: 'cercania' },
     { nombre: 'Salto de la Princesa', slug: 'salto-de-la-princesa', region: 'La Araucanía', altura: 25, tipo: 'cercania' },
-    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 70, tipo: 'cercania' },
   ],
-  // 3 por relación semántica (aventura, rappel, cañones volcánicos)
+  // 3 por relación semántica (parques nacionales, bosque nativo, trekking moderado)
   cascadasRelacionadas: [
     { nombre: 'Salto del Huilo-Huilo', slug: 'salto-del-huilo-huilo', region: 'Los Ríos', altura: 37, tipo: 'relacionada' },
+    { nombre: 'Salto Chancagua', slug: 'salto-chancagua', region: 'La Araucanía', altura: 70, tipo: 'relacionada' },
     { nombre: 'Salto Quino', slug: 'salto-quino', region: 'La Araucanía', altura: 30, tipo: 'relacionada' },
-    { nombre: 'Cascada Nido de Águila', slug: 'cascada-nido-de-aguila', region: 'La Araucanía', altura: 50, tipo: 'relacionada' },
   ],
 
   // --- Datos verificados ---
-  lat: -39.2961,
-  lng: -71.9490,
-  rio: 'Río Claro',
-  tipoFormacion: 'Caída vertical sobre anfiteatro de basalto volcánico',
+  lat: -39.1481,
+  lng: -71.7105,
+  rio: 'Arroyo afluente del lago Tinquilco',
+  tipoFormacion: 'Caída sobre roca volcánica andina en zona de bosque templado lluvioso',
   numeroBrazos: 1,
-  distanciaSantiago: 780,
+  distanciaSantiago: 850,
 
-  historia: `El Salto del Claro se encuentra en territorio ancestral mapuche-pehuenche, pueblos que habitaron los valles y bosques de la precordillera araucana durante milenios. El Río Claro (Lif-Leufu en mapudungún, "río limpio") era una fuente esencial de agua y alimento para las comunidades que se asentaban en las inmediaciones del volcán Villarrica (Ruka Pillán, "la casa del espíritu"). Para los mapuche, las cascadas y los ríos están protegidos por el ngen-ko, espíritu guardián de las aguas, y cualquier intervención en estos espacios requiere respeto y permiso espiritual.
+  historia: `La Cascada Nido de Águila se encuentra en el corazón del territorio ancestral mapuche-pehuenche, pueblos que habitaron los bosques de araucarias de la precordillera andina durante milenios. El nombre "Huerquehue" proviene del mapudungun y se traduce como "lugar de insectos" o "lugar donde abundan los huérquen". Para el pueblo mapuche, las cascadas son espacios de poder espiritual protegidos por el ngen-ko, el espíritu guardián de las aguas. El canelo (Drimys winteri) que crece junto a los cursos de agua es el árbol sagrado más importante de la cultura mapuche.
 
-  La colonización de la zona de Pucón comenzó a fines del siglo XIX, cuando el ejército chileno estableció el Fuerte de Pucón en 1883 durante la ocupación de la Araucanía. Los colonos europeos que llegaron posteriormente transformaron la zona en un destino agrícola y ganadero. El turismo comenzó a desarrollarse en la década de 1930 con la construcción del Gran Hotel Pucón, y durante el siglo XX la zona se consolidó como el principal polo de turismo aventura de Chile.
+  Los pehuenche (pewen = araucaria, che = gente) mantienen una relación sagrada con los bosques de araucarias del parque. Los piñones del pehuén son un alimento central de su cultura y cosmovisión, cosechados entre marzo y mayo mediante la práctica ancestral del piñoneo. El agua (ko) es un elemento sagrado con vida propia en la cosmología mapuche, y cada cascada tiene un significado espiritual que trasciende lo meramente natural.
 
-  El Salto del Claro permaneció relativamente desconocido fuera de la comunidad local hasta las décadas de 2000 y 2010, cuando el auge del canyoning y el rappel deportivo lo puso en el mapa de los aventureros. Operadores como Aguaventura y Pucón Kayak comenzaron a ofrecer descensos de rappel por la cascada, una experiencia que se convirtió en una de las actividades más emblemáticas de Pucón. La creación del Parque Salto del Claro como predio turístico privado formalizó el acceso y facilitó la visita para familias y turistas menos experimentados. La <a href="/region/araucania/" class="cascada-inline-link">Región de La Araucanía</a> concentra hoy una de las mayores densidades de cascadas y atractivos de aventura de todo Chile.`,
+  El Parque Nacional Huerquehue fue creado el 9 de junio de 1967 mediante Decreto Supremo N°347 para proteger los bosques de araucaria de la precordillera andina de La <a href="/region/araucania/" class="cascada-inline-link">Araucanía</a>. En 1983 fue integrado a la Reserva de la Biosfera Araucarias, declarada por UNESCO, reconociendo su valor ecológico excepcional. Hoy el parque protege 12.500 hectáreas de bosque nativo y alberga una red de senderos que conecta lagos, cascadas y bosques milenarios, consolidándose como uno de los destinos de trekking más valorados del sur de Chile.`,
 
   queHacer: [
-    { actividad: 'Rappel y canyoning en la cascada', descripcion: 'Descenso de 90 metros en rappel por la pared de la cascada, una de las experiencias de aventura más emblemáticas de Pucón. Operadores certificados como Aguaventura ofrecen la actividad con equipo completo y guías. Precio: CLP 45.000-50.000 por persona. No requiere experiencia previa.' },
-    { actividad: 'Trekking al mirador inferior', descripcion: 'Sendero habilitado de 800 metros desde el estacionamiento del Parque Salto del Claro hasta el mirador frontal de la cascada. Dificultad fácil, apto para familias. El sendero desciende por escaleras de madera hasta la base del anfiteatro donde se aprecia la caída completa.' },
-    { actividad: 'Vía Ferrata', descripcion: 'El Parque Salto del Claro ofrece un circuito de Vía Ferrata sobre las paredes del cañón, con grapas metálicas y cable de seguridad. Permite recorrer las paredes de basalto con vista a la cascada. Apto para mayores de 12 años.' },
-    { actividad: 'Baño en pozones naturales', descripcion: 'Aguas arriba de la cascada, accediendo por el camino de Los Calabozos, hay pozones naturales de agua cristalina formados en el lecho de roca del Río Claro. En verano (enero-febrero) la temperatura del agua permite un baño refrescante. Solo accesibles por el acceso gratuito.' },
-    { actividad: 'Fotografía de naturaleza', descripcion: 'El anfiteatro de basalto con la cascada de 90 metros ofrece composiciones fotográficas espectaculares. Mejor luz en la mañana (9:00-12:00) cuando el sol ilumina la pared de roca. En días soleados se forman arcoíris en el espray de la base.' },
-    { actividad: 'Circuito de cascadas de Pucón', descripcion: 'Combinar la visita al Salto del Claro con los Ojos del Caburgua (cascadas sobre roca volcánica, 18 km de Pucón) y el Salto Truful-Truful en el Parque Nacional Conguillío. Un circuito de un día completo que muestra la diversidad de cascadas de La Araucanía.' },
+    { actividad: 'Sendero Los Lagos', descripcion: 'Trekking de 8,8 km por bosque de araucarias milenarias, coihues y lengas. El sendero conecta los lagos interiores del parque (Lago Toro, Lago Chico, Lago Verde) y pasa por la Cascada Nido de Águila y la Cascada Trufulco. Señalizado con color naranja. Dificultad moderada, 5-7 horas ida y vuelta.' },
+    { actividad: 'Fotografía de naturaleza', descripcion: 'El bosque templado lluvioso con araucarias centenarias y la cascada ofrecen composiciones fotográficas excepcionales. La luz difusa del bosque nativo es óptima en días nublados. Llevar gran angular para la cascada y teleobjetivo para aves.' },
+    { actividad: 'Observación de aves', descripcion: 'El parque alberga aves emblemáticas del bosque austral: carpintero negro (Campephilus magellanicus), chucao, cóndor andino y más de 40 especies registradas. Los binoculares son imprescindibles en el sendero.' },
+    { actividad: 'Camping en el parque', descripcion: 'El Camping CONAF del parque tiene 22 sitios con duchas de agua caliente, cobertizo para cocinar, lavaderos y baños. Asignación por orden de llegada. Ideal para hacer el sendero en dos jornadas y disfrutar el amanecer en el bosque.' },
+    { actividad: 'Visita a los lagos interiores', descripcion: 'El Sendero Los Lagos conecta Lago Toro, Lago Chico y Lago Verde, lagunas andinas de aguas cristalinas rodeadas de araucarias. Cada lago ofrece miradores naturales y zonas de descanso.' },
+    { actividad: 'Circuito de cascadas de Pucón', descripcion: 'Combinar la visita a Huerquehue con el Salto del Claro (27 km de Pucón, rappel de 90 m) y los Ojos del Caburgua. Un circuito de 2-3 días que revela la diversidad de cascadas de La Araucanía.' },
   ],
 
-  flora: `La vegetación en torno al Salto del Claro es representativa del bosque templado lluvioso de la precordillera araucana, con influencia directa de la actividad volcánica del Villarrica. El dosel arbóreo está dominado por el coigüe (Nothofagus dombeyi) y el raulí (Nothofagus alpina), árboles que alcanzan los 30-40 metros de altura y forman un dosel cerrado que filtra la luz en tonos verdes sobre el sendero. La lenga (Nothofagus pumilio) aparece en las zonas más altas y expuestas del cañón.
+  flora: `El bosque del Parque Nacional Huerquehue es uno de los ecosistemas más biodiversos de la cordillera andina del sur de Chile. La especie emblemática es la araucaria (Araucaria araucana), árbol monumento natural que puede superar los 1.000 años de edad y cuya silueta de paraguas define el paisaje del parque. Las araucarias dominan en las zonas de mayor altitud, mientras que el coihue (Nothofagus dombeyi) y la lenga (Nothofagus pumilio) forman el dosel arbóreo en las zonas medias y bajas.
 
-  El sotobosque es denso y exuberante. Los helechos —especialmente la palmilla (Lophosoria quadripinnata) y el helecho costilla de vaca (Blechnum chilense)— forman masas verdes en las zonas húmedas junto a la cascada. El copihue (Lapageria rosea), flor nacional de Chile, trepa por los troncos de los árboles y florece en rojo intenso entre diciembre y marzo. La murta (Ugni molinae) y el arrayán (Luma apiculata) se encuentran en las quebradas más protegidas. En las paredes del cañón, musgos, líquenes y plantas rupícolas forman tapices verdes que contrastan con la roca oscura del basalto. El <a href="/cascadas/salto-truful-truful/" class="cascada-inline-link">Salto Truful-Truful</a> en el Parque Nacional Conguillío comparte esta misma composición florística de bosque araucano.`,
+  El sotobosque es denso y exuberante. Helechos como la palmilla (Lophosoria quadripinnata) y el helecho costilla de vaca (Blechnum chilense) forman masas verdes en las zonas húmedas junto a la cascada. El mañío (Podocarpus nubigena) y el canelo (Drimys winteri), árbol sagrado para el pueblo mapuche, crecen en los sectores más húmedos cercanos a los cursos de agua. La lenga produce un follaje rojizo espectacular en otoño (abril-mayo) que transforma el paisaje del sendero en un tapiz de colores.`,
 
-  fauna: `La fauna del entorno del Salto del Claro es característica del bosque templado de la precordillera araucana. El martín pescador (Megaceryle torquata), con su plumaje azul metálico, es habitante permanente del Río Claro y puede observarse pescando desde las ramas que sobresalen del cauce. El pato cortacorrientes (Merganetta armata) se desplaza por los tramos de mayor velocidad del río, y la huala (Podiceps major) frecuenta las pozas más tranquilas.
+  fauna: `El Parque Nacional Huerquehue alberga fauna representativa del bosque templado andino, con varias especies endémicas y en categorías de conservación. El pudú (Pudu puda), el cérvido más pequeño del mundo, habita el sotobosque y puede avistarse al amanecer o al atardecer en los bordes del sendero. El monito del monte (Dromiciops gliroides), considerado un "fósil viviente" con un linaje de más de 70 millones de años, es otro habitante nocturno del parque.
 
-  En el bosque circundante, el chucao (Scelorchilus rubecula) delata su presencia con su canto penetrante desde el sotobosque. El carpintero negro (Campephilus magellanicus) habita los coigües maduros del cañón, y el pitío (Colaptes pitius) se observa en los claros del bosque. El zorro chilla (Lycalopex griseus) y el pudú (Pudu puda) son mamíferos frecuentes en la zona, aunque el pudú es difícil de avistar por sus hábitos crepusculares. El cóndor andino (Vultur gryphus) sobrevuela ocasionalmente el cañón, especialmente en las mañanas de verano cuando las corrientes térmicas facilitan su vuelo.`,
+  Entre las aves destaca el carpintero negro (Campephilus magellanicus), el más grande de Chile, cuyo golpeteo rítmico resuena en el bosque. El chucao (Scelorchilus rubecula) delata su presencia con un canto penetrante desde el sotobosque. El cóndor andino (Vultur gryphus) sobrevuela las cumbres del parque, y el zorro culpeo (Lycalopex culpaeus) se avista con frecuencia en los senderos. La rana de Darwin (Rhinoderma darwinii), anfibio endémico y vulnerable, habita cerca de los cursos de agua del parque.`,
 
   clima: {
     tipo: 'Templado lluvioso con influencia andina (Cfb)',
     tempPromedio: '10°C',
-    tempVerano: '18-28°C',
-    tempInvierno: '2-10°C',
-    precipitaciones: '2.000-2.500 mm anuales',
-    descripcion: 'Clima templado oceánico con precipitaciones distribuidas durante todo el año, concentradas entre mayo y septiembre. Los veranos son agradables y relativamente secos, con temperaturas que pueden superar los 25°C. En invierno, las temperaturas bajan a 0°C en las noches y son posibles nevadas sobre los 800 m.s.n.m. La mejor época para visitar es de octubre a abril: los senderos están secos, la temperatura es agradable y el caudal de la cascada es espectacular por el deshielo del Villarrica. Evitar la visita después de lluvias intensas, cuando el río crece y el acceso por Los Calabozos puede ser riesgoso.',
+    tempVerano: '12-24°C',
+    tempInvierno: '0-10°C',
+    precipitaciones: '1.800-2.500 mm anuales',
+    descripcion: 'Clima templado oceánico transicional hacia lluvioso en la precordillera andina. Los veranos (diciembre-febrero) son frescos y relativamente secos, con temperaturas que pueden alcanzar los 24°C en Pucón pero 5-8°C menos dentro del parque a mayor altitud. Los inviernos son fríos y muy lluviosos, con nevadas frecuentes sobre los 900 msnm. La mejor época para visitar es de octubre a marzo, cuando los senderos están transitables, el clima es estable y el caudal de la cascada es espectacular por el deshielo. Evitar visitas en invierno (junio-agosto) por posibles cierres de caminos.',
   },
 
   seguridad: [
-    'El rappel en la cascada debe realizarse únicamente con operadores certificados y equipo profesional — nunca intentar descender solo',
-    'El acceso por Los Calabozos carece de señalización: ir acompañado y con GPS o mapa descargado',
-    'No acercarse al borde superior de la cascada: las rocas son resbaladizas y la caída es de 90 metros',
-    'Llevar efectivo para la entrada al Parque Salto del Claro — no siempre hay terminal de pago',
-    'En los pozones naturales, verificar la profundidad antes de saltar y nunca nadar solo',
-    'El camino de ripio puede estar en mal estado tras lluvias: verificar condiciones del camino antes de salir',
-    'Llevar protección solar y agua: el sendero dentro del parque tiene tramos expuestos al sol',
+    'El Sendero Los Lagos tiene 8,8 km — salir temprano (antes de las 9:00 AM) para completar el recorrido antes del cierre del parque a las 18:00',
+    'Último ingreso al parque a las 14:00 — no se permite entrar después de esa hora',
+    'Calzado de trekking impermeable obligatorio: raíces y musgo del bosque son muy resbaladizos, especialmente tras lluvia',
+    'El parque tiene baja cobertura de telefonía celular en el interior — no realizar el sendero solo',
+    'No acercarse al borde de la cascada: las rocas son resbaladizas y la caída es peligrosa',
+    'No alimentar ni acercarse a la fauna silvestre. En caso de avistamiento de puma, mantener la calma y no correr',
+    'No encender fuego fuera de las zonas habilitadas del camping CONAF',
+    'El agua de los arroyos puede contener parásitos — llevar agua potable o sistema de purificación',
+    'En caso de emergencia contactar a CONAF: parque.huerquehue@conaf.cl',
   ],
 
   recomendaciones: [
-    'Calzado de trekking resistente al agua con suela adherente',
-    'Ropa de baño si se planea visitar los pozones (acceso Los Calabozos)',
-    'Protector solar y sombrero para los tramos expuestos',
-    'Mínimo 1,5 litros de agua por persona',
-    'Cámara fotográfica con funda impermeable (espray en la base de la cascada)',
-    'Efectivo en pesos chilenos para la entrada',
-    'Toalla y ropa de cambio si se hace rappel o se visitan los pozones',
-    'Repelente de insectos en verano (tábanos activos cerca del agua)',
+    'Ropa abrigada en capas incluso en verano — el interior del parque puede ser 5-8°C más frío que Pucón',
+    'Impermeable o poncho: el bosque templado lluvioso puede recibir precipitaciones en cualquier época',
+    'Bastones de trekking (útiles en tramos con raíces y humedad)',
+    'Mínimo 2 litros de agua por persona',
+    'Binoculares para observación de aves',
+    'Repelente de insectos — jejenes y tábanos activos en verano cerca del agua',
+    'Mapa offline (OSMand o Maps.me) — sin cobertura celular en el interior del parque',
+    'Comprar entrada anticipadamente en pasesparques.cl',
+    'Snacks de alta energía (frutos secos, barras de cereal) para el sendero',
+    'Cámara fotográfica con funda impermeable para la cascada',
   ],
 
   gastronomia: [
-    { plato: 'Trucha del Río Claro', descripcion: 'La trucha arcoíris y la trucha fario del Río Claro son la especialidad de Pucón. Se preparan a la parrilla, al disco o en ceviche. Los restaurantes de la costanera de Pucón la ofrecen fresca del día.' },
-    { plato: 'Curanto en hoyo', descripcion: 'Preparación ancestral mapuche con mariscos, carnes, longanizas, papas, milcaos y chapaleles cocinados bajo tierra con piedras calientes. Los restaurantes rurales de la zona lo ofrecen como experiencia gastronómica grupal.' },
-    { plato: 'Piñones de araucaria', descripcion: 'Los piñones (ngüilliu en mapudungún) del pehuén (Araucaria araucana) se cosechan entre marzo y mayo. Se preparan cocidos, en harina para pan, o como acompañamiento de guisos. Producto ancestral del pueblo pehuenche, disponible en ferias y restaurantes de Pucón.' },
-    { plato: 'Cerveza artesanal de Pucón', descripcion: 'Pucón tiene una escena cervecera artesanal en crecimiento. Cervecerías como Maltierra, Petermann y Kaf Café producen variedades que van desde pale ales hasta stouts con ingredientes locales como piñón y murtilla.' },
-    { plato: 'Asado de cordero al palo', descripcion: 'Cordero de la zona asado lentamente al palo junto a brasas de leña de roble pellín, sazonado con merkén (ají ahumado mapuche). Plato emblemático de las fiestas costumbristas y restaurantes rurales de La Araucanía.' },
+    { plato: 'Piñones de araucaria (pewén)', descripcion: 'Semilla sagrada de la araucaria, base de la alimentación ancestral mapuche-pehuenche. Se consumen hervidos, asados o molidos en harina. Disponibles en ferias locales de Pucón en otoño (marzo-mayo). Sabor similar a la castaña.' },
+    { plato: 'Trucha del lago Villarrica', descripcion: 'Trucha arcoíris capturada en los lagos de la zona, preparada a la plancha, ahumada o a la mantequilla. Plato emblemático de los restaurantes de Pucón y la costanera del lago.' },
+    { plato: 'Merkén', descripcion: 'Condimento mapuche de ají cacho de cabra ahumado y molido con semillas de cilantro. Aromatiza carnes, guisos y sopas. Presente en todos los restaurantes de Pucón y La Araucanía.' },
+    { plato: 'Asado de cordero al palo', descripcion: 'Cordero de la zona asado lentamente junto a brasas de leña, sazonado con merkén. Plato emblemático de las fiestas costumbristas y restaurantes rurales de La Araucanía.' },
+    { plato: 'Catuto (mültrun)', descripcion: 'Preparación ancestral mapuche de trigo cocido y molido, formado en bolitas o bastones. Se consume acompañado de miel, merkén o pebre. Disponible en ferias y restaurantes de Pucón.' },
   ],
 
   alojamiento: [
-    { nombre: 'Hotel Antumalal', tipo: 'Hotel boutique', precioDesde: 'Desde $150.000 CLP/noche', url: 'https://www.antumalal.com', descripcion: 'Hotel de diseño Bauhaus construido en 1950 sobre un acantilado del Lago Villarrica. Vista al volcán, spa, restaurante gourmet y jardines nativos. A 25 km del Salto del Claro.' },
-    { nombre: 'Cabañas en Pucón', tipo: 'Cabañas equipadas', precioDesde: 'Desde $60.000 CLP/noche', url: '#', descripcion: 'Amplia oferta de cabañas equipadas en Pucón y alrededores, con cocina, estacionamiento y entorno natural. Opciones desde económicas a premium. Reservar por Booking o Airbnb.' },
-    { nombre: 'Camping Parque Cerduo', tipo: 'Camping', precioDesde: 'Desde $10.000 CLP/persona', url: '#', descripcion: 'Camping equipado en la ruta hacia Huife, a 15 km del Salto del Claro. Sitios con sombra, baños, duchas calientes y acceso al Río Liucura para pesca y kayak.' },
+    { nombre: 'Camping PN Huerquehue (CONAF)', tipo: 'Camping', precioDesde: 'Desde ~$8.000 CLP/sitio', url: '#', descripcion: '22 sitios para carpas dentro del parque. Duchas con agua caliente, cobertizo para cocinar, lavaderos y baños. Asignación por orden de llegada, sin reserva anticipada. La opción más cercana a la cascada.' },
+    { nombre: 'Hotel Antumalal', tipo: 'Hotel boutique', precioDesde: 'Desde $150.000 CLP/noche', url: 'https://www.antumalal.com', descripcion: 'Hotel de diseño Bauhaus de los años 1950 sobre un acantilado del Lago Villarrica. Vista al volcán, spa y restaurante gourmet. En Pucón, a 21 km del parque.' },
+    { nombre: 'Hostales en Pucón', tipo: 'Hostal', precioDesde: 'Desde $15.000 CLP/noche', url: '#', descripcion: 'Amplia oferta de hostales en el centro de Pucón con dorms y habitaciones privadas. Lacustre Trip Hostel y Chucao Climbing Hostel son opciones populares entre senderistas.' },
   ],
 
   faq: [
-    { pregunta: '¿Cuánto mide el Salto del Claro?', respuesta: 'El Salto del Claro tiene una caída de aproximadamente 90 metros sobre un anfiteatro de basalto volcánico. Es una de las cascadas más altas de la zona de Pucón y de toda la Región de La Araucanía.' },
-    { pregunta: '¿Cuánto cuesta la entrada al Salto del Claro?', respuesta: 'El acceso por el Parque Salto del Claro cuesta CLP 3.000 para adultos y CLP 2.000 para niños. Solo se acepta efectivo. Existe un acceso alternativo gratuito por el camino de Los Calabozos que llega a la parte superior de la cascada.' },
-    { pregunta: '¿Se puede hacer rappel en el Salto del Claro?', respuesta: 'Sí, el rappel es una de las actividades más populares. Operadores certificados como Aguaventura ofrecen descensos de 90 metros con equipo profesional y guías. Precio: CLP 45.000-50.000. No se necesita experiencia previa.' },
-    { pregunta: '¿Cómo llegar al Salto del Claro desde Pucón?', respuesta: 'Desde Pucón son 27 km (35 minutos en auto) por la Ruta CH-199 hacia las Termas de Huife. El desvío al Parque Salto del Claro está señalizado a la derecha. Los últimos 2 km son camino de ripio.' },
-    { pregunta: '¿Se puede visitar el Salto del Claro con niños?', respuesta: 'Sí, el sendero del Parque Salto del Claro es apto para familias con niños. Son 800 metros por un camino habilitado con escaleras hasta el mirador frontal. El acceso por Los Calabozos es más rústico y no se recomienda para niños pequeños.' },
-    { pregunta: '¿Cuál es la mejor época para visitar el Salto del Claro?', respuesta: 'De octubre a abril. En verano (enero-febrero) las temperaturas son agradables, los pozones permiten baño y las condiciones son ideales para rappel y trekking. En primavera (octubre-noviembre) el caudal es máximo por el deshielo del volcán Villarrica.' },
-    { pregunta: '¿Hay pozones para bañarse cerca del Salto del Claro?', respuesta: 'Sí, aguas arriba de la cascada hay pozones naturales de agua cristalina accesibles por el camino de Los Calabozos (acceso gratuito). En verano el agua está a temperatura tolerable para un baño refrescante.' },
+    { pregunta: '¿Cómo llegar a la Cascada Nido de Águila?', respuesta: 'La cascada se encuentra dentro del Parque Nacional Huerquehue. Desde Pucón (21 km), tomar el camino a Lago Caburgua y desviar en Paillaco hacia el parque (8 km de ripio). Dentro del parque, tomar el Sendero Los Lagos (8,8 km, señalizado en naranja).' },
+    { pregunta: '¿Cuánto cuesta la entrada al Parque Nacional Huerquehue?', respuesta: 'La entrada se compra anticipadamente en pasesparques.cl. Las tarifas aproximadas son $5.000-7.000 CLP para adultos nacionales y $10.000-15.000 CLP para extranjeros. Menores de 12 años nacionales entran gratis.' },
+    { pregunta: '¿Cuánto dura el sendero a la Cascada Nido de Águila?', respuesta: 'El Sendero Los Lagos tiene 8,8 km totales. Para llegar a la cascada y regresar, el tiempo estimado es de 5 a 7 horas dependiendo del ritmo. Se recomienda salir antes de las 9:00 AM.' },
+    { pregunta: '¿Qué dificultad tiene el sendero?', respuesta: 'Dificultad moderada. Requiere buena condición física, calzado de trekking impermeable y resistencia para varias horas de caminata. No es técnicamente exigente. No recomendado para niños menores de 8 años.' },
+    { pregunta: '¿Cuál es la mejor época para visitar?', respuesta: 'De octubre a marzo. El verano (diciembre-febrero) ofrece días largos y clima estable. La primavera (octubre-noviembre) tiene el mayor caudal por el deshielo. Evitar el invierno por posibles cierres de caminos y nieve.' },
+    { pregunta: '¿Hay camping cerca de la cascada?', respuesta: 'Sí. El Camping CONAF dentro del parque tiene 22 sitios con duchas de agua caliente y cocina. Funciona por orden de llegada. En el camino de acceso hay campings privados como Las Vertientes y Los Pilos.' },
+    { pregunta: '¿El parque abre todos los días?', respuesta: 'No. El parque abre de martes a domingo, de 8:30 a 18:00 horas. Último ingreso a las 14:00. Permanece cerrado los lunes.' },
+    { pregunta: '¿Hay transporte público al Parque Huerquehue?', respuesta: 'No hay bus directo. Desde Pucón se puede contratar taxi o remise. Algunos operadores turísticos ofrecen traslados. Se recomienda vehículo propio o tour organizado.' },
   ],
 };
 
@@ -148,7 +154,7 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'TouristAttraction',
     name: cascada.nombre,
-    description: `Cascada de ${cascada.altura} metros sobre basalto volcánico en Pucón, Región de La Araucanía, Chile. Rappel, trekking, pozones naturales y vía ferrata a 27 km de Pucón.`,
+    description: `Cascada de ~${cascada.altura} metros en el Parque Nacional Huerquehue, Pucón, Región de La Araucanía. Trekking por bosque de araucarias milenarias, lagos andinos y fauna nativa.`,
     image: `https://cascadaschile.com${cascada.imagen}`,
     geo: {
       '@type': 'GeoCoordinates',
@@ -162,7 +168,7 @@ const structuredData = [
       addressCountry: 'CL',
     },
     isAccessibleForFree: false,
-    touristType: ['Aventura', 'Naturaleza', 'Trekking', 'Rappel'],
+    touristType: ['Naturaleza', 'Trekking', 'Fotografía', 'Observación de aves'],
     url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
   },
   {
@@ -183,14 +189,14 @@ const structuredData = [
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
       { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
-      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/araucania` },
       { '@type': 'ListItem', position: 4, name: cascada.nombre },
     ],
   },
 ];
 
 const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
-const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pucón, La Araucanía. Rappel de 90 metros, trekking, pozones naturales. Entrada, cómo llegar y toda la información.`;
+const pageDescription = `${cascada.nombre}: cascada de ~${cascada.altura} m en el PN Huerquehue, Pucón. Sendero Los Lagos, araucarias milenarias, lagos andinos. Entrada, cómo llegar y toda la información.`;
 ---
 
 <Layout
@@ -210,7 +216,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
         <span>›</span>
         <a href="/cascadas/">Cascadas</a>
         <span>›</span>
-        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <a href="/region/araucania">La Araucanía</a>
         <span>›</span>
         <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
       </nav>
@@ -221,7 +227,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
           <h1 class="cascada-hero__title">{cascada.nombre}</h1>
         </div>
         <div class="cascada-hero__stat">
-          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-number">~{cascada.altura}m</p>
           <p class="cascada-hero__stat-label">Altura de caída</p>
         </div>
       </div>
@@ -255,7 +261,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <section class="cascada-section cascada-section--cream">
     <div class="cascada-two-col">
       <div class="reveal">
-        <h2 class="cascada-h2">Sobre el {cascada.nombre}</h2>
+        <h2 class="cascada-h2">Sobre la {cascada.nombre}</h2>
         {cascada.descripcion.split('\n\n').map(p => (
           <p class="cascada-body" set:html={p.trim()} />
         ))}
@@ -263,7 +269,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
 
       <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
       <div class="reveal">
-        <h2 class="cascada-h2">Cómo llegar al {cascada.nombre}</h2>
+        <h2 class="cascada-h2">Cómo llegar a la {cascada.nombre}</h2>
         {cascada.comoLlegar.split('\n\n').map(p => (
           <p class="cascada-body">{p.trim()}</p>
         ))}
@@ -272,7 +278,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
           width="100%"
           height="300"
           loading="lazy"
-          title={`Mapa de ubicación del ${cascada.nombre}`}
+          title={`Mapa de ubicación de la ${cascada.nombre}`}
           src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
         ></iframe>
       </div>
@@ -283,9 +289,9 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--navy">
     <div class="reveal">
-      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en el {cascada.nombre}</h2>
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en la {cascada.nombre}</h2>
       <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
-        Rappel de 90 metros, vía ferrata, trekking, baño en pozones y un circuito de cascadas que convierte a Pucón en la capital de la aventura en Chile.
+        Trekking por bosque de araucarias milenarias, lagos andinos cristalinos y dos cascadas sobre el mismo curso de agua en el corazón del PN Huerquehue.
       </p>
     </div>
     <div class="cascada-activities-grid">
@@ -304,13 +310,13 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <section class="cascada-section cascada-section--cream">
     <div class="cascada-two-col">
       <div class="reveal">
-        <h2 class="cascada-h2">Flora del {cascada.nombre}</h2>
+        <h2 class="cascada-h2">Flora de la {cascada.nombre}</h2>
         {cascada.flora.split('\n\n').map(p => (
           <p class="cascada-body" set:html={p.trim()} />
         ))}
       </div>
       <div class="reveal">
-        <h2 class="cascada-h2">Fauna del {cascada.nombre}</h2>
+        <h2 class="cascada-h2">Fauna de la {cascada.nombre}</h2>
         {cascada.fauna.split('\n\n').map(p => (
           <p class="cascada-body">{p.trim()}</p>
         ))}
@@ -349,7 +355,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--cream">
     <div class="reveal" style="max-width:800px;">
-      <h2 class="cascada-h2">Historia y cultura del {cascada.nombre}</h2>
+      <h2 class="cascada-h2">Historia y cultura de la {cascada.nombre}</h2>
       {cascada.historia.split('\n\n').map(p => (
         <p class="cascada-body" set:html={p.trim()} />
       ))}
@@ -383,7 +389,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--cream">
     <div class="reveal">
-      <h2 class="cascada-h2">Gastronomía regional cerca del {cascada.nombre}</h2>
+      <h2 class="cascada-h2">Gastronomía regional cerca de la {cascada.nombre}</h2>
     </div>
     <div class="cascada-gastro-grid">
       {cascada.gastronomia.map(plato => (
@@ -399,9 +405,9 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--navy">
     <div class="reveal">
-      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca del {cascada.nombre}</h2>
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de la {cascada.nombre}</h2>
       <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
-        Alojamiento en Pucón y la ruta a las Termas de Huife, a minutos del salto.
+        Desde camping dentro del parque hasta hoteles boutique en Pucón, a 21 km del Huerquehue.
       </p>
     </div>
     <div class="cascada-alojamiento-grid">
@@ -450,7 +456,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
   <section class="cascada-section cascada-section--cream">
     <div class="reveal" style="max-width:800px;">
-      <h2 class="cascada-h2">Preguntas frecuentes sobre el {cascada.nombre}</h2>
+      <h2 class="cascada-h2">Preguntas frecuentes sobre la {cascada.nombre}</h2>
     </div>
     <div class="cascada-faq">
       {cascada.faq.map(f => (
@@ -466,7 +472,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
   <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
   <section class="cascada-section cascada-section--navy">
     <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
-      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas al {cascada.nombre}</h2>
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a la {cascada.nombre}</h2>
       <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
         Cascadas en La Araucanía y la zona de Pucón.
       </p>
@@ -485,7 +491,7 @@ const pageDescription = `${cascada.nombre}: cascada de ${cascada.altura} m en Pu
 
       <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
       <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
-        Cascadas con aventura, rappel y cañones volcánicos en el sur de Chile.
+        Cascadas en parques nacionales del sur de Chile con bosque nativo y trekking.
       </p>
       <div class="cascada-cercanas-grid">
         {cascada.cascadasRelacionadas.map(c => (
