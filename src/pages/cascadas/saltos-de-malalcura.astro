@@ -1,0 +1,920 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ─── DATOS DE LA CASCADA ──────────────────────────────────────────────────────
+// Verificado por chile-waterfalls-researcher, marzo 2026
+const cascada = {
+  nombre: 'Saltos de Malalcura',
+  slug: 'saltos-de-malalcura',
+  region: 'Biobío',
+  zona: 'Antuco',
+  altura: 40,
+  caudal: 'Variable estacional — aguas filtradas por escoria volcánica desde la Laguna del Laja',
+  dificultad: 'Moderado',
+  acceso: 'Sendero 2 h desde Camping Malalcura, Ruta Q-45 km 80',
+  coordenadas: '37°24\'S 71°25\'W',
+  mejorEpoca: 'Noviembre — Marzo',
+  entrada: 'Consultar en Camping Malalcura',
+  horario: 'Sin horario fijo',
+  descripcion: `Los Saltos de Malalcura son una serie de al menos seis cascadas y toboganes naturales que el Río Malalcura —cuyo nombre en mapudungún significa 'corral de piedra'— forma al descender por una imponente formación granítica de origen intrusivo. El granito, de fuerte contenido de cuarzo, exhibe un llamativo color blanco brillante que contrasta con la vegetación de bosque nativo que lo rodea. El salto más grande es parcialmente visible desde la Ruta Q-45, mientras que para acceder a toda la serie de cascadas es necesario realizar una caminata de aproximadamente dos horas desde el Camping Malalcura, a través de espesos bosques de Nothofagus (coihues, ñirres y lengas) con vistas a la Sierra Velluda y el Volcán Antuco.
+
+  Las aguas tienen una pureza excepcional: se filtran a través del subsuelo constituido por escoria volcánica (tefra) producto de la actividad del complejo volcánico Antuco, con origen en la Laguna del Laja y el Estero El Toro. Este proceso de filtración natural otorga a las aguas una transparencia cristalina. La formación geológica corresponde a un antiguo valle glaciario colgado labrado en el plutón granodiorítico, rellenado posteriormente por coladas de lava del Volcán Sierra Velluda.
+
+  Los Saltos de Malalcura forman parte de la Ruta de las Cascadas del Biobío promovida por SERNATUR, que incluye también el Salto del Trubunleo, el Velo de la Novia, Las Chilcas y el Salto Echeverría, todas en la comuna de Antuco. El parque de aventura Altos de Malalcura, ubicado en el km 80 de la ruta Q-45 contiguo al acceso, ofrece actividades de canopy, rappel en cascadas y excursiones guiadas al sector.`,
+  comoLlegar: `Desde Santiago (560 km, 6-7 horas en auto): Tomar Ruta 5 Sur hasta Los Ángeles, luego desviar por la Ruta Q-45 en dirección a Antuco y Laguna del Laja. Los Saltos de Malalcura se encuentran aproximadamente en el km 80 de la Ruta Q-45, antes de llegar a la entrada del Parque Nacional Laguna del Laja (km 94-97). El salto principal es visible al costado derecho del camino.
+
+  Desde Los Ángeles (90 km, aprox. 1 h 30 min): Tomar la Ruta Q-45 en dirección a Antuco. Pasar por la ciudad de Antuco y continuar por el camino de montaña hacia Laguna del Laja. El acceso a los saltos está en el km 80, en el sector Camping Malalcura / Altos de Malalcura.
+
+  Transporte público: Desde el Terminal Rural de Los Ángeles salen buses de las empresas Elper y El Volcán con destino a Abanico (pasando por Antuco y Villa Peluca). El viaje toma aproximadamente 90 minutos. El bus puede detenerse en el acceso al Camping Malalcura si se solicita. No hay transporte público directo desde Santiago al lugar.`,
+  imagen: '/assets/cascadas/saltos-de-malalcura/hero.webp',
+  imagenAlt: 'Volcán Antuco y Sierra Velluda en el Parque Nacional Laguna del Laja, entorno de los Saltos de Malalcura en Biobío',
+  galeria: [
+    { src: '/assets/cascadas/saltos-de-malalcura/galeria-1.webp', alt: 'Glaciar de la Sierra Velluda en el Parque Nacional Laguna del Laja, visible desde el sendero a Malalcura' },
+    { src: '/assets/cascadas/saltos-de-malalcura/galeria-2.webp', alt: 'Laguna del Laja con paisaje cordillerano en la Región del Biobío, origen de las aguas de Malalcura' },
+    { src: '/assets/cascadas/saltos-de-malalcura/galeria-3.webp', alt: 'Río Laja atravesando el Parque Nacional Laguna del Laja, cuenca compartida con el Río Malalcura' },
+    { src: '/assets/cascadas/saltos-de-malalcura/galeria-4.webp', alt: 'Glaciar Sierra Velluda visto desde el interior del Parque Nacional Laguna del Laja, Biobío' },
+  ],
+  galeriaCreditos: [
+    { autor: 'Raymundo46', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Volcan-Antuco-y-Sierra-Velluda.jpg' },
+    { autor: 'Raymundo46', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Sierra-Velluda-3.jpg' },
+    { autor: 'Hellmighty', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Laguna_del_Laja,_Bio_Bio,_Chile.jpg' },
+    { autor: 'AcrossTheMountains', licencia: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Parque_nacional_Laguna_del_Laja_rio_Laja.jpg' },
+  ],
+  // 3 por cercanía geográfica (misma región, misma comuna Antuco)
+  cascadasCercanas: [
+    { nombre: 'Cascadas P.N. Laguna del Laja', slug: 'cascadas-parque-nacional-laguna-del-laja', region: 'Biobío', altura: 55, tipo: 'cercania' },
+    { nombre: 'Salto del Trubunleo', slug: 'salto-trubunleo', region: 'Biobío', altura: 55, tipo: 'cercania' },
+    { nombre: 'Salto del Laja', slug: 'salto-del-laja', region: 'Biobío', altura: 35, tipo: 'cercania' },
+  ],
+  // 3 por relación semántica (sendero moderado en parque/reserva, múltiples saltos, experiencia outdoor)
+  cascadasRelacionadas: [
+    { nombre: 'Cascada Nido de Águila', slug: 'cascada-nido-de-aguila', region: 'La Araucanía', altura: 50, tipo: 'relacionada' },
+    { nombre: 'Salto Rehuén', slug: 'salto-rehuen', region: 'Biobío', altura: 70, tipo: 'relacionada' },
+    { nombre: 'Salto del Claro', slug: 'salto-del-claro', region: 'La Araucanía', altura: 90, tipo: 'relacionada' },
+  ],
+
+  // --- Datos verificados por chile-waterfalls-researcher (marzo 2026) ---
+  lat: -37.402,
+  lng: -71.420,
+  rio: 'Río Malalcura',
+  tipoFormacion: 'Formación granítica intrusiva con cuarzo',
+  numeroBrazos: 6,
+  distanciaSantiago: 560,
+
+  historia: `El nombre Malalcura proviene del mapudungún y significa 'corral de piedra' (malal = corral, kura = piedra), reflejo de la geografía granítica del lugar y de la relación histórica que el pueblo mapuche —en particular los pehuenches— mantuvieron con este territorio andino. Los pehuenches utilizaban el corredor del Río Laja y el Paso Antuco para sus desplazamientos y comercio transfronterizo con Argentina, por lo que los sectores altos de Antuco fueron frecuentados durante siglos por estas comunidades.
+
+  Geológicamente, la formación de los saltos está vinculada a millones de años de actividad volcánica e intrusiva del complejo Antuco-Sierra Velluda. El plutón granodiorítico que forma el lecho por el que caen los saltos se formó por la intrusión de magma en épocas geológicas pasadas. Posteriormente, durante el Pleistoceno, glaciares tallaron el valle donde hoy corre el Río Malalcura, creando el perfil de 'valle colgado' que da origen a las cascadas escalonadas. Las lavas del Volcán Sierra Velluda rellenaron parcialmente el valle glaciario, modificando aún más el recorrido del río y configurando los saltos actuales.
+
+  El sector fue incorporado al circuito turístico de Antuco durante la última década del siglo XX, y tomó mayor relevancia con la creación de la Ruta de las Cascadas del Biobío (SERNATUR, 2020), que lo incluye entre las cinco cascadas principales de la comuna de Antuco. El parque de aventura Altos de Malalcura lleva más de 15 años operando en el km 80 de la Ruta Q-45.`,
+
+  queHacer: [
+    { actividad: 'Trekking a los saltos', descripcion: 'Caminata de aproximadamente 2 horas desde el Camping Malalcura. El sendero atraviesa bosques densos de Nothofagus con vistas al Volcán Antuco (2.979 m) y Sierra Velluda (3.585 m). Las rocas graníticas son resbaladizas: se recomienda calzado de trekking con buena tracción. Dificultad moderada.' },
+    { actividad: 'Canopy y rappel en cascadas', descripcion: 'El parque Altos de Malalcura (km 80, Ruta Q-45) opera un circuito de canopy de 2,3 km con líneas de hasta 130 m de altura. También ofrecen rappel vertical en cascadas y escalada. Más de 15 años de experiencia. Contacto: +56 9 7427 7508.' },
+    { actividad: 'Observación desde la carretera', descripcion: 'El salto más grande de la serie es parcialmente visible desde el costado derecho de la Ruta Q-45, frente a un coihue de gran tamaño, aproximadamente 3 km antes de la entrada al Parque Nacional Laguna del Laja. No requiere caminata.' },
+    { actividad: 'Fotografía de naturaleza', descripcion: 'El sendero permite avistar la mariposa del chagual (Castnia eudesmia), la mariposa más grande de Chile. Oportunidades fotográficas de cóndor andino, zorro culpeo, y el contraste del granito blanco con el bosque nativo. Mejor época: noviembre a febrero.' },
+    { actividad: 'Pesca deportiva', descripcion: 'El Río Malalcura y sectores del Río Laja ofrecen pesca deportiva de trucha arcoíris. Requiere licencia de pesca de Sernapesca vigente. Temporada habitual: noviembre a mayo.' },
+    { actividad: 'Visita al P.N. Laguna del Laja', descripcion: 'A 14 km por la misma Ruta Q-45 se encuentra la entrada al parque (km 94). Sendero Las Chilcas (1,6 km, fácil, 1 h) incluye las cascadas Las Chilcas y Torbellino. Entrada: $3.200 adultos chilenos (2025). Horario: 8:30-17:30.' },
+  ],
+
+  flora: `El sendero hacia los Saltos de Malalcura discurre por un bosque templado andino dominado por Nothofagus: coihue (Nothofagus dombeyi), ñirre (Nothofagus antarctica) y lenga (Nothofagus pumilio), especies características de la cordillera de la Región del Biobío entre los 900 y 1.800 msnm. El sotobosque incluye diversas especies de helechos nativos, musgos y líquenes que cubren las rocas graníticas en las zonas de mayor humedad.
+
+  En el estrato arbustivo se encuentran el michay (Berberis sp.) de flores amarillas, la murtilla (Ugni molinae) con sus frutos comestibles, el calafate (Berberis microphylla) y el chilco (Fuchsia magellanica) de flores rojas. La orilla del Río Malalcura alberga vegetación higrófila con abundantes musgos ribereños y helechos acuáticos. En las zonas abiertas crece el chagual o puya (Puya sp.), planta que sirve de hábitat a la mariposa Castnia eudesmia. También se reportan araucaria (Araucaria araucana) y ciprés de la cordillera (Austrocedrus chilensis) en sectores del parque adyacente.`,
+
+  fauna: `El entorno de los Saltos de Malalcura destaca por la presencia de la mariposa del chagual (Castnia eudesmia Gray, 1838), la mariposa más grande de Chile y la única de la familia Castniidae en el país. Esta especie amenazada mantiene una relación simbiótica con el chagual: los adultos se alimentan del néctar de sus flores mientras las larvas se desarrollan en el interior del tallo. Es fácil de observar durante primavera y verano.
+
+  Entre las aves destacan el cóndor andino (Vultur gryphus), el águila (Geranoaetus melanoleucus), el halcón peregrino (Falco peregrinus), el picaflor gigante (Patagona gigas) y la cachaña (Enicognathus ferrugineus). En la ribera del río se pueden observar el martín pescador (Megaceryle torquata) y el pato cortacorrientes (Merganetta armata). Entre los mamíferos están el puma, el zorro culpeo (Lycalopex culpaeus), el pudú (Pudu puda) y la vizcacha (Lagidium viscacia). El huemul (Hippocamelus bisulcus), especie en peligro crítico, habita la zona aunque su avistamiento es muy ocasional.`,
+
+  clima: {
+    tipo: 'Mediterráneo cordillerano (Csb)',
+    tempPromedio: '13.6°C',
+    tempVerano: '20-30°C',
+    tempInvierno: '-0.3°C a 10°C',
+    precipitaciones: '~1.400-1.800 mm anuales (mayo-agosto)',
+    descripcion: 'El sector de Malalcura (~1.000 msnm) presenta un clima cordillerano con veranos cálidos y secos e inviernos fríos y lluviosos, con nevadas posibles desde mayo. El período óptimo para visitar los saltos es de noviembre a marzo: temperaturas agradables, nieve derretida que alimenta el caudal del Río Malalcura, y senderos accesibles. En invierno (junio-agosto) el sendero puede presentar hielo y nieve.',
+  },
+
+  seguridad: [
+    'Las rocas graníticas son extremadamente resbaladizas, especialmente con musgo húmedo — caminar con precaución',
+    'El sendero no tiene señalización formal — se recomienda ir con guía local o pedir indicaciones en el Camping Malalcura',
+    'No bañarse en los pozones bajo los saltos sin conocer la profundidad — aguas de deshielo muy frías (menos de 10°C)',
+    'Llevar agua potable propia — no consumir agua del río sin tratar',
+    'En invierno (junio-septiembre) la Ruta Q-45 puede quedar bloqueada por nieve y el sendero ser inaccesible',
+    'El Volcán Antuco es un volcán activo — estar atento a alertas de SERNAGEOMIN',
+    'No escalar las rocas graníticas sin equipo adecuado',
+    'No dejar basura — zona de bosque nativo con alta sensibilidad ecológica',
+  ],
+
+  recomendaciones: [
+    'Calzado de trekking con suela antideslizante — imprescindible en el granito húmedo',
+    'Ropa en capas: chaqueta impermeable aunque el día esté soleado',
+    'Bastones de trekking para el descenso por senderos con raíces',
+    'Mínimo 1,5 litros de agua potable por persona',
+    'Protector solar SPF 50+ (altitud y reflexión del granito blanco)',
+    'Binoculares para observar cóndores y patos cortacorrientes',
+    'Snacks energéticos para la caminata de 2 horas de subida',
+    'Mapa offline (MAPS.ME o AllTrails) — cobertura de datos limitada',
+  ],
+
+  gastronomia: [
+    { plato: 'Trucha arcoíris del Río Laja', descripcion: 'El plato estrella de la zona cordillerana de Antuco. Trucha a la plancha, al ajillo o ahumada. Disponible en el EcoHotel Antuco, Antucalhue Mountain Resort y restaurantes locales de Antuco.' },
+    { plato: 'Cazuela de vacuno cordillerana', descripcion: 'Caldo contundente con trozos de carne, papas, choclo y zapallo. Plato cotidiano de la cocina criolla del sur de Chile, ideal para recuperar energías después del trekking.' },
+    { plato: 'Asado al palo', descripcion: 'Cordero o vacuno asado a fuego lento en estaca, tradición huasa del campo del Biobío. En Antuco se ofrece en fondas y campings durante temporada estival y Fiestas Patrias.' },
+    { plato: 'Empanada de pino horneada', descripcion: 'Empanada criolla rellena de carne picada, cebolla, aceituna y huevo duro. Presente en locales de Antuco y puestos de la ruta Q-45.' },
+    { plato: 'Hongos silvestres (changle, digüeñe)', descripcion: 'En otoño (marzo-mayo) los bosques de Nothofagus producen hongos nativos como el changle y el digüeñe. Los restaurantes rurales los ofrecen salteados con ajo o en tortilla campesina.' },
+  ],
+
+  alojamiento: [
+    { nombre: 'Antucalhue Mountain Resort', tipo: 'Cabañas', precioDesde: 'Consultar', url: 'https://www.antucalhue.cl', descripcion: 'Resort de montaña en Ruta Q-45 km 82, a 2 km de los saltos. Cabañas con calefacción, cocina equipada, piscina al aire libre y quincho. Registro SERNATUR. Tel: +56 9 6849 6340.' },
+    { nombre: 'Altos de Malalcura', tipo: 'Parque de aventura', precioDesde: 'Consultar', url: 'https://www.instagram.com/altosdemalalcura/', descripcion: 'En Ruta Q-45 km 80, contiguo a los saltos. Canopy, rappel, escalada y acceso directo al sendero de las cascadas. Más de 15 años de operación. Tel: +56 9 7427 7508.' },
+    { nombre: 'Camping Malalcura', tipo: 'Camping', precioDesde: 'Consultar', url: '#', descripcion: 'Camping en la Ruta Q-45 con ruca mapuche. Punto de partida oficial del sendero a los saltos. Contactar vía Facebook para reservas.' },
+    { nombre: 'EcoHotel Antuco', tipo: 'Hotel boutique', precioDesde: 'Desde ~$50.000 CLP', url: 'https://volcanantuco.com/alojamiento/', descripcion: '5 habitaciones con vista a la cordillera en Antuco, a 30 km de los saltos. Restaurant, WiFi, lavandería. Tel: +56 9 6715 3242.' },
+    { nombre: 'Cabañas Curalemu', tipo: 'Cabañas', precioDesde: 'Consultar', url: 'https://volcanantuco.com/alojamiento/', descripcion: 'En km 55 del camino a Antuco (35 km de los saltos). 10 cabañas para 4-6 personas. Piscina estacional, sala de juegos, senderos. Tel: +56 9 7455 6548.' },
+  ],
+
+  faq: [
+    { pregunta: '¿Qué son los Saltos de Malalcura?', respuesta: 'Los Saltos de Malalcura son una serie de al menos 6 cascadas y toboganes naturales que forma el Río Malalcura al descender por una formación granítica blanca en Antuco, Región del Biobío. Su nombre en mapudungún significa \'corral de piedra\'. Las aguas tienen pureza excepcional al filtrarse por escoria volcánica.' },
+    { pregunta: '¿Cómo se llega a los Saltos de Malalcura?', respuesta: 'Se accede por la Ruta Q-45 (Los Ángeles-Laguna del Laja), aproximadamente en el km 80. El salto mayor es visible desde la carretera. Para recorrer todos los saltos se debe solicitar acceso en el Camping Malalcura y realizar una caminata de unas 2 horas.' },
+    { pregunta: '¿Cuánto cuesta la entrada a los Saltos de Malalcura?', respuesta: 'No hay tarifa oficial pública verificada. Se debe consultar directamente con el Camping Malalcura o con Altos de Malalcura (+56 9 7427 7508). Los saltos están fuera del Parque Nacional Laguna del Laja, por lo que no requieren entrada CONAF.' },
+    { pregunta: '¿Los Saltos de Malalcura están dentro del Parque Nacional?', respuesta: 'No. Los Saltos de Malalcura se ubican en el km 80 de la Ruta Q-45, antes de la entrada al Parque Nacional Laguna del Laja (km 94-97). El acceso no requiere entrada CONAF. El parque Altos de Malalcura y el Camping Malalcura gestionan el acceso al sendero.' },
+    { pregunta: '¿Qué dificultad tiene el sendero?', respuesta: 'El sendero tiene dificultad moderada. La caminata de ida dura unas 2 horas por bosque nativo denso. Las rocas graníticas húmedas son muy resbaladizas, se recomienda calzado de trekking con suela antideslizante y bastones.' },
+    { pregunta: '¿Cuál es la mejor época para visitar?', respuesta: 'De noviembre a marzo (primavera-verano austral). Temperaturas agradables (20-30°C), senderos accesibles y caudal óptimo alimentado por el deshielo de la Sierra Velluda. En invierno el sector puede tener nieve y el sendero ser intransitable.' },
+    { pregunta: '¿Qué animal especial se puede ver en el sendero?', respuesta: 'El sendero es uno de los pocos lugares donde se avista fácilmente la mariposa del chagual (Castnia eudesmia), la mariposa más grande de Chile. También es posible observar cóndores andinos sobrevolando la Sierra Velluda.' },
+  ],
+};
+
+// ─── STRUCTURED DATA ────────────────────────────────────────────────────────
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: cascada.nombre,
+    description: `Serie de ${cascada.numeroBrazos} cascadas de ${cascada.altura} metros promedio sobre formación granítica blanca en Antuco, Región del ${cascada.region}, Chile. Sendero de 2 horas por bosque de Nothofagus.`,
+    image: `https://cascadaschile.com${cascada.imagen}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: cascada.lat,
+      longitude: cascada.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: cascada.region,
+      addressLocality: cascada.zona,
+      addressCountry: 'CL',
+    },
+    touristType: ['Naturaleza', 'Trekking', 'Aventura', 'Fotografía'],
+    url: `https://cascadaschile.com/cascadas/${cascada.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cascada.faq.map(f => ({
+      '@type': 'Question',
+      name: f.pregunta,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.respuesta,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://cascadaschile.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Cascadas', item: 'https://cascadaschile.com/cascadas' },
+      { '@type': 'ListItem', position: 3, name: cascada.region, item: `https://cascadaschile.com/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}` },
+      { '@type': 'ListItem', position: 4, name: cascada.nombre },
+    ],
+  },
+];
+
+const pageTitle = `${cascada.nombre} — Guía completa, cómo llegar y qué hacer | Cascadas de Chile`;
+const pageDescription = `${cascada.nombre}: ${cascada.numeroBrazos} cascadas de ${cascada.altura} m sobre granito blanco en Antuco, ${cascada.region}. Cómo llegar, sendero, canopy, alojamiento y toda la información.`;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={`https://cascadaschile.com${cascada.imagen}`}
+  structuredData={structuredData}
+>
+
+  <!-- ─── 1. HERO ──────────────────────────────────────────────────────────── -->
+  <section class="cascada-hero">
+    <img src={cascada.imagen} alt={cascada.imagenAlt} class="cascada-hero__bg" width="1600" height="1200" decoding="async" fetchpriority="high" />
+    <div class="cascada-hero__overlay"></div>
+    <div class="cascada-hero__content">
+      <nav class="cascada-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>›</span>
+        <a href="/cascadas/">Cascadas</a>
+        <span>›</span>
+        <a href={`/region/${cascada.region.toLowerCase().replace(/\s/g,'-')}`}>{cascada.region}</a>
+        <span>›</span>
+        <span class="cascada-breadcrumb__current">{cascada.nombre}</span>
+      </nav>
+
+      <div class="cascada-hero__bottom">
+        <div>
+          <span class="cascada-badge">{cascada.region}</span>
+          <h1 class="cascada-hero__title">{cascada.nombre}</h1>
+        </div>
+        <div class="cascada-hero__stat">
+          <p class="cascada-hero__stat-number">{cascada.altura}m</p>
+          <p class="cascada-hero__stat-label">Altura promedio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 2. FICHA RÁPIDA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="cascada-ficha">
+      {[
+        { label: 'Dificultad', value: cascada.dificultad },
+        { label: 'Acceso', value: cascada.acceso },
+        { label: 'Entrada', value: cascada.entrada },
+        { label: 'Mejor época', value: cascada.mejorEpoca },
+        { label: 'Río', value: cascada.rio },
+        { label: 'Saltos', value: `${cascada.numeroBrazos} cascadas` },
+        { label: 'Dist. Santiago', value: `${cascada.distanciaSantiago} km` },
+        { label: 'Coordenadas', value: cascada.coordenadas },
+      ].map((stat) => (
+        <div class="cascada-ficha__item">
+          <p class="cascada-ficha__label">{stat.label}</p>
+          <p class="cascada-ficha__value">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 3. DESCRIPCIÓN ──────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Sobre los {cascada.nombre}</h2>
+        <p class="cascada-body">Los Saltos de Malalcura son una serie de al menos seis cascadas y toboganes naturales que el Río Malalcura —cuyo nombre en mapudungún significa 'corral de piedra'— forma al descender por una imponente formación granítica de origen intrusivo. El granito, de fuerte contenido de cuarzo, exhibe un llamativo color blanco brillante que contrasta con la vegetación de bosque nativo que lo rodea.</p>
+        <p class="cascada-body">Las aguas tienen una pureza excepcional: se filtran a través del subsuelo de escoria volcánica del complejo <a href="/cascadas/salto-trubunleo/" class="cascada-inline-link">Volcán Antuco</a>, con origen en la Laguna del Laja y el Estero El Toro. La formación geológica corresponde a un antiguo valle glaciario colgado labrado en el plutón granodiorítico, rellenado posteriormente por coladas de lava de la Sierra Velluda. A diferencia de las <a href="/cascadas/cascadas-parque-nacional-laguna-del-laja/" class="cascada-inline-link">cascadas del Parque Nacional Laguna del Laja</a> ubicadas en el km 94, los Saltos de Malalcura se encuentran fuera del parque (km 80) y no requieren entrada CONAF.</p>
+        <p class="cascada-body">Los Saltos de Malalcura forman parte de la Ruta de las Cascadas del <a href="/region/biobio/" class="cascada-inline-link">Biobío</a>, circuito promovido por SERNATUR que incluye también el <a href="/cascadas/salto-trubunleo/" class="cascada-inline-link">Salto del Trubunleo</a>, el Velo de la Novia, Las Chilcas y el Salto Echeverría, todas en la comuna de Antuco. Son, junto con el <a href="/cascadas/salto-del-laja/" class="cascada-inline-link">Salto del Laja</a>, una de las <a href="/cascadas/" class="cascada-inline-link">cascadas más singulares de Chile</a> por su formación en granito blanco.</p>
+      </div>
+
+      <!-- ─── 4. CÓMO LLEGAR + MAPA ──────────────────────────────────────── -->
+      <div class="reveal">
+        <h2 class="cascada-h2">Cómo llegar a los {cascada.nombre}</h2>
+        {cascada.comoLlegar.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+        <iframe
+          class="cascada-map"
+          width="100%"
+          height="300"
+          loading="lazy"
+          title={`Mapa de ubicación de los ${cascada.nombre}`}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${cascada.lng-0.02},${cascada.lat-0.015},${cascada.lng+0.02},${cascada.lat+0.015}&layer=mapnik&marker=${cascada.lat},${cascada.lng}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 5. QUÉ HACER ───────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Qué hacer en los {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Desde trekking por bosque nativo hasta canopy y rappel en cascadas, Malalcura ofrece aventura para todos los niveles.
+      </p>
+    </div>
+    <div class="cascada-activities-grid">
+      {cascada.queHacer.map((act, i) => (
+        <div class="cascada-card reveal">
+          <span class="cascada-card__number">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="cascada-card__title">{act.actividad}</h3>
+          <p class="cascada-card__text">{act.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 6. FLORA Y FAUNA ────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2">Flora de los {cascada.nombre}</h2>
+        {cascada.flora.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2">Fauna de los {cascada.nombre}</h2>
+        {cascada.fauna.split('\n\n').map(p => (
+          <p class="cascada-body">{p.trim()}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 7. CLIMA ────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Clima y mejor época para visitar</h2>
+    </div>
+    <div class="cascada-clima reveal">
+      <div class="cascada-clima__stats">
+        {[
+          { label: 'Tipo de clima', value: cascada.clima.tipo },
+          { label: 'Temp. promedio anual', value: cascada.clima.tempPromedio },
+          { label: 'Temp. verano', value: cascada.clima.tempVerano },
+          { label: 'Temp. invierno', value: cascada.clima.tempInvierno },
+          { label: 'Precipitaciones', value: cascada.clima.precipitaciones },
+        ].map(stat => (
+          <div class="cascada-clima__stat">
+            <p class="cascada-clima__label">{stat.label}</p>
+            <p class="cascada-clima__value">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cascada-body cascada-body--light" style="margin-top:2rem; max-width:800px;">
+        {cascada.clima.descripcion}
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ─── 8. HISTORIA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Historia y cultura de los {cascada.nombre}</h2>
+      {cascada.historia.split('\n\n').map(p => (
+        <p class="cascada-body">{p.trim()}</p>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 9. SEGURIDAD ────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="cascada-two-col">
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Seguridad y recomendaciones</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.seguridad.map(tip => (
+            <li>{tip}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2 class="cascada-h2 cascada-h2--light">Qué llevar</h2>
+        <ul class="cascada-list cascada-list--light">
+          {cascada.recomendaciones.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 10. GASTRONOMÍA ─────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal">
+      <h2 class="cascada-h2">Gastronomía regional cerca de los {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-gastro-grid">
+      {cascada.gastronomia.map(plato => (
+        <div class="cascada-gastro-card reveal">
+          <h3 class="cascada-gastro-card__title">{plato.plato}</h3>
+          <p class="cascada-gastro-card__text">{plato.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 11. DÓNDE ALOJARSE ──────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div class="reveal">
+      <h2 class="cascada-h2 cascada-h2--light">Dónde alojarse cerca de los {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light" style="max-width:700px; margin-bottom:2.5rem;">
+        Cabañas, camping y hoteles en la Ruta Q-45 y la comuna de Antuco.
+      </p>
+    </div>
+    <div class="cascada-alojamiento-grid">
+      {cascada.alojamiento.map(a => (
+        <a href={a.url} class="cascada-alojamiento-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="cascada-alojamiento-card__top">
+            <span class="cascada-alojamiento-card__badge">{a.tipo}</span>
+            <span class="cascada-alojamiento-card__price">{a.precioDesde}</span>
+          </div>
+          <h3 class="cascada-alojamiento-card__title">{a.nombre}</h3>
+          <p class="cascada-alojamiento-card__text">{a.descripcion}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 12. GALERÍA ─────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy" style="padding-top:0;">
+    <div style="border-top:1px solid rgba(244,239,230,0.08); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light cascada-h2--large reveal">Galería</h2>
+      <div class="cascada-galeria">
+        <div class="cascada-galeria__big">
+          <img src={cascada.galeria[0].src} alt={cascada.galeria[0].alt} loading="lazy" width="800" height="600" decoding="async" />
+        </div>
+        {cascada.galeria.slice(1).map((img) => (
+          <div class="cascada-galeria__small">
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="600" decoding="async" />
+          </div>
+        ))}
+      </div>
+      {cascada.galeriaCreditos && (
+        <p class="cascada-galeria__credits">
+          Fotos del entorno (Volcán Antuco, Sierra Velluda, Laguna del Laja): {cascada.galeriaCreditos.map((c, i) => (
+            <><a href={c.url} target="_blank" rel="noopener noreferrer">{c.autor}</a> ({c.licencia}){i < cascada.galeriaCreditos.length - 1 ? ', ' : ''}</>
+          ))}. Vía Wikimedia Commons.
+        </p>
+      )}
+    </div>
+  </section>
+
+
+  <!-- ─── 13. FAQ ─────────────────────────────────────────────────────────── -->
+  <section class="cascada-section cascada-section--cream">
+    <div class="reveal" style="max-width:800px;">
+      <h2 class="cascada-h2">Preguntas frecuentes sobre los {cascada.nombre}</h2>
+    </div>
+    <div class="cascada-faq">
+      {cascada.faq.map(f => (
+        <details class="cascada-faq__item reveal">
+          <summary class="cascada-faq__question">{f.pregunta}</summary>
+          <p class="cascada-faq__answer">{f.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ─── 14. CASCADAS CERCANAS + RELACIONADAS ─────────────────────────────── -->
+  <section class="cascada-section cascada-section--navy">
+    <div style="border-top:1px solid rgba(244,239,230,0.1); padding-top:5rem;">
+      <h2 class="cascada-h2 cascada-h2--light reveal">Cascadas cercanas a los {cascada.nombre}</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Otras cascadas en la comuna de Antuco y la Región del Biobío.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasCercanas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--tipo">Cercanía</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="cascada-h2 cascada-h2--light reveal" style="margin-top:4rem;">También te puede interesar</h2>
+      <p class="cascada-body cascada-body--light reveal" style="max-width:700px; margin-bottom:2.5rem;">
+        Cascadas similares en dificultad y tipo de experiencia outdoor.
+      </p>
+      <div class="cascada-cercanas-grid">
+        {cascada.cascadasRelacionadas.map(c => (
+          <a href={`/cascadas/${c.slug}`} class="cascade-card cascada-cercana-card">
+            <div class="cascada-cercana-card__badges">
+              <span class="cascada-cercana-card__badge">{c.region}</span>
+              <span class="cascada-cercana-card__badge cascada-cercana-card__badge--semantic">Relacionada</span>
+            </div>
+            <h3 class="cascada-cercana-card__title">{c.nombre}</h3>
+            <p class="cascada-cercana-card__meta">{c.altura} m de altura →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── 15. CTA MAPA ───────────────────────────────────────────────────── -->
+  <section class="cascada-cta">
+    <h2 class="cascada-cta__title">Descubre +500<br/>cascadas más</h2>
+    <p class="cascada-cta__text">Explora todas las cascadas de Chile con guías completas, mapas y datos prácticos.</p>
+    <a href="/mapa/" class="cascada-cta__button">Ver mapa interactivo →</a>
+  </section>
+
+</Layout>
+
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────────────────── */
+  .cascada-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    padding-top: 64px;
+    overflow: hidden;
+  }
+  .cascada-hero__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .cascada-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(9,29,43,0.3) 0%, rgba(9,29,43,0.85) 100%);
+  }
+  .cascada-hero__content {
+    position: relative; z-index: 1;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 4rem 2.5rem;
+  }
+  .cascada-hero__bottom {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .cascada-hero__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #f4efe6; margin: 0; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .cascada-hero__stat { text-align: right; padding-bottom: 0.5rem; }
+  .cascada-hero__stat-number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: #00e5d4; margin: 0; line-height: 1;
+  }
+  .cascada-hero__stat-label {
+    color: rgba(244,239,230,0.55); font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0.25rem 0 0;
+  }
+
+  /* ─── BREADCRUMB ───────────────────────────────────────────────────────── */
+  .cascada-breadcrumb {
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .cascada-breadcrumb a {
+    color: rgba(244,239,230,0.6); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cascada-breadcrumb a:hover { color: #00e5d4; }
+  .cascada-breadcrumb span { color: rgba(244,239,230,0.3); font-size: 0.78rem; }
+  .cascada-breadcrumb__current {
+    color: #00e5d4; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── BADGE ────────────────────────────────────────────────────────────── */
+  .cascada-badge {
+    display: inline-block; background: #00e5d4; color: #091d2b;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── INLINE LINKS ──────────────────────────────────────────────────────── */
+  .cascada-inline-link {
+    color: #00b4a0; text-decoration: underline;
+    text-decoration-color: rgba(0,180,160,0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  .cascada-inline-link:hover {
+    text-decoration-color: #00b4a0;
+    color: #00e5d4;
+  }
+
+  /* ─── SECTIONS ─────────────────────────────────────────────────────────── */
+  .cascada-section { padding: 5rem 2.5rem; }
+  .cascada-section--cream { background: #f4efe6; }
+  .cascada-section--navy { background: #091d2b; }
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  .cascada-h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #091d2b; margin: 0 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-h2--light { color: #f4efe6; }
+  .cascada-h2--large { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.9; margin-bottom: 3rem; }
+
+  .cascada-body {
+    color: #091d2b; font-size: 1.05rem; line-height: 1.75;
+    margin: 0 0 1.25rem; font-weight: 300;
+  }
+  .cascada-body--light { color: rgba(244,239,230,0.75); }
+
+  .cascada-list {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .cascada-list li {
+    color: #091d2b; font-size: 1rem; line-height: 1.75;
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-weight: 300;
+  }
+  .cascada-list li::before {
+    content: ''; position: absolute; left: 0; top: 1rem;
+    width: 6px; height: 6px; border-radius: 50%; background: #00e5d4;
+  }
+  .cascada-list--light li { color: rgba(244,239,230,0.75); }
+
+  /* ─── FICHA RÁPIDA ─────────────────────────────────────────────────────── */
+  .cascada-ficha {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(9,29,43,0.12);
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-ficha__item:nth-child(4n) { border-right: none; }
+  .cascada-ficha__item:nth-child(n+5) { border-bottom: none; }
+  .cascada-ficha__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #00b4a0; margin: 0 0 0.4rem;
+  }
+  .cascada-ficha__value {
+    font-size: 0.95rem; color: #091d2b; margin: 0; font-weight: 500;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ────────────────────────────────────────────────── */
+  .cascada-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; max-width: 1200px;
+  }
+
+  /* ─── MAP ───────────────────────────────────────────────────────────────── */
+  .cascada-map {
+    border-radius: 4px; border: 0; margin-top: 2rem;
+  }
+
+  /* ─── ACTIVITIES GRID ──────────────────────────────────────────────────── */
+  .cascada-activities-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-card {
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-card:hover { border-color: rgba(0,229,212,0.3); }
+  .cascada-card__number {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem; color: #00e5d4; line-height: 1; display: block;
+    margin-bottom: 1rem;
+  }
+  .cascada-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .cascada-card__text {
+    color: rgba(244,239,230,0.6); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CLIMA ────────────────────────────────────────────────────────────── */
+  .cascada-clima__stats {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; border: 1px solid rgba(244,239,230,0.1);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-clima__stat {
+    padding: 1.5rem 1.25rem;
+    border-right: 1px solid rgba(244,239,230,0.1);
+  }
+  .cascada-clima__stat:last-child { border-right: none; }
+  .cascada-clima__label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #00e5d4; margin: 0 0 0.4rem;
+  }
+  .cascada-clima__value {
+    font-size: 0.95rem; color: #f4efe6; margin: 0; font-weight: 400;
+  }
+
+  /* ─── GASTRONOMÍA ──────────────────────────────────────────────────────── */
+  .cascada-gastro-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    max-width: 1000px;
+  }
+  .cascada-gastro-card {
+    border: 1px solid rgba(9,29,43,0.1);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-gastro-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-gastro-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #091d2b; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-gastro-card__text {
+    color: rgba(9,29,43,0.7); font-size: 0.92rem;
+    line-height: 1.65; margin: 0; font-weight: 300;
+  }
+
+  /* ─── ALOJAMIENTO ──────────────────────────────────────────────────────── */
+  .cascada-alojamiento-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  }
+  .cascada-alojamiento-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .cascada-alojamiento-card:hover {
+    border-color: rgba(0,229,212,0.4);
+    transform: translateY(-4px);
+  }
+  .cascada-alojamiento-card__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cascada-alojamiento-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.15); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-alojamiento-card__price {
+    color: #00e5d4; font-size: 0.85rem; font-weight: 500;
+  }
+  .cascada-alojamiento-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem; color: #f4efe6; margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .cascada-alojamiento-card__text {
+    color: rgba(244,239,230,0.55); font-size: 0.9rem;
+    line-height: 1.6; margin: 0; font-weight: 300;
+  }
+
+  /* ─── GALERÍA ──────────────────────────────────────────────────────────── */
+  .cascada-galeria {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+  }
+  .cascada-galeria__big {
+    grid-row: 1 / 3;
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__small {
+    border-radius: 4px; overflow: hidden;
+  }
+  .cascada-galeria__big img,
+  .cascada-galeria__small img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .cascada-galeria__credits {
+    font-size: 0.75rem; color: rgba(244,239,230,0.4);
+    margin-top: 1rem; line-height: 1.5;
+  }
+  .cascada-galeria__credits a {
+    color: rgba(244,239,230,0.55); text-decoration: underline;
+    text-decoration-color: rgba(244,239,230,0.2);
+  }
+  .cascada-galeria__credits a:hover {
+    color: #00e5d4;
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────────────── */
+  .cascada-faq { max-width: 800px; }
+  .cascada-faq__item {
+    border-bottom: 1px solid rgba(9,29,43,0.12);
+  }
+  .cascada-faq__question {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem; color: #091d2b;
+    padding: 1.25rem 0; cursor: pointer;
+    text-transform: uppercase; list-style: none;
+  }
+  .cascada-faq__question::-webkit-details-marker { display: none; }
+  .cascada-faq__question::after {
+    content: '+'; float: right; color: #00e5d4;
+    font-size: 1.4rem; font-weight: 400; transition: transform 0.2s;
+  }
+  details[open] .cascada-faq__question::after {
+    content: '−';
+  }
+  .cascada-faq__answer {
+    color: rgba(9,29,43,0.75); font-size: 1rem;
+    line-height: 1.75; margin: 0; padding: 0 0 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CASCADAS CERCANAS ────────────────────────────────────────────────── */
+  .cascada-cercanas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .cascada-cercana-card {
+    display: block; text-decoration: none;
+    border: 1px solid rgba(244,239,230,0.08);
+    border-radius: 4px; padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .cascada-cercana-card:hover { border-color: rgba(0,229,212,0.4); }
+  .cascada-cercana-card__badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .cascada-cercana-card__badge {
+    display: inline-block; background: rgba(0,229,212,0.1); color: #00e5d4;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .cascada-cercana-card__badge--tipo {
+    background: rgba(244,239,230,0.08); color: rgba(244,239,230,0.5);
+  }
+  .cascada-cercana-card__badge--semantic {
+    background: rgba(0,180,160,0.15); color: #00b4a0;
+  }
+  .cascada-cercana-card__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem; color: #f4efe6; margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+  .cascada-cercana-card__meta {
+    color: rgba(244,239,230,0.45); font-size: 0.9rem; margin: 0; font-weight: 300;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────────────────── */
+  .cascada-cta {
+    background: #00e5d4; padding: 6rem 2.5rem; text-align: center;
+  }
+  .cascada-cta__title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: #091d2b; margin: 0 0 1.5rem; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cascada-cta__text {
+    color: #091d2b; font-size: 1.05rem; max-width: 500px;
+    margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.75;
+  }
+  .cascada-cta__button {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    color: #00e5d4; background: #091d2b; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .cascada-ficha { grid-template-columns: repeat(4, 1fr); }
+    .cascada-ficha__item:nth-child(4n) { border-right: none; }
+    .cascada-activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-alojamiento-grid { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stats { grid-template-columns: repeat(3, 1fr); }
+    .cascada-clima__stat:nth-child(3) { border-right: none; }
+    .cascada-clima__stat:nth-child(n+4) { border-top: 1px solid rgba(244,239,230,0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .cascada-hero__content { padding: 2rem 1.5rem; }
+    .cascada-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .cascada-section { padding: 3.5rem 1.5rem; }
+
+    .cascada-ficha { grid-template-columns: repeat(2, 1fr); }
+    .cascada-ficha__item { border-bottom: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(2n) { border-right: none; }
+    .cascada-ficha__item:nth-child(odd) { border-right: 1px solid rgba(9,29,43,0.12); }
+    .cascada-ficha__item:nth-child(n+7) { border-bottom: none; }
+
+    .cascada-two-col { grid-template-columns: 1fr; gap: 3rem; }
+    .cascada-activities-grid { grid-template-columns: 1fr; }
+    .cascada-alojamiento-grid { grid-template-columns: 1fr; }
+    .cascada-gastro-grid { grid-template-columns: 1fr; }
+    .cascada-cercanas-grid { grid-template-columns: 1fr; }
+
+    .cascada-clima__stats { grid-template-columns: repeat(2, 1fr); }
+    .cascada-clima__stat { border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:nth-child(2n) { border-right: none; }
+    .cascada-clima__stat:nth-child(odd) { border-right: 1px solid rgba(244,239,230,0.1); }
+    .cascada-clima__stat:last-child { border-bottom: none; }
+
+    .cascada-galeria {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px 200px 200px;
+    }
+    .cascada-galeria__big { grid-column: 1 / 3; grid-row: 1; }
+  }
+
+  @media (max-width: 480px) {
+    .cascada-hero { min-height: 500px; height: 80vh; }
+    .cascada-hero__stat-number { font-size: 2.5rem; }
+    .cascada-galeria {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 200px);
+    }
+    .cascada-galeria__big { grid-column: 1; grid-row: 1; }
+  }
+</style>
