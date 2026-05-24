@@ -334,6 +334,127 @@ El término tiene múltiples acepciones que generan ruido en keyword research. E
 - **La Araucanía interior** — Salto Truful-Truful, Salto Donguil, Salto de la Princesa.
 - **Zona Central (Cajón del Maipo)** — Cascada Las Melosas, Cascada El Yeso, Cascada de los Vientos, Cascada del Lanza.
 
+### Nuevas cascadas pendientes de crear (30 páginas — investigación marzo 2026)
+
+> Todas verificadas con fuentes reales (Wikiexplora, AllTrails, Andeshandbook, CONAF, prensa local, sitios de turismo municipal).
+
+#### Biobío (7 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 1 | Salto Trubunleo | Antuco | ~55-60 m | `salto-trubunleo` | **ALTA** | La Tribuna, TripAdvisor, turismoantuco.cl |
+| 2 | Velo de la Novia (Antuco) | Antuco | ~15 m | `velo-de-la-novia-antuco` | MEDIA | Explora Turismo, turismoantuco.cl |
+| 3 | Saltos de Malalcura | Antuco (PN Laguna del Laja) | ~40 m (x6 saltos) | `saltos-de-malalcura` | **ALTA** | Que Hacer en Chile, turismoantuco.cl |
+| 4 | Salto Las Chilcas y El Torbellino | Antuco (PN Laguna del Laja) | N/D | `salto-las-chilcas-el-torbellino` | MEDIA | Geositios.cl, CONAF, Amigos Penquistas |
+| 5 | Saltos de Newenko | Quilaco (Loncopangue) | 60 m (principal) | `saltos-de-newenko` | **ALTA** | La Tribuna 2025, SUDA Outdoors, Civitatis |
+| 6 | Cascada Loncotahue | Alto Biobío (Res. Ralco) | N/D | `cascada-loncotahue` | MEDIA | Andeshandbook, VisitChile, CONAF |
+| 7 | Cascada Lomas Coloradas | San Pedro de la Paz | ~35 m | `cascada-lomas-coloradas` | MEDIA | Wikiexplora, Diario Concepción |
+
+#### Maule (4 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 8 | Salto del Maule | San Clemente (Baños del Campanario) | ~70 m | `salto-del-maule` | **ALTA** | Andeshandbook, Reconoce Chile, Wikiloc |
+| 9 | ✅ Velo de la Novia (Siete Tazas) | Molina (PN Radal Siete Tazas) | ~50 m | `velo-de-la-novia-siete-tazas` | **ALTA** | ✅ CREADA 2026-05-24 (elegida por análisis GSC: zona Maule gana impresiones, infra-construida) |
+| 10 | Salto del Indio (Siete Tazas) | Molina (PN Radal Siete Tazas) | N/D | `salto-del-indio-siete-tazas` | MEDIA | AllTrails (4.8★), Ladera Sur |
+| 11 | Saltos de Armerillo | San Clemente (Armerillo) | N/D (múltiples) | `saltos-de-armerillo` | BAJA | Wikiexplora |
+
+#### Ñuble (4 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 12 | Cascada Rucapirén | Pinto (Valle Las Trancas) | ~50-60 m | `cascada-rucapiren` | **ALTA** | AllTrails, Turismo Valle Las Trancas |
+| 13 | Cascada Las Turbinas | Pinto (Los Lleuques) | ~25-40 m | `cascada-las-turbinas` | MEDIA | Trancas.cl, GuíaÑuble, La Discusión |
+| 14 | Gruta de los Pangues | Pinto (Valle Las Trancas) | N/D | `gruta-de-los-pangues` | MEDIA | Trancas.cl, Turismo Valle Las Trancas |
+| 15 | Salto de Las Minas | San Fabián de Alico | +50 m | `salto-de-las-minas` | MEDIA | Wikiexplora, Andeaë |
+
+#### Tarapacá (1 nueva)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 16 | Cascada Petrificada de Huatacondo | Huatacondo (Pampa del Tamarugal) | N/A (geológica) | `cascada-petrificada-huatacondo` | **ALTA** | visitatarapaca.cl, reconocechile.com |
+
+#### Antofagasta (1 nueva)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 17 | Cascada Escondida de Guatín | San Pedro de Atacama | Pequeña | `cascada-escondida-guatin` | **ALTA** | AllTrails, Vulcano Expediciones |
+
+#### Atacama (1 nueva)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 18 | Cascada Congelada del Río Juncalito | Diego de Almagro (3.900 msnm) | 7 m de hielo | `cascada-congelada-rio-juncalito` | **ALTA** | atacamensis.cl, Chileestuyo |
+
+#### Coquimbo (1 nueva)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 19 | Cascada Las Jarillas — Poza Azul | Salamanca (Santuario Las Jarillas) | +30 m | `cascada-las-jarillas` | **ALTA** | AllTrails, Sitrural.cl |
+
+#### Valparaíso (2 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 20 | Cascada La Cortadera | Hijuelas (PN La Campana) | ~25-35 m | `cascada-la-cortadera` | **ALTA** | Andeshandbook, gochile.cl, parquenacionallacampana.cl |
+| 21 | Salto del Agua — Placilla | Valparaíso (Placilla de Peñuelas) | ~30 m | `salto-del-agua-placilla` | MEDIA | AllTrails (126 reseñas), Muni Valparaíso |
+
+#### O'Higgins (2 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 22 | Cascada de la Virgen | San Fernando (Termas del Flaco) | ~25-30 m | `cascada-de-la-virgen` | MEDIA | Wikipedia, TikTok conociendo.cl |
+| 23 | Cascadas RN Río de Los Cipreses | Machalí (Reserva Nacional) | Varias | `cascadas-rio-de-los-cipreses` | **ALTA** | CONAF, gochile.cl, Wikipedia |
+
+#### La Araucanía (4 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 24 | Cascada Nido de Águila | Pucón (PN Huerquehue) | ~50 m | `cascada-nido-de-aguila` | **ALTA** | parquenacionalhuerquehue.cl, AllTrails, Minube |
+| 25 | Cascada Trufulco | Pucón (PN Huerquehue) | ~80 m | `cascada-trufulco` | **ALTA** | AllTrails, gochile.cl |
+| 26 | Salto El Canelo | Melipeuco (Volcán Llaima) | 40 m | `salto-el-canelo` | MEDIA | Andeshandbook, Turismo Flor Animal |
+| 27 | Salto del Chufquén | Melipeuco (Geoparque Kütralkura) | ~10 m | `salto-del-chufquen` | MEDIA | araucaniaandina.com, TripAdvisor, Geoparque Kütralkura |
+
+#### Los Ríos (1 nueva)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 28 | Saltos del Nilahue | Llifén, Lago Ranco | N/D | `saltos-del-nilahue` | **ALTA** | venafutrono.cl, Wikipedia, AllTrails, TripAdvisor |
+
+#### Los Lagos (1 nueva)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 29 | Cascadas Escondidas (Pumalín) | Chaitén (PN Pumalín Douglas Tompkins) | N/D | `cascadas-escondidas-pumalin` | **ALTA** | AllTrails (4.6★, 122 reseñas), lodgecaletagonzalo.cl |
+
+#### Aysén (2 nuevas)
+
+| # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
+|---|---------|-----------------|--------|---------------|-----------|---------------|
+| 30 | Cascada Ventisquero Colgante | Puyuhuapi (PN Queulat) | ~400-550 m | `cascada-ventisquero-colgante` | **CRÍTICA** | Wikipedia, World Waterfall Database, viajaresdescubrir.com |
+| 31 | Salto Padre García | Puyuhuapi (PN Queulat) | 30 m | `salto-padre-garcia` | MEDIA | carretera-austral.cl, TripAdvisor, viajexchile.com |
+
+#### Resumen por región
+
+| Región | Nuevas | Total publicadas + nuevas |
+|--------|--------|---------------------------|
+| Biobío | 7 | 12 |
+| Maule | 4 | 7 |
+| Ñuble | 4 | 5 |
+| Tarapacá | 1 | 1 |
+| Antofagasta | 1 | 2 |
+| Atacama | 1 | 1 |
+| Coquimbo | 1 | 1 |
+| Valparaíso | 2 | 2 |
+| O'Higgins | 2 | 2 |
+| La Araucanía | 4 | 8 |
+| Los Ríos | 1 | 2 |
+| Los Lagos | 1 | 8 |
+| Aysén | 2 | 3 |
+| **TOTAL** | **31** | **62** |
+
+> **Nota sobre nombres duplicados**: "Velo de la Novia" existe en 3 ubicaciones (Peulla ✅, Antuco, Siete Tazas) — usar slugs con localidad. "Salto del Indio" existe en 2 (Anticura ✅, Siete Tazas) — usar slug con localidad.
+
 ---
 
 ## Contenido Existente

@@ -17,6 +17,12 @@ pnpm-debug.log*
 .env
 .env.production
 
+# service account keys (private keys — nunca commitear)
+scripts/google-indexing/facundogrowth.json
+
+# GSC insights output
+gsc-insights-output/
+
 # macOS-specific files
 .DS_Store
 
