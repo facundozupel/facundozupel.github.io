@@ -404,7 +404,7 @@ El término tiene múltiples acepciones que generan ruido en keyword research. E
 | # | Cascada | Comuna/Localidad | Altura | Slug propuesto | Prioridad | Fuentes clave |
 |---|---------|-----------------|--------|---------------|-----------|---------------|
 | 22 | Cascada de la Virgen | San Fernando (Termas del Flaco) | ~25-30 m | `cascada-de-la-virgen` | MEDIA | Wikipedia, TikTok conociendo.cl |
-| 23 | Cascadas RN Río de Los Cipreses | Machalí (Reserva Nacional) | Varias | `cascadas-rio-de-los-cipreses` | **ALTA** | CONAF, gochile.cl, Wikipedia |
+| 23 | ✅ Cascadas RN Río de Los Cipreses | Machalí (Reserva Nacional) | Varias | `cascadas-rio-de-los-cipreses` | **ALTA** | ✅ CREADA 2026-05-24 (abre O'Higgins; elegida por GSC: zona adyacente a Metropolitana + gap total de contenido + 39 fotos Wikimedia) |
 
 #### La Araucanía (4 nuevas)
 
