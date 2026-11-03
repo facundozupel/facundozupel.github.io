@@ -319,6 +319,20 @@ galeriaCreditos: [
 
 ---
 
+## Google AdSense (obligatorio en TODAS las páginas)
+
+El script de AdSense (`ca-pub-6501820606634904`) vive en el `<head>` de `src/layouts/Layout.astro`, por lo que **toda página que use `Layout` lo hereda automáticamente**.
+
+- **Siempre** crear páginas nuevas (cascadas, regiones, blog, etc.) con `<Layout>`. Nunca un `<html>`/`<head>` propio.
+- Si por algún motivo una página no usa `Layout`, pegar manualmente en su `<head>`:
+  ```html
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6501820606634904" crossorigin="anonymous"></script>
+  ```
+- No duplicar el script en páginas que ya usan `Layout`.
+- Verificación tras `npm run build`: `grep -L "adsbygoogle" dist/**/*.html` no debe devolver páginas.
+
+---
+
 ## Deploy e Infraestructura
 
 ### GitHub Pages
